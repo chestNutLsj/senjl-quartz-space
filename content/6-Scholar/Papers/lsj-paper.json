@@ -1,0 +1,1625 @@
+{
+  "config": {
+    "id": "36a3b0b5-bad0-4a04-b79b-441c7cef77db",
+    "label": "BetterBibTeX JSON",
+    "preferences": {
+      "ascii": "",
+      "asciiBibLaTeX": false,
+      "asciiBibTeX": true,
+      "autoAbbrev": false,
+      "autoAbbrevStyle": "",
+      "autoExport": "immediate",
+      "autoExportDelay": 5,
+      "autoExportIdleWait": 10,
+      "autoExportPathReplaceDiacritics": false,
+      "autoExportPathReplaceDirSep": "-",
+      "autoExportPathReplaceSpace": " ",
+      "automaticTags": true,
+      "autoPinDelay": 0,
+      "auxImport": false,
+      "baseAttachmentPath": "",
+      "biblatexExtendedDateFormat": true,
+      "biblatexExtendedNameFormat": true,
+      "biblatexExtractEprint": true,
+      "bibtexParticleNoOp": true,
+      "bibtexURL": "off",
+      "cache": true,
+      "cacheFlushInterval": 5,
+      "charmap": "",
+      "citeCommand": "cite",
+      "citekeyFold": true,
+      "citekeyFormat": "authAuthEa.lower + title + year + journal",
+      "citekeySearch": true,
+      "citekeyUnsafeChars": "\\\"#%'(),={}~",
+      "csquotes": "",
+      "DOIandURL": "both",
+      "exportBibTeXStrings": "off",
+      "exportBraceProtection": true,
+      "exportTitleCase": true,
+      "extraMergeCitekeys": false,
+      "extraMergeCSL": false,
+      "extraMergeTeX": false,
+      "git": "config",
+      "import": true,
+      "importBibTeXStrings": true,
+      "importCaseProtection": "as-needed",
+      "importCitationKey": true,
+      "importExtra": true,
+      "importJabRefAbbreviations": true,
+      "importJabRefStrings": true,
+      "importNoteToExtra": "",
+      "importSentenceCase": "on+guess",
+      "importUnknownTexCommand": "ignore",
+      "itemObserverDelay": 5,
+      "jabrefFormat": 0,
+      "jieba": false,
+      "keyConflictPolicy": "keep",
+      "keyScope": "library",
+      "kuroshiro": false,
+      "language": "langid",
+      "mapMath": "",
+      "mapText": "",
+      "mapUnicode": "conservative",
+      "parseParticles": true,
+      "patchDates": "dateadded=dateAdded, date-added=dateAdded, datemodified=dateModified, date-modified=dateModified",
+      "postscript": "",
+      "postscriptOverride": "",
+      "preferencesOverride": "",
+      "qualityReport": false,
+      "quickCopyEta": "",
+      "quickCopyMode": "latex",
+      "quickCopyOrgMode": "zotero",
+      "quickCopyPandocBrackets": false,
+      "quickCopySelectLink": "zotero",
+      "rawImports": false,
+      "rawLaTag": "#LaTeX",
+      "relativeFilePaths": false,
+      "retainCache": false,
+      "separatorList": "and",
+      "separatorNames": "and",
+      "skipFields": "",
+      "skipWords": "a,ab,aboard,about,above,across,after,against,al,along,amid,among,an,and,anti,around,as,at,before,behind,below,beneath,beside,besides,between,beyond,but,by,d,da,das,de,del,dell,dello,dei,degli,della,dell,delle,dem,den,der,des,despite,die,do,down,du,during,ein,eine,einem,einen,einer,eines,el,en,et,except,for,from,gli,i,il,in,inside,into,is,l,la,las,le,les,like,lo,los,near,nor,of,off,on,onto,or,over,past,per,plus,round,save,since,so,some,sur,than,the,through,to,toward,towards,un,una,unas,under,underneath,une,unlike,uno,unos,until,up,upon,versus,via,von,while,with,within,without,yet,zu,zum",
+      "startupProgress": "popup",
+      "strings": "",
+      "stringsOverride": "",
+      "verbatimFields": "url,doi,file,pdf,ids,eprint,/^verb[a-z]$/,groups,/^citeulike-linkout-[0-9]+$/, /^bdsk-url-[0-9]+$/",
+      "warnBulkModify": 10,
+      "warnTitleCased": false,
+      "texmap": {}
+    },
+    "options": {
+      "exportNotes": true,
+      "exportFileData": false,
+      "keepUpdated": false,
+      "worker": true
+    }
+  },
+  "version": {
+    "zotero": "6.0.23",
+    "bbt": "6.7.57"
+  },
+  "collections": {
+    "TPK994YQ": {
+      "key": "TPK994YQ",
+      "parent": "",
+      "name": "Data Center TCP",
+      "collections": [],
+      "items": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "8YCDYTS7": {
+      "key": "8YCDYTS7",
+      "parent": "",
+      "name": "Malware Detection",
+      "collections": [],
+      "items": [
+        10,
+        12,
+        15,
+        38,
+        41,
+        43,
+        47,
+        52,
+        55,
+        59,
+        61,
+        63,
+        66,
+        67
+      ]
+    }
+  },
+  "items": [
+    {
+      "key": "JHSBT2SZ",
+      "version": 225,
+      "itemType": "conferencePaper",
+      "title": "Random Forest Classification for Detecting Android Malware",
+      "date": "08/2013",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "http://ieeexplore.ieee.org/document/6682136/",
+      "accessDate": "2023-03-18T18:20:00Z",
+      "place": "Beijing, China",
+      "publisher": "IEEE",
+      "ISBN": "978-0-7695-5046-6",
+      "pages": "663-669",
+      "conferenceName": "2013 IEEE International Conference on Green Computing and Communications (GreenCom) and IEEE Internet of Things(iThings) and IEEE Cyber, Physical and Social Computing(CPSCom)",
+      "DOI": "10.1109/GreenCom-iThings-CPSCom.2013.122",
+      "creators": [
+        {
+          "firstName": "Mohammed S.",
+          "lastName": "Alam",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Son T.",
+          "lastName": "Vuong",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-18T18:20:00Z",
+      "dateModified": "2023-03-18T18:20:00Z",
+      "uri": "http://zotero.org/users/10256603/items/JHSBT2SZ",
+      "itemID": 63,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Random Forest Classification for Detecting Android Malware",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-18T18:20:15Z",
+          "dateModified": "2023-03-18T18:20:15Z",
+          "uri": "http://zotero.org/users/10256603/items/K2A3MVH2",
+          "path": "/home/westwoods/Zotero/storage/K2A3MVH2/alam2013.pdf.pdf",
+          "select": "zotero://select/library/items/K2A3MVH2"
+        }
+      ],
+      "notes": [],
+      "citationKey": "alam.vuongRandomForestClassificationDetectingAndroidMalware20132013IEEEInt.Conf.GreenComput.Commun.IEEEInternetThingsIEEECyberPhys.Soc.Comput.",
+      "itemKey": "JHSBT2SZ",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/JHSBT2SZ",
+      "publicationTitle": "2013 IEEE International Conference on Green Computing and Communications and IEEE Internet of Things and IEEE Cyber, Physical and Social Computing"
+    },
+    {
+      "key": "LEM9A6PD",
+      "version": 84,
+      "itemType": "journalArticle",
+      "title": "Data center TCP (DCTCP)",
+      "abstractNote": "Cloud data centers host diverse applications, mixing workloads that require small predictable latency with others requiring large sustained throughput. In this environment, today\u2019s state-of-the-art TCP protocol falls short. We present measurements of a 6000 server production cluster and reveal impairments that lead to high application latencies, rooted in TCP\u2019s demands on the limited buffer space available in data center switches. For example, bandwidth hungry \u201cbackground\u201d \ufb02ows build up queues at the switches, and thus impact the performance of latency sensitive \u201cforeground\u201d traf\ufb01c.",
+      "language": "en",
+      "libraryCatalog": "Zotero",
+      "creators": [
+        {
+          "firstName": "Mohammad",
+          "lastName": "Alizadeh",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Albert",
+          "lastName": "Greenberg",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "David A",
+          "lastName": "Maltz",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jitendra",
+          "lastName": "Padhye",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Parveen",
+          "lastName": "Patel",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Balaji",
+          "lastName": "Prabhakar",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Sudipta",
+          "lastName": "Sengupta",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Murari",
+          "lastName": "Sridharan",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "ObsCite"
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-02-01T12:19:49Z",
+      "dateModified": "2023-03-06T15:03:41Z",
+      "uri": "http://zotero.org/users/10256603/items/LEM9A6PD",
+      "itemID": 4,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Alizadeh \u7b49 - Data center TCP (DCTCP).pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-02-01T12:19:46Z",
+          "dateModified": "2023-02-01T12:19:50Z",
+          "uri": "http://zotero.org/users/10256603/items/E8I2DJCU",
+          "path": "/home/westwoods/Zotero/storage/E8I2DJCU/Alizadeh \u7b49 - Data center TCP (DCTCP).pdf",
+          "select": "zotero://select/library/items/E8I2DJCU"
+        }
+      ],
+      "notes": [],
+      "citationKey": "alizadeh.greenberg.eaDatacenterTCPDCTCP",
+      "itemKey": "LEM9A6PD",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/LEM9A6PD"
+    },
+    {
+      "key": "S5GTT5CU",
+      "version": 222,
+      "itemType": "conferencePaper",
+      "title": "Malware classification with LSTM and GRU language models and a character-level CNN",
+      "date": "3/2017",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "http://ieeexplore.ieee.org/document/7952603/",
+      "accessDate": "2023-03-17T17:15:55Z",
+      "place": "New Orleans, LA",
+      "publisher": "IEEE",
+      "ISBN": "978-1-5090-4117-6",
+      "pages": "2482-2486",
+      "conferenceName": "2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "DOI": "10.1109/ICASSP.2017.7952603",
+      "creators": [
+        {
+          "firstName": "Ben",
+          "lastName": "Athiwaratkun",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jack W.",
+          "lastName": "Stokes",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-17T17:15:55Z",
+      "dateModified": "2023-03-17T17:15:55Z",
+      "uri": "http://zotero.org/users/10256603/items/S5GTT5CU",
+      "itemID": 61,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Malware classification with LSTM and GRU language models and a character-level CNN",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-17T17:16:00Z",
+          "dateModified": "2023-03-17T17:16:00Z",
+          "uri": "http://zotero.org/users/10256603/items/HKQT4WMM",
+          "path": "/home/westwoods/Zotero/storage/HKQT4WMM/athiwaratkun2017.pdf.pdf",
+          "select": "zotero://select/library/items/HKQT4WMM"
+        }
+      ],
+      "notes": [],
+      "citationKey": "athiwaratkun.stokesMalwareclassificationLSTMGRUlanguagemodelscharacterlevelCNN20172017IEEEInt.Conf.Acoust.SpeechSignalProcess.ICASSP",
+      "itemKey": "S5GTT5CU",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/S5GTT5CU",
+      "publicationTitle": "2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+    },
+    {
+      "key": "PT5Z6X2G",
+      "version": 84,
+      "itemType": "conferencePaper",
+      "title": "Enabling ECN over Generic Packet Scheduling",
+      "abstractNote": "Explicit Congestion Noti\ufb01cation (ECN) is crucial for production datacenters, but current queue-length based ECN/RED implementation does not work with generic packet schedulers, leading to either degraded network performance or violated scheduling policies. In this paper, we \ufb01rst dive into this issue and reveal that the invalidity of ECN/RED lies in the dif\ufb01culty of measuring changing queue capacities under various schedulers and traf\ufb01c dynamics. Then we present Time-based Congestion Noti\ufb01cation (TCN), a simple yet effective ECN solution, by combining two successful ideas: the sojourn time from CoDel [23] and the instantaneous marking from DCTCP [6]. Using packet sojourn-time, as opposed to queue-length, as the congestion signal, TCN eliminates the need of measuring dynamic queue capacities, making it suitable for arbitrary schedulers with traf\ufb01c dynamics. By performing stateless instantaneous ECN marking rather than complex stateful dropping, TCN is designed to be inexpensive to implement on commodity switching chips. Through extensive testbed experiments and large-scale simulations, we show TCN can strictly preserve scheduling policies while providing desirable network performance. For example, TCN signi\ufb01cantly reduces the average and 99th percentile completion times for small \ufb02ows by up to 82.8% and 95.3% compared to current practice in a testbed experiment with production workload.",
+      "date": "2016-12-06",
+      "language": "en",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "https://dl.acm.org/doi/10.1145/2999572.2999575",
+      "accessDate": "2023-02-01T13:14:35Z",
+      "place": "Irvine California USA",
+      "publisher": "ACM",
+      "ISBN": "978-1-4503-4292-6",
+      "pages": "191-204",
+      "conferenceName": "CoNEXT '16: The 12th International Conference on emerging Networking EXperiments and Technologies",
+      "DOI": "10.1145/2999572.2999575",
+      "creators": [
+        {
+          "firstName": "Wei",
+          "lastName": "Bai",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Kai",
+          "lastName": "Chen",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Li",
+          "lastName": "Chen",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Changhoon",
+          "lastName": "Kim",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Haitao",
+          "lastName": "Wu",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-02-01T13:14:35Z",
+      "dateModified": "2023-02-01T13:14:35Z",
+      "uri": "http://zotero.org/users/10256603/items/PT5Z6X2G",
+      "itemID": 1,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Bai \u7b49 - 2016 - Enabling ECN over Generic Packet Scheduling.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-02-01T13:14:29Z",
+          "dateModified": "2023-02-01T13:14:35Z",
+          "uri": "http://zotero.org/users/10256603/items/YJKXKPFP",
+          "path": "/home/westwoods/Zotero/storage/YJKXKPFP/Bai \u7b49 - 2016 - Enabling ECN over Generic Packet Scheduling.pdf",
+          "select": "zotero://select/library/items/YJKXKPFP"
+        }
+      ],
+      "notes": [],
+      "citationKey": "bai.chen.eaEnablingECNGenericPacketScheduling2016Proc.12thInt.Conf.Emerg.Netw.Exp.Technol.",
+      "itemKey": "PT5Z6X2G",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/PT5Z6X2G",
+      "publicationTitle": "Proceedings of the 12th International on Conference on emerging Networking EXperiments and Technologies"
+    },
+    {
+      "key": "QEWDIVBV",
+      "version": 232,
+      "itemType": "journalArticle",
+      "title": "Malware Prediction Classifier using Random Forest Algorithm",
+      "abstractNote": "Windows devices are also becoming more popular and are more defenseless to malware attacks. Malware is computer code that is designed to harm the operating system and has various names, including adware, spyware, viruses, worms, trojans, backdoors, ransomware and command and control (C&C) bots, depending on its function. Malware attacks on systems are increasing as a result of increased internet use. The detection of unknown malware has been attempted using several strategies, but none of them have been successful. To deal with these threats, proposed research utilized dynamic malware research based on machine learning. Many malicious software-scanning tools are available for Windows PCs, but they perform static analysis, which consumes a lot of time and resources. To address a solution to this problem, an imaging technique to detect malware effectively by converting malware binaries into .exe files and applying machine learning to those .exe files. A comparison of different Windows PC malware detection techniques with different machine learning classifiers is undertaken to detect reliably.",
+      "date": "2022",
+      "language": "en",
+      "libraryCatalog": "Zotero",
+      "volume": "9",
+      "issue": "2",
+      "creators": [
+        {
+          "firstName": "Hasmitha",
+          "lastName": "Dasari",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Balarka Pradhyumna",
+          "lastName": "Danduboina",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Dr M Chinna",
+          "lastName": "Rao",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-18T18:27:45Z",
+      "dateModified": "2023-03-18T18:27:45Z",
+      "uri": "http://zotero.org/users/10256603/items/QEWDIVBV",
+      "itemID": 66,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Dasari \u7b49 - 2022 - Malware Prediction Classifier using Random Forest .pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-18T18:27:43Z",
+          "dateModified": "2023-03-18T18:27:46Z",
+          "uri": "http://zotero.org/users/10256603/items/3CRPI48S",
+          "path": "/home/westwoods/Zotero/storage/3CRPI48S/Dasari \u7b49 - 2022 - Malware Prediction Classifier using Random Forest .pdf",
+          "select": "zotero://select/library/items/3CRPI48S"
+        }
+      ],
+      "notes": [],
+      "citationKey": "dasari.danduboina.eaMalwarePredictionClassifierusingRandomForestAlgorithm2022",
+      "itemKey": "QEWDIVBV",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/QEWDIVBV"
+    },
+    {
+      "key": "QICM8AKW",
+      "version": 86,
+      "itemType": "conferencePaper",
+      "title": "Malware detection using machine learning",
+      "abstractNote": "We propose a versatile framework in which one can employ different machine learning algorithms to successfully distinguish between malware files and clean files, while aiming to minimise the number of false positives. In this paper we present the ideas behind our framework by working firstly with cascade one-sided perceptrons and secondly with cascade kernelized one-sided perceptrons. After having been successfully tested on medium-size datasets of malware and clean files, the ideas behind this framework were submitted to a scaling-up process that enable us to work with very large datasets of malware and clean files.",
+      "date": "2009-10",
+      "libraryCatalog": "IEEE Xplore",
+      "extra": "ISSN: 2157-5525",
+      "pages": "735-741",
+      "conferenceName": "2009 International Multiconference on Computer Science and Information Technology",
+      "DOI": "10.1109/IMCSIT.2009.5352759",
+      "creators": [
+        {
+          "firstName": "Drago\u015f",
+          "lastName": "Gavrilu\u0163",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Mihai",
+          "lastName": "Cimpoe\u015fu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Dan",
+          "lastName": "Anton",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Liviu",
+          "lastName": "Ciortuz",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Machine learning",
+          "type": 1
+        },
+        {
+          "tag": "Association rules",
+          "type": 1
+        },
+        {
+          "tag": "Computer science",
+          "type": 1
+        },
+        {
+          "tag": "Computer viruses",
+          "type": 1
+        },
+        {
+          "tag": "Hidden Markov models",
+          "type": 1
+        },
+        {
+          "tag": "Information technology",
+          "type": 1
+        },
+        {
+          "tag": "Learning systems",
+          "type": 1
+        },
+        {
+          "tag": "Machine learning algorithms",
+          "type": 1
+        },
+        {
+          "tag": "Testing",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-06T16:53:15Z",
+      "dateModified": "2023-03-06T16:53:15Z",
+      "uri": "http://zotero.org/users/10256603/items/QICM8AKW",
+      "itemID": 15,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "IEEE Xplore Abstract Record",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-06T16:53:26Z",
+          "dateModified": "2023-03-06T16:53:26Z",
+          "uri": "http://zotero.org/users/10256603/items/NLZITC4A",
+          "path": "/home/westwoods/Zotero/storage/NLZITC4A/5352759.html",
+          "select": "zotero://select/library/items/NLZITC4A"
+        },
+        {
+          "itemType": "attachment",
+          "title": "Malware detection using machine learning",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-06T16:53:18Z",
+          "dateModified": "2023-03-06T16:53:18Z",
+          "uri": "http://zotero.org/users/10256603/items/K42GUFQM",
+          "path": "/home/westwoods/Zotero/storage/K42GUFQM/gavrilut2009.pdf.pdf",
+          "select": "zotero://select/library/items/K42GUFQM"
+        }
+      ],
+      "notes": [],
+      "citationKey": "gavrilut.cimpoesu.eaMalwaredetectionusingmachinelearning20092009Int.MulticonferenceComput.Sci.Inf.Technol.",
+      "itemKey": "QICM8AKW",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/QICM8AKW",
+      "publicationTitle": "2009 International Multiconference on Computer Science and Information Technology"
+    },
+    {
+      "key": "C4BLZMZ7",
+      "version": 115,
+      "itemType": "thesis",
+      "title": "\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u7814\u7a76\u4e0e\u5b9e\u73b0",
+      "abstractNote": "Windows\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6280\u672f\u7684\u53d1\u5c55\u548c\u6076\u610f\u8f6f\u4ef6\u7684\u6f14\u53d8\u6709\u7740\u76f8\u8f85\u76f8\u6210\u3001\u5bc6\u4e0d\u53ef\u5206\u7684\u5173\u7cfb\u3002\u6076\u610f\u8f6f\u4ef6\u5e26\u6765\u7684\u7f51\u7edc\u5b89\u5168\u9690\u60a3,\u5c0f\u5230\u4e2a\u4eba\u4fe1\u606f\u88ab\u6cc4\u9732\u5229\u7528,\u5927\u5230\u4f01\u4e1a\u6570\u636e\u88ab\u7a83\u53d6\u52d2\u7d22,\u751a\u81f3\u56fd\u5bb6\u91cd\u8981\u673a\u5bc6\u53d7\u5230\u5a01\u80c1\u3002\u4f20\u7edf\u7684\u57fa\u4e8e\u56fa\u5b9a\u7279\u5f81\u7801\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6280\u672f\u4e0d\u8db3\u4ee5\u6709\u6548\u5730\u68c0\u6d4b\u51fa\u6076\u610f\u8f6f\u4ef6\u53ca\u5176\u53d8\u79cd\u3002\u76ee\u524d\u57fa\u4e8e\u9759\u6001\u5206\u6790\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u504f\u5411\u4e8e\u5c06\u5176\u8f6c\u5316\u6210\u56fe\u50cf\u6765\u5904\u7406,\u4e0d\u80fd\u591f\u6709\u6548\u5730\u63d0\u53d6\u4e8c\u8fdb\u5236\u6587\u4ef6\u4e2d\u7684\u539f\u59cb\u7279\u5f81\u3002\u57fa\u4e8e\u52a8\u6001\u5206\u6790\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u5927\u90e8\u5206\u662f\u5bf9\u8f6f\u4ef6\u8fdb\u884c\u4e8c\u5206\u7c7b,\u800c\u5f88\u5c11\u5bf9\u6076\u610f\u7684\u8f6f\u4ef6\u7c7b\u578b\u8fdb\u884c\u7ec6\u5206\u3002\u672c\u6587\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u548c\u6df1\u5ea6\u5b66\u4e60\u6a21\u578b,\u4ece\u9759\u6001\u5206\u6790\u548c\u52a8\u6001\u5206\u6790\u4e24\u4e2a\u89d2\u5ea6\u5bf9\u6076\u610f\u8f6f\u4ef6\u7684\u68c0\u6d4b\u8fdb\u884c\u6df1\u5165\u7684\u63a2\u8ba8\u4e0e\u7814\u7a76\u3002\u4ece\u8f6f\u4ef6\u9759\u6001\u5206\u6790\u89d2\u5ea6\u51fa\u53d1,\u672c\u6587\u9009\u53d6\u4e86\u591a\u4e2a\u4f20\u7edf\u673a\u5668\u5b66\u4e60\u6a21\u578b,\u7279\u522b\u662f\u6811\u6a21\u578b,\u5bf9\u8f6f\u4ef6\u7684\u9759\u6001\u7279\u5f81\u8fdb\u884c\u8bad\u7ec3,\u5e76\u4e0e\u57fa\u7ebf\u6a21\u578b\u8fdb\u884c\u4e86\u6a21\u578b\u5bf9\u6bd4\u5de5\u4f5c,\u57fa\u7ebf\u6a21\u578b\u7684\u6027\u80fd\u8868\u73b0\u4ecd\u7136\u6700\u4f18\u3002\u901a\u8fc7\u7f51\u683c\u641c\u7d22\u4ea4\u53c9\u9a8c\u8bc1\u65b9\u6cd5\u5bf9\u57fa\u7ebf\u6a21\u578b\u8fdb\u884c\u8d85\u53c2\u6570\u4f18\u5316,\u7ecf\u516c\u5f00\u7684EMBER\u6570\u636e\u96c6\u9a8c\u8bc1,\u4f18\u5316\u540e\u6a21\u578b\u7684ROC AUC\u63d0\u5347\u4e86 4\u4e2a\u4e07\u5206\u70b9,\u51c6\u786e\u7387\u63d0\u9ad8\u4e86 0.92\u4e2a\u767e\u5206\u70b9,F1\u503c\u63d0\u9ad8\u4e86 1.05\u4e2a\u767e\u5206\u70b9\u3002\u4ece\u8f6f\u4ef6\u52a8\u6001\u5206\u6790\u89d2\u5ea6\u51fa\u53d1,\u672c\u6587\u63d0\u51fa\u4e86\u4e00\u79cd\u57fa\u4e8e\u6df1\u5ea6\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u3002\u8be5\u6a21\u578b\u5229\u7528\u8f6f\u4ef6\u5728\u52a8\u6001\u5206\u6790\u8fc7\u7a0b\u4e2d\u751f\u6210\u7684\u884c\u4e3a\u65e5\u5fd7\u4e2d\u8bb0\u5f55\u7684API\u8c03\u7528\u5e8f\u5217\u53ca\u5176\u4ed6\u76f8\u5173\u4fe1\u606f,\u5c06\u6587\u672c\u5e8f\u5217\u5411\u91cf\u5316,\u7136\u540e\u8003\u8651\u4e86\u5e8f\u5217\u5143\u7d20\u4e4b\u95f4\u7684\u91cd\u8981\u6027,\u5e76\u7528\u65f6\u95f4\u5e8f\u5217\u6a21\u578b\u6316\u6398\u4e0d\u540c\u6807\u7b7e\u7684\u5e8f\u5217\u4e4b\u95f4\u7684\u7279\u6027,\u4ece\u800c\u5bf9\u6570\u636e\u8fdb\u884c\u5206\u7c7b,\u6700\u540e\u9884\u6d4b\u5bf9\u5e94\u7684\u6837\u672c\u6240\u5c5e\u7684\u8f6f\u4ef6\u7c7b\u522b\u3002\u7ecf\u963f\u91cc\u4e91\u7684\u5b89\u5168\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6570\u636e\u96c6\u9a8c\u8bc1,\u672c\u6587\u63d0\u51fa\u7684\u6a21\u578b\u6bd4\u73b0\u6709\u7684\u6df7\u5408\u6a21\u578b\u6709\u66f4\u597d\u7684\u6548\u679c,\u5728\u51c6\u786e\u7387\u8fbe\u5230\u4e86 88.69%,\u53d6\u5f97\u4e86 5.41%\u7684\u6548\u679c\u63d0\u5347\u3002\u672c\u6587\u9996\u5148\u4ecb\u7ecd\u4e86\u9009\u9898\u7684\u80cc\u666f\u548c\u610f\u4e49,\u5206\u6790\u4e86\u73b0\u9636\u6bb5\u5e38\u7528\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u4ee5\u53ca\u7528\u4e8e\u8be5\u9886\u57df\u7684\u673a\u5668\u5b66\u4e60\u548c\u6df1\u5ea6\u5b66\u4e60\u6a21\u578b\u3002\u5bf9\u73b0\u6709\u7684\u51e0\u79cd\u57fa\u4e8e\u9759\u6001\u5206\u6790\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u8fdb\u884c\u4e86\u6bd4\u8f83,\u5e76\u5bf9\u6700\u4f18\u7684\u6a21\u578b\u8fdb\u884c\u4e86\u4f18\u5316\u3002\u63d0\u51fa\u4e86\u4e00\u79cd\u57fa\u4e8e\u52a8\u6001\u5206\u6790\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u3002\u9488\u5bf9\u4e0d\u540c\u65b9\u6cd5\u5206\u522b\u8bbe\u8ba1\u4e86\u5b9e\u9a8c,\u5b9e\u9a8c\u7ed3\u679c\u9a8c\u8bc1\u4e86\u672c\u6587\u63d0\u51fa\u7684\u7b97\u6cd5\u7684\u6709\u6548\u6027\u548c\u53ef\u884c\u6027\u3002\u672c\u6587\u8fd8\u8bbe\u8ba1\u5e76\u5b9e\u73b0\u4e86\u4e00\u4e2a\u52a8\u9759\u6001\u5206\u6790\u7ed3\u5408\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u7cfb\u7edf,\u5c06\u57fa\u4e8e\u4f20\u7edf\u673a\u5668\u5b66\u4e60\u7b97\u6cd5\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6a21\u578b\u548c\u57fa\u4e8e\u6df1\u5ea6\u5b66\u4e60\u7b97\u6cd5\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6a21\u578b\u6574\u5408\u5230\u540c\u4e00\u7cfb\u7edf\u4e2d\u3002\u6700\u540e\u7ed3\u675f\u8bed\u603b\u7ed3\u4e86\u5168\u6587\u5de5\u4f5c\u548c\u4e3b\u8981\u521b\u65b0\u70b9,\u5bf9\u4e0b\u4e00\u6b65\u5de5\u4f5c\u8fdb\u884c\u4e86\u5c55\u671b\u3002",
+      "date": "2021",
+      "language": "\u4e2d\u6587;",
+      "libraryCatalog": "CNKI",
+      "url": "https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFD202201&filename=1021130339.nh&v=",
+      "extra": "2 citations(CNKI)[2023-3-8]",
+      "creators": [
+        {
+          "firstName": "\u6021\u6668",
+          "lastName": "\u7ba1",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u8c08",
+          "lastName": "\u6768",
+          "creatorType": "contributor"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u673a\u5668\u5b66\u4e60",
+          "type": 1
+        },
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b",
+          "type": 1
+        },
+        {
+          "tag": "machine learning",
+          "type": 1
+        },
+        {
+          "tag": "\u957f\u77ed\u671f\u8bb0\u5fc6\u7f51\u7edc",
+          "type": 1
+        },
+        {
+          "tag": "API sequences",
+          "type": 1
+        },
+        {
+          "tag": "API\u5e8f\u5217 malware detection",
+          "type": 1
+        },
+        {
+          "tag": "LSTM",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-08T03:32:41Z",
+      "dateModified": "2023-03-08T03:32:41Z",
+      "uri": "http://zotero.org/users/10256603/items/C4BLZMZ7",
+      "itemID": 41,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u7814\u7a76\u4e0e\u5b9e\u73b0_\u7ba1\u6021\u6668.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T03:32:37Z",
+          "dateModified": "2023-03-08T03:32:42Z",
+          "uri": "http://zotero.org/users/10256603/items/M23RL7JQ",
+          "path": "/home/westwoods/Zotero/storage/M23RL7JQ/\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u7814\u7a76\u4e0e\u5b9e\u73b0_\u7ba1\u6021\u6668.pdf",
+          "select": "zotero://select/library/items/M23RL7JQ"
+        }
+      ],
+      "notes": [],
+      "citationKey": "guanjiyujiqixuexideeyiruanjianjiancefangfayanjiuyushixian2021",
+      "itemKey": "C4BLZMZ7",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/C4BLZMZ7",
+      "publisher": "\u5317\u4eac\u90ae\u7535\u5927\u5b66",
+      "type": "\u7855\u58eb"
+    },
+    {
+      "key": "TPH2WTAU",
+      "version": 84,
+      "itemType": "conferencePaper",
+      "title": "Data Center TCP in ns-3: Implementation, Validation and Evaluation",
+      "abstractNote": "Data Center TCP (DCTCP) is a standard congestion control scheme used to provide high burst tolerance, low latency and high throughput in Data Center Networks (DCNs). It uses in-network feedback obtained through Explicit Congestion Notification (ECN) to scale the congestion window (cwnd). Recently, there have been significant efforts to extend DCTCP to provide low latency transport (e.g., TCP Prague) in a Wide Area Network, but with congestion control and in-network queuing mechanisms that are backward compatible with legacy implementations. This paper presents the implementation and validation of a new ns-3 model for DCTCP which can be used to implement its extensions, such as TCP Prague. The proposed model is verified and validated by comparing it to the Linux model of DCTCP by using ns-3 Direct Code Execution (DCE), a framework to run ns-3 simulations using Linux network stack. The results obtained from this comparison show that the ns-3 model and Linux model of DCTCP exhibit similar characteristics.",
+      "date": "2020-06-17",
+      "language": "en",
+      "shortTitle": "Data Center TCP in ns-3",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "https://dl.acm.org/doi/10.1145/3389400.3389405",
+      "accessDate": "2023-02-01T12:20:13Z",
+      "place": "Gaithersburg MD USA",
+      "publisher": "ACM",
+      "ISBN": "978-1-4503-7537-5",
+      "pages": "65-72",
+      "conferenceName": "WNS3 2020: 2020 Workshop on ns-3",
+      "DOI": "10.1145/3389400.3389405",
+      "creators": [
+        {
+          "firstName": "Vivek",
+          "lastName": "Jain",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Thomas R.",
+          "lastName": "Henderson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Shravya K.",
+          "lastName": "S.",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Mohit P.",
+          "lastName": "Tahiliani",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-02-01T12:20:13Z",
+      "dateModified": "2023-02-01T12:20:13Z",
+      "uri": "http://zotero.org/users/10256603/items/TPH2WTAU",
+      "itemID": 3,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Jain \u7b49 - 2020 - Data Center TCP in ns-3 Implementation, Validatio.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-02-01T12:20:09Z",
+          "dateModified": "2023-02-01T12:20:14Z",
+          "uri": "http://zotero.org/users/10256603/items/Z3392ZVR",
+          "path": "/home/westwoods/Zotero/storage/Z3392ZVR/Jain \u7b49 - 2020 - Data Center TCP in ns-3 Implementation, Validatio.pdf",
+          "select": "zotero://select/library/items/Z3392ZVR"
+        }
+      ],
+      "notes": [],
+      "citationKey": "jain.henderson.eaDataCenterTCPns3ImplementationValidationEvaluation2020Proc.2020WorkshopNs-3",
+      "itemKey": "TPH2WTAU",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/TPH2WTAU",
+      "publicationTitle": "Proceedings of the 2020 Workshop on ns-3"
+    },
+    {
+      "key": "E6Y4WTIA",
+      "version": 115,
+      "itemType": "journalArticle",
+      "title": "Research on Network Intrusion and Malware Detection Mechanism Based on Machine Learning",
+      "language": "en",
+      "libraryCatalog": "Zotero",
+      "creators": [
+        {
+          "firstName": "Shuai",
+          "lastName": "Jiang",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Xiaolong",
+          "lastName": "Xu",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u26d4 No DOI found",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-08T03:32:42Z",
+      "dateModified": "2023-03-08T03:32:42Z",
+      "uri": "http://zotero.org/users/10256603/items/E6Y4WTIA",
+      "itemID": 43,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Jiang \u548c Xu - Research on Network Intrusion and Malware Detectio.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T03:32:38Z",
+          "dateModified": "2023-03-08T03:32:42Z",
+          "uri": "http://zotero.org/users/10256603/items/4WCRG7PH",
+          "path": "/home/westwoods/Zotero/storage/4WCRG7PH/Jiang \u548c Xu - Research on Network Intrusion and Malware Detectio.pdf",
+          "select": "zotero://select/library/items/4WCRG7PH"
+        }
+      ],
+      "notes": [],
+      "citationKey": "jiang.xuResearchNetworkIntrusionMalwareDetectionMechanismBasedMachineLearning",
+      "itemKey": "E6Y4WTIA",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/E6Y4WTIA"
+    },
+    {
+      "key": "BYEXZMKC",
+      "version": 115,
+      "itemType": "journalArticle",
+      "title": "Automatic malware classification and new malware detection using machine learning",
+      "abstractNote": "The explosive growth of malware variants poses a major threat to information security. Traditional anti-virus systems based on signatures fail to classify unknown malware into their corresponding families and to detect new kinds of malware programs. Therefore, we propose a machine learning based malware analysis system, which is composed of three modules: data processing, decision making, and new malware detection. The data processing module deals with gray-scale images, Opcode n-gram, and import functions, which are employed to extract the features of the malware. The decision-making module uses the features to classify the malware and to identify suspicious malware. Finally, the detection module uses the shared nearest neighbor (SNN) clustering algorithm to discover new malware families. Our approach is evaluated on more than 20 000 malware instances, which were collected by Kingsoft, ESET NOD32, and Anubis. The results show that our system can effectively classify the unknown malware with a best accuracy of 98.9%, and successfully detects 86.7% of the new malware.",
+      "date": "9/2017",
+      "language": "en",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "http://link.springer.com/10.1631/FITEE.1601325",
+      "accessDate": "2023-03-08T03:32:45Z",
+      "volume": "18",
+      "pages": "1336-1347",
+      "publicationTitle": "Frontiers of Information Technology & Electronic Engineering",
+      "DOI": "10.1631/FITEE.1601325",
+      "issue": "9",
+      "journalAbbreviation": "Frontiers Inf Technol Electronic Eng",
+      "ISSN": "2095-9184, 2095-9230",
+      "creators": [
+        {
+          "firstName": "Liu",
+          "lastName": "Liu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Bao-sheng",
+          "lastName": "Wang",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Bo",
+          "lastName": "Yu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Qiu-xi",
+          "lastName": "Zhong",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-08T03:32:45Z",
+      "dateModified": "2023-03-08T03:32:46Z",
+      "uri": "http://zotero.org/users/10256603/items/BYEXZMKC",
+      "itemID": 49,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Liu \u7b49 - 2017 - Automatic malware classification and new malware d.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T03:32:38Z",
+          "dateModified": "2023-03-08T03:32:46Z",
+          "uri": "http://zotero.org/users/10256603/items/3PUPK7HB",
+          "path": "/home/westwoods/Zotero/storage/3PUPK7HB/Liu \u7b49 - 2017 - Automatic malware classification and new malware d.pdf",
+          "select": "zotero://select/library/items/3PUPK7HB"
+        }
+      ],
+      "notes": [],
+      "citationKey": "liu.wang.eaAutomaticmalwareclassificationnewmalwaredetectionusingmachinelearning2017FrontiersInfTechnolElectronicEng",
+      "itemKey": "BYEXZMKC",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/BYEXZMKC"
+    },
+    {
+      "key": "7UJBV49B",
+      "version": 128,
+      "itemType": "journalArticle",
+      "title": "Automatic malware classification and new malware detection using machine learning",
+      "abstractNote": "The explosive growth of malware variants poses a major threat to information security. Traditional anti-virus systems based on signatures fail to classify unknown malware into their corresponding families and to detect new kinds of malware programs. Therefore, we propose a machine learning based malware analysis system, which is composed of three modules: data processing, decision making, and new malware detection. The data processing module deals with gray-scale images, Opcode n-gram, and import functions, which are employed to extract the features of the malware. The decision-making module uses the features to classify the malware and to identify suspicious malware. Finally, the detection module uses the shared nearest neighbor (SNN) clustering algorithm to discover new malware families. Our approach is evaluated on more than 20 000 malware instances, which were collected by Kingsoft, ESET NOD32, and Anubis. The results show that our system can effectively classify the unknown malware with a best accuracy of 98.9%, and successfully detects 86.7% of the new malware.",
+      "date": "9/2017",
+      "language": "en",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "http://link.springer.com/10.1631/FITEE.1601325",
+      "accessDate": "2023-03-08T03:37:41Z",
+      "volume": "18",
+      "pages": "1336-1347",
+      "publicationTitle": "Frontiers of Information Technology & Electronic Engineering",
+      "DOI": "10.1631/FITEE.1601325",
+      "issue": "9",
+      "journalAbbreviation": "Frontiers Inf Technol Electronic Eng",
+      "ISSN": "2095-9184, 2095-9230",
+      "creators": [
+        {
+          "firstName": "Liu",
+          "lastName": "Liu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Bao-sheng",
+          "lastName": "Wang",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Bo",
+          "lastName": "Yu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Qiu-xi",
+          "lastName": "Zhong",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-08T03:37:41Z",
+      "dateModified": "2023-03-08T03:37:42Z",
+      "uri": "http://zotero.org/users/10256603/items/7UJBV49B",
+      "itemID": 52,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Liu \u7b49 - 2017 - Automatic malware classification and new malware d.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T03:37:36Z",
+          "dateModified": "2023-03-08T03:37:42Z",
+          "uri": "http://zotero.org/users/10256603/items/WFT28X6X",
+          "path": "/home/westwoods/Zotero/storage/WFT28X6X/Liu \u7b49 - 2017 - Automatic malware classification and new malware d.pdf",
+          "select": "zotero://select/library/items/WFT28X6X"
+        }
+      ],
+      "notes": [],
+      "citationKey": "liu.wang.eaAutomaticmalwareclassificationnewmalwaredetectionusingmachinelearning2017FrontiersInfTechnolElectronicEnga",
+      "itemKey": "7UJBV49B",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/7UJBV49B"
+    },
+    {
+      "key": "859PJPQF",
+      "version": 211,
+      "itemType": "journalArticle",
+      "title": "Mash: fast genome and metagenome distance estimation using MinHash",
+      "date": "12/2016",
+      "language": "en",
+      "shortTitle": "Mash",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x",
+      "accessDate": "2023-03-17T15:51:44Z",
+      "volume": "17",
+      "pages": "132",
+      "publicationTitle": "Genome Biology",
+      "DOI": "10.1186/s13059-016-0997-x",
+      "issue": "1",
+      "journalAbbreviation": "Genome Biol",
+      "ISSN": "1474-760X",
+      "creators": [
+        {
+          "firstName": "Brian D.",
+          "lastName": "Ondov",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Todd J.",
+          "lastName": "Treangen",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "P\u00e1ll",
+          "lastName": "Melsted",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Adam B.",
+          "lastName": "Mallonee",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Nicholas H.",
+          "lastName": "Bergman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Sergey",
+          "lastName": "Koren",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Adam M.",
+          "lastName": "Phillippy",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-17T15:51:44Z",
+      "dateModified": "2023-03-17T15:51:55Z",
+      "uri": "http://zotero.org/users/10256603/items/859PJPQF",
+      "itemID": 56,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "\u5168\u6587",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-17T15:57:17Z",
+          "dateModified": "2023-03-17T15:57:17Z",
+          "uri": "http://zotero.org/users/10256603/items/PSRHLDP5",
+          "path": "/home/westwoods/Zotero/storage/PSRHLDP5/Ondov \u7b49 - 2016 - Mash fast genome and metagenome distance estimati.pdf",
+          "select": "zotero://select/library/items/PSRHLDP5"
+        },
+        {
+          "itemType": "attachment",
+          "title": "Mash: fast genome and metagenome distance estimation using MinHash",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-17T15:51:55Z",
+          "dateModified": "2023-03-17T15:51:55Z",
+          "uri": "http://zotero.org/users/10256603/items/V9MHPZRV",
+          "path": "/home/westwoods/Zotero/storage/V9MHPZRV/ondov2016.pdf.pdf",
+          "select": "zotero://select/library/items/V9MHPZRV"
+        }
+      ],
+      "notes": [],
+      "citationKey": "ondov.treangen.eaMashfastgenomemetagenomedistanceestimationusingMinHash2016GenomeBiol",
+      "itemKey": "859PJPQF",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/859PJPQF"
+    },
+    {
+      "key": "GPGS5BIH",
+      "version": 84,
+      "itemType": "journalArticle",
+      "title": "Effectiveness of ECN and RED Based Congestion Detection",
+      "language": "en",
+      "libraryCatalog": "Zotero",
+      "creators": [
+        {
+          "firstName": "Yury",
+          "lastName": "Puzis",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Vasily",
+          "lastName": "Tarasov",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-02-01T12:20:33Z",
+      "dateModified": "2023-02-01T12:20:33Z",
+      "uri": "http://zotero.org/users/10256603/items/GPGS5BIH",
+      "itemID": 2,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Puzis \u548c Tarasov - Effectiveness of ECN and RED Based Congestion Dete.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-02-01T12:20:32Z",
+          "dateModified": "2023-02-01T12:20:33Z",
+          "uri": "http://zotero.org/users/10256603/items/VZM4MLGY",
+          "path": "/home/westwoods/Zotero/storage/VZM4MLGY/Puzis \u548c Tarasov - Effectiveness of ECN and RED Based Congestion Dete.pdf",
+          "select": "zotero://select/library/items/VZM4MLGY"
+        }
+      ],
+      "notes": [],
+      "citationKey": "puzis.tarasovEffectivenessECNREDBasedCongestionDetection",
+      "itemKey": "GPGS5BIH",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/GPGS5BIH"
+    },
+    {
+      "key": "8CF7SV3D",
+      "version": 237,
+      "itemType": "conferencePaper",
+      "title": "Intelligent Malware Detection using Oblique Random Forest Paradigm",
+      "date": "9/2018",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "https://ieeexplore.ieee.org/document/8554903/",
+      "accessDate": "2023-03-18T18:32:00Z",
+      "place": "Bangalore",
+      "publisher": "IEEE",
+      "ISBN": "978-1-5386-5314-2",
+      "pages": "330-336",
+      "conferenceName": "2018 International Conference on Advances in Computing, Communications and Informatics (ICACCI)",
+      "DOI": "10.1109/ICACCI.2018.8554903",
+      "creators": [
+        {
+          "firstName": "S. Abijah",
+          "lastName": "Roseline",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "S.",
+          "lastName": "Geetha",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-18T18:32:00Z",
+      "dateModified": "2023-03-18T18:32:00Z",
+      "uri": "http://zotero.org/users/10256603/items/8CF7SV3D",
+      "itemID": 67,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Intelligent Malware Detection using Oblique Random Forest Paradigm",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-18T18:32:03Z",
+          "dateModified": "2023-03-18T18:32:03Z",
+          "uri": "http://zotero.org/users/10256603/items/FKQSE3QY",
+          "path": "/home/westwoods/Zotero/storage/FKQSE3QY/2d91088b61e4555f03016065aebb088a.pdf.pdf",
+          "select": "zotero://select/library/items/FKQSE3QY"
+        }
+      ],
+      "notes": [],
+      "citationKey": "roseline.geethaIntelligentMalwareDetectionusingObliqueRandomForestParadigm20182018Int.Conf.Adv.Comput.Commun.Inform.ICACCI",
+      "itemKey": "8CF7SV3D",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/8CF7SV3D",
+      "publicationTitle": "2018 International Conference on Advances in Computing, Communications and Informatics (ICACCI)"
+    },
+    {
+      "key": "G3ESI7P2",
+      "version": 215,
+      "itemType": "journalArticle",
+      "title": "Image-Based malware classification using ensemble of CNN architectures (IMCEC)",
+      "date": "05/2020",
+      "language": "en",
+      "libraryCatalog": "DOI.org (Crossref)",
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S016740482030033X",
+      "accessDate": "2023-03-17T17:09:25Z",
+      "volume": "92",
+      "pages": "101748",
+      "publicationTitle": "Computers & Security",
+      "DOI": "10.1016/j.cose.2020.101748",
+      "journalAbbreviation": "Computers & Security",
+      "ISSN": "01674048",
+      "creators": [
+        {
+          "firstName": "Danish",
+          "lastName": "Vasan",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Mamoun",
+          "lastName": "Alazab",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Sobia",
+          "lastName": "Wassan",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Babak",
+          "lastName": "Safaei",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Qin",
+          "lastName": "Zheng",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": [],
+      "dateAdded": "2023-03-17T17:09:25Z",
+      "dateModified": "2023-03-17T17:09:30Z",
+      "uri": "http://zotero.org/users/10256603/items/G3ESI7P2",
+      "itemID": 59,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Image-Based malware classification using ensemble of CNN architectures (IMCEC)",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-17T17:09:30Z",
+          "dateModified": "2023-03-17T17:09:30Z",
+          "uri": "http://zotero.org/users/10256603/items/8P6YBSTG",
+          "path": "/home/westwoods/Zotero/storage/8P6YBSTG/vasan2020.pdf.pdf",
+          "select": "zotero://select/library/items/8P6YBSTG"
+        }
+      ],
+      "notes": [],
+      "citationKey": "vasan.alazab.eaImageBasedmalwareclassificationusingensembleCNNarchitecturesIMCEC2020Computers&Security",
+      "itemKey": "G3ESI7P2",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/G3ESI7P2"
+    },
+    {
+      "key": "PW3RMGKI",
+      "version": 86,
+      "itemType": "journalArticle",
+      "title": "\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u8bc6\u522b\u7814\u7a76\u7efc\u8ff0",
+      "abstractNote": "\u6076\u610f\u8f6f\u4ef6\u7684\u6cdb\u6ee5\u7ed9\u7f51\u7edc\u7528\u6237\u3001\u4f01\u4e1a\u3001\u5de5\u4e1a\u8bbe\u65bd\u3001\u7f51\u7edc\u548c\u4fe1\u606f\u8bbe\u5907\u7b49\u5e26\u6765\u4e25\u91cd\u7684\u5b89\u5168\u5a01\u80c1.\u8fd1\u5e74\u6765\uff0c\u4f20\u7edf\u57fa\u4e8e\u7b7e\u540d\u548c\u542f\u53d1\u5f0f\u89c4\u5219\u7684\u6076\u610f\u8f6f\u4ef6\u8bc6\u522b\u65b9\u6cd5\u5df2\u4e0d\u8db3\u4ee5\u5e94\u5bf9\u6025\u5267\u589e\u957f\u7684\u65b0\u578b\u6076\u610f\u8f6f\u4ef6.\u9488\u5bf9\u4e8e\u6b64\uff0c\u5927\u91cf\u673a\u5668\u5b66\u4e60\u65b9\u6cd5\u88ab\u5c1d\u8bd5\u7528\u6765\u66f4\u597d\u5730\u89e3\u51b3\u6076\u610f\u8f6f\u4ef6\u8bc6\u522b\u95ee\u9898.\u5728\u5e7f\u6cdb\u8c03\u7814\u56fd\u5185\u5916\u5927\u91cf\u6587\u732e\u53ca\u6700\u65b0\u79d1\u7814\u6210\u679c\u7684\u57fa\u7840\u4e0a\uff0c\u4ee5\u7279\u5f81\u8868\u793a\u7684\u83b7\u53d6\u4e3a\u5206\u7c7b\u4f9d\u636e\uff0c\u6309\u7167\u57fa\u4e8e\u7279\u5f81\u5de5\u7a0b\u7684\u65b9\u6cd5\u548c\u57fa\u4e8e\u7279\u5f81\u5b66\u4e60\u7684\u65b9\u6cd5\u4e24\u7c7b\u5bf9\u5f53\u524d\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u8bc6\u522b\u7814\u7a76\u8fdb\u5c55\u8fdb\u884c\u4e86\u5f52\u7eb3\u548c\u4ecb\u7ecd\uff0c\u5e76\u6574\u7406\u4e86\u76ee\u524d\u5df2\u516c\u5f00\u7684\u53ef\u7528\u4e8e\u8bad\u7ec3\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u4ee3\u7801\u6570\u636e\u96c6.\u5728\u603b\u7ed3\u5f53\u524d\u7814\u7a76\u73b0\u72b6\u7684\u57fa\u7840\u4e0a\uff0c\u8fdb\u4e00\u6b65\u5c55\u671b\u4e86\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u8bc6\u522b\u5f53\u524d\u9762\u4e34\u7684\u95ee\u9898\u548c\u6311\u6218.",
+      "date": "2022",
+      "language": "\u4e2d\u6587;",
+      "libraryCatalog": "CNKI",
+      "url": "https://kns.cnki.net/kcms2/article/abstract?v=3uoqIhG8C44YLTlOAiTRKibYlV5Vjs7ioT0BO4yQ4m_mOgeS2ml3UPLZ3GT8PIl49TPhIY_a1k5fB9CHGMPKJNocgt0Pe7Mq&uniplatform=NZKPT",
+      "accessDate": "2023-03-06T16:39:36Z",
+      "volume": "43",
+      "pages": "2628-2637",
+      "publicationTitle": "\u5c0f\u578b\u5fae\u578b\u8ba1\u7b97\u673a\u7cfb\u7edf",
+      "DOI": "10.20009/j.cnki.21-1106/TP.2022-0220",
+      "issue": "12",
+      "ISSN": "1000-1220",
+      "creators": [
+        {
+          "firstName": "\u5fd7\u6587",
+          "lastName": "\u738b",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u5e7f\u8d77",
+          "lastName": "\u5218",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u6653\u6656",
+          "lastName": "\u97e9",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u6587\u6ce2",
+          "lastName": "\u5de6",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u6653\u660e",
+          "lastName": "\u5434",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u8fde\u6d77",
+          "lastName": "\u738b",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u673a\u5668\u5b66\u4e60",
+          "type": 1
+        },
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6",
+          "type": 1
+        },
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b malware",
+          "type": 1
+        },
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b",
+          "type": 1
+        },
+        {
+          "tag": "\u6df1\u5ea6\u5b66\u4e60",
+          "type": 1
+        },
+        {
+          "tag": "deep learning",
+          "type": 1
+        },
+        {
+          "tag": "machine learning",
+          "type": 1
+        },
+        {
+          "tag": "malware classification",
+          "type": 1
+        },
+        {
+          "tag": "malware detection",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-06T16:39:36Z",
+      "dateModified": "2023-03-06T16:39:36Z",
+      "uri": "http://zotero.org/users/10256603/items/PW3RMGKI",
+      "itemID": 12,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Full Text PDF",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-06T16:39:41Z",
+          "dateModified": "2023-03-06T16:39:41Z",
+          "uri": "http://zotero.org/users/10256603/items/QJHWHU2V",
+          "path": "/home/westwoods/Zotero/storage/QJHWHU2V/\u738b \u7b49 - 2022 - \u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u8bc6\u522b\u7814\u7a76\u7efc\u8ff0.pdf",
+          "select": "zotero://select/library/items/QJHWHU2V"
+        }
+      ],
+      "notes": [],
+      "citationKey": "wang.liu.eajiyujiqixuexideeyiruanjianshibieyanjiuzongshu2022xiaoxingweixingjisuanjixitong",
+      "itemKey": "PW3RMGKI",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/PW3RMGKI"
+    },
+    {
+      "key": "MPHVCNKS",
+      "version": 115,
+      "itemType": "journalArticle",
+      "title": "\u57fa\u4e8e\u4e2d\u95f4\u4ee3\u7801\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6280\u672f\u7814\u7a76",
+      "abstractNote": "\u8f6f\u4ef6\u7684\u4e2d\u95f4\u4ee3\u7801\u662f\u4f4d\u4e8e\u673a\u5668\u8bed\u8a00\u548c\u9ad8\u7ea7\u7a0b\u5e8f\u8bed\u8a00\u4e4b\u95f4\u7a0b\u5e8f\u8bed\u8a00,\u5177\u6709\u5bb9\u6613\u7406\u89e3\u7684\u8bed\u4e49\u4fe1\u606f\u548c\u63a7\u5236\u7ed3\u6784\u4fe1\u606f,\u80fd\u771f\u5b9e\u5730\u53cd\u6620\u8f6f\u4ef6\u5728\u6267\u884c\u8fc7\u7a0b\u4e2d\u7684\u5b9e\u9645\u60c5\u51b5.\u5229\u7528\u4e2d\u95f4\u4ee3\u7801\u7684\u8bed\u4e49\u4fe1\u606f\u6765\u7814\u7a76\u6076\u610f\u8f6f\u4ef6,\u53ef\u4ee5\u53d1\u73b0\u6076\u610f\u8f6f\u4ef6\u7684\u5177\u4f53\u884c\u4e3a\u4fe1\u606f\u6216\u7279\u70b9;\u901a\u8fc7\u591a\u79cd\u65b9\u5f0f\u5bf9\u6bd4\u4e2d\u95f4\u4ee3\u7801\u5f62\u6210\u7684\u63a7\u5236\u6d41\u56fe\u6574\u4f53\u6216\u5c40\u90e8\u4fe1\u606f,\u5b9e\u73b0\u6076\u610f\u8f6f\u4ef6\u7684\u68c0\u6d4b.\u673a\u5668\u5b66\u4e60\u4e3a\u8f6f\u4ef6\u5b89\u5168\u6027\u4fe1\u606f\u6216\u89c4\u5219\u6316\u6398\u63d0\u4f9b\u4fbf\u5229,\u6210\u4e3a\u4e00\u79cd\u5148\u8fdb\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5.\u672c\u6587\u4ece\u4e2d\u95f4\u4ee3\u7801\u7684\u8bed\u4e49\u4fe1\u606f\u548c\u63a7\u5236\u7ed3\u6784\u4e24\u65b9\u9762\u5bf9\u591a\u79cd\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6280\u672f\u8fdb\u884c\u5f52\u7c7b\u4e0e\u6bd4\u8f83,\u540c\u65f6\u5bf9\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u4e2d\u95f4\u4ee3\u7801\u5904\u7406\u4e0e\u5e94\u7528\u65b9\u6cd5\u8fdb\u884c\u4e86\u6df1\u5165\u5206\u6790\u548c\u63a2\u8ba8.",
+      "date": "2013",
+      "language": "\u4e2d\u6587;",
+      "libraryCatalog": "CNKI",
+      "url": "https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFD&dbname=CJFDHIS2&filename=SCDX201306012&v=",
+      "extra": "11 citations(CNKI)[2023-3-8]<\u5317\u5927\u6838\u5fc3, CSCD>",
+      "volume": "50",
+      "pages": "1216-1222",
+      "publicationTitle": "\u56db\u5ddd\u5927\u5b66\u5b66\u62a5(\u81ea\u7136\u79d1\u5b66\u7248)",
+      "issue": "6",
+      "ISSN": "0490-6756",
+      "creators": [
+        {
+          "firstName": "\u6d2a\u6df1",
+          "lastName": "\u6768",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u5b97\u6e20",
+          "lastName": "\u8d75",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u4fca\u5cf0",
+          "lastName": "\u738b",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b",
+          "type": 1
+        },
+        {
+          "tag": "machine learning",
+          "type": 1
+        },
+        {
+          "tag": "\u26d4 No DOI found",
+          "type": 1
+        },
+        {
+          "tag": "\u673a\u5668\u5b66\u4e60 malware detection",
+          "type": 1
+        },
+        {
+          "tag": "\u8f6f\u4ef6\u7279\u5f81",
+          "type": 1
+        },
+        {
+          "tag": "\u4e2d\u95f4\u4ee3\u7801",
+          "type": 1
+        },
+        {
+          "tag": "intermediate code",
+          "type": 1
+        },
+        {
+          "tag": "software feature",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-08T03:32:40Z",
+      "dateModified": "2023-03-08T03:32:41Z",
+      "uri": "http://zotero.org/users/10256603/items/MPHVCNKS",
+      "itemID": 38,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "\u57fa\u4e8e\u4e2d\u95f4\u4ee3\u7801\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6280\u672f\u7814\u7a76_\u6768\u6d2a\u6df1.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T03:32:37Z",
+          "dateModified": "2023-03-08T03:32:40Z",
+          "uri": "http://zotero.org/users/10256603/items/QLTXCEJU",
+          "path": "/home/westwoods/Zotero/storage/QLTXCEJU/\u57fa\u4e8e\u4e2d\u95f4\u4ee3\u7801\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6280\u672f\u7814\u7a76_\u6768\u6d2a\u6df1.pdf",
+          "select": "zotero://select/library/items/QLTXCEJU"
+        }
+      ],
+      "notes": [],
+      "citationKey": "yang.zhao.eajiyuzhongjiandaimadeeyiruanjianjiancejishuyanjiu2013sichuandaxuexuebaozirankexueban",
+      "itemKey": "MPHVCNKS",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/MPHVCNKS"
+    },
+    {
+      "key": "5P7UD5Y7",
+      "version": 115,
+      "itemType": "journalArticle",
+      "title": "\u673a\u5668\u5b66\u4e60\u5728\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u7814\u7a76\u4e2d\u7684\u5e94\u7528",
+      "abstractNote": "\u968f\u7740\u4e91\u8ba1\u7b97\u3001\u7269\u8054\u7f51\u3001\u5927\u6570\u636e\u7b49\u65b0\u5174\u6280\u672f\u7684\u8fc5\u731b\u53d1\u5c55,\u6570\u4ee5\u4ebf\u8ba1\u7684\u7f51\u7edc\u63a5\u5165\u70b9\u3001\u8054\u7f51\u8bbe\u5907\u4ee5\u53ca\u7f51\u7edc\u5e94\u7528\u4ea7\u751f\u7684\u6d77\u91cf\u6570\u636e,\u7ed9\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u5e26\u6765\u4e86\u5de8\u5927\u7684\u56f0\u96be\u548c\u6311\u6218,\u4f20\u7edf\u7684\u5b89\u5168\u95ee\u9898\u89e3\u51b3\u65b9\u6848\u9762\u5bf9\u6d77\u91cf\u6570\u636e\u53d8\u5f97\u6548\u7387\u4f4e\u4e0b.\u673a\u5668\u5b66\u4e60\u4ee5\u5176\u5f3a\u5927\u7684\u81ea\u9002\u5e94\u6027\u3001\u81ea\u5b66\u4e60\u80fd\u529b\u4e3a\u5b89\u5168\u9886\u57df\u63d0\u4f9b\u4e86\u4e00\u7cfb\u5217\u6709\u6548\u7684\u5206\u6790\u51b3\u7b56\u5de5\u5177,\u8fd1\u5e74\u6765\u5f15\u8d77\u4e86\u5b66\u672f\u754c\u4e0e\u5de5\u4e1a\u754c\u7684\u5e7f\u6cdb\u5173\u6ce8\u548c\u6df1\u5165\u7814\u7a76.\u4e3a\u6b64,\u8be5\u6587\u4ee5\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u4e00\u7ea7\u5b66\u79d1\u4e3a\u6307\u5bfc,\u56f4\u7ed5\u673a\u5668\u5b66\u4e60\u6280\u672f\u5e94\u7528\u4e8e\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u9886\u57df\u7684\u6700\u65b0\u7814\u7a76\u6210\u679c,\u9996\u5148\u8be6\u7ec6\u9610\u8ff0\u4e86\u673a\u5668\u5b66\u4e60\u6280\u672f\u5728\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u7814\u7a76\u4e2d\u7684\u5e94\u7528\u6d41\u7a0b;\u7136\u540e\u4ece\u7cfb\u7edf\u5b89\u5168\u3001\u7f51\u7edc\u5b89\u5168\u548c\u5e94\u7528\u5b89\u5168\u4e09\u4e2a\u5c42\u9762,\u7740\u91cd\u4ecb\u7ecd\u4e86\u673a\u5668\u5b66\u4e60\u5728\u82af\u7247\u53ca\u7cfb\u7edf\u786c\u4ef6\u5b89\u5168\u3001\u7cfb\u7edf\u8f6f\u4ef6\u5b89\u5168\u3001\u7f51\u7edc\u57fa\u7840\u8bbe\u65bd\u5b89\u5168\u3001\u7f51\u7edc\u5b89\u5168\u68c0\u6d4b\u3001\u5e94\u7528\u8f6f\u4ef6\u5b89\u5168\u3001\u793e\u4f1a\u7f51\u7edc\u5b89\u5168\u7b49\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u9886\u57df\u4e2d\u7684\u89e3\u51b3\u65b9\u6848,\u91cd\u70b9\u5206\u6790\u3001\u5f52\u7eb3\u4e86\u8fd9\u4e9b\u89e3\u51b3\u65b9\u6848\u4e2d\u7684\u5b89\u5168\u7279\u5f81\u53ca\u5e38\u7528\u673a\u5668\u5b66\u4e60\u7b97\u6cd5.\u6700\u540e\u603b\u7ed3\u4e86\u73b0\u6709\u89e3\u51b3\u65b9\u6848\u4e2d\u5b58\u5728\u7684\u95ee\u9898,\u4ee5\u53ca\u673a\u5668\u5b66\u4e60\u6280\u672f\u5728\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u7814\u7a76\u4e2d\u672a\u6765\u7684\u53d1\u5c55\u65b9\u5411\u548c\u9762\u4e34\u7684\u6311\u6218.",
+      "date": "2018",
+      "language": "\u4e2d\u6587;",
+      "libraryCatalog": "CNKI",
+      "url": "https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2018&filename=JSJX201809001&v=",
+      "extra": "243 citations(CNKI)[2023-3-8]<\u5317\u5927\u6838\u5fc3, EI, CSCD>",
+      "volume": "41",
+      "pages": "1943-1975",
+      "publicationTitle": "\u8ba1\u7b97\u673a\u5b66\u62a5",
+      "issue": "9",
+      "ISSN": "0254-4164",
+      "creators": [
+        {
+          "firstName": "\u857e",
+          "lastName": "\u5f20",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u52c7",
+          "lastName": "\u5d14",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u9759",
+          "lastName": "\u5218",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u52c7",
+          "lastName": "\u6c5f",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u5efa\u5e73",
+          "lastName": "\u5434",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u673a\u5668\u5b66\u4e60",
+          "type": 1
+        },
+        {
+          "tag": "machine learning",
+          "type": 1
+        },
+        {
+          "tag": "\u7f51\u7edc\u5b89\u5168",
+          "type": 1
+        },
+        {
+          "tag": "\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168",
+          "type": 1
+        },
+        {
+          "tag": "\u7cfb\u7edf\u5b89\u5168",
+          "type": 1
+        },
+        {
+          "tag": "\u5e94\u7528\u5b89\u5168 cyberspace security",
+          "type": 1
+        },
+        {
+          "tag": "application security",
+          "type": 1
+        },
+        {
+          "tag": "network security",
+          "type": 1
+        },
+        {
+          "tag": "system security",
+          "type": 1
+        },
+        {
+          "tag": "\u26d4 No DOI found",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-08T03:32:44Z",
+      "dateModified": "2023-03-08T03:32:45Z",
+      "uri": "http://zotero.org/users/10256603/items/5P7UD5Y7",
+      "itemID": 47,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "\u673a\u5668\u5b66\u4e60\u5728\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u7814\u7a76\u4e2d\u7684\u5e94\u7528_\u5f20\u857e.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T03:32:38Z",
+          "dateModified": "2023-03-08T03:32:45Z",
+          "uri": "http://zotero.org/users/10256603/items/CF3EGFN6",
+          "path": "/home/westwoods/Zotero/storage/CF3EGFN6/\u673a\u5668\u5b66\u4e60\u5728\u7f51\u7edc\u7a7a\u95f4\u5b89\u5168\u7814\u7a76\u4e2d\u7684\u5e94\u7528_\u5f20\u857e.pdf",
+          "select": "zotero://select/library/items/CF3EGFN6"
+        }
+      ],
+      "notes": [],
+      "citationKey": "zhang.cui.eajiqixuexizaiwangluokongjiananquanyanjiuzhongdeyingyong2018jisuanjixuebao",
+      "itemKey": "5P7UD5Y7",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/5P7UD5Y7"
+    },
+    {
+      "key": "QBDGQIWQ",
+      "version": 86,
+      "itemType": "journalArticle",
+      "title": "\u57fa\u4e8eN-Gram\u9759\u6001\u5206\u6790\u6280\u672f\u7684\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u7814\u7a76",
+      "abstractNote": "\u4e3a\u4e86\u89e3\u51b3\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u51c6\u786e\u7387\u4e0d\u9ad8\u7684\u95ee\u9898\uff0c\u63d0\u51fa\u4e86\u4e00\u79cd\u57fa\u4e8eN-Gram\u9759\u6001\u5206\u6790\u6280\u672f\u7684\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u65b9\u6cd5\u3002\u9996\u5148\uff0c\u901a\u8fc7N-Gram\u65b9\u6cd5\u5728\u6076\u610f\u8f6f\u4ef6\u6837\u672c\u4e2d\u63d0\u53d6\u957f\u5ea6\u4e3a2\u7684\u5b57\u8282\u5e8f\u5217\uff1b\u5176\u6b21\uff0c\u6839\u636e\u63d0\u53d6\u7684\u7279\u5f81\u5229\u7528KNN\u3001\u903b\u8f91\u56de\u5f52\u3001\u968f\u673a\u68ee\u6797\u3001XGBoost\u8bad\u7ec3\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u6a21\u578b\uff1b\u7136\u540e\uff0c\u4f7f\u7528\u6df7\u6dc6\u77e9\u9635\u548c\u5bf9\u6570\u635f\u5931\u51fd\u6570\u5bf9\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u6a21\u578b\u8fdb\u884c\u8bc4\u4ef7\uff1b\u6700\u540e\uff0c\u5c06\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u6a21\u578b\u5728Kaggle\u6076\u610f\u8f6f\u4ef6\u6570\u636e\u96c6\u4e2d\u8fdb\u884c\u8bad\u7ec3\u548c\u6d4b\u8bd5\u3002\u5b9e\u9a8c\u7ed3\u679c\u8868\u660e\uff0cXGBoost\u548c\u968f\u673a\u68ee\u6797\u7684\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u6a21\u578b\u51c6\u786e\u7387\u5206\u522b\u8fbe\u5230\u4e8698.43%\u548c97.93%,Log Loss\u503c\u5206\u522b\u4e3a0.022 240\u548c0.026 946\u3002\u4e0e\u5df2\u6709\u65b9\u6cd5\u76f8\u6bd4\uff0c\u901a\u8fc7N-Gram\u8fdb\u884c\u7279\u5f81\u63d0\u53d6\u7684\u65b9\u6cd5\u53ef\u4ee5\u66f4\u51c6\u786e\u5730\u5bf9\u6076\u610f\u8f6f\u4ef6\u8fdb\u884c\u5206\u7c7b\uff0c\u4fdd\u62a4\u8ba1\u7b97\u673a\u7cfb\u7edf\u514d\u53d7\u6076\u610f\u8f6f\u4ef6\u7684\u653b\u51fb\u3002",
+      "date": "2022",
+      "language": "\u4e2d\u6587;",
+      "libraryCatalog": "CNKI",
+      "url": "https://kns.cnki.net/kcms2/article/abstract?v=3uoqIhG8C44YLTlOAiTRKibYlV5Vjs7iJTKGjg9uTdeTsOI_ra5_XbBXb4-YFO8ZTzKfHMaZipVqq_On1Mh8UwTTSRnPvhnT&uniplatform=NZKPT",
+      "accessDate": "2023-03-06T13:25:04Z",
+      "volume": "49",
+      "pages": "336-343",
+      "publicationTitle": "\u8ba1\u7b97\u673a\u79d1\u5b66",
+      "issue": "8",
+      "ISSN": "1002-137X",
+      "creators": [
+        {
+          "firstName": "\u5149\u534e",
+          "lastName": "\u5f20",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u5929\u5a07",
+          "lastName": "\u9ad8",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u632f\u56fd",
+          "lastName": "\u9648",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u4e43\u6587",
+          "lastName": "\u4e8e",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6 N-Gram",
+          "type": 1
+        },
+        {
+          "tag": "\u673a\u5668\u5b66\u4e60",
+          "type": 1
+        },
+        {
+          "tag": "\u9759\u6001\u5206\u6790",
+          "type": 1
+        },
+        {
+          "tag": "Machine learning",
+          "type": 1
+        },
+        {
+          "tag": "Malware",
+          "type": 1
+        },
+        {
+          "tag": "N-Gram",
+          "type": 1
+        },
+        {
+          "tag": "Static analysis",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-06T13:25:04Z",
+      "dateModified": "2023-03-06T13:25:04Z",
+      "uri": "http://zotero.org/users/10256603/items/QBDGQIWQ",
+      "itemID": 10,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Full Text PDF",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-06T13:25:06Z",
+          "dateModified": "2023-03-06T13:25:06Z",
+          "uri": "http://zotero.org/users/10256603/items/4HF4ZDJP",
+          "path": "/home/westwoods/Zotero/storage/4HF4ZDJP/\u5f20 \u7b49 - 2022 - \u57fa\u4e8eN-Gram\u9759\u6001\u5206\u6790\u6280\u672f\u7684\u6076\u610f\u8f6f\u4ef6\u5206\u7c7b\u7814\u7a76.pdf",
+          "select": "zotero://select/library/items/4HF4ZDJP"
+        }
+      ],
+      "notes": [],
+      "citationKey": "zhang.gao.eajiyuNGramjingtaifenxijishudeeyiruanjianfenleiyanjiu2022jisuanjikexue",
+      "itemKey": "QBDGQIWQ",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/QBDGQIWQ"
+    },
+    {
+      "key": "78K8AN4N",
+      "version": 161,
+      "itemType": "thesis",
+      "title": "\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u7814\u7a76",
+      "abstractNote": "\u7531\u4e8e\u8ba1\u7b97\u673a\u548c\u4e92\u8054\u7f51\u5728\u4eba\u4eec\u7684\u65e5\u5e38\u751f\u6d3b\u4e2d\u53d8\u5f97\u8d8a\u6765\u8d8a\u91cd\u8981,\u800c\u5c42\u51fa\u4e0d\u7a77\u7684\u6076\u610f\u8f6f\u4ef6\u65e0\u8bba\u662f\u5bf9\u8ba1\u7b97\u673a\u8fd8\u662f\u4e92\u8054\u7f51\u7684\u5b89\u5168\u90fd\u6784\u6210\u4e86\u4e25\u91cd\u7684\u5a01\u80c1,\u4f7f\u5f97\u68c0\u6d4b\u6076\u610f\u8f6f\u4ef6\u6210\u4e3a\u4e86\u5f53\u4e0b\u6700\u4ee4\u4eba\u62c5\u5fe7\u7684\u95ee\u9898\u3002\u76ee\u524d,\u5df2\u7ecf\u5b58\u5728\u5927\u91cf\u7814\u7a76\u901a\u8fc7\u5e94\u7528\u6570\u636e\u6316\u6398\u548c\u673a\u5668\u5b66\u4e60\u6280\u672f\u6765\u505a\u667a\u80fd\u6076\u610f\u8f6f\u4ef6\u7684\u68c0\u6d4b\u3002\u5c3d\u7ba1\u5b83\u4eec\u4e4b\u4e2d\u7684\u67d0\u4e9b\u65b9\u6cd5\u53d6\u5f97\u4e86\u826f\u597d\u7684\u6548\u679c,\u4f46\u5927\u591a\u6570\u65b9\u6cd5\u90fd\u5efa\u7acb\u5728\u7b80\u5355\u7684\u4eba\u5de5\u7279\u5f81\u53ca\u6d45\u5c42\u6a21\u578b\u67b6\u6784\u4e4b\u4e0a\u7684\u3002\u4e0d\u8fc7\u968f\u7740\u5982\u4eca\u8ba1\u7b97\u673a\u7b97\u529b\u7684\u53d1\u5c55,\u6df1\u5ea6\u5b66\u4e60\u6280\u672f\u7684\u5d1b\u8d77,\u5c24\u5176\u662f\u6df1\u5ea6\u5b66\u4e60\u7279\u5f81\u62bd\u53d6\u7684\u5353\u8d8a\u80fd\u529b,\u5229\u7528\u6df1\u5ea6\u5b66\u4e60\u6765\u505a\u6076\u610f\u8f6f\u4ef6\u7684\u68c0\u6d4b\u5f00\u59cb\u5728\u5de5\u4e1a\u548c\u5b66\u672f\u7814\u7a76\u4e2d\u5f97\u5230\u5e94\u7528\u3002\u672c\u6587\u57fa\u4e8e\u4ece\u53ef\u79fb\u690d\u6267\u884c\u6587\u4ef6\u4e2d\u63d0\u53d6Windows API\u8c03\u7528\u3001PE\u5934\u5b57\u6bb5\u7b49\u7279\u5f81,\u4ee5\u53caPE\u6587\u4ef6\u672c\u8eab\u5b57\u8282\u5e8f\u5217,\u91cd\u70b9\u7814\u7a76\u5982\u4f55\u8bbe\u8ba1\u4e00\u4e2a\u667a\u80fd\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u6df1\u5ea6\u5b66\u4e60\u67b6\u6784\u3002\u5b9e\u9a8c\u8bc1\u660e,\u672c\u6587\u63d0\u51fa\u7684\u591a\u4efb\u52a1\u6df1\u5ea6\u5b66\u4e60\u7f51\u7edc\u6a21\u578b\u5728\u68c0\u6d4b\u6076\u610f\u8f6f\u4ef6\u4e0a\u8f83\u4f20\u7edf\u7684\u6d45\u5c42\u6a21\u578b\u6709\u8f83\u660e\u663e\u7684\u63d0\u5347\u3002\u4e3b\u8981\u7814\u7a76\u5185\u5bb9\u5206\u4e3a\u4ee5\u4e0b\u51e0\u90e8\u5206:1.\u5206\u6790\u5f53\u524d\u6076\u610f\u8f6f\u4ef6\u5bf9\u4eba\u4eec\u7684\u5a01\u80c1\u4ee5\u53ca\u603b\u7ed3\u73b0\u9636\u6bb5\u56fd\u5185\u5916\u5728\u8fd9\u4e2a\u65b9\u5411\u4e0a\u7684\u4e00\u4e9b\u7814\u7a76\u6210\u679c\u548c\u8fdb\u5c55;2.\u57fa\u4e8e\u4e00\u4e9b\u516c\u5f00\u7684\u7f51\u7ad9,\u641c\u96c6\u4e862534\u6761\u6076\u610f\u6837\u672c\u6570\u636e\u548c1905\u6761\u6b63\u5e38\u6837\u672c\u6570\u636e,\u7136\u540e\u5bf9\u6570\u636e\u8fdb\u9884\u5904\u7406,\u5e76\u63d0\u53d6PE\u6587\u4ef6\u7684windows api\u8c03\u7528,PE\u5934\u5b57\u6bb5,\u4ee5\u53ca\u64cd\u4f5c\u7801\u7684n\u5143\u5e8f\u5217\u5bf9\u7b49\u4e00\u4e9b\u4eba\u5de5\u7279\u5f81,\u7ecf\u8fc7\u5c42\u53e0\u964d\u566a\u81ea\u7f16\u7801\u5668\u964d\u7ef4\u4e4b\u540e\u4f5c\u4e3a\u7f51\u7edc\u6a21\u578b\u7684\u989d\u5916\u8f93\u5165\u30023.\u8bbe\u8ba1\u7f51\u7edc\u6a21\u578b\u7ed3\u6784,\u8be5\u6a21\u578b\u524d\u534a\u90e8\u5206\u7531\u4e00\u4e2a\u95e8\u63a7\u5377\u79ef\u795e\u7ecf\u7f51\u7edc\u63d0\u53d6PE\u6587\u4ef6\u672c\u8eab\u7684\u7279\u5f81,\u540e\u534a\u90e8\u5206\u7ed3\u5408\u4eba\u5de5\u7279\u5f81\u4f5c\u4e3a\u6a21\u578b\u989d\u5916\u7684\u8f93\u5165;\u540c\u65f6\u6a21\u578b\u7684\u635f\u5931\u51fd\u6570\u7531\u4e24\u90e8\u5206\u7ec4\u6210,\u8f85\u52a9\u7684\u635f\u5931\u51fd\u6570\u8bc4\u4f30\u4ec5\u4ec5\u57fa\u4e8ePE\u6587\u4ef6\u672c\u8eab\u505a\u51fa\u9884\u6d4b\u60c5\u51b5,\u4e3b\u635f\u5931\u51fd\u6570\u8bc4\u4f30\u57fa\u4e8e\u6587\u4ef6\u672c\u8eab\u4ee5\u53ca\u989d\u5916\u7684\u7279\u5f81\u7684\u9884\u6d4b\u60c5\u51b5\u30024.\u5bf9\u6211\u4eec\u641c\u96c6\u5230\u7684\u5b9e\u9645\u7684\u6570\u636e\u96c6\u8fdb\u884c\u4e86\u5168\u9762\u7684\u5b9e\u9a8c\u7814\u7a76,\u5bf9\u6bd4\u5404\u79cd\u673a\u5668\u5b66\u4e60/\u6df1\u5ea6\u5b66\u4e60\u68c0\u6d4b\u6076\u610f\u8f6f\u4ef6\u7684\u65b9\u6cd5\u3002\u5b9e\u9a8c\u7ed3\u679c\u8868\u660e,\u4e0e\u4f20\u7edf\u7684\u673a\u5668\u5b66\u4e60\u65b9\u6cd5\u4ee5\u53ca\u5355\u8c03\u7684\u6df1\u5ea6\u5b66\u4e60\u65b9\u6cd5\u76f8\u6bd4,\u672c\u6587\u63d0\u51fa\u7684\u591a\u4efb\u52a1\u6df1\u5ea6\u5b66\u4e60\u6846\u67b6\u53ef\u4ee5\u8fdb\u4e00\u6b65\u63d0\u9ad8\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u7684\u6574\u4f53\u6027\u80fd\u3002",
+      "date": "2019",
+      "language": "\u4e2d\u6587;",
+      "libraryCatalog": "CNKI",
+      "url": "https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFD202001&filename=1019850180.nh&v=",
+      "extra": "4 citations(CNKI)[2023-3-8]",
+      "creators": [
+        {
+          "firstName": "\u51cc\u56ed",
+          "lastName": "\u8d75",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "\u5c0f\u677e",
+          "lastName": "\u5f20",
+          "creatorType": "contributor"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "\u6076\u610f\u8f6f\u4ef6",
+          "type": 1
+        },
+        {
+          "tag": "\u6df1\u5ea6\u5b66\u4e60",
+          "type": 1
+        },
+        {
+          "tag": "\u64cd\u4f5c\u7801",
+          "type": 1
+        },
+        {
+          "tag": "\u95e8\u63a7\u5377\u79ef malware detection",
+          "type": 1
+        },
+        {
+          "tag": "deep Learning",
+          "type": 1
+        },
+        {
+          "tag": "GLU",
+          "type": 1
+        },
+        {
+          "tag": "opcode",
+          "type": 1
+        },
+        {
+          "tag": "pe head",
+          "type": 1
+        },
+        {
+          "tag": "PE\u5934",
+          "type": 1
+        }
+      ],
+      "relations": [],
+      "dateAdded": "2023-03-08T09:56:34Z",
+      "dateModified": "2023-03-08T09:56:34Z",
+      "uri": "http://zotero.org/users/10256603/items/78K8AN4N",
+      "itemID": 55,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u7814\u7a76_\u8d75\u51cc\u56ed.pdf",
+          "tags": [],
+          "relations": [],
+          "dateAdded": "2023-03-08T09:56:32Z",
+          "dateModified": "2023-03-08T09:56:35Z",
+          "uri": "http://zotero.org/users/10256603/items/IXWWHFXB",
+          "path": "/home/westwoods/Zotero/storage/IXWWHFXB/\u57fa\u4e8e\u673a\u5668\u5b66\u4e60\u7684\u6076\u610f\u8f6f\u4ef6\u68c0\u6d4b\u65b9\u6cd5\u7814\u7a76_\u8d75\u51cc\u56ed.pdf",
+          "select": "zotero://select/library/items/IXWWHFXB"
+        }
+      ],
+      "notes": [],
+      "citationKey": "zhaojiyujiqixuexideeyiruanjianjiancefangfayanjiu2019",
+      "itemKey": "78K8AN4N",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/78K8AN4N",
+      "publisher": "\u7535\u5b50\u79d1\u6280\u5927\u5b66",
+      "type": "\u7855\u58eb"
+    }
+  ]
+}
