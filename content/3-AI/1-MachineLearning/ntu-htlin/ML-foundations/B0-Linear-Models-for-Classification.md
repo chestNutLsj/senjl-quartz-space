@@ -99,6 +99,46 @@ $$
 
 ## Multiclass via Logistic Regression
 
+那么如何从之前学习过的模型应用到多分类问题呢？为了表述明确，我们称为 $k$ 分类问题：
+- 首先考虑线性分类模型，对一个特定分类 $i$ 设定为 +1 ，剩余其它分类为 -1 ，迭代 $k$ 次即可得到：
+	- ![[B0-Linear-Models-for-Classification-binary-classify-for-multiclass.png]]
+	- 在每轮迭代时，都将目标分类的样本与其它样本剔除开来，这样得到的结果就实现了多分类。但是问题是，在聚集区域表现良好，但是在临界区域表现较差，上图中 1~5 这五个临界区要么发生争抢、要么被所有分类都拒绝
+- 于是考虑 Logistic Regression 这个**软**分类模型，依旧是每轮都对特定分类进行区分，迭代 k 次，但区别在于每轮中给出的是样本属于特定分类的概率，根据概率的大小再进行分类：
+	- ![[B0-Linear-Models-for-Classification-logistic-regression-for-multiclass.png]]
+	- 实现起来，就是每轮的分类器对所有样本作出属于该分类与否的概率 （于是得到 $k$ 个概率），然后选择其中最大概率作为该样本的分类：$g(\mathbf{x})=arg\max_{k\in\mathcal{Y}}\theta(\mathbf{w}_{[k]}^{T}\mathbf{x})$ 
 
+### One-Versus-All Decomposition
+
+直观上看，使用 Logistic Regression 的准确率更高，对这种方法我们整理一下流程：
+1. 每一轮在数据集上运行一次 Logistic Regression —— $\mathcal{D}_{[k]}=\{(\mathbf{x}_{n},y_{n}^{'}=2[y_{n}=k]-1)\}_{n=1}^{N}$，因此得到一个权重向量组 $\mathbf{w}_{[k]}$ ，
+2. 对每一个样本，都返回权重向量组中计算得到的最大概率值：$g(\mathbf{x})=arg\max_{k\in\mathcal{Y}}\theta(\mathbf{w}_{[k]}^{T}\mathbf{x})$ 
+
+这种策略的优势是高效准确、是组合应用 Logistic Regression 风格的方法实现的，但缺点是当分类数 *k* 较大时，不够平衡，比如有 100 个分类，每轮分类器都简单的全部否认，那么准确率仍然有 99% ，这显然不合理。
+
+之所以叫 One-Versus-All (OVA) ，就是因为分类的选取是从 k 个里选一个。更高级的 OVA 扩展思路，可以看：[multinomial logistic regression](https://scikit-learn.org/stable/modules/linear_model.html#multinomial-case) 。
+
+### 练习：理解 OVA 的思路
+
+![[B0-Linear-Models-for-Classification-quiz-OVA.png]]
 
 ## Multiclass via Binary Classification
+
+OVA 中最大的缺点是处理分类数 k 较大时不够平衡的问题，要解决这个问题，可以采用一对一的比较策略：
+- 每轮只对目标分类和任一其它分类做比较，而其余 k-2 个分类都视作不存在：![[B0-Linear-Models-for-Classification-OVO.png]]
+- 当 k=4 时，则要经过六轮比较：![[B0-Linear-Models-for-Classification-OVO-2.png]] 通项公式是 $\text{compare times}=(k-1)+(k-2)+...+1=\frac{k(k-1)}{2}$ ；
+- 那么经过六轮比较后，如何选取呢？类似锦标赛一样，**得票数高者获胜**：上图中对于样本（红色方块）六轮比较中 1、2、3 轮将其分类到方块类，4 轮分类到菱形类，5、6 轮分类到星形类，三角形类没有轮次分类到，即得票数 $3:1:2:0$ ，因此该样本是属于方块类的；
+
+### One-Versus-One Decomposition
+
+综合上面的思路，我们整理一下 One-Versus-One (OVO) 策略的流程：
+1. 每一轮分类，在数据集上运行线性分类算法：$\mathcal{D}_{[k,\ell]}={(\mathbf{x}_{n},y_{n}^{'}=2[y_{n}=k]-1):y_{n}=k\text{ or }y_{n}=\ell}$ ，这里 $k=\ell$，表示每个分类对其它分类 1v1 比较后的结果，则有 $(k,\ell)\in\mathcal{Y}\times\mathcal{Y}$ ，由此得到元素为权重向量的一个二维矩阵 $\mathbf{w}_{[k,\ell]}$ ；
+2. 考查二维矩阵中每一个票数，选择最大者：$g(\mathbf{x})=\text{tournament champion}\left\{\mathbf{w}_{[k,\ell]}^{T}\mathbf{x}\right\}$ ；
+
+显然，OVO 策略比 OVA 策略更加稳定，是组合应用二元线性分类方法实现的；缺点就是计算效率太低，要得到二维权重矩阵 $\mathbf{w}_{[k,\ell]}$ ，需要耗时 $\mathcal{O(k^{2}})$ 。
+
+### 练习：计算 OVO 训练耗时
+
+>[!note] OVO 一定比 OVA 更耗时吗？
+>下题就表明 OVA 可能耗时比 OVO 更多。
+
+![[B0-Linear-Models-for-Classification-quiz-OVO.png]]

@@ -36,7 +36,8 @@ tags:
 
 1. [[90-Linear-Regression|Linear Regression]]: analytic solution $\mathbf{w}_{LIN}=\rm X^{\dagger}\mathbf{y}$ with **linear regression hypotheses** and **squared error**;
 2. [[A0-Logistic-Regression|Logistic Regression]]: **gradient descent** on **cross-entropy error** to get good **logistic hypothesis**;
-3. [[B0-Linear-Models-for-Classification|Linear Models for Classification]]: 
+3. [[B0-Linear-Models-for-Classification|Linear Models for Classification]]: **binary classification** via (logistic) **regression**; **multiclass** via **OVA/OVO decomposition**;
+4. [[C0-Nonlinear-Transformation|Nonlinear Transformation]]:
 
 ### How Can Machines Learn Better?
 
