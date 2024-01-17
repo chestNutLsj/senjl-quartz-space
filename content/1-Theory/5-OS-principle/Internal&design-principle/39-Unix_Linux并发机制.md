@@ -1,4 +1,4 @@
-![[39-Unix_Linux并发机制-mindmap.png]]
+
 # Unix 并发机制
 ## 进程间传递数据
 ### 管道

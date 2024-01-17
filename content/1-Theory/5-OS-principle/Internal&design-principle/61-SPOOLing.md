@@ -1,11 +1,3 @@
----
-url_1: https://www.cnblogs.com/liyaaixuexi/p/17352046.html
-url_2: https://www.javatpoint.com/spooling-vs-buffering
-url_3: https://www.geeksforgeeks.org/what-exactly-spooling-is-all-about/
----
-
-![[61-SPOOLing-mindmap.png]]
-
 ## 脱机技术
 ![[61-SPOOLing-offline.png]]
 
@@ -129,3 +121,9 @@ Ever experienced a situation when suddenly for some seconds your mouse or keyboa
 
 7) Can also be used for generating Banner pages (these are the pages used in computerized printing in order to separate documents from each other and to identify e.g. the originator of the print request by username, an account number or a bin for pickup. Such pages are used in office environments where many people share the small number of available resources).
 	也可用于生成 Banner 页面（这是计算机打印中使用的页面，用于将文件彼此分开，并通过用户名、账号或取件箱等标识打印请求的发起人。这种页面用于多人共享少量可用资源的办公环境）。
+
+## Reference
+
+- https://www.cnblogs.com/liyaaixuexi/p/17352046.html
+- https://www.javatpoint.com/spooling-vs-buffering
+- https://www.geeksforgeeks.org/what-exactly-spooling-is-all-about/

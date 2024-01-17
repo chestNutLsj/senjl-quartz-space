@@ -1,10 +1,16 @@
+---
+publish: "true"
+tags:
+  - ArchLinux
+  - Linux
+---
+
 ## 全局查看
 使用`screenfetch`或`neofetch`工具查看全局硬件配置：
 ```shell
 $ neofetch
 ```
 ![[neofetch.png]]
-值得一提的是，`screenfetch`在执行时会有一则消息报错，看样子是读取内存信息时出错，而`neofetch`没有这样的情况出现。
 
 ## 查看当前用户
 ```shell

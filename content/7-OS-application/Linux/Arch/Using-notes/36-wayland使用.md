@@ -1,3 +1,10 @@
+---
+publish: "true"
+tags:
+  - ArchLinux
+  - Linux
+---
+
 ## 什么是 wayland
 
 ### 与 xorg 的对比
@@ -41,3 +48,30 @@ sudo pacman -S libfdk-aac
 ![[wemeet-camera-mirror.png]]
 
 🎉 设置完成，可以开始使用了！
+
+Wiki：[Chromium - Arch Linux 中文维基](https://wiki.archlinuxcn.org/wiki/Chromium#%E6%8C%81%E4%B9%85%E5%9C%B0%E5%BA%94%E7%94%A8_flags)
+
+具体操作：
+
+在 `./config/browser_name-flags.conf` 中写入：
+```
+--ozone-platform=wayland  
+--enable-wayland-ime
+```
+
+PS. `browser_name` 字段请切换成所用浏览器的名字，如 `chromium`, `microsoft-edge-stable`, `chrome` 等 
+
+wiki：[Using Fcitx 5 on Wayland - Fcitx](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma)
+
+在出现 chromium 内核浏览器缩放异常问题后，我又出现了无法在这些浏览器中使用 fcitx5 输入法的问题。
+
+解决办法正是 wiki 中提到的虚拟键盘设置、配置浏览器 `flag.conf` 文件：
+```
+--enable-features=UseOzonePlatform 
+--ozone-platform=wayland 
+--enable-wayland-ime
+```
+
+![[Pasted image 20230824105448.png]]
+
+其它情况的问题，请自行对照解决。

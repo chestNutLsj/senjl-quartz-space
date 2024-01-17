@@ -40,8 +40,8 @@ tags:
 
 #### 操作系统
 
-- 《精髓与设计原理》读书笔记：
-- 《rCore Tutorial Book v3》:
+- 《精髓与设计原理》读书笔记 ；
+- 《rCore Tutorial Book v3》；
 
 #### 计算机组成原理
 
@@ -51,7 +51,7 @@ tags:
 
 #### 计算机网络
 
-- 自顶向下 8th
+- [[Top2down-Summary|自顶向下 8th]]
 
 #### 算法
 
@@ -75,9 +75,23 @@ tags:
 
 #### Linux
 
+- [[ArchLinux使用笔记]]
+
 ## Keen to Explore the World
 
 ## Consider Society from the Perspective of Marxist
+
+### Marx&Engels
+
+### Lenin
+
+### Mao
+
+- [[论持久战]]
+
+### Deng
+
+- [[中国共产党中央委员会关于建国以来党的若干历史问题的决议]]
 
 ## Keep Healthy
 

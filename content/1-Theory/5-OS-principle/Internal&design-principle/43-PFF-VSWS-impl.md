@@ -1,8 +1,4 @@
----
-url_c: https://github.com/WeichenXu/Mem_Resident_Size/blob/master/mem_manage.c
-url_cpp: https://github.com/rahulkalpsts107/paging-algorithm
-url_py: https://github.com/rupanta2009/Operating-Systems-Memory-Management-PFF-VSWS-Algorithms-
----
+
 ## impl in C
 ```c
 // PFF & VSWS
@@ -922,3 +918,9 @@ def main ():
 if __name__ == "__main__":
 	main ()
 ```
+
+## Reference
+
+- https://github.com/WeichenXu/Mem_Resident_Size/blob/master/mem_manage.c
+- https://github.com/rahulkalpsts107/paging-algorithm
+- https://github.com/rupanta2009/Operating-Systems-Memory-Management-PFF-VSWS-Algorithms-

@@ -1,4 +1,4 @@
-![[50-CPU调度-mindmap-compressed.png]]
+
 # 单处理器调度
 ## 处理器调度类型
 

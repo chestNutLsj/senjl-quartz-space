@@ -1,7 +1,7 @@
 ---
 url: https://www.geeksforgeeks.org/introduction-to-solid-state-drive-ssd/#
 ---
-![[62-SSD-mindmap.png]]
+
 ## Introduction
 SSD 是一种非易失性存储设备，代表固态驱动器，可以使用传统硬盘驱动器（HDD）的 SATA 和 SAS 等协议。新的外形规格（如 M.2 外形）和新的 I/O 协议（如 NVM Express）已被开发出来，以满足 SSD 中使用的闪存技术的特定要求。
 
