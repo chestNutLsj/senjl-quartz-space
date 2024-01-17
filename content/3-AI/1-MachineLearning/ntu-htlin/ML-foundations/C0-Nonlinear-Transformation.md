@@ -58,6 +58,45 @@ tags:
 
 ## Price of Nonlinear Transform
 
+根据上面的论证，我们可以推知，要实现从 *d* 维空间降维到 *Q* 维空间，我们需要的特征转换函数为：
+$$
+\begin{aligned}
+\Phi_{Q}(\mathbf{x})=( &1,\\
+&x_{1},x_{2},...,x_{d},\\
+&x_{1}^{2},x_{1}x_{2},...,x_{d}^{2},\\
+&...,\\
+&x_{1}^{Q},x_{1}^{Q-1}x_{2},...,x_{d}^{Q})
+\end{aligned}
+$$
+这是一个 *Q* 次多项式的转换，其中的维数是 $\underbrace{1}_{\tilde{w_{0}}}+\underbrace{\tilde{d}}_{\text{others}}$ 个，其数量就是小于 Q 次方的所有组合的数量：$\binom{Q+d}{Q}=\mathcal{O}(Q^{d})$ ，这意味着在从非线性的 X 空间转换到线性的 Z 空间时，$\mathbf{z}=\Phi_{Q}(\mathbf{x})$ **耗费的时间**和 $\tilde{\mathbf{w}}$ **耗费的空间**都是 $\mathcal{O}(Q^{d})$ 。
 
+另一方面，从 VC Dimension 的角度来看，$\tilde{\mathbf{w}}=1+\tilde{d}$ 所代表的自由度（VC Dimension 的维数）也大概是 $d_{VC}(\mathcal{H}_{\Phi_{Q}})$ ，不过还好，由于 Z 空间中任何超过 $1+\tilde{d}$ 维的输入都不会被 shatter，因此 $d_{VC}(\mathcal{H}_{\Phi_{Q}})\le 1+\tilde{d}$ ，并且 X 空间中也不会 shatter 超过 $1+\tilde{d}$ 维的输入（X 空间这个当结论记住，比较难证，林老师也没有详说）
+
+总之，**Q 越大，代表着实现转换时的时间复杂度和空间复杂度越大，相应的 $d_{VC}$ 也会越大**。
+
+### Overfitting Risk
+
+如何权衡 Q 呢？试看这个分类：
+- ![[C0-Nonlinear-Transformation-which-Q-better.png]]
+- 相对于一次曲线的分类，四次曲线的分类虽然 $E_{in}=0$，但是显然我们认为它把噪声也额外地进行了分类，这是不合理的，称为 overkill 或 overfit
+
+综合起来，我们这里有两个问题：
+1. 我们在何种程度上确保 $E_{out}$ 足够接近 $E_{in}$ 呢？
+2. 我们在何种程度上确保 $E_{in}$ 足够小呢？
+
+这两个问题不可兼得，是 ML 中一个关键的 trade-off（权衡），满足一者必然要适当的放宽另一者。
+
+### Danger of Visual Choices
+
+另外一个问题是，选择降维到的 Q 如何抉择？考虑降维到二维空间：
+- ![[C0-Nonlinear-Transformation-danger-of-visualize.png]]
+- 先前我们讨论过完全实现降维需要特征转换是 6 维的，但是视觉上我们似乎用 3 维的圆也可以实现分类？进一步，我们也许可以提出 2 维、1 维的特征转换也能够实现这样的目标？不过这样的操作很危险，因为这是我们人工地对部分数据进行了 Human Learning ，我们用自己的学识、偏见做出了不一定合理的降维，这在更大范围的数据上并不一定可行，甚至可能导致错误偏离甚远。
+- Human Learning 不能代替 Machine Learning ，Human Learning 的操作在局部上是比 ML 更“聪明、敏捷”的，因此如果过分的依赖 Human Learning ，就会对 ML 模型的性能估计得过于乐观；
+- 事实上，三维以上的空间就很难 visualize ，因此 visualize 这种手段是不可靠、不可行的。
+
+### 练习：降维的代价
+
+![[C0-Nonlinear-Transformation-quiz-Q.png]]
+- 我们之前在 VC Dimension 中讨论过，要支撑 1300 多个维度的学习，我们至少需要 13000 个样本数据，这对数据集的大小要求颇高。
 
 ## Structured Hypothesis Sets
