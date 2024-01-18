@@ -68,15 +68,15 @@ $$
 &x_{1}^{Q},x_{1}^{Q-1}x_{2},...,x_{d}^{Q})
 \end{aligned}
 $$
-这是一个 *Q* 次多项式的转换，其中的维数是 $\underbrace{1}_{\tilde{w_{0}}}+\underbrace{\tilde{d}}_{\text{others}}$ 个，其数量就是小于 Q 次方的所有组合的数量：$\binom{Q+d}{Q}=\mathcal{O}(Q^{d})$ ，这意味着在从非线性的 X 空间转换到线性的 Z 空间时，$\mathbf{z}=\Phi_{Q}(\mathbf{x})$ **耗费的时间**和 $\tilde{\mathbf{w}}$ **耗费的空间**都是 $\mathcal{O}(Q^{d})$ 。
+这是一个 *Q* 次多项式的转换，其中的维数是 $\underbrace{1}_{\tilde{w_{0}}}+\underbrace{\tilde{d}}_{\text{others}}$ 个，其数量就是小于 *Q* 次方的所有组合的数量：$\binom{Q+d}{Q}=\mathcal{O}(Q^{d})$ ，这意味着在从非线性的 $\mathcal{X}$ 空间转换到线性的 $\mathcal{Z}$ 空间时，$\mathbf{z}=\Phi_{Q}(\mathbf{x})$ **耗费的时间**和 $\tilde{\mathbf{w}}$ **耗费的空间**都是 $\mathcal{O}(Q^{d})$ 。
 
-另一方面，从 VC Dimension 的角度来看，$\tilde{\mathbf{w}}=1+\tilde{d}$ 所代表的自由度（VC Dimension 的维数）也大概是 $d_{VC}(\mathcal{H}_{\Phi_{Q}})$ ，不过还好，由于 Z 空间中任何超过 $1+\tilde{d}$ 维的输入都不会被 shatter，因此 $d_{VC}(\mathcal{H}_{\Phi_{Q}})\le 1+\tilde{d}$ ，并且 X 空间中也不会 shatter 超过 $1+\tilde{d}$ 维的输入（X 空间这个当结论记住，比较难证，林老师也没有详说）
+另一方面，从 VC Dimension 的角度来看，$\tilde{\mathbf{w}}=1+\tilde{d}$ 所代表的自由度（VC Dimension 的维数）也大概是 $d_{VC}(\mathcal{H}_{\Phi_{Q}})$ ，不过还好，由于 $\mathcal{Z}$ 空间中任何超过 $1+\tilde{d}$ 维的输入都不会被 shatter，因此 $d_{VC}(\mathcal{H}_{\Phi_{Q}})\le 1+\tilde{d}$ ，并且 $\mathcal{X}$ 空间中也不会 shatter 超过 $1+\tilde{d}$ 维的输入（$\mathcal{X}$ 空间这个当结论记住，比较难证，林老师也没有详说）
 
-总之，**Q 越大，代表着实现转换时的时间复杂度和空间复杂度越大，相应的 $d_{VC}$ 也会越大**。
+总之，***Q* 越大，代表着实现转换时的时间复杂度和空间复杂度越大，相应的 $d_{VC}$ 也会越大**。
 
 ### Overfitting Risk
 
-如何权衡 Q 呢？试看这个分类：
+如何权衡 *Q* 呢？试看这个分类：
 - ![[C0-Nonlinear-Transformation-which-Q-better.png]]
 - 相对于一次曲线的分类，四次曲线的分类虽然 $E_{in}=0$，但是显然我们认为它把噪声也额外地进行了分类，这是不合理的，称为 overkill 或 overfit
 
@@ -88,15 +88,49 @@ $$
 
 ### Danger of Visual Choices
 
-另外一个问题是，选择降维到的 Q 如何抉择？考虑降维到二维空间：
+另外一个问题是，选择降维到的 *Q* 如何抉择？考虑降维到二维空间：
 - ![[C0-Nonlinear-Transformation-danger-of-visualize.png]]
-- 先前我们讨论过完全实现降维需要特征转换是 6 维的，但是视觉上我们似乎用 3 维的圆也可以实现分类？进一步，我们也许可以提出 2 维、1 维的特征转换也能够实现这样的目标？不过这样的操作很危险，因为这是我们人工地对部分数据进行了 Human Learning ，我们用自己的学识、偏见做出了不一定合理的降维，这在更大范围的数据上并不一定可行，甚至可能导致错误偏离甚远。
+- 先前我们讨论过完全实现降维需要特征转换是 6 维的，但是视觉上我们似乎用 3 维的圆也可以实现分类？进一步，我们也许可以提出 2 维、1 维的特征转换也能够实现这样的目标？不过这样的操作很危险，因为这是我们人工地对部分数据进行了 Human Learning ，我们==用自己的学识、偏见做出了不一定合理的降维，这在更大范围的数据上并不一定可行，甚至可能导致结果和预期偏离甚远==。
 - Human Learning 不能代替 Machine Learning ，Human Learning 的操作在局部上是比 ML 更“聪明、敏捷”的，因此如果过分的依赖 Human Learning ，就会对 ML 模型的性能估计得过于乐观；
 - 事实上，三维以上的空间就很难 visualize ，因此 visualize 这种手段是不可靠、不可行的。
 
 ### 练习：降维的代价
 
 ![[C0-Nonlinear-Transformation-quiz-Q.png]]
-- 我们之前在 VC Dimension 中讨论过，要支撑 1300 多个维度的学习，我们至少需要 13000 个样本数据，这对数据集的大小要求颇高。
+- 我们之前在 [[70-The-VC-Dimension#VC Message|VC Dimension]] 中讨论过，要支撑 1300 多个维度的学习，我们至少需要 13000 个样本数据，这对数据集的大小要求颇高。
 
 ## Structured Hypothesis Sets
+
+> 重新站在特征转换的角度思考 $E_{in}$ 和 $E_{out}$ 的关系。
+
+### Nested Hypotheses Set
+
+实现特征转换的函数可以写成如下嵌套的形式：
+$$
+\begin{aligned}
+\Phi_{0}(\mathbf{x})&=(1)\\
+\Phi_{1}(\mathbf{x})&=(\Phi_{0}(\mathbf{x}),x_{1},x_{2},...,x_{d})\\
+\Phi_{2}(\mathbf{x})&=(\Phi_{1}(\mathbf{x}),x_{1}^{2},x_{1}x_{2},...,x_{d}^{2})\\
+\Phi_{3}(\mathbf{x})&=(\Phi_{2}(\mathbf{x}),x_{1}^{3},x_{1}^{2}x_{2},...,x_{d}^{3})\\
+&...\\
+\Phi_{Q}(\mathbf{x})&=(\Phi_{Q-1}(\mathbf{x}),x_{1}^{Q},x_{1}^{Q-1}x_{2},...,x_{d}^{Q})
+\end{aligned}
+$$
+从假设集的角度来看，随着维度的增加，呈现集合包含的关系，即低维空间的变换是高维空间变化的特例：
+- $\mathcal{H}_{\Phi_{0}}\subset\mathcal{H}_{\Phi_{1}}\subset\mathcal{H}_{\Phi_{2}}\subset\mathcal{H}_{\Phi_{3}}\subset...\subset\mathcal{H}_{\Phi_{Q}}$
+- nested $\mathcal{H}_{i}$ ： ![[C0-Nonlinear-Transformation-nested_Hi.png]]
+
+### VC Dimension and Feature Transform
+
+考虑假设的 VC Dimension 与 $E_{in}$ 的关系，则有：
+- 首先，**高维空间可以 shatter 的点一定比低维空间可以 shatter 的点更多**： $d_{VC}(\mathcal{H}_{0})\le d_{VC}(\mathcal{H}_{1})\le d_{VC}(\mathcal{H}_{2})\le d_{VC}(\mathcal{H}_{3})\le...$ ，
+- 相应的，在考虑找到每个 $\mathcal{H}_{i}$ 最小的 $E_{in}$ 时，即 $g_{i}=arg\min_{h\in\mathcal{H}_{i}}E_{in}(h)$，就会有 $E_{in}(g_{0})\ge E_{in}(g_{1})\ge E_{in}(g_{2})\ge E_{in}(g_{3})\ge...$ ，**这是因为高维空间的可选范围更广了，因此找到更低的 $E_{in}$ 的假设 *g* 的概率也会下降**；
+- 因此这就从另一个角度解释这幅图：![[70-The-VC-Dimension-VC-message.png]]
+
+因此使用高维的特征转换尽管能够做到 $E_{in}\to0$ ，但从全局来看并不意味着完美，因为一方面实现转换时的复杂度太高，另一方面 $E_{out}$ 却并不能像 $E_{in}$ 一样低。要明确，$E_{in}$ 只是一个中间产物，==如果过于计较眼前的“得”，有可能导致全局的“失”==。
+
+安全的学习路线应当是从低维的假设集开始：$\mathcal{H}_{1}\to\mathcal{H}_{\text{high}}$ ，如果 $E_{in}(g_{1})$ 已经足够好，那自然皆大欢喜，否则逐步地增加转换的维度——从线性模型开始做起，逐步扩展到高维模型。
+
+### 练习：理解 VC Dimension 与特征转换
+
+![[C0-Nonlinear-Transformation-quiz-vc-transform.png]]
