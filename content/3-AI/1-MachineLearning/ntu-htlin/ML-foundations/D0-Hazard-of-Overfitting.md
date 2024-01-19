@@ -113,3 +113,30 @@ tags:
 - 用线性函数自然无法拟合 sin 函数，要使其最佳，就只能是水平的直线；
 
 ## Dealing with Overfitting
+
+从过拟合发生的条件来看，我们可以有以下方法降低过拟合发生的概率：
+- **从简单的模型开始训练**：就像为了避免过拟合这一“车祸”，我们可以首先开慢一点；
+- **做好数据清理与剪枝，降低噪音的影响**：就像我们可以通过获知更详细的路况来避免车祸；
+- **数据量不足时，我们可以运用 data hinting 的方法获得 virtual 但是正确的数据**：就像在全部路况不清楚时，先仔细察看附近的路况一样；
+- **可以使用 regularization** ：这类似于放心大胆地开车，遇到问题时交给刹车来解决；
+- **可以使用验证集** ： 这类似于开车过程中随时检查仪表盘的数据和信息；
+
+### Data Cleaning / Pruning
+
+我们可以通过许多手段在训练前就检查数据集的噪音强度，比如如果某个 label 为 $\circ$ 的样本过于接近其它 $\times$ 的样本而远离 $\circ$ 样本，那就有可能是噪音……
+
+修正噪音的 label ，称为 data cleaning ；而移除噪音样本，称为 data pruning。
+
+这种手段的效果因数据集的情况而异，难以确定收效。
+
+### Data Hinting
+
+![[D0-Hazard-of-Overfitting-data-hinting.png]]
+
+如果数据集只有这些样本，那么该怎么训练呢？一种方法是，对样本进行微小的调整，诸如移动、拉伸、旋转等，但又不改变其 label，从而获得更丰富的数据集。
+
+这种方法称为 data hinting ，经过微调的样本称为 virtual examples ，不过要注意的是，这些 virtual examples **不再是独立同分布于** $P(\mathbf{x},y)$ 的。
+
+### 练习：理解 data hinting
+
+![[D0-Hazard-of-Overfitting-quiz-data-hinting.png]]
