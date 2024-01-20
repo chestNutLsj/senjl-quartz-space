@@ -64,7 +64,7 @@ $$
 E_{in}(\mathbf{w}_{LIN})=\frac{1}{N}||\mathbf{y}-\underbrace{\hat{\mathbf{y}}}_{\text{predictions}}||^{2}=\frac{1}{N}||\mathbf{y}-\rm X\underbrace{\rm X^{\dagger}\mathbf{y}}_{\mathbf{w}_{LIN}}||^{2}=\frac{1}{N}||(\underbrace{I}_{identity}-\rm X\rm X^{\dagger})\mathbf{y}||^{2}
 $$
 
-，这里我们将 $\rm X\rm X^{\dagger}$ 称为 [Hat Matrix](https://en.wikipedia.org/wiki/Projection_matrix?useskin=vector)，记作 $\rm H$ ，它的作用是将 $\mathbf{y}$ 变为 $\hat{\mathbf{y}}$ 。
+，这里我们将 $\rm X\rm X^{\dagger}$ 称为 [Hat Matrix](https://en.wikipedia.org/wiki/Projection_matrix?useskin=vector)，记作 $\rm H$ ，它的作用是将 $\mathbf{y}$ 变为 $\hat{\mathbf{y}}$ 。（这里 $\rm I$ 矩阵其实就是单位矩阵，不过国内教科书里通常记作 $\rm E$ ，但在国外教科书里都记作 $\rm I$ ，因为 identity 这个名称的含义就是“单位”）
 
 从==几何视角==来看 Hat Matrix ，对于 *N* 维空间 $\mathbb{R}^{N}$，样本的实际值向量 $\mathbf{y}$ 是这个空间中的一个 *N* 维向量， 
 -  ![[90-Linear-Regression-geometric-hat-matrix.png]]
