@@ -4,6 +4,8 @@ tags:
   - 机器学习
   - 林轩田
   - ML
+banner: "![[E0-Regularization-step-back.png]]"
+banner_x: 0.5
 ---
 ## Regularized Hypothesis Set
 
@@ -84,6 +86,7 @@ $$
 ### 练习：$\mathbf{w}_{REG}$ 与 $\mathbf{w}_{LIN}$ 的联系
 
 ![[E0-Regularization-quiz-wREG-wLIN.png]]
+- 第三个式子在几何意义上就是限制把最佳解包围在内；
 
 ## Regularization and VC Theory
 
