@@ -46,4 +46,5 @@ tags:
 ### How Can Machines Learn Better?
 
 1. [[D0-Hazard-of-Overfitting|Hazard of Overfitting]]: overfitting happens with **excessive power**, **stochastic/deterministic noise**, and **limited data**;
-2. [[E0-Regularization|Regularization]]:
+2. [[E0-Regularization|Regularization]]: minimizes **augmented error**, where the added **regularizer** effectively **limits model complexity**;
+3. [[F0-Validation|Validation]]:

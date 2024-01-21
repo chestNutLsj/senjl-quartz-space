@@ -4,12 +4,11 @@ tags:
   - 机器学习
   - 林轩田
   - ML
-banner: "![[E0-Regularization-step-back.png]]"
-banner_x: 0.5
+date: 2024-01-18
 ---
 ## Regularized Hypothesis Set
 
-由前文论述，过拟合的一个原因就是假设集 $\mathcal{H}$ 过于复杂，那么如果能**将复杂的假设集退化到简单的假设集**，不就可以降低过拟合程度吗？——正则化！
+由前文论述，过拟合的一个原因就是假设集 $\mathcal{H}$ 过于复杂，那么如果能**将复杂的假设集退化到简单的假设集**，不就可以降低过拟合程度吗？——这就是**正则化**！
 - ![[E0-Regularization-step-back.png]]
 - 我们以十阶假设集 $\mathcal{H}_{10}$ 和二阶假设集 $\mathcal{H}_{2}$ 为例，它们各自可以表示为 $w_{0}+w_{1}x+w_{2}x^{2}+w_{3}x^{3}+...+w_{10}x^{10}$ 和 $w_{0}+w_{1}x+w_{2}x^{2}$ ，因此 $\mathcal{H}_{2}$ 就是 $\mathcal{H}_{10}$ 加上一些限制：$w_{3}=w_{4}=...=w_{10}=0$ —— “**退化**”其实就是“**限制**”
 
@@ -90,6 +89,71 @@ $$
 
 ## Regularization and VC Theory
 
+### $E_{aug}$ Vs. VC Bound Guarantee
 
+我们前面提到正则化就是使 $E_{in}$ 受到某种限制：
+$$
+\underset{\mathbf{w}}{\min}E_{in}(\mathbf{w})\text{ s.t. }\mathbf{w}^{T}\mathbf{w}\le C
+$$
+，这种限制等价于使 $E_{aug}$ 最小化：
+$$
+\underset{\mathbf{w}}{\min}E_{aug}(\mathbf{w})=E_{in}(\mathbf{w})+ \frac{\lambda}{N}\mathbf{w}^{T}\mathbf{w}
+$$
+，联系之前所学的 [[70-The-VC-Dimension#VC Message|VC 理论]] ，其中也相当于对 $E_{in}$ 做出了一些限制：
+$$
+E_{out}(\mathbf{w})\le E_{in}(\mathbf{w})+\Omega(\mathcal{H}(C))
+$$
+。因此类比，最小化 $E_{aug}$ 的过程似乎就是**间接地获取没有 $\mathcal{H}(C)$ 限制的 VC bound 的保证的过程**。
+
+详细地对比 $E_{aug}$ 和 VC bound ：
+- $E_{aug}$ 中称为 regularizer 的 $\mathbf{w}^{T}\mathbf{w}$ 项，含义是一个假设的复杂度，其值越大，代表假设的维数越高，假设越复杂；不妨记作 $\Omega(\mathbf{w})$ ，
+- VC bound 中 $\Omega(\mathcal{H})$ 项是对一个假设集的复杂度的评估；
+- 因此如果 $\frac{\lambda}{N}\Omega(\mathbf{w})$ 能够对 $\Omega(\mathcal{H})$ 做出合理的代表，那么就可以**认为 $E_{aug}$ 可以在一定程度上代表 $E_{out}$，并且比 $E_{in}$ 更加精确**。
+
+因此从 VC dimension 的角度来仔细查看 $E_{aug}$ 的计算公式：
+$$
+\underset{\mathbf{w}\in\mathbb{R}^{\tilde{d}+1}}{\min}E_{aug}(\mathbf{w})=E_{in}(\mathbf{w})+ \frac{\lambda}{N}\Omega(\mathbf{w})
+$$
+- 这个模型中复杂度为 $d_{VC}(\mathcal{H})=\tilde{d}+1$ ，这是因为在最小化的过程中要考虑到所有样本 $\mathbf{w}$ ，
+- 但是由于限制 $\mathcal{H}(C)$ 的存在，并不是所有 $\mathbf{w}$ 都会用到，因此我们称在限制存在的条件下的 VC dimension 为 effective VC dimension：$d_{EFF}(\mathcal{H},\underbrace{\mathcal{A}}_{\min E_{aug}})$ ，
+- 这**意味着尽管 $d_{VC}(\mathcal{H})$ 可能很大，但对学习算法 $\mathcal{A}$ 进行正则化后，有效 VC dimension 可能非常小**。
+
+### 练习：理解有效 VC dimension
+
+![[E0-Regularization-quiz-dEFF.png]]
 
 ## General Regularizers
+
+为了推广正则化，我们需要尝试提出应对不同场景的正则化方式：
+1. **target-dependent**：在预先知道目标函数或其部分特征时，我们可以利用这些特征进行正则化：比如如果我们预知目标函数是一个偶函数，那么就可以使奇次项的权重全都变小；
+2. **plausible**：在希望目标函数平滑、简单时，可以使用 sparsity (L1) regularizer
+3. **friendly**：在希望目标函数容易优化时，可以使用 weight-decay (L2) regularizer
+4. 除此之外，如果我们不能确定正则化后的结果是否变得更好，那还有 $\lambda$ 把关，只要其为 0 ，就相当于没有进行正则化。
+
+因此，更加一般的，$\text{augmented error}=\text{error }\widehat{\text{err}}+\text{regularizer }\Omega$ 。
+
+### L1&L2 Regularizer
+
+L2 Regularizer 是我们之前谈到的通过拉格朗日乘数法**可以很快实现找到最优 $\mathbf{w}_{REG}$ 的正则化方式**：
+- ![[E0-Regularization-L2-regularizer.png]]
+- 其中对 $\mathbf{w}$ 来说，在任何地方都是凸的、可微的；
+
+而 L1 Regularizer 是 one-norm 的，具体形式是绝对值函数：
+- ![[E0-Regularization-L1-regularizer.png]]
+- 这时对 $\mathbf{w}$ 来说虽然是凸的，但在某些地方不再可微，虽然解起来麻烦一些，不过原理还是拉格朗日乘数法，只要 $-\nabla E_{in}$ 不与当前点的法方向平行，那就可以继续下降；
+- 总之，L1 Regularizer 的解通常位于顶点上，此处 $\mathbf{w}$ 的部分维将会是 0 ，因此可以成为稀疏的（sparse），因此 L1 Regularizer 通常认为是计算起来简单的。
+
+>[!note] 什么是 one-norm ？
+>- [Norm (mathematics) - Wikipedia](https://en.wikipedia.org/wiki/Norm_(mathematics)?useskin=vector#p-norm)
+
+### Noise and $\lambda$
+
+噪音的存在会使得正则化的过程中不再平滑、可微，那么具体的影响是什么呢？
+- ![[E0-Regularization-noise-lambda.png]]
+- 上图表明，噪音强度越大，就越需要正则化，就像在越颠簸的路段上行车越需要不停地点踩刹车；
+- 但是噪音强度我们事先无法确定，因此选择合适的正则化方式尤为重要，这就涉及到下一章的内容——验证。
+
+### 练习：选择最合适的正则化方式
+
+![[E0-Regularization-quiz-choose-regularizer.png]]
+- 这里的正则化方式 $\Omega(\mathbf{w})$ 使用了 Legendre polynomial 多项式，在高维时惩罚较大，因此适合使用于低维的假设集；
