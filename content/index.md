@@ -62,8 +62,8 @@ tags:
 #### 机器学习
 
 - [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程：
-	- [[00-ML-foundation-Intro|机器学习基础]]
-	- 机器学习技术
+	- [[ML-foundations-Intro|机器学习基础]]
+	- [[ML-techniques-Intro|机器学习技术]]
 
 #### 深度学习
 

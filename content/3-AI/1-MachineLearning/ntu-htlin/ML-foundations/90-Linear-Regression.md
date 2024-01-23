@@ -4,6 +4,7 @@ tags:
   - 机器学习
   - 林轩田
   - ML
+date: 2024-01-13
 ---
 ## Linear Regression Problem
 
@@ -14,8 +15,7 @@ tags:
 ### Illustration of Linear Regression
 
 用图形直观地表示线性回归：
-
-![[90-Linear-Regression-illustration-linear-regression.png]]
+- ![[90-Linear-Regression-illustration-linear-regression.png]]
 - 在一维特征向量（忽略 $w_0$，它没有实际意义）的问题里，得到的假设 $h(\mathbf{x})$ 是一个直线，二维向量则是平面，更高维的向量我们称为超平面（hyperplane）；
 - 样本点 $(\mathbf{x},y)$ 的实际观察值 *y* 与假设 $h(\mathbf{x})$ 算出的估计值之差，称为**残差**（residual），线性回归的目标就是==找到能够满足残差和最小==的假设；
 
@@ -23,7 +23,7 @@ tags:
 
 线性回归问题中的错误估计通常使用平方法：$\text{err}(\hat{y},y)=(\hat{y}-y)^{2}$ 
 - $E_{in}(\mathbf{w})=\frac{1}{N}\sum\limits_{n=1}^{N}(h(\mathbf{x}_{n})-y_{n})^{2}$
-- $E_{out}(\mathbf{w})=\underset{(\mathbf{x},y)\sim P}{\epsilon}(\mathbf{w}^{T}\mathbf{x}-y)^{2}$ 
+- $E_{out}(\mathbf{w})=\underset{(\mathbf{x},y)\sim P}{\mathbb{E}}(\mathbf{w}^{T}\mathbf{x}-y)^{2}$ 
 
 ## Linear Regression Algorithm
 
@@ -31,14 +31,15 @@ tags:
 
 我们可以将线性回归问题中的 $E_{in}(\mathbf{w})$ 写成矩阵形式：
 - ![[90-Linear-Regression-matrix-Ein.png]]
-- $E_{in}(\mathbf{w})$ 是**连续的**、**可微的**、**凸的**关于 $\mathbf{w}$ 的函数，函数图形大致如下：![[90-Linear-Regression-Ein-illustration.png]] 因此要找到最佳的 $\mathbf{w}_{LIN}$ 使得 $E_{in}(\mathbf{w})$ 取到最小，即找到**极小值点**：$\nabla E_{in}(\mathbf{w})\equiv\begin{bmatrix} \frac{\partial E_{in}}{\partial w_{0}}(\mathbf{w}) \\ \frac{\partial E_{in}}{\partial w_{1}}(\mathbf{w}) \\ ...\\ \frac{\partial E_{in}}{\partial w_{d}}(\mathbf{w})\end{bmatrix}=\begin{bmatrix} 0 \\ 0 \\ ... \\ 0 \end{bmatrix}$ 
-- 要找到函数的极小值点，即取梯度，
-	- 我们先将其展开：$E_{in}(\mathbf{w})=\frac{1}{N}||\rm X\mathbf{w}-\mathbf{y}||^{2}=\frac{1}{N}\left(\mathbf{w}^{T}\rm X^{T}\rm X\mathbf{w}-2\mathbf{w}^{T}\rm X^{T}\mathbf{y}+\mathbf{y}^{T}\mathbf{y}\right)=\frac{1}{N}\left(\mathbf{w}^{T}\rm A\mathbf{w}-2\mathbf{w}^{T}\mathbf{b}+\rm c\right)$，计算这个向量函数的梯度比较麻烦，我们直接看以下推导：![[90-Linear-Regression-vector-gradient.png]]
-	- 然后找到 $\mathbf{w}_{LIN}$ 满足 $\frac{2}{N}(\rm X^{T}\rm X\mathbf{w}-\rm X^{T}\mathbf{y})=\nabla E_{in}(\mathbf{w})=0$ ，
-		- 如果 $\rm X^{T}\rm X$ 可逆，那么这个解是唯一的：$\mathbf{w}_{LIN}=(\rm X^{T}\rm X)^{-1}\rm X^{T}\mathbf{y}$ 
-			- 这种情况比较常见，因为 $N\gg d+1$ ；
-		- 如果 $\rm X^{T}\rm X$ 不可逆，那么运算平台（如 Matlab 或 Python 中使用的机器学习框架等）会给出一系列最优的近似解，记作 $\mathbf{w}_{LIN}=\rm X^{\dagger}\mathbf{y}=$ ，其中 $\rm X^{\dagger}=(\rm X^{T}\rm X)^{-1}\rm X^{T}$ 称为 [pseudo-inverse](https://inst.eecs.berkeley.edu/~ee127/sp21/livebook/def_pseudo_inv.html)（伪逆矩阵），
-			- 这种情况虽然比较少见，但若是**统一使用实现良好的 $\rm X^{\dagger}$ 代替，则可以在绝大多数情况下保证计算的稳定** ；
+$E_{in}(\mathbf{w})$ 是**连续的**、**可微的**、**凸的**关于 $\mathbf{w}$ 的函数，函数图形大致如下：
+- ![[90-Linear-Regression-Ein-illustration.png]] 
+因此要找到最佳的 $\mathbf{w}_{LIN}$ 使得 $E_{in}(\mathbf{w})$ 取到最小，即找到**极小值点**：$\nabla E_{in}(\mathbf{w})\equiv\begin{bmatrix} \frac{\partial E_{in}}{\partial w_{0}}(\mathbf{w}) \\ \frac{\partial E_{in}}{\partial w_{1}}(\mathbf{w}) \\ ...\\ \frac{\partial E_{in}}{\partial w_{d}}(\mathbf{w})\end{bmatrix}=\begin{bmatrix} 0 \\ 0 \\ ... \\ 0 \end{bmatrix}$ ，要找到函数的极小值点，即**取梯度**，我们先将其展开：
+- $E_{in}(\mathbf{w})=\frac{1}{N}||\rm X\mathbf{w}-\mathbf{y}||^{2}=\frac{1}{N}\left(\mathbf{w}^{T}\rm X^{T}\rm X\mathbf{w}-2\mathbf{w}^{T}\rm X^{T}\mathbf{y}+\mathbf{y}^{T}\mathbf{y}\right)=\frac{1}{N}\left(\mathbf{w}^{T}\rm A\mathbf{w}-2\mathbf{w}^{T}\mathbf{b}+\rm c\right)$，计算这个向量函数的梯度比较麻烦，我们直接看以下推导：![[90-Linear-Regression-vector-gradient.png]]
+- 然后找到 $\mathbf{w}_{LIN}$ 满足 $\frac{2}{N}(\rm X^{T}\rm X\mathbf{w}-\rm X^{T}\mathbf{y})=\nabla E_{in}(\mathbf{w})=0$ ，
+	- 如果 $\rm X^{T}\rm X$ 可逆，那么这个解是唯一的：$\mathbf{w}_{LIN}=(\rm X^{T}\rm X)^{-1}\rm X^{T}\mathbf{y}$ 
+		- 这种情况比较常见，因为 $N\gg d+1$ ；
+	- 如果 $\rm X^{T}\rm X$ 不可逆，那么运算平台（如 Matlab 或 Python 中使用的机器学习框架等）会给出一系列最优的近似解，记作 $\mathbf{w}_{LIN}=\rm X^{\dagger}\mathbf{y}$ ，其中 $\rm X^{\dagger}=(\rm X^{T}\rm X)^{-1}\rm X^{T}$ 称为 [pseudo-inverse](https://inst.eecs.berkeley.edu/~ee127/sp21/livebook/def_pseudo_inv.html)（伪逆矩阵），
+		- 这种情况虽然比较少见，但若是**统一使用实现良好的 $\rm X^{\dagger}$ 代替，则可以在绝大多数情况下保证计算的稳定** ；
 
 ### Linear Regression Flow
 
@@ -66,7 +67,7 @@ $$
 
 ，这里我们将 $\rm X\rm X^{\dagger}$ 称为 [Hat Matrix](https://en.wikipedia.org/wiki/Projection_matrix?useskin=vector)，记作 $\rm H$ ，它的作用是将 $\mathbf{y}$ 变为 $\hat{\mathbf{y}}$ 。（这里 $\rm I$ 矩阵其实就是单位矩阵，不过国内教科书里通常记作 $\rm E$ ，但在国外教科书里都记作 $\rm I$ ，因为 identity 这个名称的含义就是“单位”）
 
-从==几何视角==来看 Hat Matrix ，对于 *N* 维空间 $\mathbb{R}^{N}$，样本的实际值向量 $\mathbf{y}$ 是这个空间中的一个 *N* 维向量， 
+从==几何视角==来看 Hat Matrix ，对于 *N* 维空间 $\mathbb{R}^{N}$ ，样本的实际值向量 $\mathbf{y}$ 是这个空间中的一个 *N* 维向量， 
 -  ![[90-Linear-Regression-geometric-hat-matrix.png]]
 - **预测向量**的计算为 $\hat{\mathbf{y}}=\mathrm{X}\mathbf{w}_{LIN}$ ，在线性回归算法运行之前，$\mathbf{w}_{LIN}$ 可能是任何一个值，而 $\rm X\mathbf{w}$ 的意义是对输入矩阵 $\rm X$ 的所有列分别乘一个特定权值，从而得到由 $\rm X$ 的列向量组成的一种线性组合，因此 $\hat{\mathbf{y}}$ 必然属于 $\rm X$ 的列向量空间；（这在线性代数中称为 span of $\rm X$ columns ）
 - 线性回归的目标是使得 $\mathbf{y}-\hat{\mathbf{y}}$ 尽可能小，即**使得 $\hat{\mathbf{y}}$ 是空间中向量 $\mathbf{y}$ 在输入样本这一局部 $\rm X$ 上的投影** ；
@@ -93,19 +94,27 @@ $$
 
 回顾一下线性分类和线性回归两种模型的特点：
 - ![[90-Linear-Regression-vs-Linear-Classification.png]]
-- 它们看起来既有区别，又有联系。其中一个重要的区别是，线性回归的计算效率很高，而线性分类是 NP-hard 的复杂度，那么能否使用线性回归来运用到线性分类中呢？
-	- 将线性分类的输出也看做线性回归输出的实数集的一部分：$\{+1,-1\}\subset \mathbb{R}$ 
-	- 在二元分类数据集 $\mathcal{D}$ 上运行线性回归算法
-	- 返回 $g(\mathbf{x})=\text{sign}(\mathbf{w}_{LIN}^{T}\mathbf{x})$ 
+
+它们看起来既有区别，又有联系。其中一个重要的区别是，线性回归的计算效率很高，而线性分类是 NP-hard 的复杂度，那么能否使用线性回归来运用到线性分类中呢？思路如下：
+- 将线性分类的输出也看做线性回归输出的实数集的一部分：$\{+1,-1\}\subset \mathbb{R}$ 
+- 在二元分类数据集 $\mathcal{D}$ 上运行线性回归算法
+- 返回 $g(\mathbf{x})=\text{sign}(\mathbf{w}_{LIN}^{T}\mathbf{x})$ 
 
 ### Heuristic 
 
 试着分析这种**启发式**（heuristic）学习的可行性：
 - 二元分类的错误评估是 $\text{err}_{0/1}=\left[\text{sign}(\mathbf{w}^{T}\mathbf{x})\ne y\right]$ ，线性回归的错误评估是 $\text{err}_{sqr}=(\mathbf{w}^{T}\mathbf{x}-y)^{2}$ ，他们的函数图像是：![[90-Linear-Regression-vs-classificaiton-err.png]] 
-- 可以看出，$\text{err}_{0 / 1} \le \text{err}_{sqr}$ ，那么我们联系之前 VC Dimension 的内容，其中对分类问题的错误概率作出估计是：$\text{classification }E_{out}(\mathbf{w})\overset{VC}{\le}\text{classification }E_{in}(\mathbf{w})+\sqrt{\frac{8}{N}\ln( \frac{4(2N)^{d_{VC}}}{\delta})}$ ，如果进一步放宽 upper bound，以 $\text{err}_{sqr}$ 代之，则得到 $\text{classification }E_{out}(\mathbf{w})\overset{VC}{\le}\text{regression }E_{in}(\mathbf{w})+\sqrt{\frac{8}{N}\ln( \frac{4(2N)^{d_{VC}}}{\delta})}$ 
-- 此时，我们**能够通过线性回归算法以较高的效率获得一个较宽的上界，因此若将 $\mathbf{w}_{LIN}$ 作为基准，即二元分类中的 $\mathbf{w}_{0}$，然从从此迭代，就可以有效地降低 PLA/Pokcet 算法的执行时间** ；
+可以看出，$\text{err}_{0 / 1} \le \text{err}_{sqr}$ ，那么我们联系之前 VC Dimension 的内容，其中对分类问题的错误概率作出估计是：
+$$
+\text{classification }E_{out}(\mathbf{w})\overset{VC}{\le}\text{classification }E_{in}(\mathbf{w})+\sqrt{\frac{8}{N}\ln( \frac{4(2N)^{d_{VC}}}{\delta})}
+$$ 
+，如果进一步放宽 upper bound，以 $\text{err}_{sqr}$ 代之，则得到 
+$$
+\text{classification }E_{out}(\mathbf{w})\overset{VC}{\le}\text{regression }E_{in}(\mathbf{w})+\sqrt{\frac{8}{N}\ln( \frac{4(2N)^{d_{VC}}}{\delta})}
+$$ 
+，此时，我们**能够通过线性回归算法以较高的效率获得一个较宽的上界，因此若将 $\mathbf{w}_{LIN}$ 作为基准，即二元分类中的 $\mathbf{w}_{0}$ ，然后从此迭代，就可以有效地降低 PLA/Pokcet 算法的执行时间**。
 
 ### 练习：二元分类问题的错误上界
 
 ![[90-Linear-Regression-quiz-upper-bound.png]]
-- ![[90-Linear-Regression-quiz-plot.png]]
+- 下面是 $y=1$ 时的图形： ![[90-Linear-Regression-quiz-plot.png]]

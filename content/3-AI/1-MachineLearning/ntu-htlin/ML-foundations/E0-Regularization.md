@@ -16,10 +16,10 @@ date: 2024-01-18
 
 现在来看看具体如何限制：
 - 对于 Regression 算法，在两个不同假设空间的假设与错误评估函数可以如下设置：![[E0-Regularization-regression-with-constraint.png]]
-- 既如此，我们不妨直接使用 $\mathcal{H}_{2}$ 中的假设，并且可以进一步放宽限制，不是必须 $w_{3}=w_{4}=...=w_{10}$ 这八个权重为 0 ，而是 $w_0,w_1,...,w_{10}$ 中任意八个权重为 0 ：![[E0-Regularization-looser-constraint.png]] 这样的好处是 $\mathcal{H}_{2}^{\prime}$ 不仅比 $\mathcal{H}_{2}$ 更加灵活，但相对 $\mathcal{H}_{10}$ 发生 overfit 的风险又更低；不过坏消息是要从 $\mathcal{H}_{2}^{\prime}$ 中挑选出最佳的假设，时间复杂度是 NP-hard 的；
-- 进一步思考，$\mathcal{H}_{2}^{\prime}$ 的权重向量是稀疏的（sparse），因此不妨考虑权重向量的欧氏距离，如果其欧氏距离小于一个常数，就认定其满足了对高维假设集的限制：![[E0-Regularization-constant-constraint.png]] 
+- 既如此，我们不妨直接使用 $\mathcal{H}_{2}$ 中的假设，并且可以进一步放宽限制，**不是必须 $w_{3}=w_{4}=...=w_{10}$ 这八个权重为 0 ，而是 $w_0,w_1,...,w_{10}$ 中任意八个权重为 0** ：![[E0-Regularization-looser-constraint.png]] 这样的好处是 $\mathcal{H}_{2}^{\prime}$ 不仅比 $\mathcal{H}_{2}$ 更加灵活，但相对 $\mathcal{H}_{10}$ 发生 overfit 的风险又更低；不过坏消息是要从 $\mathcal{H}_{2}^{\prime}$ 中挑选出最佳的假设，时间复杂度是 NP-hard 的；
+- 进一步思考，$\mathcal{H}_{2}^{\prime}$ 的权重向量是稀疏的（sparse），因此不妨考虑权重向量的欧氏距离，**如果其欧氏距离小于一个常数，就认定其满足了对高维假设集的限制**：![[E0-Regularization-constant-constraint.png]] 
 	- 考查 $\mathcal{H}(C)$，它其实与 $\mathcal{H}_{2}^{\prime}$ 有一定重叠，但又不完全相同，
-	- 并且随着 *C* 的增大，有这样的关系：$\mathcal{H}(0)\subset\mathcal{H}(1.126)\subset...\subset\mathcal{H}(1126)\subset...\subset\mathcal{H}(\infty)=\mathcal{H}_{10}$ ，在假设集 $\mathcal{H}(C)$ 中最佳的假设称为正则化的假设 $\mathbf{w}_{REG}$ ，其选取的复杂度为 $\mathcal{O}(N)$ ；
+	- 并且随着 *C* 的增大，有这样的关系：$\mathcal{H}(0)\subset\mathcal{H}(1.126)\subset...\subset\mathcal{H}(1126)\subset...\subset\mathcal{H}(\infty)=\mathcal{H}_{10}$ ，在假设集 $\mathcal{H}(C)$ 中最佳的假设称为正则化的假设 $\mathbf{w}_{REG}$ ，其选取的复杂度为 $\mathcal{O}(N)$；
 
 >[!note] Name history of Regularization
 >正则化（Regularization）在机器学习中的命名来源与其在数学和统计学中的应用有关。在更广泛的背景下，正则化是解决病态问题（ill-posed problems）或防止过拟合（overfitting）的一种方法。这个概念在数学、统计学、计算机科学等多个领域都有应用，尤其在机器学习中扮演着重要角色。
@@ -70,10 +70,10 @@ $$
 
 从上面的论证也可以看出，$\lambda$ 的作用与限制 $C$ 是一致的，因此我们可以直接探讨 $\lambda$ 大小的影响。那么 $\lambda$ 对拟合程度的影响究竟是什么呢？
 - ![[E0-Regularization-lambda-effect.png]]
-- $λ=0$ 相当于没有做任何约束，即没有任何正则化的要求；而随着 $\lambda$ 的增大，约束逐渐增强，越大的 $\lambda$ 等同于越短的 $\mathbf{w}$，也就是越小的 $C$ ；
+- $λ=0$ 相当于没有做任何约束，即没有任何正则化的要求；而随着 $\lambda$ 的增大，约束逐渐增强，越大的 $\lambda$ 等同于越短的 $\mathbf{w}$ ，也就是越小的 $C$ ；
 - 不过当 $\lambda$ 过大时，也会导致得到的假设与目标函数偏离变大，也就是 underfitting ；
 - 这就是正则化的哲学：a little regularization goes a long way!
-- 我们称 $E_{aug}$ 中 $\frac{\lambda}{N}\mathbf{w}^{T}\mathbf{w}$ 这一项为 weight-decay regularization ；
+- 我们称 $E_{aug}$ 中 $\frac{\lambda}{N}\mathbf{w}^{T}\mathbf{w}$ 这一项为 ***weight-decay regularization*** ；
 
 ### Legendre Polynomials
 
@@ -115,7 +115,7 @@ $$
 \underset{\mathbf{w}\in\mathbb{R}^{\tilde{d}+1}}{\min}E_{aug}(\mathbf{w})=E_{in}(\mathbf{w})+ \frac{\lambda}{N}\Omega(\mathbf{w})
 $$
 - 这个模型中复杂度为 $d_{VC}(\mathcal{H})=\tilde{d}+1$ ，这是因为在最小化的过程中要考虑到所有样本 $\mathbf{w}$ ，
-- 但是由于限制 $\mathcal{H}(C)$ 的存在，并不是所有 $\mathbf{w}$ 都会用到，因此我们称在限制存在的条件下的 VC dimension 为 effective VC dimension：$d_{EFF}(\mathcal{H},\underbrace{\mathcal{A}}_{\min E_{aug}})$ ，
+- 但是由于限制 $\mathcal{H}(C)$ 的存在，并不是所有 $\mathbf{w}$ 都会用到，因此我们称在限制存在的条件下的 VC dimension 为 ***effective VC dimension*** ：$d_{EFF}(\mathcal{H},\underbrace{\mathcal{A}}_{\min E_{aug}})$ ，
 - 这**意味着尽管 $d_{VC}(\mathcal{H})$ 可能很大，但对学习算法 $\mathcal{A}$ 进行正则化后，有效 VC dimension 可能非常小**。
 
 ### 练习：理解有效 VC dimension
@@ -150,7 +150,7 @@ L2 Regularizer 是我们之前谈到的通过拉格朗日乘数法**可以很快
 
 噪音的存在会使得正则化的过程中不再平滑、可微，那么具体的影响是什么呢？
 - ![[E0-Regularization-noise-lambda.png]]
-- 上图表明，噪音强度越大，就越需要正则化，就像在越颠簸的路段上行车越需要不停地点踩刹车；
+- 上图表明，**噪音强度越大，就越需要正则化**，就像在越颠簸的路段上行车越需要不停地点踩刹车；
 - 但是噪音强度我们事先无法确定，因此选择合适的正则化方式尤为重要，这就涉及到下一章的内容——验证。
 
 ### 练习：选择最合适的正则化方式

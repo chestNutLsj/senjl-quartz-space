@@ -4,21 +4,23 @@ tags:
   - 机器学习
   - 林轩田
   - ML
+date: 2023-12-30
 ---
-![[00-ML-foundation-Intro-logo.png]]
+
+![course-logo](./assets/00-ML-foundation-Intro-logo.png)
+
 <center>课程 Logo（学到第 13 节时会揭秘它的由来）</center>
 
 ## Prerequisites
 
 - 数据结构
-- Python
 - 线性代数
 - 概率论与数理统计
-- 高等数学（微积分、泰勒展开、拉格朗日乘数法）
+- 高等数学（微积分、泰勒展开、解析几何、拉格朗日乘数法）
 
 ## Rules
 
-专注基础原理，做运用机器学习技术的人，而非被眼花缭乱的机器学习技术所束缚。
+学习基础原理，做驾驭机器学习技术的人，而非被眼花缭乱的机器学习技术所束缚。
 
 ## Roadmap
 
@@ -47,4 +49,5 @@ tags:
 
 1. [[D0-Hazard-of-Overfitting|Hazard of Overfitting]]: overfitting happens with **excessive power**, **stochastic/deterministic noise**, and **limited data**;
 2. [[E0-Regularization|Regularization]]: minimizes **augmented error**, where the added **regularizer** effectively **limits model complexity**;
-3. [[F0-Validation|Validation]]:
+3. [[F0-Validation|Validation]]: (**crossly**) reserve **validation data** to simulate testing procedure for **model selection**;
+4. [[G0-Three-Learning-Principles|Three Learning Principles]]: **Occam's Razor**, **Sampling Bias** and **Data Snooping**.
