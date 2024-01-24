@@ -73,4 +73,37 @@ $$
 
 ## Support Vector Machine
 
+为了解这个标准问题，我们考虑一种简单情形：现有四个样本点，分别特征向量和标签为：
+$$
+\rm X=\begin{bmatrix}0\ 0\\2\ 2\\2\ 0\\3\ 0\end{bmatrix},\mathbf{y}=\begin{bmatrix}-1\\-1\\+1\\+1 \end{bmatrix}
+$$ 
+，因此待定系数求解分类器的方程组为：
+$$
+\begin{cases}-b\ge 1,\\-2w_{1}-2w_{2}-b\ge 1,\\2w_{1}+b\ge 1,\\3w_{1}+b\ge 1\end{cases}
+$$
+，最终可以解得 $w_{1}\ge +1,w_{2}\le -1$ ，这样就有 $\mathbf{w}^{T}\mathbf{w}\ge 2$ ，上文我们在这个权重向量的内积前多乘了一个 $\frac{1}{2}$ ，这样就得到 $\frac{1}{2}\mathbf{w}^{T}\mathbf{w}\ge 1$ 。
+
+因此要使得 $\frac{1}{2}\mathbf{w}^{T}\mathbf{w}$ 最小，即等于 1 ，此时可以设 $w_{1}=1,w_{2}=-1,b=-1$ ，即分类器的数学表达形式为 $g_{\text{SVM}}(\mathbf{x})=\text{sign}(x_{1}-x_{2}-1)$ 。等等，哪里蹦出一个 SVM ？
+- 在这个特殊情形中，四个样本点中有三个处于边界上，它们到分类器的距离为 $\frac{1}{||\mathbf{w}||}=\frac{1}{\sqrt{2}}$ ：![[10-Linear-Support-Vector-Machine-SVM.png]]
+- 在这类问题中只有处于边界上的点才有考虑的价值，因此 ML 中称为 ***support vector*** （虽然这里其实是候选 candidate ，但这个会在后续课程解释，这里只需要了解）
+- 因此所谓 ***support vector machine*** ，就是可以从 largest-margin hyperplanes 中学习的模型；
+
+### General SVM: QP problem
+
+不过从这个特殊情形向一般化推广比较麻烦，我们可以先从问题的特征入手：
+$$
+\underset{b,\mathbf{w}}{\min} \frac{1}{2}\mathbf{w}^{T}\mathbf{w}\text{ s.t. }y_{n}(\mathbf{w}^{T}\mathbf{x}_{n}+b)\ge 1,\text{for all }n\ 
+$$
+这里 SVM 的数学形式是一个二次函数，参数为 $(b,\mathbf{w})$ ，其受线性条件约束，条件的参数也是 $(b,\mathbf{w})$ ，这类问题称为 [Quadratic Programming](https://en.wikipedia.org/wiki/Quadratic_programming?useskin=vector) 问题，已有前人做了详尽的实现，我们现在只需要套用：
+- 左边是我们现在的问题，右边是常规 QP 问题的形式，因此只要找到我们问题中什么对应 QP 问题的 $Q,p,A,c$ 四个参数，然后代入 QP solver 中运算即可： ![[10-Linear-Support-Vector-Machine-QP.png]]
+- QP 问题的解决方案在各类 ML 平台/框架上都有实现，比如：
+	- [LIBSVM -- A Library for Support Vector Machines](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)
+	- [GitHub - qpsolvers/qpsolvers: Quadratic programming solvers in Python with a unified API](https://github.com/qpsolvers/qpsolvers)
+
+另外我们需要知道这里谈论的 SVM 实际上是一种 hard-margin 、linear 的模型，即边界是硬性规定的、样本空间是线性的。若要得到非线性的 SVM？那就使用特征转换吧！
+
+### 练习：找到 QP solver 的参数
+
+![[10-Linear-Support-Vector-Machine-quiz-QP-solver.png]]
+
 ## Reasons behind Large-Margin Hyperplane
