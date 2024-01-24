@@ -6,8 +6,7 @@ tags:
   - ML
 date: 2023-12-30
 ---
-
-![course-logo](./assets/00-ML-foundation-Intro-logo.png)
+![[00-ML-foundation-Intro-logo.png]]
 
 <center>课程 Logo（学到第 13 节时会揭秘它的由来）</center>
 
