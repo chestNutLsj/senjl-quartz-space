@@ -74,7 +74,7 @@ date: 2024-01-18
 
 > 我们继续仔细考虑**噪音**和**数据集规模**对过拟合现象的影响：
 
-首先对于噪音，可以表示成每个样本的 label 与目标函数的一点小的偏差：$y=f(\mathbf{x})+\epsilon$ ，这里噪音 $\epsilon$ 服从正态分布：$\epsilon\sim N\left(\underbrace{\sum\limits_{q=0}^{Q_{f}}\alpha_{q}\mathbf{x^{q}}}_{f(\mathbf{x})},\sigma^{2}\right)$ ，
+首先对于噪音，可以表示成每个样本的 label 与目标函数的一点小的偏差：$y=f(\mathbf{x})+\epsilon$ ，这里噪音 $\epsilon$ 服从正态分布：$\epsilon\sim N\left(\underbrace{\sum\limits_{q=0}^{Q_{f}}\alpha_{q}\mathbf{x}^{q}}_{f(\mathbf{x})},\sigma^{2}\right)$ ， ^7cb896
 - 这里 $Q_{f}$ 表示目标函数是 *Q* 次方的一个**均匀分布**（为何要均匀分布？因为五十维空间里的目标函数不一定就是五十阶的多项式，完全可以是一个三十二阶多项式甚至零阶多项式）
 - $\sigma^{2}$ 表示噪音的离散程度，即**噪音对数据集影响的强度**；
 

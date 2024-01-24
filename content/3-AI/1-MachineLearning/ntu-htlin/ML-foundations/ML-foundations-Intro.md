@@ -50,3 +50,9 @@ date: 2023-12-30
 2. [[E0-Regularization|Regularization]]: minimizes **augmented error**, where the added **regularizer** effectively **limits model complexity**;
 3. [[F0-Validation|Validation]]: (**crossly**) reserve **validation data** to simulate testing procedure for **model selection**;
 4. [[G0-Three-Learning-Principles|Three Learning Principles]]: **Occam's Razor**, **Sampling Bias** and **Data Snooping**.
+
+## Postscript
+
+如果在阅读笔记时，看到一些问题、或与我有不同的观点和思考，欢迎来信交流： 1821552335@qq.com
+
+另外，关于《机器学习技法》系列的笔记，正在更新中：[[ML-techniques-Intro]]
