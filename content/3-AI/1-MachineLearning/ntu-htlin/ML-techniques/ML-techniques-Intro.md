@@ -26,7 +26,8 @@ tags:
 
 > How to **exploit** and **regularize** numerous features?
 
-1. [[10-Linear-Support-Vector-Machine|Linear Support Vector Machine]]:
+1. [[10-Linear-Support-Vector-Machine|Linear Support Vector Machine]]: linear SVM: more robust and solvable with quadratic programming;
+2. [[20-Dual-Support-Vector-Machine|Dual Support Vector Machine]]:
 
 ### Combining Predictive Features: Aggregation Models
 
