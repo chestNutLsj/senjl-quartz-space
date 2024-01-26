@@ -40,7 +40,7 @@ tags:
 
 #### 操作系统
 
-- 《精髓与设计原理》读书笔记 ；
+- 《精髓与设计原理》读书笔记：[[Internal&Design-Principle-Notes]] ；
 - 《rCore Tutorial Book v3》；
 
 #### 计算机组成原理
