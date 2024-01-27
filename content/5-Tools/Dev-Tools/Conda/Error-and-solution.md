@@ -112,3 +112,6 @@ custom_channels:
   atztogo: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud/atztogo
 ```
 
+## 在 vscode 中配置正确的 conda executable 路径
+
+![[报错及解决办法-conda-path.png]]
