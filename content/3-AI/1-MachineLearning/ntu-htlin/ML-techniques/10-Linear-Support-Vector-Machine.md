@@ -113,6 +113,8 @@ $$
 
 ## Reasons behind Large-Margin Hyperplane
 
+### Constraint and Minimize Target
+
 联系之前学习的 [[E0-Regularization#Steps of Constraint|正则化]] 和现在的 SVM ，我们从它们命题中的**限制**与**最小化的目标**考量，可以做如下对比：
 - ![[10-Linear-Support-Vector-Machine-regularization-vs-SVM.png]]
 - 可以看出，SVM 与正则化的限制条件和最小化目标正好相反，也许可以认为 SVM 是限制 $E_{in}=0$ 的特殊的正则化。
