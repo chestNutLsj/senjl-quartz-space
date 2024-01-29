@@ -28,7 +28,8 @@ tags:
 
 1. [[10-Linear-Support-Vector-Machine|Linear Support Vector Machine]]: **linear** SVM: more **robust** and solvable with **quadratic programming**;
 2. [[20-Dual-Support-Vector-Machine|Dual Support Vector Machine]]: **dual** SVM: another QP with **valuable geometric messages** and *almost* **no dependence on** $\tilde{d}$ ;
-3. [[30-Kernel-Support-Vector-Machine|Kernel Support Vector Machine]]:
+3. [[30-Kernel-Support-Vector-Machine|Kernel Support Vector Machine]]: **kernel** as a shortcut to (transform + inner product) to **remove dependence on** $\tilde{d}$ : allowing a spectrum of simple (**linear**) models to infinite dimensional (**Gaussian**) ones with margin control;
+4. [[40-Soft-Margin-Support-Vector-Machine|Soft-Margin Support Vector Machine]]:
 
 ### Combining Predictive Features: Aggregation Models
 
