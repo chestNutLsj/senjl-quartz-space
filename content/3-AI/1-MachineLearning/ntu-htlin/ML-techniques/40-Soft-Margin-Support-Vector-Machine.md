@@ -37,7 +37,7 @@ $$
 我们提出对判断与 label 差距程度的考量，即 ***margin violation*** ，记作 $\xi_{n}$ ，通过对 margin violation 的惩罚代替犯错数的限制，从而转化为 linear constraints 的 QP 问题。于是 soft-margin SVM 的假设修改为：
 $$
 \begin{aligned}
-&\underset{b,\mathbf{w}}{\min} \frac{1}{2}\mathbf{w}^{T}\mathbf{w}+C\cdot\sum\limits_{n=1}^{N}\xi_{n}\\
+&\underset{b,\mathbf{w},\xi}{\min} \frac{1}{2}\mathbf{w}^{T}\mathbf{w}+C\cdot\sum\limits_{n=1}^{N}\xi_{n}\\
 &\color{red}\text{ s.t. }\color{black}y_{n}(\mathbf{w}^{T}\mathbf{x}_{n}+b)\ge 1-\xi_{n},\quad\text{and } \xi_{n}\ge0\text{ for all }n
 \end{aligned}
 $$
