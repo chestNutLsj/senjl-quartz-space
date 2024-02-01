@@ -5,6 +5,7 @@ tags:
   - 林轩田
   - ML
 date: 2024-01-31
+intensity: "10"
 ---
 ## Soft-Margin SVM as Regularized Model
 
