@@ -36,11 +36,11 @@ tags:
 
 #### 数据结构
 
-- [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/)的课程：[[Intro|数据结构C++版]]
+- [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/)的课程：[[DSACpp|数据结构C++版]] ；
 
 #### 操作系统
 
-- 《精髓与设计原理》读书笔记：[[Internal&Design-Principle-Notes]] ；
+- 《操作系统精髓与设计原理》：[[Internal&Design-Principle-Notes|读书笔记]] ；
 - 《rCore Tutorial Book v3》；
 
 #### 计算机组成原理
@@ -59,13 +59,19 @@ tags:
 
 #### 编译原理
 
+### 软件开发
+
+#### 软件工程
+
+- 清华大学软件学院刘强老师：[[Software-Construction-notes|软件工程]] ；
+
 ### 人工智能
 
 #### 机器学习
 
 - [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程：
-	- [[ML-foundations-Intro|机器学习基石]]
-	- [[ML-techniques-Intro|机器学习技法]]
+	- [[ML-foundations-Intro|机器学习基石]] ；
+	- [[ML-techniques-Intro|机器学习技法]] ；
 
 #### 深度学习
 
@@ -77,7 +83,7 @@ tags:
 
 #### Linux
 
-- [[ArchLinux使用笔记]]
+- [[ArchLinux使用笔记]] ；
 
 ## Keen to Explore the World
 
@@ -89,11 +95,11 @@ tags:
 
 ### Mao
 
-- [[论持久战]]
+- [[论持久战]] ；
 
 ### Deng
 
-- [[中国共产党中央委员会关于建国以来党的若干历史问题的决议]]
+- [[中国共产党中央委员会关于建国以来党的若干历史问题的决议]] ；
 
 ## Keep Healthy
 
