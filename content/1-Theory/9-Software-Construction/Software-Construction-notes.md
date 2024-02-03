@@ -11,4 +11,4 @@ date: 2024-02-02
 ## 笔记
 
 1. [[1-Theory/9-Software-Construction/10-Intro|认识软件工程]] ；
-2. 
+2. [[20-High-Quality-Coding|编写高质量的代码]] ；
