@@ -73,23 +73,23 @@ def viking_cafe_order(spam: str, beans: str, eggs: str | None = None) -> str:
 
 Other common forms of suppressing this warning include using ‘`_`’ as the identifier for the unused argument or prefixing the argument name with ‘`unused_`’, or assigning them to ‘`_`’. These forms are allowed but no longer encouraged. These break callers that pass arguments by name and do not enforce that the arguments are actually unused.
 
-### 2.2 Imports[](https://google.github.io/styleguide/pyguide.html#22-imports)
+### 2.2 Imports
 
 Use `import` statements for packages and modules only, not for individual types, classes, or functions.
 
-#### 2.2.1 Definition[](https://google.github.io/styleguide/pyguide.html#221-definition)
+#### 2.2.1 Definition
 
 Reusability mechanism for sharing code from one module to another.
 
-#### 2.2.2 Pros[](https://google.github.io/styleguide/pyguide.html#222-pros)
+#### 2.2.2 Pros
 
 The namespace management convention is simple. The source of each identifier is indicated in a consistent way; `x.Obj` says that object `Obj` is defined in module `x`.
 
-#### 2.2.3 Cons[](https://google.github.io/styleguide/pyguide.html#223-cons)
+#### 2.2.3 Cons
 
 Module names can still collide. Some module names are inconveniently long.
 
-#### 2.2.4 Decision[](https://google.github.io/styleguide/pyguide.html#224-decision)
+#### 2.2.4 Decision
 
 - Use `import x` for importing packages and modules.
 - Use `from x import y` where `x` is the package prefix and `y` is the module name with no prefix.
@@ -111,7 +111,7 @@ echo.EchoFilter(input, output, delay=0.7, atten=4)
 
 Do not use relative names in imports. Even if the module is in the same package, use the full package name. This helps prevent unintentionally importing a package twice.
 
-##### 2.2.4.1 Exemptions[](https://google.github.io/styleguide/pyguide.html#2241-exemptions)
+##### 2.2.4.1 Exemptions
 
 Exemptions from this rule:
 
@@ -121,19 +121,19 @@ Exemptions from this rule:
     - [`typing_extensions` module](https://github.com/python/typing_extensions/blob/main/README.md)
 - Redirects from the [six.moves module](https://six.readthedocs.io/#module-six.moves).
 
-### 2.3 Packages[](https://google.github.io/styleguide/pyguide.html#23-packages)
+### 2.3 Packages
 
 Import each module using the full pathname location of the module.
 
-#### 2.3.1 Pros[](https://google.github.io/styleguide/pyguide.html#231-pros)
+#### 2.3.1 Pros
 
 Avoids conflicts in module names or incorrect imports due to the module search path not being what the author expected. Makes it easier to find modules.
 
-#### 2.3.2 Cons[](https://google.github.io/styleguide/pyguide.html#232-cons)
+#### 2.3.2 Cons
 
 Makes it harder to deploy code because you have to replicate the package hierarchy. Not really a problem with modern deployment mechanisms.
 
-#### 2.3.3 Decision[](https://google.github.io/styleguide/pyguide.html#233-decision)
+#### 2.3.3 Decision
 
 All new code should import each module by its full package name.
 
@@ -169,23 +169,23 @@ No:
 
 The directory the main binary is located in should not be assumed to be in `sys.path` despite that happening in some environments. This being the case, code should assume that `import jodie` refers to a third-party or top-level package named `jodie`, not a local `jodie.py`.
 
-### 2.4 Exceptions[](https://google.github.io/styleguide/pyguide.html#24-exceptions)
+### 2.4 Exceptions
 
 Exceptions are allowed but must be used carefully.
 
-#### 2.4.1 Definition[](https://google.github.io/styleguide/pyguide.html#241-definition)
+#### 2.4.1 Definition
 
 Exceptions are a means of breaking out of normal control flow to handle errors or other exceptional conditions.
 
-#### 2.4.2 Pros[](https://google.github.io/styleguide/pyguide.html#242-pros)
+#### 2.4.2 Pros
 
 The control flow of normal operation code is not cluttered by error-handling code. It also allows the control flow to skip multiple frames when a certain condition occurs, e.g., returning from N nested functions in one step instead of having to plumb error codes through.
 
-#### 2.4.3 Cons[](https://google.github.io/styleguide/pyguide.html#243-cons)
+#### 2.4.3 Cons
 
 May cause the control flow to be confusing. Easy to miss error cases when making library calls.
 
-#### 2.4.4 Decision[](https://google.github.io/styleguide/pyguide.html#244-decision)
+#### 2.4.4 Decision
 
 Exceptions must follow certain conditions:
 
@@ -250,26 +250,26 @@ Exceptions must follow certain conditions:
 - Use the `finally` clause to execute code whether or not an exception is raised in the `try` block. This is often useful for cleanup, i.e., closing a file.
     
 
-### 2.5 Mutable Global State[](https://google.github.io/styleguide/pyguide.html#25-mutable-global-state)
+### 2.5 Mutable Global State
 
 Avoid mutable global state.
 
-#### 2.5.1 Definition[](https://google.github.io/styleguide/pyguide.html#251-definition)
+#### 2.5.1 Definition
 
 Module-level values or class attributes that can get mutated during program execution.
 
-#### 2.5.2 Pros[](https://google.github.io/styleguide/pyguide.html#252-pros)
+#### 2.5.2 Pros
 
 Occasionally useful.
 
-#### 2.5.3 Cons[](https://google.github.io/styleguide/pyguide.html#253-cons)
+#### 2.5.3 Cons
 
 - Breaks encapsulation: Such design can make it hard to achieve valid objectives. For example, if global state is used to manage a database connection, then connecting to two different databases at the same time (such as for computing differences during a migration) becomes difficult. Similar problems easily arise with global registries.
-    
-- Has the potential to change module behavior during the import, because assignments to global variables are done when the module is first imported.
-    
 
-#### 2.5.4 Decision[](https://google.github.io/styleguide/pyguide.html#254-decision)
+- Has the potential to change module behavior during the import, because assignments to global variables are done when the module is first imported.
+
+
+#### 2.5.4 Decision
 
 Avoid mutable global state.
 
@@ -277,43 +277,43 @@ In those rare cases where using global state is warranted, mutable global entiti
 
 Module-level constants are permitted and encouraged. For example: `_MAX_HOLY_HANDGRENADE_COUNT = 3` for an internal use constant or `SIR_LANCELOTS_FAVORITE_COLOR = "blue"` for a public API constant. Constants must be named using all caps with underscores. See [Naming](https://google.github.io/styleguide/pyguide.html#s3.16-naming) below.
 
-### 2.6 Nested/Local/Inner Classes and Functions[](https://google.github.io/styleguide/pyguide.html#26-nestedlocalinner-classes-and-functions)
+### 2.6 Nested/Local/Inner Classes and Functions
 
 Nested local functions or classes are fine when used to close over a local variable. Inner classes are fine.
 
-#### 2.6.1 Definition[](https://google.github.io/styleguide/pyguide.html#261-definition)
+#### 2.6.1 Definition
 
 A class can be defined inside of a method, function, or class. A function can be defined inside a method or function. Nested functions have read-only access to variables defined in enclosing scopes.
 
-#### 2.6.2 Pros[](https://google.github.io/styleguide/pyguide.html#262-pros)
+#### 2.6.2 Pros
 
 Allows definition of utility classes and functions that are only used inside of a very limited scope. Very [ADT](https://en.wikipedia.org/wiki/Abstract_data_type)-y. Commonly used for implementing decorators.
 
-#### 2.6.3 Cons[](https://google.github.io/styleguide/pyguide.html#263-cons)
+#### 2.6.3 Cons
 
 Nested functions and classes cannot be directly tested. Nesting can make the outer function longer and less readable.
 
-#### 2.6.4 Decision[](https://google.github.io/styleguide/pyguide.html#264-decision)
+#### 2.6.4 Decision
 
 They are fine with some caveats. Avoid nested functions or classes except when closing over a local value other than `self` or `cls`. Do not nest a function just to hide it from users of a module. Instead, prefix its name with an _ at the module level so that it can still be accessed by tests.
 
-### 2.7 Comprehensions & Generator Expressions[](https://google.github.io/styleguide/pyguide.html#27-comprehensions--generator-expressions)
+### 2.7 Comprehensions & Generator Expressions
 
 Okay to use for simple cases.
 
-#### 2.7.1 Definition[](https://google.github.io/styleguide/pyguide.html#271-definition)
+#### 2.7.1 Definition
 
 List, Dict, and Set comprehensions as well as generator expressions provide a concise and efficient way to create container types and iterators without resorting to the use of traditional loops, `map()`, `filter()`, or `lambda`.
 
-#### 2.7.2 Pros[](https://google.github.io/styleguide/pyguide.html#272-pros)
+#### 2.7.2 Pros
 
 Simple comprehensions can be clearer and simpler than other dict, list, or set creation techniques. Generator expressions can be very efficient, since they avoid the creation of a list entirely.
 
-#### 2.7.3 Cons[](https://google.github.io/styleguide/pyguide.html#273-cons)
+#### 2.7.3 Cons
 
 Complicated comprehensions or generator expressions can be hard to read.
 
-#### 2.7.4 Decision[](https://google.github.io/styleguide/pyguide.html#274-decision)
+#### 2.7.4 Decision
 
 Comprehensions are allowed, however multiple `for` clauses or filter expressions are not permitted. Optimize for readability, not conciseness.
 
@@ -364,23 +364,23 @@ No:
   )
 ```
 
-### 2.8 Default Iterators and Operators[](https://google.github.io/styleguide/pyguide.html#28-default-iterators-and-operators)
+### 2.8 Default Iterators and Operators
 
 Use default iterators and operators for types that support them, like lists, dictionaries, and files.
 
-#### 2.8.1 Definition[](https://google.github.io/styleguide/pyguide.html#281-definition)
+#### 2.8.1 Definition
 
 Container types, like dictionaries and lists, define default iterators and membership test operators (“in” and “not in”).
 
-#### 2.8.2 Pros[](https://google.github.io/styleguide/pyguide.html#282-pros)
+#### 2.8.2 Pros
 
 The default iterators and operators are simple and efficient. They express the operation directly, without extra method calls. A function that uses default operators is generic. It can be used with any type that supports the operation.
 
-#### 2.8.3 Cons[](https://google.github.io/styleguide/pyguide.html#283-cons)
+#### 2.8.3 Cons
 
 You can’t tell the type of objects by reading the method names (unless the variable has type annotations). This is also an advantage.
 
-#### 2.8.4 Decision[](https://google.github.io/styleguide/pyguide.html#284-decision)
+#### 2.8.4 Decision
 
 Use default iterators and operators for types that support them, like lists, dictionaries, and files. The built-in types define iterator methods, too. Prefer these methods to methods that return lists, except that you should not mutate a container while iterating over it.
 
@@ -396,23 +396,23 @@ No:   for key in adict.keys(): ...
       for line in afile.readlines(): ...
 ```
 
-### 2.9 Generators[](https://google.github.io/styleguide/pyguide.html#29-generators)
+### 2.9 Generators
 
 Use generators as needed.
 
-#### 2.9.1 Definition[](https://google.github.io/styleguide/pyguide.html#291-definition)
+#### 2.9.1 Definition
 
 A generator function returns an iterator that yields a value each time it executes a yield statement. After it yields a value, the runtime state of the generator function is suspended until the next value is needed.
 
-#### 2.9.2 Pros[](https://google.github.io/styleguide/pyguide.html#292-pros)
+#### 2.9.2 Pros
 
 Simpler code, because the state of local variables and control flow are preserved for each call. A generator uses less memory than a function that creates an entire list of values at once.
 
-#### 2.9.3 Cons[](https://google.github.io/styleguide/pyguide.html#293-cons)
+#### 2.9.3 Cons
 
 Local variables in the generator will not be garbage collected until the generator is either consumed to exhaustion or itself garbage collected.
 
-#### 2.9.4 Decision[](https://google.github.io/styleguide/pyguide.html#294-decision)
+#### 2.9.4 Decision
 
 Fine. Use “Yields:” rather than “Returns:” in the docstring for generator functions.
 
@@ -420,45 +420,45 @@ If the generator manages an expensive resource, make sure to force the clean up.
 
 A good way to do the clean up is by wrapping the generator with a context manager [PEP-0533](https://peps.python.org/pep-0533/).
 
-### 2.10 Lambda Functions[](https://google.github.io/styleguide/pyguide.html#210-lambda-functions)
+### 2.10 Lambda Functions
 
 Okay for one-liners. Prefer generator expressions over `map()` or `filter()` with a `lambda`.
 
-#### 2.10.1 Definition[](https://google.github.io/styleguide/pyguide.html#2101-definition)
+#### 2.10.1 Definition
 
 Lambdas define anonymous functions in an expression, as opposed to a statement.
 
-#### 2.10.2 Pros[](https://google.github.io/styleguide/pyguide.html#2102-pros)
+#### 2.10.2 Pros
 
 Convenient.
 
-#### 2.10.3 Cons[](https://google.github.io/styleguide/pyguide.html#2103-cons)
+#### 2.10.3 Cons
 
 Harder to read and debug than local functions. The lack of names means stack traces are more difficult to understand. Expressiveness is limited because the function may only contain an expression.
 
-#### 2.10.4 Decision[](https://google.github.io/styleguide/pyguide.html#2104-decision)
+#### 2.10.4 Decision
 
 Lambdas are allowed. If the code inside the lambda function spans multiple lines or is longer than 60-80 chars, it might be better to define it as a regular [nested function](https://google.github.io/styleguide/pyguide.html#lexical-scoping).
 
 For common operations like multiplication, use the functions from the `operator` module instead of lambda functions. For example, prefer `operator.mul` to `lambda x, y: x * y`.
 
-### 2.11 Conditional Expressions[](https://google.github.io/styleguide/pyguide.html#211-conditional-expressions)
+### 2.11 Conditional Expressions
 
 Okay for simple cases.
 
-#### 2.11.1 Definition[](https://google.github.io/styleguide/pyguide.html#2111-definition)
+#### 2.11.1 Definition
 
 Conditional expressions (sometimes called a “ternary operator”) are mechanisms that provide a shorter syntax for if statements. For example: `x = 1 if cond else 2`.
 
-#### 2.11.2 Pros[](https://google.github.io/styleguide/pyguide.html#2112-pros)
+#### 2.11.2 Pros
 
 Shorter and more convenient than an if statement.
 
-#### 2.11.3 Cons[](https://google.github.io/styleguide/pyguide.html#2113-cons)
+#### 2.11.3 Cons
 
 May be harder to read than an if statement. The condition may be difficult to locate if the expression is long.
 
-#### 2.11.4 Decision[](https://google.github.io/styleguide/pyguide.html#2114-decision)
+#### 2.11.4 Decision
 
 Okay to use for simple cases. Each portion must fit on one line: true-expression, if-expression, else-expression. Use a complete if statement when things get more complicated.
 
@@ -483,23 +483,23 @@ No:
                         else 'no, false, negative, nay')
 ```
 
-### 2.12 Default Argument Values[](https://google.github.io/styleguide/pyguide.html#212-default-argument-values)
+### 2.12 Default Argument Values
 
 Okay in most cases.
 
-#### 2.12.1 Definition[](https://google.github.io/styleguide/pyguide.html#2121-definition)
+#### 2.12.1 Definition
 
 You can specify values for variables at the end of a function’s parameter list, e.g., `def foo(a, b=0):`. If `foo` is called with only one argument, `b` is set to 0. If it is called with two arguments, `b` has the value of the second argument.
 
-#### 2.12.2 Pros[](https://google.github.io/styleguide/pyguide.html#2122-pros)
+#### 2.12.2 Pros
 
 Often you have a function that uses lots of default values, but on rare occasions you want to override the defaults. Default argument values provide an easy way to do this, without having to define lots of functions for the rare exceptions. As Python does not support overloaded methods/functions, default arguments are an easy way of “faking” the overloading behavior.
 
-#### 2.12.3 Cons[](https://google.github.io/styleguide/pyguide.html#2123-cons)
+#### 2.12.3 Cons
 
 Default arguments are evaluated once at module load time. This may cause problems if the argument is a mutable object such as a list or a dictionary. If the function modifies the object (e.g., by appending an item to a list), the default value is modified.
 
-#### 2.12.4 Decision[](https://google.github.io/styleguide/pyguide.html#2124-decision)
+#### 2.12.4 Decision
 
 Okay to use with the following caveat:
 
@@ -534,23 +534,23 @@ No:  def foo(a, b: Mapping = {}):  # Could still get passed to unchecked code.
 
 Properties may be used to control getting or setting attributes that require trivial computations or logic. Property implementations must match the general expectations of regular attribute access: that they are cheap, straightforward, and unsurprising.
 
-#### 2.13.1 Definition[](https://google.github.io/styleguide/pyguide.html#2131-definition)
+#### 2.13.1 Definition
 
 A way to wrap method calls for getting and setting an attribute as a standard attribute access.
 
-#### 2.13.2 Pros[](https://google.github.io/styleguide/pyguide.html#2132-pros)
+#### 2.13.2 Pros
 
 - Allows for an attribute access and assignment API rather than [getter and setter](https://google.github.io/styleguide/pyguide.html#getters-and-setters) method calls.
 - Can be used to make an attribute read-only.
 - Allows calculations to be lazy.
 - Provides a way to maintain the public interface of a class when the internals evolve independently of class users.
 
-#### 2.13.3 Cons[](https://google.github.io/styleguide/pyguide.html#2133-cons)
+#### 2.13.3 Cons
 
 - Can hide side-effects much like operator overloading.
 - Can be confusing for subclasses.
 
-#### 2.13.4 Decision[](https://google.github.io/styleguide/pyguide.html#2134-decision)
+#### 2.13.4 Decision
 
 Properties are allowed, but, like operator overloading, should only be used when necessary and match the expectations of typical attribute access; follow the [getters and setters](https://google.github.io/styleguide/pyguide.html#getters-and-setters) rules otherwise.
 
@@ -560,23 +560,23 @@ Properties should be created with the `@property` [decorator](https://google.g
 
 Inheritance with properties can be non-obvious. Do not use properties to implement computations a subclass may ever want to override and extend.
 
-### 2.14 True/False Evaluations[](https://google.github.io/styleguide/pyguide.html#214-truefalse-evaluations)
+### 2.14 True/False Evaluations
 
 Use the “implicit” false if at all possible (with a few caveats).
 
-#### 2.14.1 Definition[](https://google.github.io/styleguide/pyguide.html#2141-definition)
+#### 2.14.1 Definition
 
 Python evaluates certain values as `False` when in a boolean context. A quick “rule of thumb” is that all “empty” values are considered false, so `0, None, [], {}, ''` all evaluate as false in a boolean context.
 
-#### 2.14.2 Pros[](https://google.github.io/styleguide/pyguide.html#2142-pros)
+#### 2.14.2 Pros
 
 Conditions using Python booleans are easier to read and less error-prone. In most cases, they’re also faster.
 
-#### 2.14.3 Cons[](https://google.github.io/styleguide/pyguide.html#2143-cons)
+#### 2.14.3 Cons
 
 May look strange to C/C++ developers.
 
-#### 2.14.4 Decision[](https://google.github.io/styleguide/pyguide.html#2144-decision)
+#### 2.14.4 Decision
 
 Use the “implicit” false if possible, e.g., `if foo:` rather than `if foo != []:`. There are a few caveats that you should keep in mind though:
 
@@ -610,17 +610,17 @@ Use the “implicit” false if possible, e.g., `if foo:` rather than `if foo
          def f(x=None):
              x = x or []
     ```
-    
-- Note that `'0'` (i.e., `0` as string) evaluates to true.
-    
-- Note that Numpy arrays may raise an exception in an implicit boolean context. Prefer the `.size` attribute when testing emptiness of a `np.array` (e.g. `if not users.size`).
-    
 
-### 2.16 Lexical Scoping[](https://google.github.io/styleguide/pyguide.html#216-lexical-scoping)
+- Note that `'0'` (i.e., `0` as string) evaluates to true.
+
+- Note that Numpy arrays may raise an exception in an implicit boolean context. Prefer the `.size` attribute when testing emptiness of a `np.array` (e.g. `if not users.size`).
+
+
+### 2.16 Lexical Scoping
 
 Okay to use.
 
-#### 2.16.1 Definition[](https://google.github.io/styleguide/pyguide.html#2161-definition)
+#### 2.16.1 Definition
 
 A nested Python function can refer to variables defined in enclosing functions, but cannot assign to them. Variable bindings are resolved using lexical scoping, that is, based on the static program text. Any assignment to a name in a block will cause Python to treat all references to that name as a local variable, even if the use precedes the assignment. If a global declaration occurs, the name is treated as a global variable.
 
@@ -635,11 +635,11 @@ def get_adder(summand1: float) -> Callable[[float], float]:
     return adder
 ```
 
-#### 2.16.2 Pros[](https://google.github.io/styleguide/pyguide.html#2162-pros)
+#### 2.16.2 Pros
 
 Often results in clearer, more elegant code. Especially comforting to experienced Lisp and Scheme (and Haskell and ML and …) programmers.
 
-#### 2.16.3 Cons[](https://google.github.io/styleguide/pyguide.html#2163-cons)
+#### 2.16.3 Cons
 
 Can lead to confusing bugs, such as this example based on [PEP-0227](https://peps.python.org/pep-0227/):
 
@@ -658,15 +658,15 @@ def foo(x: Iterable[int]):
 
 So `foo([1, 2, 3])` will print `1 2 3 3`, not `1 2 3 4`.
 
-#### 2.16.4 Decision[](https://google.github.io/styleguide/pyguide.html#2164-decision)
+#### 2.16.4 Decision
 
 Okay to use.
 
-### 2.17 Function and Method Decorators[](https://google.github.io/styleguide/pyguide.html#217-function-and-method-decorators)
+### 2.17 Function and Method Decorators
 
 Use decorators judiciously when there is a clear advantage. Avoid `staticmethod` and limit use of `classmethod`.
 
-#### 2.17.1 Definition[](https://google.github.io/styleguide/pyguide.html#2171-definition)
+#### 2.17.1 Definition
 
 [Decorators for Functions and Methods](https://docs.python.org/3/glossary.html#term-decorator) (a.k.a “the `@` notation”). One common decorator is `@property`, used for converting ordinary methods into dynamically computed attributes. However, the decorator syntax allows for user-defined decorators as well. Specifically, for some function `my_decorator`, this:
 
@@ -686,15 +686,15 @@ class C:
     method = my_decorator(method)
 ```
 
-#### 2.17.2 Pros[](https://google.github.io/styleguide/pyguide.html#2172-pros)
+#### 2.17.2 Pros
 
 Elegantly specifies some transformation on a method; the transformation might eliminate some repetitive code, enforce invariants, etc.
 
-#### 2.17.3 Cons[](https://google.github.io/styleguide/pyguide.html#2173-cons)
+#### 2.17.3 Cons
 
 Decorators can perform arbitrary operations on a function’s arguments or return values, resulting in surprising implicit behavior. Additionally, decorators execute at object definition time. For module-level objects (classes, module functions, …) this happens at import time. Failures in decorator code are pretty much impossible to recover from.
 
-#### 2.17.4 Decision[](https://google.github.io/styleguide/pyguide.html#2174-decision)
+#### 2.17.4 Decision
 
 Use decorators judiciously when there is a clear advantage. Decorators should follow the same import and naming guidelines as functions. Decorator pydoc should clearly state that the function is a decorator. Write unit tests for decorators.
 
@@ -706,7 +706,7 @@ Never use `staticmethod` unless forced to in order to integrate with an API de
 
 Use `classmethod` only when writing a named constructor, or a class-specific routine that modifies necessary global state such as a process-wide cache.
 
-### 2.18 Threading[](https://google.github.io/styleguide/pyguide.html#218-threading)
+### 2.18 Threading
 
 Do not rely on the atomicity of built-in types.
 
@@ -714,47 +714,47 @@ While Python’s built-in data types such as dictionaries appear to have atomic 
 
 Use the `queue` module’s `Queue` data type as the preferred way to communicate data between threads. Otherwise, use the `threading` module and its locking primitives. Prefer condition variables and `threading.Condition` instead of using lower-level locks.
 
-### 2.19 Power Features[](https://google.github.io/styleguide/pyguide.html#219-power-features)
+### 2.19 Power Features
 
 Avoid these features.
 
-#### 2.19.1 Definition[](https://google.github.io/styleguide/pyguide.html#2191-definition)
+#### 2.19.1 Definition
 
 Python is an extremely flexible language and gives you many fancy features such as custom metaclasses, access to bytecode, on-the-fly compilation, dynamic inheritance, object reparenting, import hacks, reflection (e.g. some uses of `getattr()`), modification of system internals, `__del__` methods implementing customized cleanup, etc.
 
-#### 2.19.2 Pros[](https://google.github.io/styleguide/pyguide.html#2192-pros)
+#### 2.19.2 Pros
 
 These are powerful language features. They can make your code more compact.
 
-#### 2.19.3 Cons[](https://google.github.io/styleguide/pyguide.html#2193-cons)
+#### 2.19.3 Cons
 
 It’s very tempting to use these “cool” features when they’re not absolutely necessary. It’s harder to read, understand, and debug code that’s using unusual features underneath. It doesn’t seem that way at first (to the original author), but when revisiting the code, it tends to be more difficult than code that is longer but is straightforward.
 
-#### 2.19.4 Decision[](https://google.github.io/styleguide/pyguide.html#2194-decision)
+#### 2.19.4 Decision
 
 Avoid these features in your code.
 
 Standard library modules and classes that internally use these features are okay to use (for example, `abc.ABCMeta`, `dataclasses`, and `enum`).
 
-### 2.20 Modern Python: from __future__ imports[](https://google.github.io/styleguide/pyguide.html#220-modern-python-from-__future__-imports)
+### 2.20 Modern Python: from __future__ imports
 
 New language version semantic changes may be gated behind a special future import to enable them on a per-file basis within earlier runtimes.
 
-#### 2.20.1 Definition[](https://google.github.io/styleguide/pyguide.html#2201-definition)
+#### 2.20.1 Definition
 
 Being able to turn on some of the more modern features via `from __future__ import` statements allows early use of features from expected future Python versions.
 
-#### 2.20.2 Pros[](https://google.github.io/styleguide/pyguide.html#2202-pros)
+#### 2.20.2 Pros
 
 This has proven to make runtime version upgrades smoother as changes can be made on a per-file basis while declaring compatibility and preventing regressions within those files. Modern code is more maintainable as it is less likely to accumulate technical debt that will be problematic during future runtime upgrades.
 
-#### 2.20.3 Cons[](https://google.github.io/styleguide/pyguide.html#2203-cons)
+#### 2.20.3 Cons
 
 Such code may not work on very old interpreter versions prior to the introduction of the needed future statement. The need for this is more common in projects supporting an extremely wide variety of environments.
 
-#### 2.20.4 Decision[](https://google.github.io/styleguide/pyguide.html#2204-decision)
+#### 2.20.4 Decision
 
-##### from __future__ imports[](https://google.github.io/styleguide/pyguide.html#from-__future__-imports)
+##### from __future__ imports
 
 Use of `from __future__ import` statements is encouraged. It allows a given source file to start using more modern Python syntax features today. Once you no longer need to run on a version where the features are hidden behind a `__future__` import, feel free to remove those lines.
 
@@ -770,13 +770,13 @@ Please don’t remove these imports until you are confident the code is only eve
 
 Use other `from __future__` import statements as you see fit.
 
-### 2.21 Type Annotated Code[](https://google.github.io/styleguide/pyguide.html#221-type-annotated-code)
+### 2.21 Type Annotated Code
 
 You can annotate Python code with type hints according to [PEP-484](https://peps.python.org/pep-0484/), and type-check the code at build time with a type checking tool like [pytype](https://github.com/google/pytype).
 
 Type annotations can be in the source or in a [stub pyi file](https://peps.python.org/pep-0484/#stub-files). Whenever possible, annotations should be in the source. Use pyi files for third-party or extension modules.
 
-#### 2.21.1 Definition[](https://google.github.io/styleguide/pyguide.html#2211-definition)
+#### 2.21.1 Definition
 
 Type annotations (or “type hints”) are for function or method arguments and return values:
 
@@ -790,15 +790,15 @@ You can also declare the type of a variable using similar [PEP-526](https://pep
 a: SomeType = some_func()
 ```
 
-#### 2.21.2 Pros[](https://google.github.io/styleguide/pyguide.html#2212-pros)
+#### 2.21.2 Pros
 
 Type annotations improve the readability and maintainability of your code. The type checker will convert many runtime errors to build-time errors, and reduce your ability to use [Power Features](https://google.github.io/styleguide/pyguide.html#power-features).
 
-#### 2.21.3 Cons[](https://google.github.io/styleguide/pyguide.html#2213-cons)
+#### 2.21.3 Cons
 
 You will have to keep the type declarations up to date. You might see type errors that you think are valid code. Use of a [type checker](https://github.com/google/pytype) may reduce your ability to use [Power Features](https://google.github.io/styleguide/pyguide.html#power-features).
 
-#### 2.21.4 Decision[](https://google.github.io/styleguide/pyguide.html#2214-decision)
+#### 2.21.4 Decision
 
 You are strongly encouraged to enable Python type analysis when updating code. When adding or modifying public APIs, include type annotations and enable checking via pytype in the build system. As static analysis is relatively new to Python, we acknowledge that undesired side-effects (such as wrongly inferred types) may prevent adoption by some projects. In those situations, authors are encouraged to add a comment with a TODO or link to a bug describing the issue(s) currently preventing type annotation adoption in the BUILD file or in the code itself as appropriate.
 

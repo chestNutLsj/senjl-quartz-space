@@ -11,13 +11,13 @@ url: https://docs.python.org/3/library/profile.html
 
 ## Introduction to the profilers
 
-`cProfile` and `profile` provide _deterministic profiling_ of Python programs. A _profile_ is a set of statistics that describes how often and for how long various parts of the program executed. These statistics can be formatted into reports via the [[#_class_ pstats.Stats (_*filenames or profile_, _stream=sys. stdout_)|pstats]] module.
+`cProfile` and `profile` provide _deterministic profiling_ of Python programs. A _profile_ is a set of statistics that describes how often and for how long various parts of the program executed. These statistics can be formatted into reports via the [[#_class_ pstats.Stats|pstats]] module.
 
 The Python standard library provides two different implementations of the same profiling interface:
 
-1.  [`cProfile`]( #module -cProfile "cProfile") is recommended for most users; it’s a C extension with reasonable overhead that makes it suitable for profiling long-running programs. Based on `lsprof`, contributed by Brett Rosen and Ted Czotter.
+1. `cProfile` is recommended for most users; it’s a C extension with reasonable overhead that makes it suitable for profiling long-running programs. Based on `lsprof`, contributed by Brett Rosen and Ted Czotter.
 
-2.  [`profile`]( #module -profile "profile: Python source profiler."), a pure Python module whose interface is imitated by [`cProfile`]( #module -cProfile "cProfile"), but which adds significant overhead to profiled programs. If you’re trying to extend the profiler in some way, the task might be easier with this module. Originally designed and written by Jim Roskind.
+2. `profile`, a pure Python module whose interface is imitated by `cProfile`, but which adds significant overhead to profiled programs. If you’re trying to extend the profiler in some way, the task might be easier with this module. Originally designed and written by Jim Roskind.
 
 >[!note] 
 >The profiler modules are designed to provide an execution profile for a given program, not for benchmarking purposes (for that, there is [`timeit`]( https://docs.python.org/3/library/timeit.html#module-timeit "timeit: Measure the execution time of small code snippets.") for reasonably accurate results). This particularly applies to benchmarking Python code against C code: the profilers introduce overhead for Python code, but not for C-level functions, and so the C code would seem faster than any Python one.
@@ -34,7 +34,9 @@ import re
 cProfile.run('re.compile("foo|bar")')
 ```
 
-(Use [`profile`]( #module -profile "profile: Python source profiler.") instead of [`cProfile`]( #module -cProfile "cProfile") if the latter is not available on your system.)
+(Use `profile` instead of `cProfile` if the latter is not available on your system.)
+
+### Detailed Messages Behind Outputs
 
 The above action would run [`re.compile ()`]( https://docs.python.org/3/library/re.html#re.compile "re. compile") and print profile results like the following:
 
@@ -54,35 +56,21 @@ ncalls  tottime  percall  cumtime  percall filename:lineno(function)
      1    0.000    0.000    0.000    0.000 _parser.py:435(_parse_sub)
 ```
 
-The first line indicates that 214 calls were monitored. Of those calls, 207 were _primitive_, meaning that the call was not induced via recursion. The next line: `Ordered by: cumulative time` indicates the output is sorted by the `cumtime` values. The column headings include:
+- The first line indicates that 214 calls were monitored. Of those calls, 207 were _primitive_, meaning that **the call was not induced via recursion**. 
+- The next line: `Ordered by: cumulative time` indicates the output is sorted by the `cumtime` values. The column headings include:
+	- `ncalls`: for the number of calls.
+	- `tottime`: for the total time spent in the given function (and excluding time made in calls to sub-functions)
+	- `percall`: is the quotient of ` tottime ` divided by ` ncalls `
+	- `cumtime`: is the cumulative time spent in this and all subfunctions (from invocation till exit). This figure is accurate _even_ for recursive functions.
+	- `percall`: is the quotient of ` cumtime ` divided by primitive calls
+	- `filename`: lineno (function): provides the respective data of each function
 
-ncalls
+When there are two numbers in the first column (for example `3/1`), it means that the **function recursed**. The second value is the number of primitive calls and the former is the total number of calls. Note that when the function does not recurse, these two values are the same, and only the single figure is printed.
 
-for the number of calls.
-
-tottime
-
-for the total time spent in the given function (and excluding time made in calls to sub-functions)
-
-percall
-
-is the quotient of `tottime` divided by `ncalls`
-
-cumtime
-
-is the cumulative time spent in this and all subfunctions (from invocation till exit). This figure is accurate _even_ for recursive functions.
-
-percall
-
-is the quotient of `cumtime` divided by primitive calls
-
-filename: lineno (function)
-
-provides the respective data of each function
-
-When there are two numbers in the first column (for example `3/1`), it means that the function recursed. The second value is the number of primitive calls and the former is the total number of calls. Note that when the function does not recurse, these two values are the same, and only the single figure is printed.
+### Persistant Results
 
 Instead of printing the output at the end of the profile run, you can save the results to a file by specifying a filename to the `run ()` function:
+> 可以通过为 `run()` 函数指定文件名，将 profile 的结果保存到对应文件中，而不是在运行结束时打印输出。
 
 ```
 import cProfile
@@ -90,175 +78,182 @@ import re
 cProfile.run ('re.compile ("foo|bar")', 'restats')
 ```
 
-The [`pstats. Stats`]( #pstats . Stats "pstats. Stats") class reads profile results from a file and formats them in various ways.
+The [[#_class_ pstats.Stats|pstats.Stats]] class reads profile results from a file and formats them in various ways.
 
-The files [`cProfile`]( #module -cProfile "cProfile") and [`profile`]( #module -profile "profile: Python source profiler.") can also be invoked as a script to profile another script. For example:
+### Invoked as a Script
+
+The files `cProfile` and `profile` can also be invoked as a script to profile another script. For example:
 
 ```
 python -m cProfile [-o output_file] [-s sort_order] (-m module | myscript. py)
 ```
 
-`-o` writes the profile results to a file instead of to stdout
+- `-o` writes the profile results to a file instead of to stdout
+- `-s` specifies one of the [[#sort_stats (_*keys_)|sort_stats()]] sort values to sort the output by. This only applies when `-o` is not supplied.
+- `-m` specifies that a module is being profiled instead of a script.
 
-`-s` specifies one of the [`sort_stats ()`]( #pstats . Stats. sort_stats "pstats. Stats. sort_stats") sort values to sort the output by. This only applies when `-o` is not supplied.
+> *New in version 3.7*: Added the `-m` option to `cProfile`.
+> 
+> *New in version 3.8*: Added the `-m` option to `profile`.
 
-`-m` specifies that a module is being profiled instead of a script.
+### Manipulate Results Data
 
-New in version 3.7: Added the `-m` option to [`cProfile`]( #module -cProfile "cProfile").
-
-New in version 3.8: Added the `-m` option to [`profile`]( #module -profile "profile: Python source profiler.").
-
-The [`pstats`]( #module -pstats "pstats: Statistics object for use with the profiler.") module’s [`Stats`]( #pstats . Stats "pstats. Stats") class has a variety of methods for manipulating and printing the data saved into a profile results file:
+The [[#_class_ pstats.Stats|pstats]] module’s `Stats` class has a variety of methods for manipulating and printing the data saved into a profile results file:
 
 ```
 import pstats
 from pstats import SortKey
-p = pstats.Stats ('restats')
-p.strip_dirs (). sort_stats (-1). print_stats ()
+p = pstats.Stats('restats')
+p.strip_dirs().sort_stats (-1).print_stats()
 ```
 
-The [`strip_dirs ()`]( #pstats . Stats. strip_dirs "pstats. Stats. strip_dirs") method removed the extraneous path from all the module names. The [`sort_stats ()`]( #pstats . Stats. sort_stats "pstats. Stats. sort_stats") method sorted all the entries according to the standard module/line/name string that is printed. The [`print_stats ()`]( #pstats . Stats. print_stats "pstats. Stats. print_stats") method printed out all the statistics. You might try the following sort calls:
+- The [[#strip_dirs ()|strip_dirs()]] method removed the extraneous path from all the module names.
+- The [[#sort_stats (_*keys_)|sort_stats()]] method sorted all the entries according to the standard module/line/name string that is printed.
+- The [[#print_stats (_*restrictions_)|print_stats()]] method printed out all the statistics.
 
+You might try the following sort calls:
 ```
-p.sort_stats (SortKey. NAME)
-p.print_stats ()
+p.sort_stats(SortKey.NAME)
+p.print_stats()
 ```
+The first call will actually sort the list by function name, and the second call will print out the statistics. 
 
-The first call will actually sort the list by function name, and the second call will print out the statistics. The following are some interesting calls to experiment with:
-
+The following are some interesting calls to experiment with:
 ```
-p.sort_stats (SortKey. CUMULATIVE). print_stats (10)
+p.sort_stats(SortKey.CUMULATIVE).print_stats(10)
 ```
-
 This sorts the profile by cumulative time in a function, and then only prints the ten most significant lines. If you want to understand what algorithms are taking time, the above line is what you would use.
 
 If you were looking to see what functions were looping a lot, and taking a lot of time, you would do:
-
 ```
-p.sort_stats (SortKey. TIME). print_stats (10)
+p.sort_stats(SortKey.TIME).print_stats(10)
 ```
-
 to sort according to time spent within each function, and then print the statistics for the top ten functions.
 
 You might also try:
-
 ```
-p.sort_stats (SortKey. FILENAME). print_stats ('__init__')
+p.sort_stats(SortKey.FILENAME).print_stats ('__init__')
 ```
+This will sort all the statistics by file name, and then print out statistics for only the class init methods (since they are spelled with `__init__` in them).
 
-This will sort all the statistics by file name, and then print out statistics for only the class init methods (since they are spelled with `__init__` in them). As one final example, you could try:
-
+As one final example, you could try:
 ```
-p.sort_stats (SortKey. TIME, SortKey. CUMULATIVE). print_stats (. 5, 'init')
+p.sort_stats (SortKey.TIME, SortKey.CUMULATIVE).print_stats(.5, 'init')
 ```
-
-This line sorts statistics with a primary key of time, and a secondary key of cumulative time, and then prints out some of the statistics. To be specific, the list is first culled down to 50% (re: `. 5`) of its original size, then only lines containing `init` are maintained, and that sub-sub-list is printed.
+This line sorts statistics with a primary key of time, and a secondary key of cumulative time, and then prints out some of the statistics. To be specific, the list is first culled down to 50% (re: `.5`) of its original size, then only lines containing `init` are maintained, and that sub-sub-list is printed.
 
 If you wondered what functions called the above functions, you could now (`p` is still sorted according to the last criteria) do:
-
 ```
 p.print_callers (. 5, 'init')
 ```
-
 and you would get a list of callers for each of the listed functions.
 
 If you want more functionality, you’re going to have to read the manual, or guess what the following functions do:
-
 ```
 p.print_callees ()
 p.add ('restats')
 ```
-
-Invoked as a script, the [`pstats`]( #module -pstats "pstats: Statistics object for use with the profiler.") module is a statistics browser for reading and examining profile dumps. It has a simple line-oriented interface (implemented using [`cmd`]( https://docs.python.org/3/library/cmd.html#module-cmd "cmd: Build line-oriented command interpreters.")) and interactive help.
+Invoked as a script, the [[#_class_ pstats.Stats|pstats]] module is a statistics browser for reading and examining profile dumps. It has a simple line-oriented interface (implemented using [`cmd`]( https://docs.python.org/3/library/cmd.html#module-cmd "cmd: Build line-oriented command interpreters.")) and interactive help.
 
 ### `profile` and `cProfile` Module Reference
 
-Both the [`profile`]( #module -profile "profile: Python source profiler.") and [`cProfile`]( #module -cProfile "cProfile") modules provide the following functions:
+Both the `profile` and `cProfile` modules provide the following functions:
 
-profile.run (_command_, _filename=None_, _sort=-1_)[¶]( #profile . run "Link to this definition")
+#### profile.run()
 
-This function takes a single argument that can be passed to the [`exec ()`]( https://docs.python.org/3/library/functions.html#exec "exec") function, and an optional file name. In all cases this routine executes:
+```
+profile.run(command, filename=None, sort=-1)
+```
 
+This function takes a single argument that can be passed to the [`exec()`]( https://docs.python.org/3/library/functions.html#exec "exec") function, and an optional file name.
+
+In all cases this routine executes:
 ```
 exec (command, __main__.__dict__, __main__.__dict__)
 ```
+and gathers profiling statistics from the execution. If no file name is present, then this function automatically creates a `Stats` instance and prints a simple profiling report. If the sort value is specified, it is passed to this `Stats` instance to control how the results are sorted.
 
-and gathers profiling statistics from the execution. If no file name is present, then this function automatically creates a [`Stats`]( #pstats . Stats "pstats. Stats") instance and prints a simple profiling report. If the sort value is specified, it is passed to this [`Stats`]( #pstats . Stats "pstats. Stats") instance to control how the results are sorted.
-
-profile.runctx (_command_, _globals_, _locals_, _filename=None_, _sort=-1_)[¶]( #profile . runctx "Link to this definition")
-
-This function is similar to [`run ()`]( #profile . run "profile. run"), with added arguments to supply the globals and locals dictionaries for the _command_ string. This routine executes:
+#### profile.runctx
 
 ```
-exec (command, globals, locals)
+profile.runctx(command, globals, locals, filename=None, sort=-1)
 ```
 
-and gathers profiling statistics as in the [`run ()`]( #profile . run "profile. run") function above.
+This function is similar to `run()`, with added arguments to supply the globals and locals dictionaries for the _command_ string.
 
-_class_ profile.Profile (_timer=None_, _timeunit=0.0_, _subcalls=True_, _builtins=True_)[¶]( #profile . Profile "Link to this definition")
+This routine executes:
+```
+exec(command, globals, locals)
+```
+and gathers profiling statistics as in the `run ()` function above.
+
+#### _class_ profile.Profile
+
+```
+class profile.Profile(timer=None, timeunit=0.0, subcalls=True, builtins=True)
+```
 
 This class is normally only used if more precise control over profiling is needed than what the `cProfile.run ()` function provides.
 
-A custom timer can be supplied for measuring how long code takes to run via the _timer_ argument. This must be a function that returns a single number representing the current time. If the number is an integer, the _timeunit_ specifies a multiplier that specifies the duration of each unit of time. For example, if the timer returns times measured in thousands of seconds, the time unit would be `. 001`.
+A custom timer can be supplied for measuring how long code takes to run via the _timer_ argument. This must be a function that returns a single number representing the current time. If the number is an integer, the _timeunit_ specifies a multiplier that specifies the duration of each unit of time. For example, if the timer returns times measured in thousands of seconds, the time unit would be `.001`.
 
-Directly using the [`Profile`]( #profile . Profile "profile. Profile") class allows formatting profile results without writing the profile data to a file:
-
+Directly using the `Profile` class allows formatting profile results without writing the profile data to a file:
 ```
 import cProfile, pstats, io
 from pstats import SortKey
-pr = cProfile.Profile ()
-pr.enable ()
+pr = cProfile.Profile()
+pr.enable()
 # ... do something ...
-pr.disable ()
-s = io.StringIO ()
-sortby = SortKey. CUMULATIVE
-ps = pstats.Stats (pr, stream=s). sort_stats (sortby)
-ps. print_stats ()
-print (s.getvalue ())
+pr.disable()
+s = io.StringIO()
+sortby = SortKey.CUMULATIVE
+ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+ps.print_stats()
+print(s.getvalue())
 ```
 
-The [`Profile`]( #profile . Profile "profile. Profile") class can also be used as a context manager (supported only in [`cProfile`]( #module -cProfile "cProfile") module. see [Context Manager Types](https://docs.python.org/3/library/stdtypes.html#typecontextmanager)):
+The `Profile` class can also be used as a context manager (supported only in `cProfile` module. see [Context Manager Types](https://docs.python.org/3/library/stdtypes.html#typecontextmanager)):
 
 ```
 import cProfile
 
-with cProfile.Profile () as pr:
+with cProfile.Profile() as pr:
     # ... do something ...
 
-    pr. print_stats ()
+    pr.print_stats()
 ```
 
-Changed in version 3.8: Added context manager support.
+> *Changed in version 3.8*: Added context manager support.
 
-enable ()[¶]( #profile . Profile. enable "Link to this definition")
+#### enable()
 
-Start collecting profiling data. Only in [`cProfile`]( #module -cProfile "cProfile").
+Start collecting profiling data. Only in `cProfile`.
 
-disable ()[¶]( #profile . Profile. disable "Link to this definition")
+#### disable()
 
-Stop collecting profiling data. Only in [`cProfile`]( #module -cProfile "cProfile").
+Stop collecting profiling data. Only in `cProfile`.
 
-create_stats ()[¶]( #profile . Profile. create_stats "Link to this definition")
+#### create_stats()
 
 Stop collecting profiling data and record the results internally as the current profile.
 
-print_stats (_sort=-1_)[¶]( #profile . Profile. print_stats "Link to this definition")
+#### print_stats (_sort=-1_)
 
-Create a [`Stats`]( #pstats . Stats "pstats. Stats") object based on the current profile and print the results to stdout.
+Create a `Stats` object based on the current profile and print the results to stdout.
 
-dump_stats (_filename_)[¶]( #profile . Profile. dump_stats "Link to this definition")
+#### dump_stats (_filename_)
 
 Write the results of the current profile to _filename_.
 
-run (_cmd_)[¶]( #profile . Profile. run "Link to this definition")
+#### run (_cmd_)
 
-Profile the cmd via [`exec ()`]( https://docs.python.org/3/library/functions.html#exec "exec").
+Profile the cmd via [`exec()`]( https://docs.python.org/3/library/functions.html#exec "exec").
 
-runctx (_cmd_, _globals_, _locals_)[¶]( #profile . Profile. runctx "Link to this definition")
+#### runctx (_cmd_, _globals_, _locals_)
 
-Profile the cmd via [`exec ()`]( https://docs.python.org/3/library/functions.html#exec "exec") with the specified global and local environment.
+Profile the cmd via [`exec()`]( https://docs.python.org/3/library/functions.html#exec "exec") with the specified global and local environment.
 
-runcall (_func_, _/_, _*args_, _**kwargs_)[¶]( #profile . Profile. runcall "Link to this definition")
+#### runcall (_func_, _/_, _*args_, _**kwargs_)
 
 Profile `func (*args, **kwargs)`
 
@@ -266,9 +261,11 @@ Note that profiling will only work if the called command/function actually retur
 
 ## The `Stats` Class
 
-Analysis of the profiler data is done using the [`Stats`]( #pstats . Stats "pstats. Stats") class.
+Analysis of the profiler data is done using the `Stats` class.
 
-### _class_ pstats.Stats (_*filenames or profile_, _stream=sys. stdout_)
+```
+class pstats.Stats(*filenames or profile, stream=sys.stdout)
+```
 
 This class constructor creates an instance of a “statistics object” from a _filename_ (or list of filenames) or from a `Profile` instance. Output will be printed to the stream specified by _stream_.
 
@@ -278,19 +275,19 @@ Instead of reading the profile data from a file, a `cProfile. Profile` or [`prof
 
 [`Stats`]( #pstats . Stats "pstats. Stats") objects have the following methods:
 
-strip_dirs ()[¶]( #pstats . Stats. strip_dirs "Link to this definition")
+### strip_dirs ()
 
 This method for the [`Stats`]( #pstats . Stats "pstats. Stats") class removes all leading path information from file names. It is very useful in reducing the size of the printout to fit within (close to) 80 columns. This method modifies the object, and the stripped information is lost. After performing a strip operation, the object is considered to have its entries in a “random” order, as it was just after object initialization and loading. If [`strip_dirs ()`]( #pstats . Stats. strip_dirs "pstats. Stats. strip_dirs") causes two function names to be indistinguishable (they are on the same line of the same filename, and have the same function name), then the statistics for these two entries are accumulated into a single entry.
 
-add (_*filenames_)[¶]( #pstats . Stats. add "Link to this definition")
+### add (_*filenames_)
 
 This method of the [`Stats`]( #pstats . Stats "pstats. Stats") class accumulates additional profiling information into the current profiling object. Its arguments should refer to filenames created by the corresponding version of [`profile.run ()`]( #profile . run "profile. run") or `cProfile.run ()`. Statistics for identically named (re: file, line, name) functions are automatically accumulated into single function statistics.
 
-dump_stats (_filename_)[¶]( #pstats . Stats. dump_stats "Link to this definition")
+### dump_stats (_filename_)
 
 Save the data loaded into the [`Stats`]( #pstats . Stats "pstats. Stats") object to a file named _filename_. The file is created if it does not exist, and is overwritten if it already exists. This is equivalent to the method of the same name on the [`profile. Profile`]( #profile . Profile "profile. Profile") and `cProfile. Profile` classes.
 
-sort_stats (_*keys_)[¶]( #pstats . Stats. sort_stats "Link to this definition")
+### sort_stats (_*keys_)
 
 This method modifies the [`Stats`]( #pstats . Stats "pstats. Stats") object by sorting it according to the supplied criteria. The argument can be either a string or a SortKey enum identifying the basis of a sort (example: `'time'`, `'name'`, `SortKey. TIME` or `SortKey. NAME`). The SortKey enums argument have advantage over the string argument in that it is more robust and less error prone.
 
@@ -308,11 +305,11 @@ For backward-compatibility reasons, the numeric arguments `-1`, `0`, `1`, and `2
 
 New in version 3.7: Added the SortKey enum.
 
-reverse_order ()[¶]( #pstats . Stats. reverse_order "Link to this definition")
+### reverse_order ()
 
 This method for the [`Stats`]( #pstats . Stats "pstats. Stats") class reverses the ordering of the basic list within the object. Note that by default ascending vs descending order is properly selected based on the sort key of choice.
 
-print_stats (_*restrictions_)[¶]( #pstats . Stats. print_stats "Link to this definition")
+### print_stats (_*restrictions_)
 
 This method for the [`Stats`]( #pstats . Stats "pstats. Stats") class prints out a report as described in the [`profile.run ()`]( #profile . run "profile. run") definition.
 
@@ -324,7 +321,7 @@ would first limit the printing to first 10% of list, and then only print functio
 
 would limit the list to all functions having file names `.*foo:`, and then proceed to only print the first 10% of them.
 
-print_callers (_*restrictions_)[¶]( #pstats . Stats. print_callers "Link to this definition")
+### print_callers (_*restrictions_)
 
 This method for the [`Stats`]( #pstats . Stats "pstats. Stats") class prints a list of all functions that called each function in the profiled database. The ordering is identical to that provided by [`print_stats ()`]( #pstats . Stats. print_stats "pstats. Stats. print_stats"), and the definition of the restricting argument is also identical. Each caller is reported on its own line. The format differs slightly depending on the profiler that produced the stats:
 
@@ -333,18 +330,17 @@ This method for the [`Stats`]( #pstats . Stats "pstats. Stats") class prints a l
 *   With [`cProfile`]( #module -cProfile "cProfile"), each caller is preceded by three numbers: the number of times this specific call was made, and the total and cumulative times spent in the current function while it was invoked by this specific caller.
     
 
-print_callees (_*restrictions_)[¶]( #pstats . Stats. print_callees "Link to this definition")
+### print_callees (_*restrictions_)
 
 This method for the [`Stats`]( #pstats . Stats "pstats. Stats") class prints a list of all function that were called by the indicated function. Aside from this reversal of direction of calls (re: called vs was called by), the arguments and ordering are identical to the [`print_callers ()`]( #pstats . Stats. print_callers "pstats. Stats. print_callers") method.
 
-get_stats_profile ()[¶]( #pstats . Stats. get_stats_profile "Link to this definition")
+### get_stats_profile ()
 
 This method returns an instance of StatsProfile, which contains a mapping of function names to instances of FunctionProfile. Each FunctionProfile instance holds information related to the function’s profile such as how long the function took to run, how many times it was called, etc…
 
 New in version 3.9: Added the following dataclasses: StatsProfile, FunctionProfile. Added the following function: get_stats_profile.
 
-What Is Deterministic Profiling?[¶]( #what -is-deterministic-profiling "Link to this heading")
---------------------------------------------------------------------------------------------
+## What Is Deterministic Profiling?
 
 _Deterministic profiling_ is meant to reflect the fact that all _function call_, _function return_, and _exception_ events are monitored, and precise timings are made for the intervals between these events (during which time the user’s code is executing). In contrast, _statistical profiling_ (which is not done by this module) randomly samples the effective instruction pointer, and deduces where time is being spent. The latter technique traditionally involves less overhead (as the code does not need to be instrumented), but provides only relative indications of where time is being spent.
 
@@ -352,25 +348,23 @@ In Python, since there is an interpreter active during execution, the presence o
 
 Call count statistics can be used to identify bugs in code (surprising counts), and to identify possible inline-expansion points (high call counts). Internal time statistics can be used to identify “hot loops” that should be carefully optimized. Cumulative time statistics should be used to identify high level errors in the selection of algorithms. Note that the unusual handling of cumulative times in this profiler allows statistics for recursive implementations of algorithms to be directly compared to iterative implementations.
 
-Limitations[¶]( #limitations "Link to this heading")
----------------------------------------------------
+## Limitations
 
 One limitation has to do with accuracy of timing information. There is a fundamental problem with deterministic profilers involving accuracy. The most obvious restriction is that the underlying “clock” is only ticking at a rate (typically) of about .001 seconds. Hence no measurements will be more accurate than the underlying clock. If enough measurements are taken, then the “error” will tend to average out. Unfortunately, removing this first error induces a second source of error.
 
 The second problem is that it “takes a while” from when an event is dispatched until the profiler’s call to get the time actually _gets_ the state of the clock. Similarly, there is a certain lag when exiting the profiler event handler from the time that the clock’s value was obtained (and then squirreled away), until the user’s code is once again executing. As a result, functions that are called many times, or call many functions, will typically accumulate this error. The error that accumulates in this fashion is typically less than the accuracy of the clock (less than one clock tick), but it _can_ accumulate and become very significant.
 
-The problem is more important with [`profile`]( #module -profile "profile: Python source profiler.") than with the lower-overhead [`cProfile`]( #module -cProfile "cProfile"). For this reason, [`profile`]( #module -profile "profile: Python source profiler.") provides a means of calibrating itself for a given platform so that this error can be probabilistically (on the average) removed. After the profiler is calibrated, it will be more accurate (in a least square sense), but it will sometimes produce negative numbers (when call counts are exceptionally low, and the gods of probability work against you :-). ) Do _not_ be alarmed by negative numbers in the profile. They should _only_ appear if you have calibrated your profiler, and the results are actually better than without calibration.
+The problem is more important with `profile` than with the lower-overhead `cProfile`. For this reason, `profile` provides a means of calibrating itself for a given platform so that this error can be probabilistically (on the average) removed. After the profiler is calibrated, it will be more accurate (in a least square sense), but it will sometimes produce negative numbers (when call counts are exceptionally low, and the gods of probability work against you :-). ) Do _not_ be alarmed by negative numbers in the profile. They should _only_ appear if you have calibrated your profiler, and the results are actually better than without calibration.
 
-Calibration[¶]( #calibration "Link to this heading")
----------------------------------------------------
+## Calibration
 
-The profiler of the [`profile`]( #module -profile "profile: Python source profiler.") module subtracts a constant from each event handling time to compensate for the overhead of calling the time function, and socking away the results. By default, the constant is 0. The following procedure can be used to obtain a better constant for a given platform (see [Limitations](#profile-limitations)).
+The profiler of the `profile` module subtracts a constant from each event handling time to compensate for the overhead of calling the time function, and socking away the results. By default, the constant is 0. The following procedure can be used to obtain a better constant for a given platform (see [[#Limitations]]).
 
 ```
 import profile
-pr = profile.Profile ()
-for i in range (5):
-    print (pr.calibrate (10000))
+pr = profile.Profile()
+for i in range(5):
+    print(pr.calibrate(10000))
 ```
 
 The method executes the number of Python calls given by the argument, directly and again under the profiler, measuring the time for both. It then computes the hidden overhead per profiler event, and returns that as a float. For example, on a 1.8Ghz Intel Core i5 running macOS, and using Python’s time. process_time () as the timer, the magical number is about 4.04e-6.
@@ -383,20 +377,19 @@ When you have a consistent answer, there are three ways you can use it:
 import profile
 
 # 1. Apply computed bias to all Profile instances created hereafter.
-profile. Profile. bias = your_computed_bias
+profile.Profile.bias = your_computed_bias
 
 # 2. Apply computed bias to a specific Profile instance.
-pr = profile.Profile ()
-pr. bias = your_computed_bias
+pr = profile.Profile()
+pr.bias = your_computed_bias
 
 # 3. Specify computed bias in instance constructor.
-pr = profile.Profile (bias=your_computed_bias)
+pr = profile.Profile(bias=your_computed_bias)
 ```
 
 If you have a choice, you are better off choosing a smaller constant, and then your results will “less often” show up as negative in profile statistics.
 
-Using a custom timer[¶]( #using -a-custom-timer "Link to this heading")
----------------------------------------------------------------------
+## Using a custom timer
 
 If you want to change how current time is determined (for example, to force use of wall-clock time or elapsed process time), pass the timing function you want to the `Profile` class constructor:
 
@@ -404,15 +397,15 @@ If you want to change how current time is determined (for example, to force use 
 pr = profile.Profile (your_time_func)
 ```
 
-The resulting profiler will then call `your_time_func`. Depending on whether you are using [`profile. Profile`]( #profile . Profile "profile. Profile") or `cProfile. Profile`, `your_time_func`’s return value will be interpreted differently:
+The resulting profiler will then call `your_time_func`. Depending on whether you are using `profile.Profile` or `cProfile. Profile`, `your_time_func`’s return value will be interpreted differently:
 
-[`profile. Profile`]( #profile . Profile "profile. Profile")
+### func `profile.Profile`
 
 `your_time_func` should return a single number, or a list of numbers whose sum is the current time (like what [`os.times ()`]( https://docs.python.org/3/library/os.html#os.times "os. times") returns). If the function returns a single time number, or the list of returned numbers has length 2, then you will get an especially fast version of the dispatch routine.
 
 Be warned that you should calibrate the profiler class for the timer function that you choose (see [Calibration](#profile-calibration)). For most machines, a timer that returns a lone integer value will provide the best results in terms of low overhead during profiling. ([`os.times ()`]( https://docs.python.org/3/library/os.html#os.times "os. times") is _pretty_ bad, as it returns a tuple of floating point values). If you want to substitute a better timer in the cleanest fashion, derive a class and hardwire a replacement dispatch method that best handles your timer call, along with the appropriate calibration constant.
 
-`cProfile. Profile`
+### func `cProfile.Profile`
 
 `your_time_func` should return a single number. If it returns integers, you can also invoke the class constructor with a second argument specifying the real duration of one unit of time. For example, if `your_integer_time_func` returns times measured in thousands of seconds, you would construct the `Profile` instance as follows:
 

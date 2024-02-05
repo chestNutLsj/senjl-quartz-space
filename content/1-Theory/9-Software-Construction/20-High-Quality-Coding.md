@@ -327,11 +327,11 @@ Python 中进行异常处理，需要使用 `try/except` 块进行包围，但�
 实现对文章中出现的单词的统计。
 """
 # 导入文件所需要的各种包文件
+
 import re
 
-
 # 分词函数，程序的主要功能
-def SplitWords(input_file):
+def split_words(input_file):
 
     # 读入文件
     with open(input_file, encoding="utf-8") as file_object:
@@ -348,14 +348,15 @@ def SplitWords(input_file):
         else:
             dic[word] = 1
 
-    # 排序输出
-    result = sorted(dic.items(), key=lambda dict: dict[1], reverse=True)
+    # 排序
+    result = sorted(dic.items(), key=lambda dic: dic[1], reverse=True)
 
     print(result[1:100])
 
 
+# 主函数，程序的入口，相当于c++中的main函数
 if __name__ == "__main__":
-    SplitWords("input.txt")
+    split_words("input.txt")
 ```
 
 仔细审视这段代码，整个程序只需要运行 `SplitWords` 这一个函数，而这个函数中又分为四个阶段，分别是读入文件、分割单词、统计词频、排序输出，
@@ -369,11 +370,198 @@ if __name__ == "__main__":
 
 我们可以在上述代码中如下添加、以实现对各步骤的耗时统计：
 ```python
+# 添加要用到的包
+import cProfile
+
+# 修改主函数部分如下
+
+if __name__ == "__main__":
+    # 使用cProfile进行性能分析
+    input_files = "./input.txt"
+    profiler = cProfile.Profile()
+    profiler.enable()
+
+    split_words(input_files)
+
+    profiler.disable()
+    profiler.print_stats(sort="calls")
+```
+
+运行该文件，我们可以得到 profile 的输出为：
+```shell
+❯ python split_words.py
+
+... # 省略程序输出（取决于文件本身），查看profile的输出
+
+Ordered by: call count
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       58    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+       49    0.000    0.000    0.000    0.000 split_words.py:35(<lambda>)
+       30    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+    25/23    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+       18    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+       11    0.000    0.000    0.000    0.000 _parser.py:240(__next)
+        8    0.000    0.000    0.000    0.000 _parser.py:168(__getitem__)
+        7    0.000    0.000    0.000    0.000 _parser.py:261(get)
+        6    0.000    0.000    0.000    0.000 _parser.py:256(match)
+        5    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+        4    0.000    0.000    0.000    0.000 {built-in method builtins.min}
+        4    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
+        4    0.000    0.000    0.000    0.000 _parser.py:164(__len__)
+        3    0.000    0.000    0.000    0.000 _parser.py:293(tell)
+        2    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 enum.py:1116(__new__)
+      2/1    0.000    0.000    0.000    0.000 _parser.py:178(getwidth)
+      2/1    0.000    0.000    0.000    0.000 _compiler.py:37(_compile)
+        2    0.000    0.000    0.000    0.000 enum.py:713(__call__)
+        2    0.000    0.000    0.000    0.000 _parser.py:113(__init__)
+        2    0.000    0.000    0.000    0.000 _parser.py:83(groups)
+        2    0.000    0.000    0.000    0.000 _compiler.py:570(isstring)
+        2    0.000    0.000    0.000    0.000 _compiler.py:428(_get_iscased)
+        2    0.000    0.000    0.000    0.000 enum.py:1541(__and__)
+        1    0.000    0.000    0.000    0.000 <frozen codecs>:319(decode)
+        1    0.000    0.000    0.000    0.000 <frozen codecs>:309(__init__)
+        1    0.000    0.000    0.000    0.000 <frozen codecs>:260(__init__)
+        1    0.000    0.000    0.000    0.000 {method 'split' of 're.Pattern' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+        1    0.000    0.000    0.000    0.000 {method 'read' of '_io.TextIOWrapper' objects}
+        1    0.000    0.000    0.000    0.000 {method '__exit__' of '_io._IOBase' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method _io.open}
+        1    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+        1    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method fromkeys}
+        1    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 split_words.py:17(split_words)
+        1    0.000    0.000    0.000    0.000 _compiler.py:436(_get_literal_prefix)
+        1    0.000    0.000    0.000    0.000 __init__.py:280(_compile)
+        1    0.000    0.000    0.000    0.000 _compiler.py:216(_compile_charset)
+        1    0.000    0.000    0.000    0.000 _parser.py:969(parse)
+        1    0.000    0.000    0.000    0.000 _parser.py:452(_parse_sub)
+        1    0.000    0.000    0.000    0.000 _compiler.py:467(_get_charset_prefix)
+        1    0.000    0.000    0.000    0.000 _compiler.py:243(_optimize_charset)
+        1    0.000    0.000    0.000    0.000 _compiler.py:740(compile)
+        1    0.000    0.000    0.000    0.000 _compiler.py:511(_compile_info)
+        1    0.000    0.000    0.000    0.000 _parser.py:512(_parse)
+        1    0.000    0.000    0.000    0.000 _compiler.py:398(_simple)
+        1    0.000    0.000    0.000    0.000 _compiler.py:573(_code)
+        1    0.000    0.000    0.000    0.000 _parser.py:176(append)
+        1    0.000    0.000    0.000    0.000 _parser.py:449(_uniq)
+        1    0.000    0.000    0.000    0.000 _parser.py:953(fix_flags)
+        1    0.000    0.000    0.000    0.000 __init__.py:199(split)
+        1    0.000    0.000    0.000    0.000 _parser.py:172(__setitem__)
+        1    0.000    0.000    0.000    0.000 _parser.py:77(__init__)
+        1    0.000    0.000    0.000    0.000 _parser.py:231(__init__)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 ```
 
+这个程序读取的文件比较小，因此运行起来几乎不耗时，所以我们重点关注函数调用次数，可以从上面信息看出：
+- 词典对象 `dic` 的 ` keys ` 方法被调用了多达 58 次；
+- 匿名函数 `lambda dic:dic[1]` 用于提取词典中每个元组的第二个元素（词频），被调用了 49 次；
+- 在排序时，会隐含地创建列表并追加元素进去，因此 `append` 方法被调用了 30 次；
+- 其它调用比较多的，大多是 built-in 方法等不容易修改的方法，我们不必考虑；
+
+因此，这样的数据与我们的预估相符，`keys` 方法不正确地多次调用，是这个文件额外耗时的关键原因。
+
+>[!note] profile 中每一列数据的具体含义
+>- ncalls 函数的被调用次数
+>- tottime 函数总计运行时间，这里除去函数中调用的其他函数运行时间 
+>- percall 函数运行一次的平均时间，等于 tottime/ncalls
+>- cumtime 函数总计运行时间，这里包含调用的其他函数运行时间 
+>- percall 函数运行一次的平均时间，等于 cumtime/ncalls 
+>- filename:lineno(function) 函数所在的文件名，函数的行号，函数名
+
 ### Python 性能优化的一些原则
 
+- 性能优化的关键是如何发现问题，寻找解决问题的方法
+- **有效的测试是不可缺少的**，通过测试找出真正的瓶颈，并分析优化结果
+- 要**避免不必要的优化**，避免不成熟的优化，不成熟的优化是错误的来源
+- **改进算法，选择合适的数据结构**是常用手段：
+	- 对成员的查找访问等操作，字典（dictionary）要比列表（list）更快
+	- 集合（set）的并、交、差的操作比列表（list）的迭代要快
+- **循环优化的基本原则**：尽量减少循环过程中的计算量，在多重循环的时候，尽量将内层的计算提到上一层。
+- **字符串的优化**：
+	- Python 的字符串对象是不可改变的
+	- 字符串连接尽量使用 `join()` 而不是 + 
+	- 当对字符串可以使用正则表达式或者内置函数处理时，选择内置函数
+- **使用列表解析和生成器表达式**：
+	- 列表解析要比在循环中重新构建一个新的 list 更为高效，因此可以利用这一特性来提高运行的效率
+
+## 结对编程
+
+- **结对编程**是由两名程序员在同一台电脑上结对编写解决同一问题的代码的开发方式，二人互相补充、共同协作；
+- 类似汽车比赛中驾驶员与领航员的角色，一者负责编写程序，另一者负责全局思路、纠错、提醒等；
+- [Pair programming - Wikipedia](https://en.wikipedia.org/wiki/Pair_programming?useskin=vector)
+
+## Practice
+
+### 编程作业
+
+请用 **python3** 编写程序，它可以实现对一个大容量英文文献进行分词与分句，并且能够对该文献内容的全文单词位置进行检索。更具体地，对于一个含有以分隔符（逗号“,”、空格“ ”、分号“;”、英文句号“.”等非英文字母）分隔开的若干单词的文本文献（其中单词可能重复），程序要读入和存储整个文本，并根据输入的若干个单词进行查询，返回每个单词出现的所有句子以及是句子中第几个单词。
+
+**1. 功能实现要求（90分）**
+
+- 实验输入为一个含有标点符号的英文文献。其中，将所有连续的英文字母视作一个单词，仅以句号“.”、问号“?”、感叹号“!”结尾的才视作一个完整的句子。例如：“fdafa”、“a”、“b”均是一个单词，而“I‘m a boy.”是一个句子，它含有“I”、“m”、“a”、“boy”四个单词；但“I am a boy,”则不是一个完整的句子，因为其以逗号“,”结尾。若最后一句话没有结束符号，则视为不完整的句子，不计入结果。
+
+- 实验中所有的单词字母不区分大小写，“Single”和“single”视为同一个单词。
+
+- 为保证实验公平性，所有实验程序均使用 python3 编写，不允许使用诸如 python 中内置 dict 等哈希表扩展。
+
+- 要求能够从命令行读取文本文件名，代码中以文件的方式读取文献文件 document.txt 和查询文件 query.txt。如若待分析文件名为 document.txt，查询文件名为 query.txt，程序应能够以 python3 sample.py document.txt query.txt 的形式运行，其中 sample.py 是提交的 python 程序文件名。
+
+- 待分析文件中包含完整的英文文献。查询文件中每行一个单词，要求输出这个单词在文献中出现的所有句子的次序以及在该句子中出现的位置。两个数以“/”号隔开，例如第一个句子第二个单词，输出应为1/2。每一个这样的数对之间以逗号隔开，每个单词的所有出现位置输出一行。
+
+- 若待查询单词在文献中没有出现，则输出字符串“None”。
 
 
-## 结对编程实践
+**2. 性能测试要求（10分）**
+
+在完成功能要求的前提下，本作业还要对代码性能进行测试。具体测试样例如下：
+
+- 性能测试样例1：输入文件大小为1M，待查询单词为100个。
+
+- 性能测试样例2：输入文件大小为5M，待查询单词为1000个。
+
+- 性能测试样例3：输入文件大小为30M，待查询单词为2000个。  
+
+
+性能测试最低要求机器内存小于100M，程序运行时间小于300s，否则视为测试失败。
+
+**3. 输入输出样例**
+
+【样例一】  
+  文件内容：  
+  I’m a coder in the University.  
+  查询内容：  
+  A  
+  The  
+  输出：  
+  1/3  
+  1/6
+
+【样例二】  
+  文件内容：  
+  She is a beautiful girl. And they met in the school.  
+  查询内容：  
+  BoY  
+  And  
+  Scho  
+  输出：  
+  None  
+  2/1  
+  None
+
+【样例三】  
+  文件内容：  
+  Python is a good language. C++ is another one. But my favourite language is Java. Language is  
+  查询内容：  
+  Language  
+  C  
+  good  
+  输出：  
+  1/5,3/4  
+  2/1  
+  1/4
