@@ -13,6 +13,7 @@ const config: QuartzConfig = {
     ignorePatterns: [".obsidian", ".trash"],
     defaultDateType: "created",
     theme: {
+      cdnCaching: true,
       typography: {
         header: "Kaushan Script",
         body: "Noto Sans Simplified Chinese",
@@ -45,7 +46,6 @@ const config: QuartzConfig = {
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
-      Plugin.TableOfContents(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "filesystem"], // you can add 'git' here for last modified from Git but this makes the build slower
       }),
@@ -53,6 +53,7 @@ const config: QuartzConfig = {
       Plugin.SyntaxHighlighting(),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: true }),
       Plugin.GitHubFlavoredMarkdown(),
+      Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
     ],

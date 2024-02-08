@@ -5,7 +5,8 @@ import { escapeHTML } from "../../util/escape"
 import { FilePath, FullSlug, SimpleSlug, joinSegments, simplifySlug } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
 import { toHtml } from "hast-util-to-html"
-import path from "path"
+import { write } from "./helpers"
+import { i18n } from "../../i18n"
 
 export type ContentIndex = Map<FullSlug, ContentDetails>
 export type ContentDetails = {
@@ -38,7 +39,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndex): string {
   const base = cfg.baseUrl ?? ""
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<url>
     <loc>https://${joinSegments(base, encodeURI(slug))}</loc>
-    <lastmod>${content.date?.toISOString()}</lastmod>
+    ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`
   const urls = Array.from(idx)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
@@ -78,7 +79,7 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: nu
     <channel>
       <title>${escapeHTML(cfg.pageTitle)}</title>
       <link>https://${base}</link>
-      <description>${!!limit ? `Last ${limit} notes` : "Recent notes"} on ${escapeHTML(
+      <description>${!!limit ? i18n(cfg.locale).pages.rss.lastFewNotes({ count: limit }) : i18n(cfg.locale).pages.rss.recentNotes} on ${escapeHTML(
         cfg.pageTitle,
       )}</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
@@ -91,7 +92,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
   opts = { ...defaultOptions, ...opts }
   return {
     name: "ContentIndex",
-    async emit(ctx, content, _resources, emit) {
+    async emit(ctx, content, _resources) {
       const cfg = ctx.cfg.configuration
       const emitted: FilePath[] = []
       const linkIndex: ContentIndex = new Map()
@@ -115,7 +116,8 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
 
       if (opts?.enableSiteMap) {
         emitted.push(
-          await emit({
+          await write({
+            ctx,
             content: generateSiteMap(cfg, linkIndex),
             slug: "sitemap" as FullSlug,
             ext: ".xml",
@@ -125,7 +127,8 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
 
       if (opts?.enableRSS) {
         emitted.push(
-          await emit({
+          await write({
+            ctx,
             content: generateRSSFeed(cfg, linkIndex, opts.rssLimit),
             slug: "index" as FullSlug,
             ext: ".xml",
@@ -133,7 +136,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         )
       }
 
-      const fp = path.join("static", "contentIndex") as FullSlug
+      const fp = joinSegments("static", "contentIndex") as FullSlug
       const simplifiedIndex = Object.fromEntries(
         Array.from(linkIndex).map(([slug, content]) => {
           // remove description and from content index as nothing downstream
@@ -146,7 +149,8 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       )
 
       emitted.push(
-        await emit({
+        await write({
+          ctx,
           content: JSON.stringify(simplifiedIndex),
           slug: fp,
           ext: ".json",
