@@ -3,62 +3,48 @@ url: https://docs.python.org/3/library/unittest.html
 title: unittest — Unit testing framework — Python 3.12.1 documentation
 date: 2024-02-08 00:07:43
 tags:
+  - Test
+  - Python
+publish: "true"
 ---
 > **Source code:** [Lib/unittest/__init__.py](https://github.com/python/cpython/tree/3.12/Lib/unittest/__init__.py)
 
-(If you are already familiar with the basic concepts of testing, you might want to skip to [the list of assert methods](#assert-methods).)
+(If you are already familiar with the basic concepts of testing, you might want to skip to [[#Assert methods|the list of assert methods]].)
 
 The `unittest` unit testing framework was originally inspired by JUnit and has a similar flavor as major unit testing frameworks in other languages. It supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.
 
-To achieve this, [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") supports some important concepts in an object-oriented way:
+To achieve this, `unittest` supports some important concepts in an object-oriented way:
+> `unittest` 以面向对象的方法提供这些类：
 
-test fixture
+1. **test fixture**: A _test fixture_ represents the preparation needed to perform one or more tests, and any associated cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.
+> 测试夹具类：表示执行一个或多个测试所需的*准备工作*，以及任何相关的*清理操作*。例如，这可能涉及创建临时或代理数据库、目录或启动服务器进程。
+> 🔔：这里测试“夹具”这个词似乎听起来怪怪的，其实可以理解成化学实验里的试管，我们要在试管里发生化学反应（即是测试），必先找到一个夹子夹住试管，然后在酒精灯上加热；当试管中实验停止后，我们还要拆下试管并做清洗、整理等一系列善后工作。
 
-A _test fixture_ represents the preparation needed to perform one or more tests, and any associated cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.
+2. **test case**: A _test case_ is the individual unit of testing. It checks for a specific response to a particular set of inputs. `unittest` provides a base class, `TestCase`, which may be used to create new test cases.
+> 测试用例类：一个测试用例是测试的独立单元，用于检查对特定输入的特定响应。`unittest` 提供一个名为 `TestCase` 的基类，可以用于创建新的测试用例。
 
-test case
+3. **test suite**: A _test suite_ is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.
+> 测试组合类：是一系列测试用例的集合，将测试用例添加进去方便管理。
 
-A _test case_ is the individual unit of testing. It checks for a specific response to a particular set of inputs. [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") provides a base class, [`TestCase`](#unittest.TestCase "unittest.TestCase"), which may be used to create new test cases.
+4. **test runner**: A _test runner_ is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.
+> 测试执行类：用于执行测试并将结果输出给使用者。
 
-test suite
-
-A _test suite_ is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.
-
-test runner
-
-A _test runner_ is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.
-
-See also
-
-Module [`doctest`](https://docs.python.org/3/library/doctest.html#module-doctest "doctest: Test pieces of code within docstrings.")
-
-Another test-support module with a very different flavor.
-
-[Simple Smalltalk Testing: With Patterns](https://web.archive.org/web/20150315073817/http://www.xprogramming.com/testfram.htm)
-
-Kent Beck’s original paper on testing frameworks using the pattern shared by [`unittest`](#module-unittest "unittest: Unit testing framework for Python.").
-
-[pytest](https://docs.pytest.org/)
-
-Third-party unittest framework with a lighter-weight syntax for writing tests. For example, `assert func(10) == 42`.
-
-[The Python Testing Tools Taxonomy](https://wiki.python.org/moin/PythonTestingToolsTaxonomy)
-
-An extensive list of Python testing tools including functional testing frameworks and mock object libraries.
-
-[Testing in Python Mailing List](http://lists.idyll.org/listinfo/testing-in-python)
-
-A special-interest-group for discussion of testing, and testing tools, in Python.
-
-The script `Tools/unittestgui/unittestgui.py` in the Python source distribution is a GUI tool for test discovery and execution. This is intended largely for ease of use for those new to unit testing. For production environments it is recommended that tests be driven by a continuous integration system such as [Buildbot](https://buildbot.net/), [Jenkins](https://www.jenkins.io/), [GitHub Actions](https://github.com/features/actions), or [AppVeyor](https://www.appveyor.com/).
+>[!tip] See also (other test tools)
+>- Module [`doctest`]( https://docs.python.org/3/library/doctest.html#module-doctest "doctest: Test pieces of code within docstrings."): Another test-support module with a very different flavor.
+>- [Simple Smalltalk Testing: With Patterns](https://web.archive.org/web/20150315073817/http://www.xprogramming.com/testfram.htm): Kent Beck’s original paper on testing frameworks using the pattern shared by `unittest`.
+>- [pytest](https://docs.pytest.org/): Third-party unittest framework with a lighter-weight syntax for writing tests. For example, `assert func(10) == 42`.
+>- [The Python Testing Tools Taxonomy](https://wiki.python.org/moin/PythonTestingToolsTaxonomy): An extensive list of Python testing tools including functional testing frameworks and mock object libraries.
+>- [Testing in Python Mailing List](http://lists.idyll.org/listinfo/testing-in-python): A special-interest-group for discussion of testing, and testing tools, in Python.
+>
+>The script `Tools/unittestgui/unittestgui.py` in the Python source distribution is a GUI tool for test discovery and execution. This is intended largely for ease of use for those new to unit testing. For production environments it is recommended that tests be driven by a continuous integration system such as [Buildbot](https://buildbot.net/), [Jenkins](https://www.jenkins.io/), [GitHub Actions](https://github.com/features/actions), or [AppVeyor](https://www.appveyor.com/).
 
 ## Basic example
 
-The [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") module provides a rich set of tools for constructing and running tests. This section demonstrates that a small subset of the tools suffice to meet the needs of most users.
+The `unittest` module provides a rich set of tools for constructing and running tests. This section demonstrates that a small subset of the tools suffice to meet the needs of most users.
 
 Here is a short script to test three string methods:
 
-```
+```python
 import unittest
 
 class TestStringMethods(unittest.TestCase):
@@ -81,13 +67,24 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-A testcase is created by subclassing [`unittest.TestCase`](#unittest.TestCase "unittest.TestCase"). The three individual tests are defined with methods whose names start with the letters `test`. This naming convention informs the test runner about which methods represent tests.
+A testcase is created by subclassing `unittest.TestCase`. The three individual tests are defined with methods whose names start with the letters `test`. This naming convention informs the test runner about which methods represent tests.
 
-The crux of each test is a call to [`assertEqual()`](#unittest.TestCase.assertEqual "unittest.TestCase.assertEqual") to check for an expected result; [`assertTrue()`](#unittest.TestCase.assertTrue "unittest.TestCase.assertTrue") or [`assertFalse()`](#unittest.TestCase.assertFalse "unittest.TestCase.assertFalse") to verify a condition; or [`assertRaises()`](#unittest.TestCase.assertRaises "unittest.TestCase.assertRaises") to verify that a specific exception gets raised. These methods are used instead of the [`assert`](https://docs.python.org/3/reference/simple_stmts.html#assert) statement so the test runner can accumulate all test results and produce a report.
+The crux of each test is:
+- a call to `assertEqual()` to check for an expected result;
+- `assertTrue()` or `assertFalse()` to verify a condition;
+- or `assertRaises()` to verify that a specific exception gets raised.
 
-The [`setUp()`](#unittest.TestCase.setUp "unittest.TestCase.setUp") and [`tearDown()`](#unittest.TestCase.tearDown "unittest.TestCase.tearDown") methods allow you to define instructions that will be executed before and after each test method. They are covered in more detail in the section [Organizing test code](#organizing-tests).
+These methods are used instead of the [`assert`](https://docs.python.org/3/reference/simple_stmts.html#assert) statement so the test runner can accumulate all test results and produce a report.
 
-The final block shows a simple way to run the tests. [`unittest.main()`](#unittest.main "unittest.main") provides a command-line interface to the test script. When run from the command line, the above script produces an output that looks like this:
+> 通过继承 `unittest.TestCase` 类，我们可以定义自己的测试类，在类中的三个函数里，通过 `assertEqual()` 等方法，可以实现特定的检查。
+> 
+> 这些 `assertXxx()` 方法是从 `assert` 方法中重构、精简来的更强大的断言方法，可以让 test runner 调用，统计测试结果和给出报告。
+
+The `setUp()` and `tearDown()` methods allow you to define instructions that will be executed before and after each test method. They are covered in more detail in the section [[#Organizing test code|Organizing test code]].
+> `setUp()` 和 `tearDown()` 方法用于每个测试方法前后设置要执行的特定指令。具体可以查看后文。
+
+The final block shows a simple way to run the tests. `unittest.main()` provides a command-line interface to the test script. When run from the command line, the above script produces an output that looks like this:
+> `unittest.main()` 方法提供了命令行式的接口，用以运行测试，输出类似下面：
 
 ```
 ...
@@ -97,8 +94,7 @@ Ran 3 tests in 0.000s
 OK
 ```
 
-Passing the `-v` option to your test script will instruct [`unittest.main()`](#unittest.main "unittest.main") to enable a higher level of verbosity, and produce the following output:
-
+Passing the `-v` option to your test script will instruct `unittest.main()` to enable a higher level of verbosity, and produce the following output:
 ```
 test_isupper (__main__.TestStringMethods.test_isupper) ... ok
 test_split (__main__.TestStringMethods.test_split) ... ok
@@ -110,13 +106,14 @@ Ran 3 tests in 0.001s
 OK
 ```
 
-The above examples show the most commonly used [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") features which are sufficient to meet many everyday testing needs. The remainder of the documentation explores the full feature set from first principles.
+The above examples show the most commonly used `unittest` features which are sufficient to meet many everyday testing needs. The remainder of the documentation explores the full feature set from first principles.
 
-Changed in version 3.11: The behavior of returning a value from a test method (other than the default `None` value), is now deprecated.
+> *Changed in version 3.11*: The behavior of returning a value from a test method (other than the default `None` value), is now deprecated.
 
 ## Command-Line Interface
 
-The unittest module can be used from the command line to run tests from modules, classes or even individual test methods:
+The `unittest` module can be used from the command line to run tests from modules, classes or even individual test methods:
+> `unittest` 模块可以从命令行唤起，用于运行其它测试模块、类、甚至是单独的测试方法：
 
 ```
 python -m unittest test_module1 test_module2
@@ -133,6 +130,8 @@ python -m unittest tests/test_something.py
 ```
 
 This allows you to use the shell filename completion to specify the test module. The file specified must still be importable as a module. The path is converted to a module name by removing the ‘.py’ and converting path separators into ‘.’. If you want to execute a test file that isn’t importable as a module you should execute the file directly instead.
+> 测试模块可以用文件路径（相对 or 绝对）的方式来指定。路径中的 `.py` 将会被移除，而 `/` 会被 `.` 取代。
+> 如果要执行的测试文件不可作为模块引入，那就需要直接执行它。
 
 You can run tests with more detail (higher verbosity) by passing in the -v flag:
 
@@ -142,30 +141,34 @@ python -m unittest -v test_module
 
 When executed without arguments [Test Discovery](#unittest-test-discovery) is started:
 
+```
+python -m unittest
+```
+
 For a list of all the command-line options:
 
-Changed in version 3.2: In earlier versions it was only possible to run individual test methods and not modules or classes.
+```
+python -m unittest -h
+```
+
+> *Changed in version 3.2*: In earlier versions it was only possible to run individual test methods and not modules or classes.
 
 ### Command-line options
 
 **unittest** supports these command-line options:
 
--b, --buffer[¶](#cmdoption-unittest-b "Link to this definition")
-
+#### 1. `-b, --buffer`
 The standard output and standard error streams are buffered during the test run. Output during a passing test is discarded. Output is echoed normally on test fail or error and is added to the failure messages.
 
--c, --catch[¶](#cmdoption-unittest-c "Link to this definition")
-
+#### 2. `-c, --catch`
 Control-C during the test run waits for the current test to end and then reports all the results so far. A second Control-C raises the normal [`KeyboardInterrupt`](https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt "KeyboardInterrupt") exception.
 
 See [Signal Handling](#signal-handling) for the functions that provide this functionality.
 
--f, --failfast[¶](#cmdoption-unittest-f "Link to this definition")
-
+#### 3. `-f, --failfast`
 Stop the test run on the first error or failure.
 
--k[¶](#cmdoption-unittest-k "Link to this definition")
-
+#### 4. `-k`
 Only run test methods and classes that match the pattern or substring. This option may be used multiple times, in which case all test cases that match any of the given patterns are included.
 
 Patterns that contain a wildcard character (`*`) are matched against the test name using [`fnmatch.fnmatchcase()`](https://docs.python.org/3/library/fnmatch.html#fnmatch.fnmatchcase "fnmatch.fnmatchcase"); otherwise simple case-sensitive substring matching is used.
@@ -174,81 +177,88 @@ Patterns are matched against the fully qualified test method name as imported by
 
 For example, `-k foo` matches `foo_tests.SomeTest.test_something`, `bar_tests.SomeTest.test_foo`, but not `bar_tests.FooTest.test_something`.
 
---locals[¶](#cmdoption-unittest-locals "Link to this definition")
+#### 5. `--locals`
 
 Show local variables in tracebacks.
 
---durations N[¶](#cmdoption-unittest-durations "Link to this definition")
+#### 6. `--durations N`
 
 Show the N slowest test cases (N=0 for all).
 
-New in version 3.2: The command-line options `-b`, `-c` and `-f` were added.
-
-New in version 3.5: The command-line option `--locals`.
-
-New in version 3.7: The command-line option `-k`.
-
-New in version 3.12: The command-line option `--durations`.
+> *New in version 3.2*: The command-line options `-b`, `-c` and `-f` were added.
+> 
+> *New in version 3.5*: The command-line option `--locals`.
+> 
+> *New in version 3.7*: The command-line option `-k`.
+> 
+> *New in version 3.12*: The command-line option `--durations`.
 
 The command line can also be used for test discovery, for running all of the tests in a project or just a subset.
 
 ## Test Discovery
 
-New in version 3.2.
+> *New in version 3.2*.
 
 Unittest supports simple test discovery. In order to be compatible with test discovery, all of the test files must be [modules](https://docs.python.org/3/tutorial/modules.html#tut-modules) or [packages](https://docs.python.org/3/tutorial/modules.html#tut-packages) importable from the top-level directory of the project (this means that their filenames must be valid [identifiers](https://docs.python.org/3/reference/lexical_analysis.html#identifiers)).
+> `unittest` 支持简单的测试发现，为了兼容，所有测试文件都必须是模块或包可导入的（意味着它们的文件名必须是合规的标识符）
 
-Test discovery is implemented in [`TestLoader.discover()`](#unittest.TestLoader.discover "unittest.TestLoader.discover"), but can also be used from the command line. The basic command-line usage is:
+Test discovery is implemented in `TestLoader.discover()`, but can also be used from the command line. The basic command-line usage is:
 
 ```
 cd project_directory
 python -m unittest discover
 ```
 
-Note
+>[!Note]
+>As a shortcut, `python -m unittest` is the equivalent of `python -m unittest discover`. If you want to pass arguments to test discovery the `discover` sub-command must be used explicitly.
 
-As a shortcut, `python -m unittest` is the equivalent of `python -m unittest discover`. If you want to pass arguments to test discovery the `discover` sub-command must be used explicitly.
+### Test discover options
 
 The `discover` sub-command has the following options:
 
--v, --verbose[¶](#cmdoption-unittest-discover-v "Link to this definition")
+#### 1. `-v, --verbose`
 
 Verbose output
 
--s, --start-directory directory[¶](#cmdoption-unittest-discover-s "Link to this definition")
+#### 2. `-s, --start-directory directory`
 
 Directory to start discovery (`.` default)
 
--p, --pattern pattern[¶](#cmdoption-unittest-discover-p "Link to this definition")
+#### 3. `-p, --pattern pattern`
 
 Pattern to match test files (`test*.py` default)
 
--t, --top-level-directory directory[¶](#cmdoption-unittest-discover-t "Link to this definition")
+#### 4. `-t, --top-level-directory directory`
 
 Top level directory of project (defaults to start directory)
 
-The [`-s`](#cmdoption-unittest-discover-s), [`-p`](#cmdoption-unittest-discover-p), and [`-t`](#cmdoption-unittest-discover-t) options can be passed in as positional arguments in that order. The following two command lines are equivalent:
+The `-s`, `-p`, and `-t` options can be passed in as positional arguments in that order. The following two command lines are equivalent:
+> `-s`, `-p`, `-t` 这三个参数可以通过位置确定参数内容，例如下面两个命令是等价的：
 
 ```
 python -m unittest discover -s project_directory -p "*_test.py"
 python -m unittest discover project_directory "*_test.py"
 ```
 
+### Be careful with start directory
+
 As well as being a path it is possible to pass a package name, for example `myproject.subpackage.test`, as the start directory. The package name you supply will then be imported and its location on the filesystem will be used as the start directory.
 
-Caution
+>[!Caution]
+>Test discovery loads tests by importing them. Once test discovery has found all the test files from the start directory you specify it turns the paths into package names to import. For example `foo/bar/baz.py` will be imported as `foo.bar.baz`.
+>> 测试发现通过导入来加载测试。一旦测试发现从你指定的起始目录中找到了所有测试文件，它就会将路径转化为要导入的软件包名称。例如，`foo/bar/baz.py` 将被导入为 `foo.bar.baz`。
+>
+>If you have a package installed globally and attempt test discovery on a different copy of the package then the import _could_ happen from the wrong place. If this happens test discovery will warn you and exit. 
+>> 如果你在全局范围内安装了软件包，却试图在不同的软件包副本上进行测试发现，那么导入_可能_会_发生在错误的地方。如果出现这种情况，测试发现将发出警告并退出。
+>
+>If you supply the start directory as a package name rather than a path to a directory then discover assumes that whichever location it imports from is the location you intended, so you will not get the warning.
+>> 如果以软件包名称而不是目录路径的形式提供起始目录，那么 discover 会假定它从该位置导入，因此不会收到警告。
 
-Test discovery loads tests by importing them. Once test discovery has found all the test files from the start directory you specify it turns the paths into package names to import. For example `foo/bar/baz.py` will be imported as `foo.bar.baz`.
+Test modules and packages can customize test loading and discovery by through the [[#load_tests Protocol|load_tests protocol]].
 
-If you have a package installed globally and attempt test discovery on a different copy of the package then the import _could_ happen from the wrong place. If this happens test discovery will warn you and exit.
-
-If you supply the start directory as a package name rather than a path to a directory then discover assumes that whichever location it imports from is the location you intended, so you will not get the warning.
-
-Test modules and packages can customize test loading and discovery by through the [load_tests protocol](#id1).
-
-Changed in version 3.4: Test discovery supports [namespace packages](https://docs.python.org/3/glossary.html#term-namespace-package) for the start directory. Note that you need to specify the top level directory too (e.g. `python -m unittest discover -s root/namespace -t root`).
-
-Changed in version 3.11: [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") dropped the [namespace packages](https://docs.python.org/3/glossary.html#term-namespace-package) support in Python 3.11. It has been broken since Python 3.7. Start directory and subdirectories containing tests must be regular package that have `__init__.py` file.
+> *Changed in version 3.4*: Test discovery supports [namespace packages](https://docs.python.org/3/glossary.html#term-namespace-package) for the start directory. Note that you need to specify the top level directory too (e.g. `python -m unittest discover -s root/namespace -t root`).
+> 
+> *Changed in version 3.11*: `unittest` dropped the [namespace packages](https://docs.python.org/3/glossary.html#term-namespace-package) support in Python 3.11. It has been broken since Python 3.7. Start directory and subdirectories containing tests must be regular package that have `__init__.py` file.
 
 Directories containing start directory still can be a namespace package. In this case, you need to specify start directory as dotted package name, and target directory explicitly. For example:
 
@@ -264,13 +274,14 @@ python -m unittest discover -s namespace.mypkg -t .
 
 ## Organizing test code
 
-The basic building blocks of unit testing are _test cases_ — single scenarios that must be set up and checked for correctness. In [`unittest`](#module-unittest "unittest: Unit testing framework for Python."), test cases are represented by [`unittest.TestCase`](#unittest.TestCase "unittest.TestCase") instances. To make your own test cases you must write subclasses of [`TestCase`](#unittest.TestCase "unittest.TestCase") or use [`FunctionTestCase`](#unittest.FunctionTestCase "unittest.FunctionTestCase").
+The basic building blocks of unit testing are _test cases_ — single scenarios that must be set up and checked for correctness. In `unittest`, test cases are represented by `unittest.TestCase` instances. To make your own test cases you must write subclasses of `TestCase` or use `FunctionTestCase`.
+> 单元测试的基本构件是*测试用例*--必须设置并检查其正确性的单个场景。在 `unittest` 中，测试用例由 `unittest.TestCase` 实例表示。要制作自己的测试用例，必须编写 `TestCase` 的子类或使用 `FunctionTestCase`。
 
-The testing code of a [`TestCase`](#unittest.TestCase "unittest.TestCase") instance should be entirely self contained, such that it can be run either in isolation or in arbitrary combination with any number of other test cases.
+The testing code of a `TestCase` instance should be entirely self contained, such that it can be run either in isolation or in arbitrary combination with any number of other test cases.
 
-The simplest [`TestCase`](#unittest.TestCase "unittest.TestCase") subclass will simply implement a test method (i.e. a method whose name starts with `test`) in order to perform specific testing code:
+The simplest `TestCase` subclass will simply implement a test method (i.e. a method whose name starts with `test`) in order to perform specific testing code:
 
-```
+```python
 import unittest
 
 class DefaultWidgetSizeTestCase(unittest.TestCase):
@@ -279,11 +290,13 @@ class DefaultWidgetSizeTestCase(unittest.TestCase):
         self.assertEqual(widget.size(), (50, 50))
 ```
 
-Note that in order to test something, we use one of the [assert* methods](#assert-methods) provided by the [`TestCase`](#unittest.TestCase "unittest.TestCase") base class. If the test fails, an exception will be raised with an explanatory message, and [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") will identify the test case as a _failure_. Any other exceptions will be treated as _errors_.
+Note that in order to test something, we use one of the [[#Assert methods|assert* methods]] provided by the `TestCase` base class. If the test fails, an exception will be raised with an explanatory message, and `unittest` will identify the test case as a _failure_. Any other exceptions will be treated as _errors_.
+> 为了实现测试，我们需要使用 `TestCase` 基类提供的 `assertXxx()` 系列方法，这些方法会在测试不通过时抛出异常，`unittest` 就会将这些不通过的测试视作失败，其他的异常则视作错误。
 
-Tests can be numerous, and their set-up can be repetitive. Luckily, we can factor out set-up code by implementing a method called [`setUp()`](#unittest.TestCase.setUp "unittest.TestCase.setUp"), which the testing framework will automatically call for every single test we run:
+Tests can be numerous, and their set-up can be repetitive. Luckily, we can factor out set-up code by implementing a method called `setUp()`, which the testing framework will automatically call for every single test we run:
+> 一份项目要实现的单元测试可能成千上万，初始化可能在相当程度上重复，我们可以通过实现 `setUp()` 方法，来让测试框架自动地调用：
 
-```
+```python
 import unittest
 
 class WidgetTestCase(unittest.TestCase):
@@ -300,15 +313,16 @@ class WidgetTestCase(unittest.TestCase):
                          'wrong size after resize')
 ```
 
-Note
+>[!Note]
+>The order in which the various tests will be run is determined by sorting the test method names with respect to the built-in ordering for strings.
 
-The order in which the various tests will be run is determined by sorting the test method names with respect to the built-in ordering for strings.
+If the `setUp()` method raises an exception while the test is running, the framework will consider the test to have suffered an error, and the test method will not be executed.
+> 如果 `setUp()` 方法在测试运行时引发异常，框架将认为测试出错，测试方法将不会执行。
 
-If the [`setUp()`](#unittest.TestCase.setUp "unittest.TestCase.setUp") method raises an exception while the test is running, the framework will consider the test to have suffered an error, and the test method will not be executed.
+Similarly, we can provide a `tearDown()` method that tidies up after the test method has been run:
+> 类似地，有 `tearDown()` 方法可以在测试运行结束后调用，清理测试过程中产生的中间产物：
 
-Similarly, we can provide a [`tearDown()`](#unittest.TestCase.tearDown "unittest.TestCase.tearDown") method that tidies up after the test method has been run:
-
-```
+```python
 import unittest
 
 class WidgetTestCase(unittest.TestCase):
@@ -319,15 +333,21 @@ class WidgetTestCase(unittest.TestCase):
         self.widget.dispose()
 ```
 
-If [`setUp()`](#unittest.TestCase.setUp "unittest.TestCase.setUp") succeeded, [`tearDown()`](#unittest.TestCase.tearDown "unittest.TestCase.tearDown") will be run whether the test method succeeded or not.
+If `setUp()` succeeded, `tearDown()` will be run whether the test method succeeded or not.
+> 如果 `setUp()` 成功，无论测试方法是否成功都将运行 `tearDown()` 。
 
-Such a working environment for the testing code is called a _test fixture_. A new TestCase instance is created as a unique test fixture used to execute each individual test method. Thus [`setUp()`](#unittest.TestCase.setUp "unittest.TestCase.setUp"), [`tearDown()`](#unittest.TestCase.tearDown "unittest.TestCase.tearDown"), and `__init__()` will be called once per test.
+Such a working environment for the testing code is called a _test fixture_. A new TestCase instance is created as a unique test fixture used to execute each individual test method. Thus `setUp()`, `tearDown()`, and `__init__()` will be called once per test.
+> 这种测试代码的工作环境就是*测试夹具*。一个新的 TestCase 实例被创建为一个唯一的测试夹具，用于执行每个单独的测试方法。因此，`setUp()`、`tearDown()` 和 `__init__()` 将在每个测试中被调用一次。
 
-It is recommended that you use TestCase implementations to group tests together according to the features they test. [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") provides a mechanism for this: the _test suite_, represented by [`unittest`](#module-unittest "unittest: Unit testing framework for Python.")’s [`TestSuite`](#unittest.TestSuite "unittest.TestSuite") class. In most cases, calling [`unittest.main()`](#unittest.main "unittest.main") will do the right thing and collect all the module’s test cases for you and execute them.
+It is recommended that you use TestCase implementations to group tests together according to the features they test. `unittest` provides a mechanism for this: the _test suite_, represented by `unittest`’s `TestSuite` class. In most cases, calling `unittest.main()` will do the right thing and collect all the module’s test cases for you and execute them.
+> 建议使用 `TestCase` 来根据测试的功能将测试分组。
+> `unittest` 为此提供了一种机制：_test suite_，由 `unittest` 的 `TestSuite` 类表示。
+> 在大多数情况下，调用 `unittest.main()` 就会自动收集模块的所有测试用例并执行它们。
 
 However, should you want to customize the building of your test suite, you can do it yourself:
-
-```
+> 并且可以自定义 `suite` 方法，具体步骤如下：
+ 
+```python
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(WidgetTestCase('test_default_widget_size'))
@@ -340,31 +360,33 @@ if __name__ == '__main__':
 ```
 
 You can place the definitions of test cases and test suites in the same modules as the code they are to test (such as `widget.py`), but there are several advantages to placing the test code in a separate module, such as `test_widget.py`:
+> 既可以将测试用例和测试组合放在同一个模块中，也可以独立地置于其它模块。后者更为推荐，有以下优势：
+> 
+> 独立模块的测试，可以从命令行直接调用，可以与已发布的代码分离开，可以保证测试的独立（毕竟源代码可能常常会因 bug 等问题修改，而测试代码不必），因此测试代码也可以方便地重构
 
-*   The test module can be run standalone from the command line.
-    
-*   The test code can more easily be separated from shipped code.
-    
-*   There is less temptation to change test code to fit the code it tests without a good reason.
-    
-*   Test code should be modified much less frequently than the code it tests.
-    
-*   Tested code can be refactored more easily.
-    
-*   Tests for modules written in C must be in separate modules anyway, so why not be consistent?
-    
-*   If the testing strategy changes, there is no need to change the source code.
-    
+* The test module can be run standalone from the command line.
+
+* The test code can more easily be separated from shipped code.
+
+* There is less temptation to change test code to fit the code it tests without a good reason.
+
+* Test code should be modified much less frequently than the code it tests.
+
+* Tested code can be refactored more easily.
+
+* Tests for modules written in C must be in separate modules anyway, so why not be consistent?
+
+* If the testing strategy changes, there is no need to change the source code.
 
 ## Re-using old test code
 
-Some users will find that they have existing test code that they would like to run from [`unittest`](#module-unittest "unittest: Unit testing framework for Python."), without converting every old test function to a [`TestCase`](#unittest.TestCase "unittest.TestCase") subclass.
+Some users will find that they have existing test code that they would like to run from `unittest`, without converting every old test function to a `TestCase` subclass.
 
-For this reason, [`unittest`](#module-unittest "unittest: Unit testing framework for Python.") provides a [`FunctionTestCase`](#unittest.FunctionTestCase "unittest.FunctionTestCase") class. This subclass of [`TestCase`](#unittest.TestCase "unittest.TestCase") can be used to wrap an existing test function. Set-up and tear-down functions can also be provided.
+For this reason, `unittest` provides a `FunctionTestCase` class. This subclass of `TestCase` can be used to wrap an existing test function. Set-up and tear-down functions can also be provided.
 
 Given the following test function:
 
-```
+```python
 def testSomething():
     something = makeSomething()
     assert something.name is not None
@@ -373,21 +395,22 @@ def testSomething():
 
 one can create an equivalent test case instance as follows, with optional set-up and tear-down methods:
 
-```
+```python
 testcase = unittest.FunctionTestCase(testSomething,
                                      setUp=makeSomethingDB,
                                      tearDown=deleteSomethingDB)
 ```
 
-Note
+>[!Note] Test 哲学：缝缝补补不如干脆破而后立
+>Even though `FunctionTestCase` can be used to quickly convert an existing test base over to a `unittest` -based system, **this approach is not recommended**.
+>
+>Taking the time to set up proper `TestCase` subclasses will make future test refactorings infinitely easier.
 
-Even though [`FunctionTestCase`](#unittest.FunctionTestCase "unittest.FunctionTestCase") can be used to quickly convert an existing test base over to a [`unittest`](#module-unittest "unittest: Unit testing framework for Python.")-based system, this approach is not recommended. Taking the time to set up proper [`TestCase`](#unittest.TestCase "unittest.TestCase") subclasses will make future test refactorings infinitely easier.
+In some cases, the existing tests may have been written using the [`doctest`](https://docs.python.org/3/library/doctest.html#module-doctest "doctest: Test pieces of code within docstrings.") module. If so, `doctest` provides a `DocTestSuite` class that can automatically build `unittest.TestSuite` instances from the existing `doctest`-based tests.
 
-In some cases, the existing tests may have been written using the [`doctest`](https://docs.python.org/3/library/doctest.html#module-doctest "doctest: Test pieces of code within docstrings.") module. If so, [`doctest`](https://docs.python.org/3/library/doctest.html#module-doctest "doctest: Test pieces of code within docstrings.") provides a `DocTestSuite` class that can automatically build [`unittest.TestSuite`](#unittest.TestSuite "unittest.TestSuite") instances from the existing [`doctest`](https://docs.python.org/3/library/doctest.html#module-doctest "doctest: Test pieces of code within docstrings.")-based tests.
+## Skipping tests and expected failures
 
-## Skipping tests and expected failures[
-
-New in version 3.1.
+> *New in version 3.1*.
 
 Unittest supports skipping individual test methods and even whole classes of tests. In addition, it supports marking a test as an “expected failure,” a test that is broken and will fail, but shouldn’t be counted as a failure on a [`TestResult`](#unittest.TestResult "unittest.TestResult").
 
@@ -489,9 +512,9 @@ Usually you can use [`TestCase.skipTest()`](#unittest.TestCase.skipTest "unittes
 
 Skipped tests will not have [`setUp()`](#unittest.TestCase.setUp "unittest.TestCase.setUp") or [`tearDown()`](#unittest.TestCase.tearDown "unittest.TestCase.tearDown") run around them. Skipped classes will not have [`setUpClass()`](#unittest.TestCase.setUpClass "unittest.TestCase.setUpClass") or [`tearDownClass()`](#unittest.TestCase.tearDownClass "unittest.TestCase.tearDownClass") run. Skipped modules will not have `setUpModule()` or `tearDownModule()` run.
 
-## Distinguishing test iterations using subtests[¶](#distinguishing-test-iterations-using-subtests "Link to this heading")
+## Distinguishing test iterations using subtests
 
-New in version 3.4.
+> *New in version 3.4*.
 
 When there are very small differences among your tests, for instance some parameters, unittest allows you to distinguish them inside the body of a test method using the [`subTest()`](#unittest.TestCase.subTest "unittest.TestCase.subTest") context manager.
 
@@ -637,9 +660,24 @@ debug()[¶](#unittest.TestCase.debug "Link to this definition")
 
 Run the test without collecting the result. This allows exceptions raised by the test to be propagated to the caller, and can be used to support running tests under a debugger.
 
-The [`TestCase`](#unittest.TestCase "unittest.TestCase") class provides several assert methods to check for and report failures. The following table lists the most commonly used methods (see the tables below for more assert methods):
+#### Assert methods 
 
-<table><thead><tr><th><p>Method</p></th><th><p>Checks that</p></th><th><p>New in</p></th></tr></thead><tbody><tr><td><p><a href="#unittest.TestCase.assertEqual" title="unittest.TestCase.assertEqual"><code><span>assertEqual(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>a</span> <span>==</span> <span>b</span></code></p></td><td></td></tr><tr><td><p><a href="#unittest.TestCase.assertNotEqual" title="unittest.TestCase.assertNotEqual"><code><span>assertNotEqual(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>a</span> <span>!=</span> <span>b</span></code></p></td><td></td></tr><tr><td><p><a href="#unittest.TestCase.assertTrue" title="unittest.TestCase.assertTrue"><code><span>assertTrue(x)</span></code></a></p></td><td><p><code><span>bool(x)</span> <span>is</span> <span>True</span></code></p></td><td></td></tr><tr><td><p><a href="#unittest.TestCase.assertFalse" title="unittest.TestCase.assertFalse"><code><span>assertFalse(x)</span></code></a></p></td><td><p><code><span>bool(x)</span> <span>is</span> <span>False</span></code></p></td><td></td></tr><tr><td><p><a href="#unittest.TestCase.assertIs" title="unittest.TestCase.assertIs"><code><span>assertIs(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>a</span> <span>is</span> <span>b</span></code></p></td><td><p>3.1</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertIsNot" title="unittest.TestCase.assertIsNot"><code><span>assertIsNot(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>a</span> <span>is</span> <span>not</span> <span>b</span></code></p></td><td><p>3.1</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertIsNone" title="unittest.TestCase.assertIsNone"><code><span>assertIsNone(x)</span></code></a></p></td><td><p><code><span>x</span> <span>is</span> <span>None</span></code></p></td><td><p>3.1</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertIsNotNone" title="unittest.TestCase.assertIsNotNone"><code><span>assertIsNotNone(x)</span></code></a></p></td><td><p><code><span>x</span> <span>is</span> <span>not</span> <span>None</span></code></p></td><td><p>3.1</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertIn" title="unittest.TestCase.assertIn"><code><span>assertIn(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>a</span> <span>in</span> <span>b</span></code></p></td><td><p>3.1</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertNotIn" title="unittest.TestCase.assertNotIn"><code><span>assertNotIn(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>a</span> <span>not</span> <span>in</span> <span>b</span></code></p></td><td><p>3.1</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertIsInstance" title="unittest.TestCase.assertIsInstance"><code><span>assertIsInstance(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>isinstance(a,</span> <span>b)</span></code></p></td><td><p>3.2</p></td></tr><tr><td><p><a href="#unittest.TestCase.assertNotIsInstance" title="unittest.TestCase.assertNotIsInstance"><code><span>assertNotIsInstance(a,</span> <span>b)</span></code></a></p></td><td><p><code><span>not</span> <span>isinstance(a,</span> <span>b)</span></code></p></td><td><p>3.2</p></td></tr></tbody></table>
+The `TestCase` class provides several assert methods to check for and report failures. The following table lists the most commonly used methods (see the tables below for more assert methods):
+
+| Method | Checks that | New in |
+| ---- | ---- | ---- |
+| assertEqual(a, b) | a == b |  |
+| assertNotEqual(a, b) | a != b |  |
+| assertTrue(x) | bool(x) is True |  |
+| assertFalse(x) | bool(x) is False |  |
+| assertIs(a, b) | a is b | 3.1 |
+| assertIsNot(a, b) | a is not b | 3.1 |
+| assertIsNone(x) | x is None | 3.1 |
+| assertIsNotNone(x) | x is not None | 3.1 |
+| assertIn(a, b) | a in b | 3.1 |
+| assertNotIn(a, b) | a not in b | 3.1 |
+| assertIsInstance(a, b) | isinstance(a, b) | 3.2 |
+| assertNotIsInstance(a, b) | not isinstance(a, b) | 3.2 |a, b) | 3.2    |
 
 All the assert methods accept a _msg_ argument that, if specified, is used as the error message on failure (see also [`longMessage`](#unittest.TestCase.longMessage "unittest.TestCase.longMessage")). Note that the _msg_ keyword argument can be passed to [`assertRaises()`](#unittest.TestCase.assertRaises "unittest.TestCase.assertRaises"), [`assertRaisesRegex()`](#unittest.TestCase.assertRaisesRegex "unittest.TestCase.assertRaisesRegex"), [`assertWarns()`](#unittest.TestCase.assertWarns "unittest.TestCase.assertWarns"), [`assertWarnsRegex()`](#unittest.TestCase.assertWarnsRegex "unittest.TestCase.assertWarnsRegex") only when they are used as a context manager.
 
