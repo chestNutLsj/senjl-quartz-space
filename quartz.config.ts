@@ -1,4 +1,5 @@
 import { QuartzConfig } from "./quartz/cfg"
+import enUS from "./quartz/i18n/locales/en-US"
 import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
@@ -9,6 +10,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
+    locale: "en-US",
     baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
     ignorePatterns: [".obsidian", ".trash"],
     defaultDateType: "created",
