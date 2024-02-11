@@ -6,7 +6,7 @@ tags:
 # Rust Atomics and Locks Low-level concurrency in practice
 
 - [[Foreword|Foreword]]
-- [[Preface|Preface]]
+- [[1-Theory/1-ProgramLanguage/Rust/Rust Atomics and Locks/Preface|Preface]]
 - [[1. Basics of Rust Concurrency|1. Basics of Rust Concurrency]]
 - [[2. Atomics|2. Atomics]]
 - [[3. Memory Ordering|3. Memory Ordering]]
