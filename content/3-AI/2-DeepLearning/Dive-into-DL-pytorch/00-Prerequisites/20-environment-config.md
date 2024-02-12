@@ -1,3 +1,11 @@
+---
+publish: "true"
+tags:
+  - D2L
+  - Deep_Learning
+  - PyTorch
+date: 2024-02-11
+---
 # 安装
 
 我们需要配置一个环境来运行 Python、Jupyter Notebook、相关库以及运行本书所需的代码，以快速入门并获得动手学习经验。

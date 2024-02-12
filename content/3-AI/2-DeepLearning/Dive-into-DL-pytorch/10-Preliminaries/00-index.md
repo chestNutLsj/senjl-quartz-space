@@ -1,3 +1,11 @@
+---
+publish: "true"
+tags:
+  - D2L
+  - Deep_Learning
+  - PyTorch
+date: 2024-02-11
+---
 #  预备知识
 
 要学习深度学习，首先需要先掌握一些基本技能。
@@ -25,15 +33,3 @@
 但这并不意味着本书中不涉及数学方面的内容，本章会快速介绍一些基本且常用的数学知识，
 以便读者能够理解书中的大部分数学内容。
 如果读者想要深入理解全部数学内容，可以进一步学习本书数学附录中给出的数学基础知识。
-
-```toc
-:maxdepth: 2
-
-ndarray
-pandas
-linear-algebra
-calculus
-autograd
-probability
-lookup-api
-```

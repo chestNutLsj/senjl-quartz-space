@@ -1,5 +1,12 @@
+---
+publish: "true"
+tags:
+  - D2L
+  - Deep_Learning
+  - PyTorch
+date: 2024-02-11
+---
 # 符号
-:label:`chap_notation`
 
 本书中使用的符号概述如下。
 

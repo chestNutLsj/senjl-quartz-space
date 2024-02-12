@@ -1,3 +1,11 @@
+---
+publish: "true"
+tags:
+  - D2L
+  - Deep_Learning
+  - PyTorch
+date: 2024-02-11
+---
 # 引言
 
 时至今日，人们常用的计算机程序几乎都是软件开发人员从零编写的。
