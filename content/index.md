@@ -70,13 +70,12 @@ tags:
 #### 机器学习
 
 - [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程：
-	- [[ML-foundations-Intro|机器学习基石]] ；
-	- [[ML-techniques-Intro|机器学习技法]] ；
+	- [[ML-foundations-Index|机器学习基石]] ；
+	- [[ML-techniques-Index|机器学习技法]] ；
 
 #### 深度学习
 
-- 李宏毅老师的课程：
-- 《动手学深度学习 PyTorch 版》：[[Dive-into-DL]]
+- 《动手学深度学习 PyTorch 版》：[[Dive-into-DL]] ；
 
 ### 学术生涯
 

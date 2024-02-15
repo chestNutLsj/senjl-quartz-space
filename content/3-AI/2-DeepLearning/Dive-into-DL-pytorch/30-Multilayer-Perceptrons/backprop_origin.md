@@ -112,7 +112,7 @@ Notice that the directions of the arrows
 (which illustrate data flow)
 are primarily rightward and upward.
 
-![Computational graph of forward propagation.](../img/forward.svg)
+![Computational graph of forward propagation.](70-backprop-forward.svg)
 :label:`fig_forward`
 
 ## Backpropagation

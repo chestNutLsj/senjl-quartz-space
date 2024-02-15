@@ -42,9 +42,15 @@ X = d2l.tensor([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
 d2l.reduce_sum(X, 0, keepdim=True), d2l.reduce_sum(X, 1, keepdim=True)
 ```
 
+```output
+(tensor([[5., 7., 9.]]),
+ tensor([[ 6.],
+         [15.]]))
+```
+
 回想一下，实现 softmax 由三个步骤组成：
 
-1. 对每个项求幂（使用`exp`）；
+1. 对每个项求幂（使用 `exp` ）；
 2. 对每一行求和（小批量中每个样本是一行），得到每个样本的规范化常数；
 3. 将每一行除以其规范化常数，确保结果的和为1。
 
@@ -71,6 +77,12 @@ X_prob = softmax(X)
 X_prob, d2l.reduce_sum(X_prob, 1)
 ```
 
+```output
+(tensor([[0.0960, 0.1311, 0.2107, 0.1026, 0.4596],
+         [0.2829, 0.1322, 0.0735, 0.3420, 0.1694]]),
+ tensor([1.0000, 1.0000]))
+```
+
 注意，虽然这在数学上看起来是正确的，但我们在代码实现中有点草率。矩阵中的非常大或非常小的元素可能造成数值上溢或下溢，但我们没有采取措施来防止这点。
 
 ## 定义模型
@@ -92,6 +104,9 @@ def net(X):
 y = d2l.tensor([0, 2])
 y_hat = d2l.tensor([[0.1, 0.3, 0.6], [0.3, 0.2, 0.5]])
 y_hat[[0, 1], y]
+
+# output
+tensor([0.1000, 0.5000])
 ```
 
 现在我们只需一行代码就可以实现交叉熵损失函数。
@@ -101,6 +116,9 @@ def cross_entropy(y_hat, y):
     return - d2l.log(y_hat[range(len(y_hat)), y])
 
 cross_entropy(y_hat, y)
+
+# output
+tensor([2.3026, 0.6931])
 ```
 
 ## 分类精度
@@ -124,6 +142,9 @@ def accuracy(y_hat, y):  #@save
 
 ```python
 accuracy(y_hat, y) / len(y)
+
+# output
+0.5
 ```
 
 同样，对于任意数据迭代器 `data_iter` 可访问的数据集，我们可以评估在任意模型 `net` 的精度。
@@ -162,6 +183,9 @@ class Accumulator:  #@save
 
 ```python
 evaluate_accuracy(net, test_iter)
+
+# output
+0.0627
 ```
 
 ## 训练
@@ -271,6 +295,8 @@ num_epochs = 10
 train_ch3(net, train_iter, test_iter, cross_entropy, num_epochs, updater)
 ```
 
+![[60-softmax-regression-from-scratch-train-output.png]]
+
 ## 预测
 
 现在训练已经完成，我们的模型已经准备好对图像进行分类预测。给定一系列图像，我们将比较它们的实际标签（文本输出的第一行）和模型预测（文本输出的第二行）。
@@ -288,6 +314,8 @@ def predict_ch3(net, test_iter, n=6):  #@save
 
 predict_ch3(net, test_iter)
 ```
+
+![[60-softmax-regression-from-scratch-test.png]]
 
 ## 小结
 
