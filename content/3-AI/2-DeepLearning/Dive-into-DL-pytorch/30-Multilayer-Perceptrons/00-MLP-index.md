@@ -12,3 +12,12 @@ date: 2024-02-14
 
 ## 细分章节
 
+- [[10-mlp]]：多层感知机介绍；
+- [[20-mlp-from-scratch]]：MLP 从零实现；
+- [[30-mlp-concise-implementation]]：MLP 简洁实现；
+- [[40-underfit-overfit]]：欠拟合、过拟合介绍与化解；
+- [[50-weight-decay]]：权重衰减策略；
+- [[60-dropout]]：暂推法介绍；
+- [[70-backprop]]：前向传播与后向传播；
+- [[80-numerical-stability-and-init]]：处理梯度爆炸和梯度消失；
+- [[90-environment]]：应对环境偏移问题；

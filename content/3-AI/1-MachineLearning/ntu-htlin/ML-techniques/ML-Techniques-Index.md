@@ -12,7 +12,7 @@ tags:
 
 - 数据结构
 - Python
-- [[ML-foundations-Index|机器学习基石]]
+- [[ML-Foundations-Index|机器学习基石]]
 
 ## Rules
 
