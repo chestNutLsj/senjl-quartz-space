@@ -37,6 +37,9 @@ tags:
 
 > How to **construct** and **blend** predictive features?
 
+1. [[70-Blending-and-Bagging|Blending and Bagging]]: **blending** known diverse hypotheses **uniformly**, **linearly**, or even **non-linearly**; obtaining diverse hypotheses from **bootstrapped data**; 
+2. [[80-Adaptive-Boosting|Adaptive Boosting]]: 
+
 ### Distilling Implicit Features: Extraction Models
 
 > How to identify and learn implicit features?
