@@ -54,8 +54,7 @@ Sat Feb 17 14:13:53 2024
 
 在 PyTorch 中，CPU 和 GPU 可以用 `torch.device('cpu')` 和 `torch.device('cuda')` 表示。应该注意的是，`cpu` 设备意味着所有物理 CPU 和内存，这意味着 PyTorch 的计算将尝试使用所有 CPU 核心。然而，`gpu` 设备只代表一个卡和相应的显存。如果有多个 GPU，我们使用 `torch.device(f'cuda:{i}')` 来表示第 $i$ 块 GPU（$i$ 从0开始）。另外，`cuda:0` 和 `cuda` 是等价的。
 
-```{.python .input}
-#@tab pytorch
+```python
 import torch
 from torch import nn
 
@@ -176,6 +175,8 @@ net[0].weight.data.device
 
 ## 练习
 
+### CPU Vs. GPU
+
 1. 尝试一个计算量更大的任务，比如大矩阵的乘法，看看CPU和GPU之间的速度差异。再试一个计算量很小的任务呢？
 
 100个500x500矩阵的矩阵乘法所需的时间，并记录输出矩阵的Frobenius范数的时间对比：
@@ -265,6 +266,8 @@ Sat Feb 17 14:49:44 2024
 ```
 
 最后一行果然如此，jupyter 占用了 110MB 的显存。不过为什么 python 文件中直接运行，gpu 的效果不好，我猜测可能每一次调用 python 文件执行，都是一次全新的过程，都要重新向 gpu 申请显存等一些列操作，所以耗时较多。
+
+### Save and Load Params on GPU
 
 2. 我们应该如何在 GPU 上读写模型参数？
 3. 测量计算1000个 $100 \times 100$ 矩阵的矩阵乘法所需的时间，并记录输出矩阵的 Frobenius 范数，一次记录一个结果，而不是在 GPU 上保存日志并仅传输最终结果。
