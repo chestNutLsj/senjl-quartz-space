@@ -4,7 +4,7 @@ tags:
   - D2L
   - Deep_Learning
   - PyTorch
-date: 2024-02-17
+date: 2024-02-18
 ---
 # GPU
 
