@@ -1,3 +1,11 @@
+---
+publish: "true"
+tags:
+  - D2L
+  - Deep_Learning
+  - PyTorch
+date: 2024-02-20
+---
 # 批量规范化
 
 训练深层神经网络是十分困难的，特别是在较短的时间内使他们收敛更加棘手。本节将介绍*批量规范化*[^1]（batch normalization），这是一种流行且有效的技术，可持续加速深层网络的收敛速度。再结合将在 [[60-resnet|下一节]] 中将介绍的残差块，批量规范化使得研究人员能够训练100层以上的网络。
@@ -198,7 +206,7 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
 本书旨在传达实践者用来发展深层神经网络的直觉。然而，重要的是将这些指导性直觉与既定的科学事实区分开来。最终，当你掌握了这些方法，并开始撰写自己的研究论文时，你会希望清楚地区分技术和直觉。
 
-随着批量规范化的普及，*内部协变量偏移*的解释反复出现在技术文献的辩论，特别是关于“如何展示机器学习研究”的更广泛的讨论中。Ali Rahimi在接受2017年NeurIPS大会的“接受时间考验奖”（Test of Time Award）时发表了一篇令人难忘的演讲。他将“内部协变量转移”作为焦点，将现代深度学习的实践比作炼金术。他对该示例进行了详细回顾 :cite:`Lipton.Steinhardt.2018`，概述了机器学习中令人不安的趋势。此外，一些作者对批量规范化的成功提出了另一种解释：在某些方面，批量规范化的表现出与原始论文 :cite:`Santurkar.Tsipras.Ilyas.ea.2018`中声称的行为是相反的。
+随着批量规范化的普及，*内部协变量偏移*的解释反复出现在技术文献的辩论，特别是关于“如何展示机器学习研究”的更广泛的讨论中。Ali Rahimi 在接受2017年 NeurIPS 大会的“接受时间考验奖”（Test of Time Award）时发表了一篇令人难忘的演讲。他将“内部协变量转移”作为焦点，将现代深度学习的实践比作炼金术。他对该示例进行了详细回顾[^4]，概述了机器学习中令人不安的趋势。此外，一些作者对批量规范化的成功提出了另一种解释：在某些方面，批量规范化的表现出与原始论文[^5]中声称的行为是相反的。
 
 然而，与机器学习文献中成千上万类似模糊的说法相比，内部协变量偏移没有更值得批评。很可能，它作为这些辩论的焦点而产生共鸣，要归功于目标受众对它的广泛认可。批量规范化已经被证明是一种不可或缺的方法。它适用于几乎所有图像分类器，并在学术界获得了数万引用。
 
@@ -226,3 +234,5 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 [^1]: Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International conference on machine learning. pmlr, 2015: 448-456.
 [^2]: Teye M, Azizpour H, Smith K. Bayesian uncertainty estimation for batch normalized deep networks[C]//International Conference on Machine Learning. PMLR, 2018: 4907-4916.
 [^3]: Luo P, Wang X, Shao W, et al. Towards understanding regularization in batch normalization[J]. arXiv preprint arXiv:1809.00846, 2018.
+[^4]: Lipton Z C, Steinhardt J. Troubling trends in machine learning scholarship[J]. arXiv preprint arXiv:1807.03341, 2018.
+[^5]: Santurkar S, Tsipras D, Ilyas A, et al. How does batch normalization help optimization?[J]. Advances in neural information processing systems, 2018, 31.

@@ -4,7 +4,7 @@ tags:
   - D2L
   - Deep_Learning
   - PyTorch
-date: 2024-02-19
+date: 2024-02-20
 ---
 # 使用块的网络（VGG）
 
