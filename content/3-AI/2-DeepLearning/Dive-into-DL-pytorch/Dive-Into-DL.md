@@ -50,3 +50,15 @@ date: 2024-01-26
 ### 5-Convolutional-Neural-Network
 
 - [[00-CNN-index]]
+
+### 6-Modern-CNN
+
+- [[00-Modern-CNN-index]]
+
+### 7-Recurrent-Neural-Network
+
+- [[00-RNN-index]]
+
+### 8-Modern-RNN
+
+- [[00-modern-RNN-index]]
