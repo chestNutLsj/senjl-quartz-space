@@ -142,8 +142,8 @@ template <typename T> void increase( Vector<T> & V )
 #### Fibonacci 查找
 binSearch 的版本 A 中，转向左、右分支前的关键码比较次数不等，而递归深度却相同，若通过递归深度的不均衡对转向成本的不均衡做补偿，平均查找长度应能进一步缩短！ 
 
-比如，若有 $n=fib(k)-1$，则可取 $mi=fib(k-1)-1$，于是前后子向量长度分别为 $fib(k-1)-1, fib(k-2)-1$：
-```
+比如，若有 $n=fib(k)-1$，则可取 $mi=fib(k-1)-1$，于是前后子向量长度分别为 $fib(k-1)-1, fib(k-2)-1$ ：
+```cpp
 template <typename T> //0 <= lo <= hi <= _size
 static Rank fibSearch( T * S, T const & e, Rank lo, Rank hi ) {
 	for ( Fib fib(hi - lo); lo < hi; ) { //Fib数列制表备查
@@ -174,7 +174,7 @@ binSearch-A 中的转向分支有三个，因此导致不平衡，B 方案直接
 ![[20-Vector-binsearch-b-extension.png]]
 
 ### 二分查找 c
-```
+```cpp
 template <typename T>
 static Rank binSearch( T * S, T const & e, Rank lo, Rank hi ) {
 	while ( lo < hi ) { //不变性：A[0, lo) <= e < A[hi, n)
