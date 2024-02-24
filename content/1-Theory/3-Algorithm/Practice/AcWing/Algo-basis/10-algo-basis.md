@@ -512,6 +512,8 @@ int find(int x) // 找到第一个大于等于x的位置
 
 ## 区间合并
 
+按区间左端点进行排序
+
 ```cpp
 // 将所有存在交集的区间合并
 void merge(vector<PII> &segs)
@@ -534,3 +536,7 @@ void merge(vector<PII> &segs)
     segs = res;
 }
 ```
+
+### [对N个有交集的数组进行合并](https://www.acwing.com/problem/content/805/)
+
+### [759. 格子染色 - AcWing题库](https://www.acwing.com/problem/content/761/)
