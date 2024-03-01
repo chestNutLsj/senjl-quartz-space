@@ -421,26 +421,6 @@ for (int i = n / 2; i; i -- ) down(i);
 
 ## 哈希表
 
-### 求素数
-
-如果想要快速求出大于某个数的素数（这对设置散列表的表长非常有用），可以：
-
-```cpp
-for (int i = 100000;; i++) {
-	bool flag = true;
-	for (int j = 2; j * j <= i; j++) {
-		if (i % j == 0) {
-			flag = false;
-			break;
-		}
-	}
-	if (flag) {
-		cout << i << endl;
-		break;
-	}
-}
-```
-
 ### 哈希操作
 
 ```cpp
@@ -519,12 +499,14 @@ vector, 变长数组，倍增的思想
     front ()/back ()
     push_back ()/pop_back ()
     begin ()/end ()
-    支持比较运算，按字典序
+    [] 支持随机寻址
+    支持比较运算，按元素的字典序比较
 
 pair<int, int>
     first, 第一个元素
     second, 第二个元素
     支持比较运算，以 first 为第一关键字，以 second 为第二关键字（字典序）
+    make_pair ()
 
 string，字符串
     size ()/length ()  返回字符串长度

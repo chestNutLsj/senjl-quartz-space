@@ -40,7 +40,6 @@ MultiHeadAttention(
 ```
 
 ```python
-#@tab mxnet, pytorch, paddle
 batch_size, num_queries, valid_lens = 2, 4, d2l.tensor([3, 2])
 X = d2l.ones((batch_size, num_queries, num_hiddens))
 attention(X, X, X, valid_lens).shape
