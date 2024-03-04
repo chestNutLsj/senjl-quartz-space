@@ -195,6 +195,64 @@ int bsearch_2(int l, int r)
 }
 ```
 
+```cpp
+int bin_search(int *arr, int target, int lo, int hi) { // [lo,hi)
+    while (lo < hi) {
+        int mi = lo + (hi - lo) / 2;
+        if (arr[mi] < target)
+            lo = mi + 1;
+        else if (arr[mi] > target)
+            hi = mi;
+        else
+            return mi;
+            
+    }
+    return -1;
+}
+```
+
+#### [789. 数的范围](https://www.acwing.com/problem/content/791/)
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+using namespace std;
+
+// const int N = 100010;
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+
+    vector<int> arr(n);
+    unordered_map<int, int> first_occurrence, last_occurrence;
+
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+        if (first_occurrence.find(arr[i]) == first_occurrence.end()) {
+            first_occurrence[arr[i]] = i;
+        }
+        last_occurrence[arr[i]] = i;
+    }
+
+    for (int i = 0; i < q; ++i) {
+        int query;
+        cin >> query;
+
+        if (first_occurrence.find(query) == first_occurrence.end()) {
+            cout << "-1 -1\n";
+        } else {
+            cout << first_occurrence[query] << " " << last_occurrence[query]
+                 << "\n";
+        }
+    }
+
+    return 0;
+}
+```
+
 ### 浮点数二分
 
 ```cpp
@@ -214,6 +272,53 @@ double bsearch_3(double l, double r)
 ```
 
 - 注意设置精度，应当比题目要求多两个数量级
+
+### [790. 数的三次方根](https://www.acwing.com/problem/content/792/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+const double eps = 1e-8;
+
+double cubic_root(double x) {
+    double l, r;
+    if (x == 0.000000) {
+        return 0.000000;
+    } else if (x > 0) {
+        l = 0.000000, r = x + 1; // 处理0<x<1的部分，下面同理
+        while (r - l > eps) {
+            double mid = (l + r) / 2;
+            if (mid * mid * mid > x)
+                r = mid;
+            else
+                l = mid;
+        }
+    } else {
+        l = x - 1, r = -0.000000;
+        while (r - l > eps) {
+            double mid = (l + r) / 2;
+            if (mid * mid * mid > x)
+                r = mid;
+            else
+                l = mid;
+        }
+    }
+    return l;
+}
+
+int main() {
+    double n;
+    cin >> n;
+
+    double res = cubic_root(n);
+    printf("%.6f", res);
+    //cout<<fixed<<setprecision(6)<<res; // 记得添加iomanip头文件来使用这条语句
+
+    return 0;
+}
+```
 
 ## 高精度计算
 
@@ -361,7 +466,6 @@ vector<int> div(vector<int> &A, int b, int &r)
 
 ![[10-algo-basis-2d-prefix-sum.png]]
 
-
 > [!tip] 缩短输入数据所占用的时间
 > scanf 在输入较大的数（通常指 1,000,000 以上）时效率比 `std::cin` 更高，不过想要继续使用 `std::cin` ，则可以：
 > ```cpp
@@ -371,6 +475,65 @@ vector<int> div(vector<int> &A, int b, int &r)
 > }
 > ```
 > 这段代码的作用是使 `std::cin` 变为异步操作，提高执行效率，副作用是不能再使用scanf
+
+### [795. 一维前缀和](https://www.acwing.com/problem/content/797/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+const int N = 100010;
+
+int main() {
+    ios::sync_with_stdio(false);
+    int n, m;
+    cin >> n >> m;
+    int arr[N] = {0};
+    int sum[N] = {0};
+    for (int i = 1; i <= n; i++) {
+        cin >> arr[i];
+        sum[i] = sum[i - 1] + arr[i];
+    }
+
+    int l, r;
+    for (int i = 1; i <= m; i++) {
+        cin >> l >> r;
+        cout << sum[r] - sum[l - 1] << endl;
+    }
+    return 0;
+}
+```
+
+### [796. 子矩阵的和](https://www.acwing.com/problem/content/798/)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int N = 1010;
+
+int main() {
+    int n, m, q;
+    cin >> n >> m >> q;
+    int arr[N][N], sum[N][N] = {0};
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            cin >> arr[i][j];
+            sum[i][j] =
+                arr[i][j] + sum[i][j - 1] + sum[i - 1][j] - sum[i - 1][j - 1];
+        }
+    }
+    int x1, x2, y1, y2;
+    for (int i = 0; i < q; i++) {
+        cin >> x1 >> y1 >> x2 >> y2;
+        cout << sum[x2][y2] - sum[x2][y1 - 1] - sum[x1 - 1][y2]
+                    + sum[x1 - 1][y1 - 1]
+             << endl;
+    }
+    return 0;
+}
+```
 
 ## 位运算
 
@@ -475,7 +638,108 @@ for (int i = 0; i < count; i++)
 
 ### [最长连续不重复子序列](https://www.acwing.com/problem/content/801/)
 
+```cpp
+#include <iostream>
+#include <unordered_set>
+
+using namespace std;
+
+const int N = 100010;
+
+int main() {
+    int n;
+    cin >> n;
+    int arr[N];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+
+    unordered_set<int> seen;
+    int l = 0, r = 0, cnts = 0, max_length = 0;
+
+    while (r < n) {
+        if (seen.find(arr[r]) == seen.end()) {
+            seen.insert(arr[r]);
+            cnts       = r - l + 1; // Update the length of current subsequence
+            max_length = max(max_length, cnts);
+            r++;
+        } else {
+            seen.erase(arr[l]); // Remove element at left pointer
+            l++;
+        }
+    }
+
+    cout << max_length << endl;
+}
+```
+
+![[10-algo-basis-longest-unique-subsequence.png]]
+
+```cpp
+/*
+核心思路：
+
+遍历数组a中的每一个元素a[i], 对于每一个i，找到j使得双指针[j, i]维护的是以a[i]结尾的最长连续不重复子序列，长度为i - j + 1, 将这一长度与r的较大者更新给r。
+对于每一个i，如何确定j的位置：由于[j, i - 1]是前一步得到的最长连续不重复子序列，所以如果[j, i]中有重复元素，一定是a[i]，因此右移j直到a[i]不重复为止（由于[j, i - 1]已经是前一步的最优解，此时j只可能右移以剔除重复元素a[i]，不可能左移增加元素，因此，j具有“单调性”、本题可用双指针降低复杂度）。
+用数组s记录子序列a[j ~ i]中各元素出现次数，遍历过程中对于每一个i有四步操作：cin元素a[i] -> 将a[i]出现次数s[a[i]]加1 -> 若a[i]重复则右移j（s[a[j]]要减1） -> 确定j及更新当前长度i - j + 1给r。
+
+注意细节：当a[i]重复时，先把a[j]次数减1，再右移j。
+*/
+# include <iostream>
+using namespace std;
+
+const int N = 100010;
+int a[N], s[N];
+
+int main()
+{
+    int n, r = 0;
+    cin >> n;
+
+    for (int i = 0, j = 0; i < n; ++ i)
+    {
+        cin >> a[i];
+        ++ s[a[i]];
+        while (s[a[i]] > 1) -- s[a[j++]]; // 先减次数后右移
+        r = max(r, i - j + 1) ;
+    }
+    cout << r;
+
+    return 0;
+}
+```
+
 ### [数组元素的目标和](https://www.acwing.com/problem/content/802/)
+
+利用两个数组的升序性质，通过双指针的方式来减少时间复杂度。具体做法是从数组 A 的头部和数组 B 的尾部开始进行查找，逐步向中间移动指针，直到找到满足条件的元素对。
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+const int N = 100010;
+
+int A[N], B[N];
+
+int main() {
+    int n, m, x;
+    cin >> n >> m >> x;
+    for (int i = 0; i < n; i++) cin >> A[i];
+    for (int i = 0; i < m; i++) cin >> B[i];
+
+    int i = 0, j = m - 1;
+    while (i < n && j >= 0) {
+        if (A[i] + B[j] == x) {
+            cout << i << " " << j;
+            return 0;
+        } else if (A[i] + B[j] < x)
+            i++;
+        else
+            j--;
+    }
+
+    return 0;
+}
+```
 
 ## 离散化
 
@@ -505,7 +769,7 @@ int find(int x) // 找到第一个大于等于x的位置
 >[!tip] `std::unique` 如何使用？
 > ![[8-sequence-operate#unique]]
 
-### [稀疏数组的区间和](https://www.acwing.com/problem/content/804/)
+### [802. 稀疏数组的区间和](https://www.acwing.com/problem/content/804/)
 
 
 
@@ -536,6 +800,6 @@ void merge(vector<PII> &segs)
 }
 ```
 
-### [对N个有交集的数组进行合并](https://www.acwing.com/problem/content/805/)
+### [803. 对N个有交集的数组进行合并](https://www.acwing.com/problem/content/805/)
 
 ### [759. 格子染色 - AcWing题库](https://www.acwing.com/problem/content/761/)

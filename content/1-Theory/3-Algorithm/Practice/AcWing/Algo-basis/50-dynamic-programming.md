@@ -1,3 +1,10 @@
+---
+publish: "true"
+tags:
+  - Algorithm
+  - AcWing
+date: 2024-02-28
+---
 ## 背包问题
 
 ![[50-dynamic-programming-knapsack.png]]
@@ -42,7 +49,9 @@ $\mathcal{O}(\text{状态数量}\times\text{计算每个状态需要的时间})=
 
 ### [282. 石子合并](https://www.acwing.com/problem/content/284/)
 
+![[50-dynamic-programming-stone-1.png]]
 
+![[50-dynamic-programming-stone-2.png]]
 
 ## 计数类 DP
 
@@ -50,8 +59,32 @@ $\mathcal{O}(\text{状态数量}\times\text{计算每个状态需要的时间})=
 
 ## 数位统计 DP
 
+### [338. 计数问题](https://www.acwing.com/problem/content/340/)
+
 ## 状态压缩 DP
+
+### [291. 蒙德里安的梦想](https://www.acwing.com/problem/content/293/)
+
+### [91. 最短Hamilton路径](https://www.acwing.com/problem/content/93/)
+
+倒数第二个点做分类
+
+![[50-dynamic-programming-number-dp-hilton.png]]
 
 ## 树形 DP
 
+### [285. 没有上司的舞会](https://www.acwing.com/problem/content/287/)
+
+![[50-dynamic-programming-tree-1.png]]
+
+![[50-dynamic-programming-tree.png]]
+
 ## 记忆化搜索
+
+### [901. 滑雪](https://www.acwing.com/problem/content/903/)
+
+![[50-dynamic-programming-ski-1.png]]
+
+几个要求：
+1. 要能滑动下去
+2. 不能存在环（不过这个由第(1)个条件可以保障）

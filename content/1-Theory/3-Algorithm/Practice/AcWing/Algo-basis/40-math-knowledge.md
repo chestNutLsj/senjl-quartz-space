@@ -1,3 +1,10 @@
+---
+publish: "true"
+tags:
+  - Algorithm
+  - AcWing
+date: 2024-02-28
+---
 ## 质数
 
 所有小于等于 1 的整数既不是质数也不是合数。
