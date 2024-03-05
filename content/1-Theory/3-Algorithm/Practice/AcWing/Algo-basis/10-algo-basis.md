@@ -81,10 +81,6 @@ int main() {
 
 ```
 
->[!example] Practice
->- [AcWing-785](https://www.acwing.com/problem/content/787/)
->- [AcWing-786](https://www.acwing.com/problem/content/788/)
-
 ### 归并排序
 
 ![[10-Algo-Basis-merge.png]]
@@ -107,60 +103,6 @@ void merge_sort(int q[], int l, int r)
     while (j <= r) tmp[k ++ ] = q[j ++ ];
 
     for (i = l, j = 0; i <= r; i ++, j ++ ) q[i] = tmp[j];
-}
-```
-
-```cpp
-#include <vector>
-#include <iostream>
-
-void merge(int q[], int l, int mid, int r, std::vector<int>& temp) {
-    int i = l, j = mid + 1, k = 0;
-    // Merge the two halves into a temporary vector
-    while (i <= mid && j <= r) {
-        if (q[i] <= q[j]) {
-            temp[k++] = q[i++];
-        } else {
-            temp[k++] = q[j++];
-        }
-    }
-    // Copy the remaining elements of the left half, if there are any
-    while (i <= mid) {
-        temp[k++] = q[i++];
-    }
-    // Copy the remaining elements of the right half, if there are any
-    while (j <= r) {
-        temp[k++] = q[j++];
-    }
-    // Copy back the merged elements to original array
-    for (i = l, k = 0; i <= r; ++i, ++k) {
-        q[i] = temp[k];
-    }
-}
-
-void merge_sort(int q[], int l, int r, std::vector<int>& temp) {
-    if (l >= r) return; // Base case
-
-    int mid = l + (r - l) / 2; // Avoid overflow
-    merge_sort(q, l, mid, temp); // Sort the first half
-    merge_sort(q, mid + 1, r, temp); // Sort the second half
-    merge(q, l, mid, r, temp); // Merge the sorted halves
-}
-
-// Example usage
-int main() {
-    int arr[] = {9, -3, 5, 2, 6, 8, -6, 1, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    std::vector<int> temp(n); // Temporary array for merging
-
-    merge_sort(arr, 0, n - 1, temp);
-
-    for (int i = 0; i < n; i++) {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
 ```
 
@@ -273,7 +215,7 @@ double bsearch_3(double l, double r)
 
 - 注意设置精度，应当比题目要求多两个数量级
 
-### [790. 数的三次方根](https://www.acwing.com/problem/content/792/)
+#### [790. 数的三次方根](https://www.acwing.com/problem/content/792/)
 
 ```cpp
 #include <iostream>
@@ -636,7 +578,7 @@ for (int i = 0; i < count; i++)
 } // O(n^2)
 ```
 
-### [最长连续不重复子序列](https://www.acwing.com/problem/content/801/)
+### [799. 最长连续不重复子序列](https://www.acwing.com/problem/content/801/)
 
 ```cpp
 #include <iostream>
@@ -707,7 +649,7 @@ int main()
 }
 ```
 
-### [数组元素的目标和](https://www.acwing.com/problem/content/802/)
+### [800. 数组元素的目标和](https://www.acwing.com/problem/content/802/)
 
 利用两个数组的升序性质，通过双指针的方式来减少时间复杂度。具体做法是从数组 A 的头部和数组 B 的尾部开始进行查找，逐步向中间移动指针，直到找到满足条件的元素对。
 
@@ -771,7 +713,147 @@ int find(int x) // 找到第一个大于等于x的位置
 
 ### [802. 稀疏数组的区间和](https://www.acwing.com/problem/content/804/)
 
+![[10-algo-basis-discretization.png]]
 
+![[10-algo-basis-discretization-1.png]]
+
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+const int   N = 300010; // n次插入和m次查询相关数据量的上界
+int         n, m;
+int         a[N]; // 存储对应坐标插入的值
+int         s[N]; // 存储数组a的前缀和
+vector<int> alls(N); // 存储（所有与插入和查询相关的）坐标
+vector<pair<int, int>> add, query; // 存储插入和查询的数据
+
+int find(int x) { // 返回输入坐标离散化后的新坐标
+    int l = 0, r = alls.size() - 1;
+    while (l < r) {
+        int mid = l + r >> 1;
+        if (alls[mid] >= x)
+            r = mid;
+        else
+            l = mid + 1;
+    }
+
+    return r + 1;
+}
+
+int main() {
+	iso::sync_with_stdio(false);
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        int x, c;
+        cin >> x >> c;
+        add.push_back({x, c});
+        alls.push_back(x);
+    }
+    for (int i = 0; i < m; i++) {
+        int l, r;
+        cin >> l >> r;
+        query.push_back({l, r});
+        alls.push_back(l);
+        alls.push_back(r);
+    }
+    // 排序、去重
+    sort(alls.begin(), alls.end());
+    alls.erase(unique(alls.begin(), alls.end()), alls.end());
+    // 执行前n次插入操作
+    for (auto item : add) {
+        int x = find(item.first);
+        a[x] += item.second;
+    }
+    // 计算前缀和
+    for (int i = 1; i <= alls.size(); i++) s[i] = s[i - 1] + a[i];
+    // 处理m次查询操作
+    for (auto &&i : query) {
+        int l = find(i.first);
+        int r = find(i.second);
+        cout << s[r] - s[l - 1] << endl;
+    }
+    return 0;
+}
+```
+
+```cpp
+// 使用unordered_map优化版
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+
+using namespace std;
+
+// 存储插入和查询操作的数据，不再需要alls数组
+vector<pair<int, int>> add, query;
+
+// 使用unordered_map来离散化坐标并直接映射值
+unordered_map<int, int> idxMap; // 存储坐标的新旧映射
+unordered_map<int, int> prefixSum; // 存储离散化坐标的前缀和
+
+int main() {
+    ios::sync_with_stdio(false);
+    int n, m;
+    cin >> n >> m;
+
+    // 读取插入操作
+    for (int i = 0; i < n; i++) {
+        int x, c;
+        cin >> x >> c;
+        add.push_back({x, c});
+    }
+
+    // 读取查询操作
+    for (int i = 0; i < m; i++) {
+        int l, r;
+        cin >> l >> r;
+        query.push_back({l, r});
+    }
+
+    // 离散化，使用vector来存储所有坐标，然后排序去重
+    vector<int> alls;
+    for (auto& item : add) {
+        alls.push_back(item.first);
+    }
+    for (auto& item : query) {
+        alls.push_back(item.first);
+        alls.push_back(item.second);
+    }
+    sort(alls.begin(), alls.end());
+    alls.erase(unique(alls.begin(), alls.end()), alls.end());
+
+    // 建立坐标与新索引的映射
+    int idx = 0;
+    for (int x : alls) {
+        idxMap[x] = ++idx;
+    }
+
+    // 执行插入操作，直接使用映射更新值
+    for (auto& item : add) {
+        int x = idxMap[item.first]; // 获取映射后的坐标
+        prefixSum[x] += item.second;
+    }
+
+    // 计算前缀和
+    for (int i = 1; i <= idx; i++) {
+        prefixSum[i] += prefixSum[i - 1];
+    }
+
+    // 处理查询操作
+    for (auto& item : query) {
+        int l = idxMap[item.first] - 1; // 获取映射后的左坐标，并向前移动一个单位以适应前缀和的计算
+        int r = idxMap[item.second]; // 获取映射后的右坐标
+        cout << prefixSum[r] - prefixSum[l] << endl;
+    }
+
+    return 0;
+}
+```
 
 ## 区间合并
 
@@ -802,4 +884,160 @@ void merge(vector<PII> &segs)
 
 ### [803. 对N个有交集的数组进行合并](https://www.acwing.com/problem/content/805/)
 
-### [759. 格子染色 - AcWing题库](https://www.acwing.com/problem/content/761/)
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+const int              N = 100010;
+typedef pair<int, int> PII;
+
+void merge(vector<PII> &segs) {
+    vector<PII> res;
+
+    sort(segs.begin(), segs.end());
+
+    int st = -2e9, ed = -2e9;
+    for (auto seg : segs)
+        if (ed < seg.first) {
+            if (st != -2e9) res.push_back({st, ed});
+            st = seg.first, ed = seg.second;
+        } else
+            ed = max(ed, seg.second);
+
+    if (st != -2e9) res.push_back({st, ed});
+
+    segs = res;
+}
+
+int main() {
+    int         n;
+    vector<PII> intervals;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        PII interval;
+        cin >> interval.first >> interval.second;
+        intervals.push_back(interval);
+    }
+    merge(intervals);
+    cout << intervals.size();
+
+    return 0;
+}
+```
+
+### [759. 格子染色](https://www.acwing.com/problem/content/761/)
+
+**题解**：
+- 按行进行区间合并
+- 按列进行区间合并
+- 判断行列的重叠部分减去多加的
+
+**存储结构**：
+对于行和列要存储三个值，分别为区间左右或上下端点以及一个标识表示那一行或那一列！
+- 行或列的标识：当然是行或列相同的哪一个数字
+- 左右端点：当然是不相同的一组中较小值和较大值
+
+**对于排序**：
+- 可以重载小于号，也可以直接在外面写一个 `cmp` 函数传入 `sort` 进行比较！
+- 优先按照行或列的标号从下到大，然后就是按照左端点和右端点！
+
+**区间合并**：
+- 保证在同一行 `k == seg.k`
+	- 区间无法合并 `ed < seg.l`，则==进行上一个区间的保存==，同时更新左右端点
+	- 可以合并，则进行合并，更新右端点
+- 不在同一行，==直接将上一个区间保存==，同时更新新的区间的左右端点以及行或列的标识 `k`
+- 记得最后一个区间的保存，for 循环无法处理最后一个区间的保存
+- 最后将保存的容器还原到原始的 segs，通过引用传回去！
+- 注意： 对于每次合并当然都得判断起始点是否是-2e9
+
+**计数**：
+每次保存就是一个新区间，将区间长度累加一下即可，`cnt += ed - st + 1`
+
+**去重**：
+即只要是横着的和竖着的有相交就去减掉一个重合点，判断条件 (画个图就知道了)：
+`row.k >= col.l && row.k <= col.r && row.r >= col.k && row.l <= col.k`
+
+**时间复杂度**：
+- 区间合并：$O(n)$ 
+- 快排：$O(n\log n)$ 
+- 去重：$O(n^2)$ 
+
+**代码**：
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+typedef long long LL;
+
+struct Node { //用于存储线段的信息
+    int  k, l, r; //k（线段的横坐标或纵坐标，取决于是水平还是垂直线段）
+                  //l（线段起点的另一坐标）
+                  //r（线段终点的另一坐标）
+    bool operator<(const Node &w) const { // 重载用于排序
+        if (k != w.k)
+            return k < w.k;
+        else if (l != w.l)
+            return l < w.l;
+        else
+            return r < w.r;
+    }
+};
+
+int          n;
+LL           cnt;
+vector<Node> cols, rows;
+
+void merge(vector<Node> &segs) { 
+    sort(segs.begin(), segs.end()); // 对传入的segs(线段集合)进行排序
+    vector<Node> res;
+    int          st = -2e9, ed = st, k = -2e9;
+    for (auto &seg : segs) { // 通过迭代，合并所有相邻且重叠或连续的线段
+	    //如果当前线段的k值（纵坐标或横坐标）改变，或者当前线段与上一个线段不重叠，则将上一个线段加入结果集res，并更新cnt计数器以累加线段长度。
+        if (seg.k == k) {
+            if (ed < seg.l) {
+                if (st != -2e9) res.push_back({k, st, ed}), cnt += ed - st + 1;
+                ;
+                st = seg.l, ed = seg.r;
+            } else
+                ed = max(ed, seg.r);
+        } else {
+            if (st != -2e9) res.push_back({k, st, ed}), cnt += ed - st + 1;
+            ;
+            k = seg.k, st = seg.l, ed = seg.r;
+        }
+    }
+    if (st != -2e9) res.push_back({k, st, ed}), cnt += ed - st + 1;
+    ;
+    segs = res;
+}
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+        if (x1 == x2)
+            cols.push_back({x1, min(y1, y2), max(y1, y2)});
+        else
+            rows.push_back({y1, min(x1, x2), max(x1, x2)});
+    }
+
+    merge(cols), merge(rows);
+
+    for (auto &col : cols)
+        for (auto& row : rows)
+            if (row.k >= col.l && row.k <= col.r && row.r >= col.k
+                && row.l <= col.k)
+                cnt--;
+
+    cout << cnt << endl;
+
+    return 0;
+}
+```

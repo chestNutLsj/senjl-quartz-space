@@ -44,7 +44,7 @@ void insertAsHead(int a)
     e[idx] = a, ne[idx] = head, head = idx ++ ;
 }
 
-void insertAsSucc(int k, int a){ //在k位置的节点后插入
+void insertAsSucc(int k, int a){ //将x插入到下标为k的点的后面
 	e[idx]=a;
 	ne[idx]=ne[k];
 	ne[k]=idx;
@@ -56,71 +56,219 @@ void removeSucc(int k){ //删除k位置后面的一个节点
 }
 
 // 将头结点删除，需要保证头结点存在
-void remove()
+void removeHead()
 {
     head = ne[head];
 }
 ```
 
-### 双链表
+#### [826. 单链表](https://www.acwing.com/solution/content/16251/)
+
+```cpp
+int main() {
+    int m;
+    cin >> m;
+    init();
+    char opt;
+    int  x1, x2;
+    for (int i = 0; i < m; i++) {
+        cin >> opt;
+        if (opt == 'H') {
+            cin >> x1;
+            insertAsHead(x1);
+        } else if (opt == 'I') {
+            cin >> x1 >> x2;
+            insertAsSucc(x1 - 1, x2);//同样的，第k个数，和下标不同，所以要减1
+        } else {
+            cin >> x1;
+            if (x1 == 0) {
+                removeHead();
+            } else {
+                removeSucc(x1 - 1); //注意删除第k个输入后面的数，那函数里放的是下标，k要减去1
+            }
+        }
+    }
+    for (int i = head; i != -1; i = ne[i]) cout << e[i] << ' ';
+    cout << endl;
+    return 0;
+}
+```
+
+### [827. 双链表](https://www.acwing.com/problem/content/829/)
 
 常用于优化特殊问题。
 
+![[20-data-struct-double-linked.png]]
+
+![[20-data-struct-double-linked-2.png]]
+
+![[20-data-struct-double-linked-3.png]]
+
 ```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int N = 100010;
 // e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
-int e[N], l[N], r[N], idx;
+int       e[N], l[N], r[N], idx;
 
-// 初始化
-void init()
-{
-    //0是左端点，1是右端点
+void init() {
     r[0] = 1, l[1] = 0;
-    idx = 2; // 位置0、1都已占用
+    idx = 2; //! idx 此时已经用掉两个点了
 }
 
-// 在节点a的右边插入一个数x
-void insert(int a, int x)
-{
-    e[idx] = x;
-    l[idx] = a, r[idx] = r[a];
-    l[r[a]] = idx, r[a] = idx ++ ;
+void insertAsRight(int k, int ele) {
+    e[idx] = ele;
+    l[idx] = k, r[idx] = r[k];
+    l[r[k]] = idx, r[k] = idx;
+    idx++;
+} //! 当然在 k 的左边插入一个数可以直接调用这个函数，
+  //! 等价于在 l[k] 的右边插入一个数 insertAsRight(l[k],x)
+
+void removeAt(int k) {
+    r[l[k]] = r[k];
+    l[r[k]] = l[k];
 }
 
-// 删除节点a
-void remove(int a)
-{
-    l[r[a]] = l[a];
-    r[l[a]] = r[a];
+int main() {
+    int m;
+    cin >> m;
+    init();
+    string opt;
+    int    k, x;
+    for (int i = 0; i < m; i++) {
+        cin >> opt;
+        if (opt == "L") {
+            cin >> x;
+            insertAsRight(0, x);
+            //! 最左边插入就是在指向 0
+            //! 的数的左边插入就可以了也就是可以直接在0的右边插入
+        } else if (opt == "R") {
+            cin >> x;
+            insertAsRight(l[1], x);
+            //! 0 和 1 只是代表头和尾所以最右边插入只要在指向 1
+            //! 的那个点的右边插入就可以了
+        } else if (opt == "D") {
+            cin >> k;
+            removeAt(k + 1); // removeAtk+1）这样头结点和尾结点就永远不会被删掉了
+            //元素是从下标为2的位置开始加入，所以你第k个插入的元素，比如是第3个插入的元素，它的下标对应4,即:K+1
+        } else if (opt == "IL") {
+            cin >> k >> x;
+            insertAsRight(l[k + 1], x);
+        } else {
+            cin >> k >> x;
+            insertAsRight(k + 1, x);
+        }
+    }
+    for (int i = r[0]; i != 1; i = r[i]) cout << e[i] << ' ';
+
+    return 0;
 }
 ```
 
 ## 栈
 
-### 建栈
+### [828. 模拟栈](https://www.acwing.com/problem/content/submission/830/)
 
 同样使用数组模拟栈，并且栈的操作非常简单，使用栈顶指针完全能够实现：
 
 ```cpp
-// tt表示栈顶
-int stk[N], tt = 0;
+const int N = 100010;
 
-// 向栈顶插入一个数
-stk[ ++ tt] = x;
+int stack[N], sp = 0;
 
-// 从栈顶弹出一个数
-tt -- ;
+void push(int x) { stack[++sp] = x; }
 
-// 栈顶的值
-stk[tt];
+void pop() { sp--; }
 
-// 判断栈是否为空，如果 tt > 0，则表示不为空
-if (tt > 0)
-{
+int top() { return stack[sp]; }
 
+bool isEmpty() {
+    if (sp > 0)
+        return false;
+    else
+        return true;
 }
 ```
 
-### 单调栈
+#### [3302. 中缀表达式求值](https://www.acwing.com/problem/content/3305/)
+
+```cpp
+#include <iostream>
+#include <stack>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+stack<int>  num;
+stack<char> op;
+
+// 优先级表
+unordered_map<char, int> h {{'+', 1}, {'-', 1}, {'*', 2}, {'/', 2}};
+
+void eval() // 求值
+{
+    int a = num.top(); // 第二个操作数
+    num.pop();
+
+    int b = num.top(); // 第一个操作数
+    num.pop();
+
+    char p = op.top(); // 运算符
+    op.pop();
+
+    int r = 0; // 结果
+
+    // 计算结果
+    if (p == '+') r = b + a;
+    if (p == '-') r = b - a;
+    if (p == '*') r = b * a;
+    if (p == '/') r = b / a;
+
+    num.push(r); // 结果入栈
+}
+
+int main() {
+    string s; // 读入表达式
+    cin >> s;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (isdigit(s[i])) // 数字入栈
+        {
+            int x = 0, j = i; // 计算数字
+            while (j < s.size() && isdigit(s[j])) {
+                x = x * 10 + s[j] - '0';
+                j++;
+            }
+            num.push(x); // 数字入栈
+            i = j - 1;
+        }
+        // 左括号无优先级，直接入栈
+        else if (s[i] == '(') // 左括号入栈
+        {
+            op.push(s[i]);
+        }
+        // 括号特殊，遇到左括号直接入栈，遇到右括号计算括号里面的
+        else if (s[i] == ')') // 右括号
+        {
+            while (op.top() != '(') // 一直计算到左括号
+                eval();
+            op.pop(); // 左括号出栈
+        } else {
+            while (op.size() && h[op.top()] >= h[s[i]]) // 待入栈运算符优先级低，则先计算
+                eval();
+            op.push(s[i]); // 操作符入栈
+        }
+    }
+    while (op.size()) eval();  // 剩余的进行计算
+    cout << num.top() << endl; // 输出结果
+    return 0;
+}
+```
+
+### [830. 单调栈](https://www.acwing.com/problem/content/832/)
 
 ```cpp
 // 常见模型：找出每个数左边离它最近的比它大/小的数
@@ -132,28 +280,89 @@ for (int i = 1; i <= n; i ++ )
 }
 ```
 
+```cpp
+#include <iostream>
+using namespace std;
+const int N = 100010;
+int       stk[N], tt;
+
+int main() {
+    int n;
+    cin >> n;
+    while (n--) {
+        int x;
+        scanf("%d", &x);
+        while (tt && stk[tt] >= x) tt--; // 如果栈顶元素大于当前待入栈元素，则出栈
+        if (!tt)
+            printf("-1 "); // 如果栈空，则没有比该元素小的值。
+        else
+            printf("%d ", stk[tt]); // 栈顶元素就是左侧第一个比它小的元素。
+        stk[++tt] = x;
+    }
+    return 0;
+}
+```
+
+```cpp
+// STL implementation
+/* int main() {
+    int n;
+    cin >> n;
+    stack<int> stk; // 使用STL中的stack
+
+    while (n--) {
+        int x;
+        cin >> x;                                         // 使用cin来代替scanf
+        while (!stk.empty() && stk.top() >= x) stk.pop(); // 如果栈顶元素大于当前待入栈元素，则出栈
+        if (stk.empty())
+            cout << "-1 "; // 如果栈空，则没有比该元素小的值。
+        else
+            cout << stk.top() << " "; // 栈顶元素就是左侧第一个比它小的元素。
+        stk.push(x);
+    }
+    return 0;
+} */
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> stk; // 使用vector来模拟栈
+
+    while (n--) {
+        int x;
+        cin >> x; // 直接使用cin读取输入，代替scanf
+        while (!stk.empty() && stk.back() >= x)
+            stk.pop_back(); // 如果栈顶元素大于当前待入栈元素，则出栈
+        if (stk.empty())
+            cout << "-1 "; // 如果栈空，则没有比该元素小的值。
+        else
+            cout << stk.back() << " "; // 栈顶元素就是左侧第一个比它小的元素。
+        stk.push_back(x);              // 入栈操作
+    }
+    return 0;
+}
+```
+
 ## 队列
 
-### 建队
+### [829. 模拟队列](https://www.acwing.com/problem/content/831/)
 
 ```cpp
 /*****************单向队列******************/
-// hh 表示队头，tt表示队尾
-int q[N], hh = 0, tt = -1;
+const int N = 100010;
+int       queue[N], head = 0, tail = -1;
 
-// 向队尾插入一个数
-q[ ++ tt] = x;
+void enqueue(int x) { queue[++tail] = x; }
 
-// 从队头弹出一个数
-hh ++ ;
+void dequeue() { head++; }
 
-// 队头的值
-q[hh];
+int query() { return queue[head]; }
 
-// 判断队列是否为空，如果 hh <= tt，则表示不为空
-if (hh <= tt)
-{
-
+bool isEmpty() {
+    if (head <= tail)
+        return false;
+    else
+        return true;
 }
 
 /*****************循环单向队列******************/
@@ -193,13 +402,66 @@ for (int i = 0; i < n; i ++ )
 
 数组实现的线性表，比 STL 的优势就是速度快、占用小，但是编译器开 O2 优化的话，STL 的速度也相差无几。
 
+#### [154. 滑动窗口](https://www.acwing.com/problem/content/156/)
+
+![[20-data-struct-slide-win.png]]
+
+**解题思路**（以最大值为例）：
+
+由于我们需要求出的是滑动窗口的最大值。
+- 如果当前的滑动窗口中有两个下标 `i` 和 j ，其中 `i` 在 `j` 的左侧（i<j），并且 `i` 对应的元素不大于 `j` 对应的元素（`nums[i]≤nums[j]`），则：
+	- 当滑动窗口向右移动时，只要 `i` 还在窗口中，那么 `j` 一定也还在窗口中。这是由于 `i` 在 `j` 的左侧所保证的。
+	- 因此，由于 `nums[j]` 的存在，`nums[i]` 一定不会是滑动窗口中的最大值了，我们可以将 `nums[i]` 永久地移除。
+- **因此我们可以使用一个队列存储所有还没有被移除的下标。在队列中，这些下标按照从小到大的顺序被存储，并且它们在数组 `nums` 中对应的值是严格单调递减的**。
+- 当滑动窗口向右移动时，我们需要把一个新的元素放入队列中。
+	- 为了保持队列的性质，我们会不断地将新的元素与队尾的元素相比较，如果新元素大于等于队尾元素，那么队尾的元素就可以被永久地移除，我们将其弹出队列。我们需要不断地进行此项操作，直到队列为空或者新的元素小于队尾的元素。
+- 由于队列中下标对应的元素是严格单调递减的，因此此时队首下标对应的元素就是滑动窗口中的最大值。
+- 窗口向右移动的时候。因此我们还需要不断从队首弹出元素保证队列中的所有元素都是窗口中的，因此当队头元素在窗口的左边的时候，弹出队头。
+
+```cpp
+#include <algorithm>
+#include <cstring>
+#include <deque>
+#include <iostream>
+using namespace std;
+
+const int N = 1000010;
+int       a[N];
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+    for (int i = 1; i <= n; i++) cin >> a[i]; // 读入数据
+    deque<int> q;
+    for (int i = 1; i <= n; i++) {
+        while (q.size() && q.back() > a[i]) // 新进入窗口的值小于队尾元素，则队尾出队列
+            q.pop_back();
+        q.push_back(a[i]);                       // 将新进入的元素入队
+        if (i - k >= 1 && q.front() == a[i - k]) // 若队头是否滑出了窗口，队头出队
+            q.pop_front();
+        if (i >= k) // 当窗口形成，输出队头对应的值
+            cout << q.front() << " ";
+    }
+    q.clear();
+    cout << endl;
+
+    // 最大值亦然
+    for (int i = 1; i <= n; i++) {
+        while (q.size() && q.back() < a[i]) q.pop_back();
+        q.push_back(a[i]);
+        if (i - k >= 1 && a[i - k] == q.front()) q.pop_front();
+        if (i >= k) cout << q.front() << " ";
+    }
+}
+```
+
 ## 字符串模式匹配
 
-### KMP
+### [831. KMP](https://www.acwing.com/problem/content/833/)
 
 ```cpp
 // s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
-求模式串的Next数组：
+// 求模式串的Next数组：
 for (int i = 2, j = 0; i <= m; i ++ )
 {
     while (j && p[i] != p[j + 1]) j = ne[j];
@@ -221,6 +483,60 @@ for (int i = 1, j = 0; i <= n; i ++ )
 ```
 
 ```cpp
+#include <iostream>
+
+using namespace std;
+
+const int N = 1000010;
+char      p[N], s[N]; // 用 p 来匹配 s
+// “next” 数组，若第 i 位存储值为 k
+// 说明 p[0...i] 内最长相等前后缀的前缀的最后一位下标为 k
+// 即 p[0...k] == p[i-k...i]
+int ne[N];
+int n, m; // n 是模板串长度 m 是模式串长度
+
+int main() {
+    cin >> n >> p >> m >> s;
+
+    // p[0...0] 的区间内一定没有相等前后缀
+    ne[0] = -1;
+
+    // 构造模板串的 next 数组
+    for (int i = 1, j = -1; i < n; i++) {
+        while (j != -1 && p[i] != p[j + 1]) {
+            // 若前后缀匹配不成功
+            // 反复令 j 回退，直至到 -1 或是 s[i] == s[j + 1]
+            j = ne[j];
+        }
+        if (p[i] == p[j + 1]) {
+            j++; // 匹配成功时，最长相等前后缀变长，最长相等前后缀前缀的最后一位变大
+        }
+        ne[i] = j; // 令 ne[i] = j，以方便计算 next[i + 1]
+    }
+
+    // kmp start !
+    for (int i = 0, j = -1; i < m; i++) {
+        while (j != -1 && s[i] != p[j + 1]) { j = ne[j]; }
+        if (s[i] == p[j + 1]) {
+            j++; // 匹配成功时，模板串指向下一位
+        }
+        if (j == n - 1) // 模板串匹配完成，第一个匹配字符下标为 0，故到 n - 1
+        {
+            // 匹配成功时，文本串结束位置减去模式串长度即为起始位置
+            cout << i - j << ' ';
+
+            // 模板串在模式串中出现的位置可能是重叠的
+            // 需要让 j 回退到一定位置，再让 i 加 1 继续进行比较
+            // 回退到 ne[j] 可以保证 j 最大，即已经成功匹配的部分最长
+            j = ne[j];
+        }
+    }
+
+    return 0;
+}
+```
+
+```cpp
 int match ( char* P, char* T ) {  //KMP算法
 	int* next = buildNext ( P ); //构造next表
 	int n = ( int ) strlen ( T ), i = 0; //文本串指针
@@ -233,6 +549,7 @@ int match ( char* P, char* T ) {  //KMP算法
 
 	delete [] next; //释放next表
 	return i - j;
+	}
 }
 
 int* buildNext ( char* P ) { //构造模式串P的next表
@@ -244,6 +561,45 @@ int* buildNext ( char* P ) { //构造模式串P的next表
 	    } else //否则
 	        t = next[t]; //继续尝试下一值得尝试的位置
 	return next;
+}
+
+// 返回数组
+int *buildNext(char *P) {
+    size_t m = strlen(P), j = 0;
+    int   *N = new int[m];
+    int    t = N[0] = -1;
+    while (j < m - 1) {
+        if (0 > t || P[j] == P[t]) {
+            j++;
+            t++;
+            N[j] = (P[j] != P[t] ? t : N[t]);
+        } else {
+            t = N[t];
+        }
+    }
+    return N;
+}
+
+vector<int> match(char *P, char *S) {
+    int        *next = buildNext(P);
+    int         n = strlen(S), i = 0;
+    int         m = strlen(P), j = 0;
+    vector<int> positions;
+
+    while (i < n) {
+        if (j < 0 || S[i] == P[j]) {
+            i++;
+            j++;
+        } else {
+            j = next[j];
+        }
+        if (j == m) {
+            positions.push_back(i - j); // 存储找到匹配的起始位置
+            j = next[j-1];                // 继续查找下一个可能的匹配
+        }
+    }
+    delete[] next; // 修正：释放next表应在函数末尾
+    return positions;
 }
 ```
 
