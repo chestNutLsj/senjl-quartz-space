@@ -87,6 +87,10 @@ int dfs(int u)
 
 #### [842. 排列数字](https://www.acwing.com/problem/content/844/)
 
+![[30-graph-dfs-fully-arranged.png]]
+
+
+
 #### [843. N-Queens](https://www.acwing.com/problem/content/845/)
 
 #### [846. 树的重心](https://www.acwing.com/problem/content/848/)
