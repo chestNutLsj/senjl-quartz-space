@@ -882,8 +882,6 @@ int main() {
 
 ### Bellman-Ford
 
-多源汇最短路：起点不确定，终点不确定，多个询问，每次询问到一对起点和终点之间的最短路径。
-
 ```cpp
 int n, m;       // n表示点数，m表示边数
 int dist[N];        // dist[x]存储1到x的最短路距离
@@ -926,7 +924,68 @@ Bellman-Ford 算法循环结束后，可以证明，所有边一定满足 $\text
 
 > 通常 SPFA 在各方面都要好于 Bellman-Ford 算法，但是个别情形中只能使用 Bellman-Ford 算法，比如此题。
 
+```cpp
+// 有边数限制的最短路
+#include <iostream>
+#include <string.h>
 
+using namespace std;
+
+const int N = 510, INF = 0x3f3f3f3f, M = 10010;
+int       n, m, k;
+int       dist[N]; // 存1号点到其余所有点的距离
+int       backup[N];
+struct Edge {
+    int a, b, w; // a--w-->b a到b的边权为w
+} edges[M];
+
+void init() {
+    fill(dist, dist + N, INF);
+    dist[1] = 0;
+}
+
+int bellman_ford() { // 求1号点到n号点的最短路距离，如果无法在有限边内到达，则返回-1；
+    init();
+    for (int i = 0; i < k; i++) { // 限制在k条边内进行松弛
+        memcpy(backup, dist, sizeof(dist));
+        for (int j = 0; j < m; j++) {
+            int a = edges[j].a, b = edges[j].b, w = edges[j].w;
+            dist[b] = min(dist[b], backup[a] + w);
+        }
+    }
+
+    return dist[n];
+}
+
+int main() {
+    cin >> n >> m >> k;
+    for (int i = 0; i < m; i++) {
+        int x, y, z;
+        cin >> x >> y >> z;
+        edges[i] = {x, y, z};
+    }
+
+    int res = bellman_ford();
+    if (res > INF / 2)
+        cout << "impossible" << endl;
+    else
+        cout << res << endl;
+
+    return 0;
+}
+```
+
+在Bellman-Ford算法中，使用`backup`数组和`memcpy`函数备份上一轮的最短距离是为了确保每一次的松弛操作是基于同一轮次的状态进行的，这是因为Bellman-Ford算法要求每次迭代只能基于上一轮的结果来更新最短路径估计值，而不是基于当前轮次可能已经被更新的结果。这个处理手法主要是为了处理边数限制和负权环的问题。
+
+为什么需要 `backup` 数组？
+
+Bellman-Ford算法的核心思想是对所有的边进行`n-1`次遍历（对于没有边数限制的情况），在每次遍历中尝试更新图中所有顶点的最短距离。如果在某一轮中，对于某条边`a->b`，直接使用当前轮次可能已经被更新的`dist[]`数组来进行松弛操作，那么就可能出现一种情况，即在同一轮次中，顶点`b`的最短距离被基于已经被更新（可能是由其他边导致的更新）的`dist[a]`值进行了更新。这将违反算法的原则，因为每一轮的更新应该只依赖于上一轮的结果，从而保证每个顶点的最短路径估计是稳定的，并且可以正确处理所有顶点的松弛操作。
+
+`memcpy`的作用
+
+在每一轮迭代开始之前，使用`memcpy`函数将`dist[]`数组的值复制到`backup[]`数组中，这样做的目的是“冻结”上一轮的最短距离估计值，以便在当前轮中对所有顶点进行统一的松弛操作。`memcpy`是一种高效的内存拷贝方法，可以快速完成数组之间的复制任务。
+
+通过这种方式，算法确保了在对任意边`a->b`进行松弛操作时，都是基于顶点`a`在上一轮结束时的最短距离估计值（即`backup[a]`），而非当前轮可能已经更新的`dist[a]`。这有助于算法正确处理图中的所有边，即使在存在负权边或需要考虑边数限制的情况下也是如此。
 
 ### SPFA
 
@@ -1026,112 +1085,380 @@ bool spfa()
 }
 ```
 
-### Floyd
+#### [851. SPFA求最短路](https://www.acwing.com/problem/content/853/)
+
+```cpp
+// SPFA求最短路
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+const int N = 100010, INF = 0x3f3f3f3f;
+int       h[N], e[N], w[N], ne[N], idx;
+int       n, m;
+int       dist[N];
+bool      st[N];
+
+void add(int a, int b, int c) {
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+}
+
+void init() {
+    fill(h, h + N, -1);
+    fill(dist, dist + N, INF);
+    dist[1] = 0, idx = 0;
+}
+
+int spfa() {
+    queue<int> q; // 队列中存放可以被更新的缩短距离的点
+    q.push(1);
+    st[1] = true;
+    while (q.size()) {
+        auto t = q.front();
+        q.pop();
+        st[t] = false;
+        for (int i = h[t]; i != -1; i = ne[i]) {
+            int j = e[i];
+            if (dist[j] > dist[t] + w[i]) {
+                dist[j] = dist[t] + w[i];
+                if (!st[j]) {
+                    q.push(j);
+                    st[j] = true;
+                }
+            }
+        }
+    }
+
+    return dist[n];
+}
+
+int main() {
+    cin >> n >> m;
+    init();
+    while (m--) {
+        int x, y, z;
+        cin >> x >> y >> z;
+        add(x, y, z);
+    }
+    int res = spfa();
+    if (res > INF / 2)
+        cout << "impossible" << endl;
+    else
+        cout << res;
+
+    return 0;
+}
+```
+
+#### [852. SPFA判断负权环](https://www.acwing.com/problem/content/854/)
+
+```cpp
+// SPFA判断负权环
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+const int N = 100010, INF = 0x3f3f3f3f;
+int       h[N], e[N], w[N], ne[N], idx;
+int       n, m;
+int       dist[N];
+int       cnt[N]; // 记录1到x的最短路中经过的点数
+bool      st[N];
+
+void add(int a, int b, int c) {
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+}
+
+void init() {
+    fill(h, h + N, -1);
+    fill(dist, dist + N, INF);
+    fill(st, st + N, false);
+    fill(cnt, cnt + N, 0); //最开始没有任何路径从源点到其他点
+    dist[1] = 0;
+    idx = 0;
+}
+
+bool spfa() {
+    queue<int> q; // 队列中存放可以被更新的缩短距离的点
+    for (int i = 1; i <= n; i++) {
+        q.push(i);
+        st[i] = true;
+    }
+
+    while (q.size()) {
+        auto t = q.front();
+        q.pop();
+        st[t] = false;
+        for (int i = h[t]; i != -1; i = ne[i]) {
+            int j = e[i];
+            if (dist[j] > dist[t] + w[i]) {
+                dist[j] = dist[t] + w[i];
+                cnt[j]  = cnt[t] + 1;
+                if (cnt[j] >= n)
+                    return true; // 如果从1号点到x的最短路中包含至少n个点（不包括自己），则说明存在环
+
+                if (!st[j]) {
+                    q.push(j);
+                    st[j] = true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+int main() {
+    cin >> n >> m;
+    init();
+    while (m--) {
+        int x, y, z;
+        cin >> x >> y >> z;
+        add(x, y, z);
+    }
+
+    if (spfa())
+        cout << "Yes" << endl;
+    else
+        cout << "No";
+
+    return 0;
+}
+```
+
+### [854. Floyd](https://www.acwing.com/problem/content/856/)
+
+多源汇最短路：起点不确定，终点不确定，多个询问，每次询问到一对起点和终点之间的最短路径。
 
 能处理负权边，但是不能有负权环
 
 ```cpp
-初始化：
-    for (int i = 1; i <= n; i ++ )
-        for (int j = 1; j <= n; j ++ )
-            if (i == j) d[i][j] = 0;
-            else d[i][j] = INF;
+// Floyd
+#include <iostream>
 
-// 算法结束后，d[a][b]表示a到b的最短距离
-void floyd()
-{
-    for (int k = 1; k <= n; k ++ )
-        for (int i = 1; i <= n; i ++ )
-            for (int j = 1; j <= n; j ++ )
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+using namespace std;
+
+const int N = 210, INF = 0x3f3f3f3f;
+int       n, m, k;
+int       dist[N][N]; // 记录a-->b的距离
+
+void init() {
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
+            if (i == j)
+                dist[i][j] = 0;
+            else
+                dist[i][j] = INF;
+}
+
+void floyd() { // 算法结束后，d[a][b]表示a到b的最短距离
+
+    for (int k = 1; k <= n; k++)
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= n; j++)
+                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+}
+
+int main() {
+    cin >> n >> m >> k;
+    init();
+    while (m--) {
+        int x, y, z;
+        cin >> x >> y >> z;
+        dist[x][y] = min(dist[x][y], z);
+    }
+    floyd();
+    while (k--) {
+        int a, b;
+        cin >> a >> b;
+        if (dist[a][b] > INF / 2)
+            cout << "impossible" << endl;
+        else
+            cout << dist[a][b] << endl;
+    }
+    return 0;
 }
 ```
 
 ## Minimal Spanning Tree
 
-### Prim
+### [858. Prim](https://www.acwing.com/problem/content/860/)
 
 - 朴素版的时间复杂度是 $\mathcal{O}(n^{2})$ ，适用于稠密图；
 - 堆优化版的时间复杂度是 $\mathcal{O}(m\log n)$ ，适用于稀疏图，不过稀疏图更建议使用 Kruskal 算法。
 
 ```cpp
-int n;      // n表示点数
-int g[N][N];        // 邻接矩阵，存储所有边
-int dist[N];        // 存储其他点到当前最小生成树的距离
-bool st[N];     // 存储每个点是否已经在生成树中
+// Prim
+#include <iostream>
 
+using namespace std;
 
-// 如果图不连通，则返回INF(值是0x3f3f3f3f), 否则返回最小生成树的树边权重之和
-int prim()
-{
-    memset(dist, 0x3f, sizeof dist);
+const int N = 510, INF = 0x3f3f3f3f;
+int       n, m;
+int       g[N][N];
+int       dist[N]; // 存储当前节点到MST的距离
+bool      st[N];   // 标记每个点是否已在MST中
 
+void init() {
+    fill(g[0], g[0] + N * N, INF);
+    fill(dist, dist + N, INF);
+    fill(st, st + N, false);
+    dist[1] = 0;
+}
+
+int prim() { // 如果图不连通，则返回INF(值是0x3f3f3f3f), 否则返回最小生成树的树边权重之和
     int res = 0;
-    for (int i = 0; i < n; i ++ ) // 找到集合外距离最近的点
-    {
+    for (int i = 0; i < n; i++) { // 找到集合外距离最近的点
         int t = -1;
-        for (int j = 1; j <= n; j ++ ) // 用t更新其它各点到集合的距离
-            if (!st[j] && (t == -1 || dist[t] > dist[j]))
-                t = j;
-
-        if (i && dist[t] == INF) return INF; //距离是正无穷
-
+        for (int j = 1; j <= n; j++) // 用t更新其它各点到集合的距离
+            if (!st[j] && (t == -1 || dist[t] > dist[j])) t = j;
+        if (i && dist[t] == INF) return INF; // 距离是正无穷
         if (i) res += dist[t];
         st[t] = true; // 将点加入到集合中去
-
-        for (int j = 1; j <= n; j ++ ) dist[j] = min(dist[j], g[t][j]);
+        for (int j = 1; j <= n; j++)
+            dist[j] = min(dist[j], g[t][j]);
     }
 
     return res;
 }
+
+int main() {
+    cin >> n >> m;
+    init();
+    while (m--) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        g[u][v] = min(g[u][v], w);
+        g[v][u] = min(g[v][u], w);
+    }
+    int res = prim();
+    res > INF / 2 ? cout << "impossible" : cout << res;
+    return 0;
+}
 ```
 
-### Kruskal
+```cpp
+// Heap-optimized Prim
+#include <cstring>
+#include <iostream>
+#include <queue>
+#include <vector>
+using namespace std;
+
+const int N = 510, INF = 0x3f3f3f3f;
+int       n, m;
+int       g[N][N];
+bool      st[N]; // 标记每个点是否已在MST中
+
+// 使用pair<int, int>表示优先队列中的元素，first是从MST到该点的最短距离，second是点的编号
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+void init() {
+    memset(g, 0x3f, sizeof g);
+    memset(st, 0, sizeof st);
+}
+
+int prim() {
+    int res = 0, cnt = 0;
+    pq.push({0, 1}); // 从节点1开始
+    while (!pq.empty() && cnt < n) {
+        auto [d, u] = pq.top();
+        pq.pop();
+        if (st[u]) continue; // 如果节点u已经在MST中，则跳过
+        st[u] = true;        // 标记节点u已经加入MST
+        res += d;            // 将这个节点到MST的距离加到结果中
+        cnt++;               // MST中的节点数+1
+        for (int v = 1; v <= n; v++) {
+            if (!st[v] && g[u][v] < INF) {
+                pq.push({g[u][v], v}); // 将所有与u相连的、未加入MST的节点加入优先队列
+            }
+        }
+    }
+    return cnt == n ? res : INF; // 如果MST中的节点数等于总节点数，返回总权重；否则返回-1表示图不连通
+}
+
+int main() {
+    cin >> n >> m;
+    init();
+    while (m--) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        g[u][v] = g[v][u] = min(g[u][v], w); // 无向图，两个方向的权重都要更新
+    }
+    int res = prim();
+    if (res > INF / 2)
+        cout << "impossible";
+    else
+        cout << res;
+    return 0;
+}
+
+```
+
+### [859. Kruskal](https://www.acwing.com/problem/content/861/)
 
 时间复杂度 $\mathcal{O}(m\log m)$ ；
 
 ```cpp
-int n, m;       // n是点数，m是边数
-int p[N];       // 并查集的父节点数组
+// Kruskal
+#include <algorithm>
+#include <iostream>
 
-struct Edge     // 存储边
-{
-    int a, b, w;
+using namespace std;
 
-    bool operator< (const Edge &W)const
-    {
+const int N = 100010, M = 2 * N, INF = 0x3f3f3f3f;
+int       n, m;
+int       fa[N]; // 并查集的父节点数组
+struct Edge {
+    int  a, b, w;
+    bool operator<(const Edge &W) const {
         return w < W.w;
     }
-}edges[M];
+} edges[M];
 
-int find(int x)     // 并查集核心操作
-{
-    if (p[x] != x) p[x] = find(p[x]);
-    return p[x];
+int find(int x) {
+    if (fa[x] == x)
+        return x;
+    else {
+        fa[x] = find(fa[x]);
+        return fa[x];
+    }
 }
 
-int kruskal()
-{
-    sort(edges, edges + m); // 将所有边按权重从小到大排序 O(mlogm)
+void init() {
+    for (int i = 1; i <= n; i++) fa[i] = i; // 初始化并查集的父节点数组
+}
 
-    for (int i = 1; i <= n; i ++ ) p[i] = i;    // 初始化并查集
-
+int kruskal() {
+    sort(edges, edges + m);// 将所有边按权重从小到大排序 
+    init();
     int res = 0, cnt = 0;
-    for (int i = 0; i < m; i ++ )
-    {
+    for (int i = 0; i < m; i++) {
         int a = edges[i].a, b = edges[i].b, w = edges[i].w;
-
         a = find(a), b = find(b);
-        if (a != b)     // 如果两个连通块不连通，则将这两个连通块合并
-        {
-            p[a] = b;
+        if (a != b) {// 如果两个连通块不连通，则将这两个连通块合并
+            fa[a] = b;
             res += w;
-            cnt ++ ;
+            cnt++;
         }
     }
-
     if (cnt < n - 1) return INF; // 说明树不连通
     return res;
+}
+
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        edges[i] = {u, v, w};
+    }
+    int res = kruskal();
+    res > INF / 2 ? cout << "impossible" : cout << res;
+
+    return 0;
 }
 ```
 
@@ -1139,48 +1466,220 @@ int kruskal()
 
 当一个图是二分图，当且仅当图中不含**奇数环**（环中的边数是奇数）。
 
-### 染色法
+### [860. 染色法判定二分图](https://www.acwing.com/problem/content/description/862/)
 
 时间复杂度 $\mathcal{O}(n+m)$ ；
 
 ```cpp
-int n;      // n表示点数
-int h[N], e[M], ne[M], idx;     // 邻接表存储图
-int color[N];       // 表示每个点的颜色，-1表示未染色，0表示白色，1表示黑色
+// 染色法
+#include <iostream>
 
-// 参数：u表示当前节点，c表示当前点的颜色
-bool dfs(int u, int c)
-{
+using namespace std;
+
+const int N = 100010 * 2;
+int       n, m;
+int       h[N], e[N], ne[N], idx;
+int       color[N]; // -1表示未染色，0表示染白色，1表示染黑色
+
+void init() {
+    fill(h, h + N, -1);
+    fill(color, color + N, -1);
+    idx = 0;
+}
+
+void add(int a, int b) {
+    e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+}
+
+bool dfs(int u, int c) { // u表示当前节点，c表示当前节点的颜色
     color[u] = c;
-    for (int i = h[u]; i != -1; i = ne[i])
-    {
+    for (int i = h[u]; i != -1; i = ne[i]) {
         int j = e[i];
-        if (color[j] == -1)
-        {
-            if (!dfs(j, !c)) return false;
-        }
-        else if (color[j] == c) return false;
+        if (color[j] == -1) {
+            if (!dfs(j, !c))
+                return false;
+        } else if (color[j] == c)
+            return false;
     }
-
     return true;
 }
 
-bool check()
-{
-    memset(color, -1, sizeof color);
-    bool flag = true;
-    for (int i = 1; i <= n; i ++ )
+bool check() {
+    for (int i = 1; i <= n; i++)
         if (color[i] == -1)
-            if (!dfs(i, 0))
-            {
-                flag = false;
-                break;
-            }
-    return flag;
+            if (!dfs(i, 0)) return false;
+    return true;
+}
+
+int main() {
+    cin >> n >> m;
+    init();
+    while (m--) {
+        int u, v;
+        cin >> u >> v;
+        add(u, v), add(v, u);
+    }
+    check() ? cout << "Yes" : cout << "No";
+
+    return 0;
 }
 ```
 
 #### [257. 关押罪犯](https://www.acwing.com/problem/content/259/)
+
+![[30-graph-257.png]]
+
+对题意进行抽象：
+- N 个罪犯 --> N 个节点
+- 两个罪犯间的怨气值为 c --> 两个节点间的边权为c
+- 所有冲突事件的影响力排序（降序）--> 连通图中最大的边权
+
+策略：
+- 尽可能均匀地将两个有积怨的节点分别放在两个监狱，使得各自监狱中的罪犯尽可能少、尽可能小地含有积怨
+- 我们在 $[0,10^9]$ 之间枚举最大边权 limit，当 limit 固定之后，剩下的问题就是：**判断能否将所有点分成两组，使得所有权值大于 limit 的边都在组间，而不在组内**。也就是判断由所有点以及所有权值大于 limit 的边构成的新图是否是二分图。
+- 判断二分图可以用染色法，时间复杂度是 O (N+M)，其中 N 是点数，M 是边数。
+- 为了加速算法，我们来考虑是否可以用二分枚举 limit， 假定最终最大边权的最小值是 Ans:
+	* 那么当 $\text{limit}∈[\rm ans, 10^9]$ 时，所有边权大于 limit 的边，必然是所有边权大于 Ans 的边的子集，因此由此构成的新图也是二分图。
+	* 当 $\rm limit∈[0, ans−1]$ 时，由于 ans 是新图可以构成二分图的最小值，因此由大于 limit 的边构成的新图一定不是二分图。
+	* 所以整个区间具有二段性，可以二分出分界点 ans 的值。
+* 时间复杂度分析：总共二分 logC 次，其中 C 是边权的最大值，每次二分使用染色法判断二分图，时间复杂度是 O (N+M)，其中 N 是点数，M 是边数。因此总时间复杂度是 O ((N+M) logC)。
+
+```cpp
+// 关押罪犯
+// 二分图问题，用染色法
+#include <iostream>
+
+using namespace std;
+
+const int N = 20010, M = 200010;
+int       n, m;
+int       h[N], e[M], w[M], ne[M], idx;
+int       color[N];
+
+void init() {
+    fill(h, h + N, -1);
+
+    idx = 0;
+}
+
+void add(int a, int b, int c) {
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+}
+
+bool dfs(int u, int c, int limit) {
+    color[u] = c;
+    for (int i = h[u]; ~i; i = ne[i]) {
+        if (w[i] <= limit) continue;
+        int j = e[i];
+        if (color[j]) {
+            if (color[j] == c) return false;
+        } else if (!dfs(j, 3 - c, limit))
+            return false;
+    }
+    return true;
+}
+
+bool check(int limit) {
+    fill(color, color + N, 0);
+    for (int i = 1; i <= n; i++)
+        if (color[i] == 0)
+            if (!dfs(i, 1, limit)) return false;
+    return true;
+}
+
+int main() {
+    cin >> n >> m;
+    init();
+    while (m--) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        add(a, b, c), add(b, a, c);
+    }
+    int l = 0, r = 1e9;
+    while (l < r) {
+        int mid = (l + r) >> 1;
+        if (check(mid))
+            r = mid;
+        else
+            l = mid + 1;
+    }
+    cout << l;
+    return 0;
+}
+```
+
+```cpp
+// 并查集策略实现
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+const int N = 20100, M = 100010;
+int p[N], d[N];
+struct Edge
+{
+    int a, b, c;
+    bool operator<(const Edge e) const
+    {
+        return c > e.c; 
+    }
+}edge[M];
+
+int find(int x)
+{
+    if (x != p[x])
+    {
+        int t = p[x];
+        p[x] = find(p[x]);
+        d[x] += d[t];
+    }
+
+    return p[x];
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+
+    int a, b, c;
+    for (int i = 0; i < m; ++ i)
+    {
+        scanf("%d%d%d", &a, &b, &c);
+        edge[i] = {a, b, c};
+    }
+    sort(edge, edge + m);
+
+    for (int i = 1; i <= n; ++ i)
+        p[i] = i;
+
+    bool flag = true;
+    for (int i = 0; i < m; ++ i)
+    {
+        int a = edge[i].a, b = edge[i].b, c = edge[i].c;
+        int pa = find(a), pb = find(b);
+        if (pa == pb)
+        {
+            if ((d[a] - d[b] - 1) % 2 != 0)
+            {
+                cout << c << endl;
+                flag = false;
+                break;
+            }
+        }
+        else
+        {
+            p[pa] = pb;
+            d[pa] = d[b] - d[a] + 1;
+        }
+    }
+    if (flag)
+        cout << 0 << endl;
+
+    return 0;
+} 
+```
 
 ### 匈牙利算法
 
@@ -1194,7 +1693,7 @@ int h[N], e[M], ne[M], idx;     // 邻接表存储所有边，匈牙利算法中
 int match[N];       // 存储第二个集合中的每个点当前匹配的第一个集合中的点是哪个
 bool st[N];     // 表示第二个集合中的每个点是否已经被遍历过
 
-bool find(int x)
+bool find(int x)//这个函数的作用是用来判断,如果加入x来参与模拟配对,会不会使匹配数增多
 {
     for (int i = h[x]; i != -1; i = ne[i])
     {
@@ -1222,3 +1721,63 @@ for (int i = 1; i <= n1; i ++ )
 }
 ```
 
+#### [861. 二分图的最大匹配](https://www.acwing.com/problem/content/863/)
+
+>二分图的匹配：给定一个二分图 G，在 G 的一个子图 M 中，M 的边集 {E} 中的任意两条边都不依附于同一个顶点，则称 M 是一个匹配。
+>二分图的最大匹配：所有匹配中包含边数最多的一组匹配被称为二分图的最大匹配，其边数即为最大匹配数。
+
+```cpp
+// 二分图的最大匹配 （匈牙利算法）
+#include <iostream>
+
+using namespace std;
+
+const int N = 510, M = 100010;
+int       n1, n2, m;
+int       h[N], e[M], ne[M], idx;
+int       match[N]; // 存储第二个集合中的每个点当前匹配的第一个集合中的点是哪个
+bool      st[N];    // 表示第二个集合中的每个点是否已经被遍历过
+
+void init() {
+    fill(h, h + N, -1);
+    fill(match, match + N, 0);
+    fill(st, st + N, false);
+}
+
+void add(int a, int b) { e[idx] = b, ne[idx] = h[a], h[a] = idx++; }
+
+bool find(int x) {
+    // 遍历自己喜欢的女孩
+    for (int i = h[x]; i != -1; i = ne[i]) {
+        int j = e[i];
+        if (!st[j]) // 如果在这一轮模拟匹配中,这个女孩尚未被预定
+        {
+            st[j] = true; // 那x就预定这个女孩了
+            // 如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功
+            if (!match[j] || find(match[j])) {
+                match[j] = x;
+                return true;
+            }
+        }
+    }
+    // 自己中意的全部都被预定了。配对失败。
+    return false;
+}
+
+int main() {
+    cin >> n1 >> n2 >> m;
+    init();
+    while (m--) {
+        int u, v;
+        cin >> u >> v;
+        add(u, v); // 匈牙利算法中只会用到从第一个集合指向第二个集合的边，所以这里只用存一个方向的边
+    }
+    int res = 0;
+    for (int i = 1; i <= n1; i++) { // 求最大匹配数，依次枚举第一个集合中的每个点能否匹配第二个集合中的点
+        fill(st, st + N, false);    // 重置st是因为假设被A考虑过的女生如果也是B的心仪对象，在之后同样也可以被B考虑。
+        if (find(i)) res++;
+    }
+    cout << res;
+    return 0;
+}
+```

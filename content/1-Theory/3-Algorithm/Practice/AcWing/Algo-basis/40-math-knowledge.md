@@ -52,7 +52,7 @@ bool is_prime(int x)
 (3). 一个合数分解而成的质因数最多只包含一个大于 sqrt (n)的质因数
 (反证法, 若 n 可以被分解成两个大于 sqrt (n)的质因数, 则这两个质因数相乘的结果大于 n, 与事实矛盾).
 (4). 当枚举到某一个数 i 的时候, n 的因子里面已经不包含 2-i-1 里面的数,
-如果 n%i==0, 则 i 的因子里面也已经不包含 2-i-1 里面的数, 因此每次枚举的数都是质数.
+如果 `n%i==0`, 则 i 的因子里面也已经不包含 2-i-1 里面的数, 因此每次枚举的数都是质数.
 (5).算数基本定理 (唯一分解定理): 任何一个大于 1 的自然数 N, 如果 N 不为质数, 那么 N 可以唯一分解成有限个质数的乘积
 N=P1a1P2a2P3a3...... Pnan，这里 P1<P2<P3......<Pn 均为质数，其中指数 ai 是正整数。
 这样的分解称为 N 的标准分解式。最早证明是由欧几里得给出的，由陈述证明。
@@ -65,7 +65,7 @@ N=P1a1P2a2P3a3...... Pnan，这里 P1<P2<P3......<Pn 均为质数，其中指数
 
 ```cpp
 // 判断质因数
-void divide(int x)
+void divide(int x) 
 {
     for (int i = 2; i <= x / i; i ++ )
         if (x % i == 0)
@@ -77,8 +77,10 @@ void divide(int x)
     if (x > 1) cout << x << ' ' << 1 << endl;
     cout << endl;
 }
-```
+/*从小到大的顺序输出其分解质因数后，每个质因数的底数和指数，每个底数和指数占一行。
 
+每个正整数的质因数全部输出完毕后，输出一个空行。*/
+```
 
 ### 朴素筛法
 
@@ -110,7 +112,7 @@ void get_primes(int n)
 
 (1). 质数定理:1~n 中有 n/lnn 个质数.
 (2). 原理: 在朴素筛法的过程中只用质数项去筛.
-(3).时间复杂度:粗略估计: O (n).实际: O (nlog (logn)).
+(3). 时间复杂度:粗略估计: O (n).实际: O (nlog (logn)).
 (4). 1~n 中, 只计算质数项的话,”1/2+1/3+1/4+1/5+…+1/n”的大小约为 log (logn).
 
 ### 线性筛法
@@ -145,6 +147,39 @@ vector<int> get_divisors(int x)
 ```
 
 ## 约数
+
+### [869. 试除法求约数](https://www.acwing.com/problem/content/description/871/)
+
+```cpp
+// 试除法求约数
+
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int n;
+        cin >> n;
+        vector<int> res;
+        // 因为约数成对出现，所以只需要循环到根号x
+        //  不要是用 i *i <= n，因为可能溢出
+        for (int i = 1; i <= n / i; i++) {
+            if (n % i == 0) {
+                res.push_back(i);
+                // 如果i * i = x,添加i即可，不用添加 x / i
+                if (n / i != i)
+                    res.push_back(n / i);
+            }
+        }
+        sort(res.begin(), res.end());
+        for (auto x : res) cout << x << " ";
+        cout << endl;
+    }
+}
+```
 
 ### 最大公约数
 
