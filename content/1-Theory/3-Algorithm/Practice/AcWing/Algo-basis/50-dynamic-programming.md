@@ -11,13 +11,122 @@ date: 2024-02-28
 
 ### [002. 0/1背包问题](https://www.acwing.com/problem/content/2/)
 
-![[50-dynamic-programming-01knap.png]]
+![[50-dynamic-programming-01-kanp.png]]
 
-DP 优化都是对基本递推方程的变形，所以一切基于基本的递推方程。
+```cpp
+// 01-knapsack
+#include <iostream>
+
+using namespace std;
+
+const int N = 1010;
+int       f[N][N];    // f[i][j] 表示只看前i件物品，总体积是j的情况下，最大的总价值
+int       v[N], w[N]; // 记录每个物品的体积和价值
+
+/*
+
+result = max{f[n][0],f[n][1],f[n][2],...,f[n][V]}
+
+计算f[i][j]:
+
+    0. f[0][0]=0 ，最开始时只有一个合法状态;(全局变量会在堆中存储，所有元素都会初始化为0)
+    1. 不选第i个物品，f[i][j]=f[i-1][j];
+    2. 选第i个物品，  f[i][j]=f[i-1][j-v[i]];
+    3. f[i][j]=max{(1.), (2.)}
+
+时间复杂度：O(n*V)
+
+*/
+
+int main() {
+    int num, vol;
+    cin >> num >> vol;
+    for (int i = 1; i <= num; i++)
+        cin >> v[i] >> w[i];
+
+    for (int i = 1; i <= num; i++)
+        for (int j = 0; j <= vol; j++) {
+            f[i][j] = f[i - 1][j];
+            if (j >= v[i]) // 背包体积至少要大于物品体积才可以选择
+                f[i][j] = max(f[i][j], f[i - 1][j - v[i]] + w[i]);
+        }
+
+    int res = 0;
+    for (int i = 0; i <= vol; i++) res = max(res, f[num][i]);
+    cout << res << endl;
+
+    return 0;
+}
+```
+
+DP 优化都是对基本递推方程的变形，所以一切基于基本的递推方程。上面的二阶矩阵可以考虑改用滚动数组的形式来优化：由于对 $f_i$ 有影响的只有 $f_{i-1}$，可以去掉第一维，直接用 $f_{i}$ 来表示处理到当前物品时背包容量为 $i$ 的最大价值，得出以下方程：：
+$$
+f_j=\max \left(f_j,f_{j-v_i}+w_i\right)
+$$
+
+```cpp
+#include <iostream>
+using namespace std;
+const int N = 1010;
+int       f[N];       // f[i] 表示总体积是i的情况下，最大的总价值
+int       v[N], w[N]; // 记录每个物品的体积和价值
+int main() {
+    int num, vol;
+    cin >> num >> vol;
+    for (int i = 1; i <= num; i++)
+        cin >> v[i] >> w[i];
+    for (int i = 1; i <= num; i++)
+        for (int j = vol; j >= v[i]; j--)
+            f[j] = max(f[j], f[j - v[i]] + w[i]);
+    cout << f[vol] << endl;
+    return 0;
+}
+```
 
 ### [003. 完全背包问题](https://www.acwing.com/problem/content/3/)
 
-![[50-dynamic-programming-full-knapsack.png]]
+![[50-dynamic-programming-full-knap.png]]
+
+```cpp
+// 未优化状态方程版
+#include <iostream>
+using namespace std;
+const int N = 1010;
+int       f[N][N];    // f[i][j] 表示前i件物品在总体积是j的情况下，最大的总价值
+int       v[N], w[N]; // 记录每个物品的体积和价值
+
+int main() {
+    int num, vol;
+    cin >> num >> vol;
+    for (int i = 1; i <= num; i++)
+        cin >> v[i] >> w[i];
+    for (int i = 1; i <= num; i++)
+        for (int j = 0; j <= vol; j++)
+            for (int k = 0; k * v[i] <= j; k++)
+                f[i][j] = max(f[i][j], f[i - 1][j - k * v[i]] + k * w[i]);
+    cout << f[num][vol] << endl;
+    return 0;
+}
+
+// 优化状态方程版
+int main() {
+    int num, vol;
+    cin >> num >> vol;
+    for (int i = 1; i <= num; i++)
+        cin >> v[i] >> w[i];
+
+    for (int i = 1; i <= num; i++)
+        for (int j = 0; j <= vol; j++)
+            if (v[i] <= j) // 第 i 种能放进去
+                f[i][j] = max(f[i - 1][j], f[i][j - v[i]] + w[i]);
+            else // 如果第 i 件物品不能放进去
+                f[i][j] = f[i - 1][j];
+
+    cout << f[num][vol] << endl;
+
+    return 0;
+}
+```
 
 ### [005. 多重背包问题 II](https://www.acwing.com/problem/content/5/)
 
