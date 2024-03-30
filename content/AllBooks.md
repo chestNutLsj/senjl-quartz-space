@@ -1,5 +1,5 @@
+- [[1-Theory/1-ProgramLanguage/Rust/Rust Atomics and Locks/Rust Atomics and Locks Low-level concurrency in practice.md|Rust Atomics and Locks]]
 - [[0-Assets/Epubook/算法精粹：经典计算机科学问题的 Python 实现 (David Kopec [Kopec, David]) (Z-Library)/算法精粹：经典计算机科学问题的 Python 实现 (David Kopec [Kopec, David]) (Z-Library).md|算法精粹：经典计算机科学问题的 Python 实现 (David Kopec [Kopec, David]) (Z-Library)]]
 - [[0-Assets/Epubook/程序员的自我修养：链接、装载与库 (俞甲子 石凡 潘爱民) /程序员的自我修养：链接、装载与库 (俞甲子 石凡 潘爱民) .md|程序员的自我修养：链接、装载与库 (俞甲子 石凡 潘爱民) ]]
-- [[0-Assets/Epubook/Fluent Python Clear, Concise, and Effective Programming/Fluent Python Clear, Concise, and Effective Programming.md|Fluent Python Clear, Concise, and Effective Programming]]
 - [[0-Assets/Epubook/x86汇编语言从实模式到保护模式_李忠_等_Z_Library/x86汇编语言从实模式到保护模式_李忠_等_Z_Library.md|x86汇编语言从实模式到保护模式_李忠_等_Z_Library]]
-- [[1-Theory/1-ProgramLanguage/Rust/Rust Atomics and Locks/Rust Atomics and Locks Low-level concurrency in practice.md|Rust Atomics and Locks]]
+- [[0-Assets/Epubook/Fluent Python Clear, Concise, and Effective Programming/Fluent Python Clear, Concise, and Effective Programming.md|Fluent Python Clear, Concise, and Effective Programming]]
