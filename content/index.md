@@ -5,7 +5,7 @@ tags:
   - quartz
   - Blog
 ---
-欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎[来邮](chestnut_lsj@foxmail.com)，或者在本博客的 GitHub Repo 中[提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
+欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： chestnut_lsj@foxmail.com ，或者在本博客的 GitHub Repo 中[提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
 
 >[!tip] 🎵: Have a relax!
 > ![[未闻花名.jpg]]
@@ -16,7 +16,7 @@ tags:
 - [x] 1 月 ~ 3 月：[[复试学习计划]]、参加机试与面试、撰写上岸经验贴；
 - [ ] 4 月 ~ 8 月：健身减肥计划、阅读《毛泽东选集》、阅读《费曼的物理学讲义》；
 
-## 考研这两年——我也有一个清华梦！
+## 考研这两年——我的清华梦！
 
 >[!success] 🎉我成功上岸啦!!!
 >- 我的清华计算机考研复习经验：[[如何高效备考11912？]]
