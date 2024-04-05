@@ -1,3 +1,7 @@
+---
+publish: "true"
+date: 2023-07-31
+---
 
 ## equal ()
 可以用和比较字符串类似的方式来比较序列。如果两个序列的长度相同，并且对应元素都相等，equal () 算法会返回 true。
@@ -420,11 +424,11 @@ std:: cout << std:: endl;
 
 这里会确认 data 1 是 data 3 的一个排列，因为只考虑 data 3 的前 4 个元素。每一个版本的 is_permutation () 都可以添加一个额外的参数来指定所使用的比较。
 
-## unique ()
+## `unique ()`
 
 unique () 算法可以在序列中原地移除重复的元素，这就要求被处理的序列必须是正向迭代器所指定的。在移除重复元素后，它会返回一个正向迭代器作为新序列的结束迭代器。可以提供一个函数对象作为可选的第三个参数，这个参数会定义一个用来代替 `==` 比较元素的方法。例如：
 
-```
+```cpp
 std::vector<string> words {"one", "two", "two", "three", "two", "two", "two"};
 auto end_iter = std::unique(std::begin(words), std::end(words));
 std::copy(std::begin(words), end_iter, std::ostream_iterator<string>{std::cout, " "});
@@ -435,13 +439,13 @@ std::cout << std::endl;
 ```
 one two three two
 ```
-当然，没有元素会从输入序列中移除; 算法并没有方法去移除元素，因为它并不知道它们的具体上下文。整个序列仍然存在。但是，无法保证新末尾之后的元素的状态；如果在上面的代码中用 std:: end (words) 代替 end_iter 来输出结果，得到的输出如下:
+当然，没有元素会从输入序列中移除; 算法并没有方法去移除元素，因为它并不知道它们的具体上下文。整个序列仍然存在。但是，无法保证新末尾之后的元素的状态；如果在上面的代码中用 `std::end (words)` 代替 end_iter 来输出结果，得到的输出如下:
 ```
 one two three two two two
 ```
 相同个数的元素仍然存在，但新的结束迭代器指向的元素为空字符串；最后两个元素还和之前一样。在你的系统上，可能会有不同的结果。因为这个，在执行 unique () 后，最好按如下方式截断序列：
 
-```
+```cpp
 auto end_iter = std::unique(std::begin(words), std::end(words));
 words.erase(end_iter, std::end(words));
 std::copy (std::begin (words) , std::end (words) , std::ostream iterator<string> {std::cout, " "});
@@ -450,7 +454,7 @@ std::cout << std::endl;
 容器的成员函数 erase () 会移除新的结束迭代器之后的所有元素，因此 end (words) 会返回 end_iter。
 
 当然，可以将 unique () 运用到字符串中的字符上：
-```
+```cpp
 string text {"There's no air in spaaaaaace!"};
 text.erase(std::unique(std::begin(text), std::end(text),[](char ch1, char ch2) { return ch1 = ' '&& ch1 = ch2; }), std::end(text));
 std::cout << text << std::endl; // Outputs: There's no air in spaaaaaace!

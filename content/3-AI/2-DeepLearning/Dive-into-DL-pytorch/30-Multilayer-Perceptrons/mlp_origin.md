@@ -123,7 +123,7 @@ a *multilayer perceptron*,
 often abbreviated as *MLP*.
 Below, we depict an MLP diagrammatically (:numref:`fig_mlp`).
 
-![An MLP with a hidden layer of 5 hidden units. ](../img/mlp.svg)
+![An MLP with a hidden layer of 5 hidden units. ](10-mlp-model.svg)
 :label:`fig_mlp`
 
 This MLP has 4 inputs, 3 outputs,

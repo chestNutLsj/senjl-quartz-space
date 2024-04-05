@@ -1,5 +1,3 @@
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [c.biancheng.net](http://c.biancheng.net/view/625.html)
-
 > replace () 算法会用新的值来替换和给定值相匹配的元素。
 
 replace () 算法会用新的值来替换和给定值相匹配的元素。它的前两个参数是被处理序列的正向迭代器，第 3 个参数是被替换的值，第 4 个参数是新的值。下面展示了它的用法:

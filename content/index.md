@@ -5,7 +5,7 @@ tags:
   - quartz
   - Blog
 ---
-欢迎来到我的数字花园，这里是我在学习、生活中的经历、思考、学习记录，欢迎阅读、斧正。
+欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： chestnut_lsj@foxmail.com ，或者在本博客的 GitHub Repo 中 [提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
 
 >[!tip] 🎵: Have a relax!
 > ![[未闻花名.jpg]]
@@ -13,14 +13,14 @@ tags:
 
 ## Learn in 2024
 
-- [ ] 1 月 ~ 3 月：[[复试学习计划]]、[[健身减肥计划]] ；
-- [ ] 4 月 ~ 8 月：健身计划、阅读《毛泽东选集》、阅读《费曼的物理学讲义》；
+- [x] 1 月 ~ 3 月：[[复试学习计划]]、参加机试与面试、撰写上岸经验贴；
+- [ ] 4 月 ~ 8 月：健身减肥计划、阅读《毛泽东选集》、阅读《费曼的物理学讲义》；
 
-## 11912
+## 考研这两年——我的清华梦！
 
-我的清深上岸经验：[[从北雷村到五道口深圳分院]] ；
-
-[[912学习攻略]] ；
+>[!success] 🎉我成功上岸啦!!!
+>- 我的清华计算机考研复习经验：[[How-to-prepare-for-11912-effectively?|如何高效备考 11912？]]
+>- 我这两年的考研心路历程：[[从北雷村到五道口南山分口]]
 
 ## My CS Career
 
@@ -55,7 +55,7 @@ tags:
 
 #### 算法
 
-- AcWing：算法基础课、算法提高课、算法进阶课
+- AcWing：[[AcWing基础篇|算法基础课]]、算法提高课、算法进阶课
 
 #### 编译原理
 
@@ -70,13 +70,12 @@ tags:
 #### 机器学习
 
 - [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程：
-	- [[ML-foundations-Intro|机器学习基石]] ；
-	- [[ML-techniques-Intro|机器学习技法]] ；
+	- [[ML-Foundations-Index|机器学习基石]] ；
+	- [[ML-Techniques-Index|机器学习技法]] ；
 
 #### 深度学习
 
-- 李宏毅老师的课程：
-- 《动手学深度学习 PyTorch 版》：[[Dive-into-DL]]
+- 《动手学深度学习 PyTorch 版》：[[Dive-Into-DL]] ；
 
 ### 学术生涯
 
@@ -109,3 +108,5 @@ tags:
 - 个人介绍
 
 - 如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站？
+
+[^1]: 你也可以叫我的花名“花间有酒醉今人”。

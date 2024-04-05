@@ -14,4 +14,6 @@ date: 2024-02-02
 2. [[20-High-Quality-Coding|编写高质量的代码]] ；
 3. [[30-Unit-Test|单元测试]] ；
 4. [[40-Software-Development-Process|软件开发过程]] ；
-5. 
+5. [[50-Team-Management|团队开发管理]] ；
+6. [[60-Agile-Development|敏捷开发与配置管理]] ；
+7. 

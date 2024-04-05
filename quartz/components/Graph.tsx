@@ -1,4 +1,4 @@
-import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 // @ts-ignore
 import script from "./scripts/graph.inline"
 import style from "./styles/graph.scss"
@@ -17,6 +17,7 @@ export interface D3Config {
   opacityScale: number
   removeTags: string[]
   showTags: boolean
+  focusOnHover?: boolean
 }
 
 interface GraphOptions {
@@ -37,6 +38,7 @@ const defaultOptions: GraphOptions = {
     opacityScale: 1,
     showTags: false,
     removeTags: [],
+    focusOnHover: false,
   },
   globalGraph: {
     drag: true,
@@ -50,11 +52,12 @@ const defaultOptions: GraphOptions = {
     opacityScale: 1,
     showTags: false,
     removeTags: [],
+    focusOnHover: true,
   },
 }
 
 export default ((opts?: GraphOptions) => {
-  function Graph({ displayClass, cfg }: QuartzComponentProps) {
+  const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (

@@ -614,7 +614,7 @@ void Graph<Tv, Te>::DFS( Rank v, Rank& clock ) { // v < n
 - 如果发现 u 是 DISCOVERED 状态，表明 u 已被发现但尚未访问完毕（访问完毕应当是 VISITED 状态），则标记<v, u>为后向边 BACKWARD，并查找下一个邻居；若所有邻居都访问完毕，则设置为 VISITED，并设置 fTime 为 clock++；此后回退递归栈，直到栈顶元素有邻居；
 	- ![[80A-Graph-dfs-backward.png]]
 - 如果发现 u 是 VISITED 状态，表明 u 已经访问完毕，其所有邻居（除父亲）都被访问结束，则根据 dTime 被访问时间的先后，设定<v, u>为前向边 FORWORD 抑或跨边 CROSS
- 
+
 #### 实例
 ##### 无向图
 ![[80A-Graph-dfs-instance1.png]]

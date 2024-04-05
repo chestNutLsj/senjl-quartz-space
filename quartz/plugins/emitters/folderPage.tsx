@@ -10,7 +10,7 @@ import {
   FilePath,
   FullSlug,
   SimpleSlug,
-  _stripSlashes,
+  stripSlashes,
   joinSegments,
   pathToRoot,
   simplifySlug,
@@ -19,6 +19,7 @@ import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.lay
 import { FolderContent } from "../../components"
 import { write } from "./helpers"
 import { i18n } from "../../i18n"
+import DepGraph from "../../depgraph"
 
 export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
   const opts: FullPageLayout = {
@@ -36,6 +37,22 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
     name: "FolderPage",
     getQuartzComponents() {
       return [Head, Header, Body, ...header, ...beforeBody, pageBody, ...left, ...right, Footer]
+    },
+    async getDependencyGraph(_ctx, content, _resources) {
+      // Example graph:
+      // nested/file.md --> nested/index.html
+      // nested/file2.md ------^
+      const graph = new DepGraph<FilePath>()
+
+      content.map(([_tree, vfile]) => {
+        const slug = vfile.data.slug
+        const folderName = path.dirname(slug ?? "") as SimpleSlug
+        if (slug && folderName !== "." && folderName !== "tags") {
+          graph.addEdge(vfile.data.filePath!, joinSegments(folderName, "index.html") as FilePath)
+        }
+      })
+
+      return graph
     },
     async emit(ctx, content, resources): Promise<FilePath[]> {
       const fps: FilePath[] = []
@@ -67,7 +84,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
       )
 
       for (const [tree, file] of content) {
-        const slug = _stripSlashes(simplifySlug(file.data.slug!)) as SimpleSlug
+        const slug = stripSlashes(simplifySlug(file.data.slug!)) as SimpleSlug
         if (folders.has(slug)) {
           folderDescriptions[slug] = [tree, file]
         }
@@ -78,6 +95,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
         const externalResources = pageResources(pathToRoot(slug), resources)
         const [tree, file] = folderDescriptions[folder]
         const componentData: QuartzComponentProps = {
+          ctx,
           fileData: file.data,
           externalResources,
           cfg,

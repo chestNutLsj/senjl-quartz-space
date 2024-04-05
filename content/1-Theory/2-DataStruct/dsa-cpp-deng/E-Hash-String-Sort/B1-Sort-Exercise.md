@@ -1,3 +1,6 @@
+---
+publish: "true"
+---
 ## 12-1 构造轴点的 LGU 策略
 ![[B1-Sort-Exercise-12-1-partition-LGU.png]]
 **说明**：思路如上图。始终将整个向量 `V[lo, hi]` 划分为四个区间：
