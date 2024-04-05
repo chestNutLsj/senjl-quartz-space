@@ -5,7 +5,7 @@ tags:
   - quartz
   - Blog
 ---
-欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： chestnut_lsj@foxmail.com ，或者在本博客的 GitHub Repo 中[提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
+欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： chestnut_lsj@foxmail.com ，或者在本博客的 GitHub Repo 中 [提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
 
 >[!tip] 🎵: Have a relax!
 > ![[未闻花名.jpg]]
@@ -19,7 +19,7 @@ tags:
 ## 考研这两年——我的清华梦！
 
 >[!success] 🎉我成功上岸啦!!!
->- 我的清华计算机考研复习经验：[[How-to-prepare-for-11912-effectively?]]
+>- 我的清华计算机考研复习经验：[[How-to-prepare-for-11912-effectively?|如何高效备考 11912？]]
 >- 我这两年的考研心路历程：[[从北雷村到五道口南山分口]]
 
 ## My CS Career
