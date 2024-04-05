@@ -6,6 +6,21 @@ export default {
     description: "Sin descripción",
   },
   components: {
+    callout: {
+      note: "Nota",
+      abstract: "Resumen",
+      info: "Información",
+      todo: "Por hacer",
+      tip: "Consejo",
+      success: "Éxito",
+      question: "Pregunta",
+      warning: "Advertencia",
+      failure: "Fallo",
+      danger: "Peligro",
+      bug: "Error",
+      example: "Ejemplo",
+      quote: "Cita",
+    },
     backlinks: {
       title: "Enlaces de Retroceso",
       noBacklinksFound: "No se han encontrado enlaces traseros",
@@ -38,6 +53,9 @@ export default {
     tableOfContents: {
       title: "Tabla de Contenidos",
     },
+    contentMeta: {
+      readingTime: ({ minutes }) => `${minutes} min read`,
+    },
   },
   pages: {
     rss: {
@@ -51,13 +69,13 @@ export default {
     folderContent: {
       folder: "Carpeta",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 artículo en esta carpeta" : `${count} artículos en esta carpeta.`,
+        count === 1 ? "1 artículo en esta carpeta." : `${count} artículos en esta carpeta.`,
     },
     tagContent: {
       tag: "Etiqueta",
       tagIndex: "Índice de Etiquetas",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 artículo con esta etiqueta" : `${count} artículos con esta etiqueta.`,
+        count === 1 ? "1 artículo con esta etiqueta." : `${count} artículos con esta etiqueta.`,
       showingFirst: ({ count }) => `Mostrando las primeras ${count} etiquetas.`,
       totalTags: ({ count }) => `Se encontraron ${count} etiquetas en total.`,
     },

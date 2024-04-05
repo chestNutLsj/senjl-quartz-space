@@ -62,6 +62,9 @@ $$
 h\approx f \Longleftrightarrow \text{likelihood}(h)\approx \text{probability of using }f
 $$
 
+>[!note] likelihood 翻译
+>大陆概率论课本中将 likelihood 通常翻译为“似然”。
+
 目标函数 $f$ 是理想的，因此其产生对应样本的概率是很大的，因此最佳估计 *g* 应当取自所有假设中可能性最高者：$g=\underset{h}{arg} \max\{\text{likelihood}(h)\}$ ，而对于 Logistic Regression 的假设函数 $h(\mathbf{x})=\theta(\mathbf{w}^{T}\mathbf{x})$ ，由其对称性可得：
 $$
 \begin{aligned}\text{likelihood}(h)&=P(\mathbf{x}_{1})h(\mathbf{x}_{1})\times P(\mathbf{x}_{2})(1-h(\mathbf{x}_{2}))\times...P(\mathbf{x}_{N})(1-h(\mathbf{x}_{N}))\\ &=P(\mathbf{x}_{1})h(\mathbf{x}_{1})\times P(\mathbf{x}_{2})h(-\mathbf{x}_{2}))\times...P(\mathbf{x}_{N})h(-\mathbf{x}_{N}))\end{aligned}

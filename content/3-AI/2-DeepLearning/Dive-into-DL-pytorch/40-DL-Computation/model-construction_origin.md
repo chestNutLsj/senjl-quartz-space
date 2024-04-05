@@ -616,10 +616,7 @@ net = FixedHiddenMLP()
 net(X)
 ```
 
-We can mix and match various
-ways of assembling blocks together.
-In the following example, we nest blocks
-in some creative ways.
+We can mix and match various ways of assembling blocks together. In the following example, we nest blocks in some creative ways.
 
 ```{.python .input}
 class NestMLP(nn.Block):
@@ -684,10 +681,7 @@ After all, we have lots of dictionary lookups,
 code execution, and lots of other Pythonic things
 taking place in what is supposed to be
 a high-performance deep learning library.
-The problems of Python's [global interpreter lock](https://wiki.python.org/moin/GlobalInterpreterLock) are well known. In the context of deep learning,
-we worry that our extremely fast GPU(s)
-might have to wait until a puny CPU
-runs Python code before it gets another job to run.
+The problems of Python's [global interpreter lock](https://wiki.python.org/moin/GlobalInterpreterLock) are well known. In the context of deep learning, we worry that our extremely fast GPU(s) might have to wait until a puny CPU runs Python code before it gets another job to run.
 The best way to speed up Python is by avoiding it altogether.
 :end_tab:
 

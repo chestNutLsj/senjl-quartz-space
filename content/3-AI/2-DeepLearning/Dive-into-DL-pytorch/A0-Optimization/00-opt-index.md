@@ -6,18 +6,5 @@
 
 在本章中，我们深入探讨常见的深度学习优化算法。深度学习中出现的几乎所有优化问题都是*非凸*的。尽管如此，在*凸问题*背景下设计和分析算法是非常有启发性的。正是出于这个原因，本章包括了凸优化的入门，以及凸目标函数上非常简单的随机梯度下降算法的证明。
 
-```toc
-:maxdepth: 2
+## 细分章节
 
-optimization-intro
-convexity
-gd
-sgd
-minibatch-sgd
-momentum
-adagrad
-rmsprop
-adadelta
-adam
-lr-scheduler
-```

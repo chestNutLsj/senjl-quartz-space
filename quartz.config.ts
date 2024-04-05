@@ -2,6 +2,11 @@ import { QuartzConfig } from "./quartz/cfg"
 import enUS from "./quartz/i18n/locales/en-US"
 import * as Plugin from "./quartz/plugins"
 
+/**
+ * Quartz 4.0 Configuration
+ *
+ * See https://quartz.jzhao.xyz/configuration for more information.
+ */
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "🌰Senjl's Digital Garden🇨🇳",
@@ -15,6 +20,7 @@ const config: QuartzConfig = {
     ignorePatterns: [".obsidian", ".trash"],
     defaultDateType: "created",
     theme: {
+      fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
         header: "Kaushan Script",
@@ -62,7 +68,7 @@ const config: QuartzConfig = {
     filters: [Plugin.ExplicitPublish()],
     emitters: [
       Plugin.AliasRedirects(),
-      Plugin.ComponentResources({ fontOrigin: "googleFonts" }),
+      Plugin.ComponentResources(),
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),
