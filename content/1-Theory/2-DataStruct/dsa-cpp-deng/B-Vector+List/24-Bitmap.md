@@ -1,5 +1,5 @@
 ---
-publish: "true"
+publish:
 ---
 ## ADT
 $\forall\ \ 0\le k\le U:$

@@ -3,6 +3,7 @@ publish: "true"
 tags:
   - Network
   - 计算机网络原理
+date: 2023-10-16
 ---
 ## 本章内容：
 - 应用层协议原理；
@@ -134,14 +135,14 @@ C/S和P2P体系结构的混合体
 >2. 设定个别的传输层参数，如最大缓存、最大报文段长度等
 
 
-- TCP socket：
+- **TCP socket**：
     - TCP服务，两个进程之间的通信需要之前要建立连接
         - 两个进程通信会持续一段时间，通信关系稳定
     - 可以用一个整数表示两个应用实体之间的通信关系，本地标示 *注：C语言定义一个整型变量int socket_fd用来存放socket，所以==socket本质上是一个整数，这个整数在TCP中就代表了一个包括源IP和端口号、目标IP和端口号的四元组，在UDP中就代表源IP和源端口号的二元组==*
     - 穿过层间接口的信息量最小
     - TCP socket：源IP，源端口，目标IP，目标端口
 
-<mark style="background: #FFB8EBA6;">TCP之上的套接字(socket)</mark>
+**TCP之上的套接字(socket)**
 - 对于使用面向连接服务（TCP）的应用而言，套接字是四元组的一个具有**本地意义的标示**（==只有自己操作系统知道，即只有自己的应用层和传输层知道，网络层以下和对方都不知道==。建立连接时操作系统返回一个整数代表双方的IP和端口信息，发送时就可以查一张表确定双方的IP和端口信息，接受时也可以通过建立起来的socket的表找到这个socket的对应值）
     - 四元组：(源IP, 源port, 目标IP, 目标port)
     - 唯一的指定了一个会话（2个进程之间的会话关系）
@@ -152,7 +153,7 @@ C/S和P2P体系结构的混合体
 ![[20-Application-layer-tcp-socket.png]]
 
 
-<mark style="background: #FFB8EBA6;">层间信息代码</mark>
+**层间信息代码**
 - UDP socket：
     - UDP服务，两个进程之间的通信需要之前无需建立连接
         - 每个报文都是独立传输的
@@ -164,7 +165,7 @@ C/S和P2P体系结构的混合体
     - 但是传输报文时：必须要提供对方IP，port（*注：传输报文时，==TCP实际上传两样：报文+socket；UDP实际上传三样：报文+socket+目标地址信息（IP+port）==，因为在TCP中socket已经包含目标地址信息*）
         - 接收报文时：传输层需要上传对方的IP，port
 
-<mark style="background: #FFB8EBA6;">UDP之上的套接字(socket)</mark>
+**UDP之上的套接字(socket)**
 - 对于使用无连接服务（UDP）的应用而言，套接字是二元组的一个具有本地意义的标示
     - 二元组：IP，port（源端指定）
     - UDP套接字指定了应用所在的一个端节点(end point)
@@ -173,7 +174,7 @@ C/S和P2P体系结构的混合体
 
 <img src="http://knight777.oss-cn-beijing.aliyuncs.com/img/image-20210722162951507.png" style="zoom:80%"/>
 
-<mark style="background: #FFB8EBA6;">套接字(Socket)</mark>
+**套接字(Socket)**
 - 进程向套接字发送报文或从套接字接收报文
 - 套接字 <-> 门户
     - 发送进程将报文推出门户，发送进程依赖于传输层设施在另外一侧的门将报文交付给接受进程
@@ -244,7 +245,7 @@ C/S和P2P体系结构的混合体
     - 仅提供最小的、尽力的服务
     - 如果网络情况较好，UDP 可以比 TCP 更快地传送数据，但若情况糟糕，UDP 的可靠性、传输速度都要大打折扣
 
->[! note] 为什么要有 UDP？UDP 存在的必要性
+>[!note] 为什么要有 UDP？UDP 存在的必要性
 >- 能够**区分不同的进程**，而 IP 服务不能
 >	- 在 IP 提供的主机到主机端到端功能的基础上，区分了主机的应用进程
 >- **无需建立连接**，省去了建立连接时间，适合事务性的应用
@@ -264,7 +265,7 @@ Internet 应用及其应用层协议和传输协议
 |    流媒体    | 专用协议（如RealNetworks） |    TCP或UDP    |
 | Internet电话 |  专用协议（如Net2Phone）   |    TCP或UDP    |
 
->[! note] 安全 TCP
+>[!note] 安全 TCP
 >- TCP & UDP
 >	- 都没有加密
 >	- 明文通过互联网传输，甚至密码
@@ -311,19 +312,19 @@ HTTP ==定义了 Web 客户向 Web 服务器请求 Web 页面的方式，以及�
     - 服务器接受客户的 TCP 连接，建立起连接后通过套接字接口访问TCP
     - 在浏览器（HTTP客户端）与Web服务器（HTTP服务器server）交换HTTP报文（应用层协议报文）
     - TCP连接关闭
->[! note] socket 监听端口
+>[!note] socket 监听端口
 >初始时 Web 服务器有一个 socket 作为监听描述符监听端口并在新请求过来时创建与之对应的新的 socket，则在 n 个客户端请求连接时又产生 n 个 socket 作为各个连接的已连接描述符，负责服务器与各个客户端之间的连接状态，而第一个守候 socket 继续等待新的请求并连通
 
 - HTTP 是无状态协议 stateless protocol!
     - 服务器向客户发送被请求的文件，但不维护关于客户的任何信息
     - If a particular client asks for the same object twice in a period of a few seconds, the server does not respond by saying that it just served the object to the client; instead, the server resends the object, as it has ==completely forgotten what it did earlier==.
 
->[! example] 不同版本的 HTTP
+>[!example] 不同版本的 HTTP
 >- The original version of HTTP is called HTTP/1.0 and dates back to the early 1990’s [RFC 1945]. 
 >- As of 2020, the majority of HTTP transactions take place over HTTP/1.1 [RFC 7230].
 >- However, increasingly browsers and Web servers also support a new version of HTTP called HTTP/2 [RFC 7540]. At the end of this section, we’ll provide an introduction to HTTP/2.
 
->[! warning] 维护状态的协议很复杂！
+>[!warning] 维护状态的协议很复杂！
 >- 必须维护历史信息（状态）
 >- 如果服务器/客户端死机，它们的状态信息可能不一致，二者的信息必须是一致
 >- 无状态的服务器能够支持更多的客户端
@@ -337,7 +338,7 @@ HTTP ==定义了 Web 客户向 Web 服务器请求 Web 页面的方式，以及�
     - 多个对象可以在一个（在客户端和服务器之间的）TCP连接上传输
     - HTTP/1.1默认使用持久连接
 
->[! tip] 连接关闭否？
+>[!tip] 连接关闭否？
 >非持久 HTTP 在每次正式发送和响应请求前都要先建立 TCP 连接，在报文发送完毕后 TCP 连接即关闭；而持久 HTTP 在报文发送完成后连接不关闭，可继续发送和接收报文。
 
 #### 非持久HTTP连接
@@ -356,7 +357,7 @@ HTTP ==定义了 Web 客户向 Web 服务器请求 Web 页面的方式，以及�
 >
 >当然可以手动设置并行数为 1，此时就是串行了。
 
->[! warning] HTTP 与 web 如何解释 html 无关
+>[!warning] HTTP 与 web 如何解释 html 无关
 >HTTP 规范仅定义在 HTTP 客户程序和 HTTP 服务器程序之间的通信协议。如何解释 HTML 文件，是 web 自己要做的事。
 
 **响应时间模型**
@@ -392,7 +393,7 @@ HTTP ==定义了 Web 客户向 Web 服务器请求 Web 页面的方式，以及�
             - 客户端**遇到一个引用对象就立即产生一个请求**，而非在收到前一个请求的响应后才产生新的请求，最后对象依次回来，不必等待之前请求的回答
             - 所有引用（小）对象只花费一个RTT是可能的
 
->[! note] HTTP/2 的改进
+>[!note] HTTP/2 的改进
 >HTTP/2 允许在相同连接中多个请求和回答交错，并增加了在该连接中优化 HTTP 报文请求和回答的机制。
 
 ### HTTP 报文格式
@@ -527,7 +528,7 @@ As an example, suppose a browser is requesting the object `http://www.someschool
     - 可以大大减少一个机构内部网络与 Internet 接入链路上的流量，降低负载
     - 互联网大量采用了缓存：可以使较弱的 ICP(Internet Cache Protocol) 也能够有效提供内容
 
-> [! example] 缓存示例
+> [!example] 缓存示例
 > 
 >  1.更快的接入链路
 > ![[20-Application-layer-bottleneck-between-internet-barely-institutional-network.png]]
@@ -590,7 +591,7 @@ If-modified-since: <date>
 	<data>
 ```
 
->[! example] 条件 GET 方法举例
+>[!example] 条件 GET 方法举例
 >To illustrate how the conditional GET operates, let’s walk through an example. 
 >
 >First, on the behalf of a requesting browser, a proxy cache sends a request message to a Web server: 
@@ -744,7 +745,7 @@ A typical message starts its journey in the sender’s user agent, then travels 
     - 服务器：接收端邮件服务器
     - 每台邮件服务器上既运行 SMTP 客户端，也运行 SMTP 服务端。
 
-> [! example] 举例：Alice 给 Bob 发送报文
+> [!example] 举例：Alice 给 Bob 发送报文
 > ![[20-Application-layer-alice-send-msg-bob.png]]
 > 1) Alice 使用用户代理撰写邮件并发送给 `bob@someschool.edu`
 > 2) Alice的用户代理将邮件**发送**到她自己的邮件服务器；邮件放在报文队列中（SMTP协议）
@@ -756,7 +757,7 @@ A typical message starts its journey in the sender’s user agent, then travels 
 > Alice的用户代理 --发送--> Alice的邮件服务器 --传输--> Bob的邮件服务器 --拉取--> Bob的用户代理    
 > **“两推一拉”**
 
-> [! note] SMTP has no intermediate mail server!
+> [!note] SMTP has no intermediate mail server!
 > It is important to observe that SMTP does not normally use intermediate mail servers for sending mail, even when the two mail servers are located at opposite ends of the world. If Alice’s server is in Hong Kong and Bob’s server is in St. Louis, the TCP connection is a direct connection between the Hong Kong and St. Louis servers. 
 > > SMTP 没有中间服务器，无论多么远，都会直接建立 TCP 连接、发送邮件。除非接收方服务器宕机，邮件将会保存在发送方的服务器中并等待重发。
 > 
@@ -773,13 +774,13 @@ A typical message starts its journey in the sender’s user agent, then travels 
     - 响应：状态码和状态信息
 - **报文必须为7位ASCII码**（所有的字节范围为0-127，包括邮件内容）
 
-> [! note] SMTP, a legacy technology.
+> [!note] SMTP, a legacy technology.
 > For example, it restricts the body (not just the headers) of all mail messages to simple 7-bit ASCII. This restriction made sense in the early 1980s when transmission capacity was scarce and no one was e-mailing large attachments or large image, audio, or video files. 
 > > SMTP 限制其报文在首部和主体部分的编码都是 ASCII，这在过去带宽有限时很有帮助，但如今已经远远不能提供足够的服务——例如在多媒体资源中，会将多媒体资源都编码成 ASCII 再发送，这意味着接收方需要从 ASCII 编码的信息中再还原为二进制的多媒体文件，才可以使用。
 > 
 > But today, in the multimedia era, the 7-bit ASCII restriction is a bit of a pain — ==it requires binary multimedia data to be encoded to ASCII before being sent over SMTP==; and it requires the corresponding ASCII message to be decoded back to binary after SMTP transport. Recall from Section 2.2 that ==HTTP does not require multimedia data to be ASCII encoded before transfer==.
 
->[! example] 简单的 SMTP 交互
+>[!example] 简单的 SMTP 交互
 >The ASCII text lines prefaced with C: are exactly the lines the client sends into its TCP socket, and the ASCII text lines prefaced with S: are exactly the lines the server sends into its TCP socket.The following transcript begins as soon as the TCP connection is established. 
 > ```
 > S: 220 hamburger.edu   
@@ -810,7 +811,7 @@ A typical message starts its journey in the sender’s user agent, then travels 
 > We mention here that ==SMTP uses persistent connections==: If the sending mail server has several messages to send to the same receiving mail server, it can send all of the messages over the same TCP connection. ==For each message, the client begins the process with a new MAIL FROM: crepes. fr, designates the end of message with an isolated period, and issues QUIT only after all messages have been sent==.
 > （对于每封邮件，客户端都以新的 `MAIL FROM：crepes.fr` 开始处理，用一个孤立的句号指定邮件结束，并在所有邮件发送完毕后才发出 QUIT。）
 
-- 预先准备：建立连接——First, the client SMTP (running on the sending mail server host) has TCP establish a connection to port 25 at the server SMTP (running on the receiving mail server host). If the server is down, the client tries again later.
+- 预先准备：建立连接——First, the client SMTP (running on the sending mail server host) has TCP establish a connection to port 25 at the server SMTP (running on the receiving mail server host). If the server is down, the client tries again later.
 - **传输的 3 个阶段**
     - ==握手==：SMTP clients and servers introduce themselves before transferring information. During this SMTP handshaking phase, the SMTP client indicates the e-mail address of the sender (the person who generated the message) and the e-mail address of the recipient.
     - ==传输报文==：
@@ -1079,7 +1080,7 @@ DNS provides a few other important services in addition to translating hostnames
 
 #### 分布式、层次数据库
 
->[! note] DNS 不采用集中式(整个网络使用一个 DNS 服务器)数据库的原因
+>[!note] DNS 不采用集中式(整个网络使用一个 DNS 服务器)数据库的原因
 >The problems with a centralized design include: 
 >- ***A single point of failure***. If the DNS server crashes, so does the entire Internet! 
 >- ***Traffic volume***. A single DNS server would have to handle all DNS queries (for all the HTTP requests and e-mail messages generated from hundreds of millions of hosts). 
@@ -1101,7 +1102,7 @@ To understand how these three classes of servers interact, suppose a DNS client 
 
 > 用户->根 DNS 服务器，获得顶级域名的IP->TLD 服务器，获得权威域名的IP->目的主机的IP
 
-> [! note] More about DNS hierarchy
+> [!note] More about DNS hierarchy
 > - **Root DNS servers**. There are more than 1000 root servers instances scattered all over the world, as shown in Figure 2.18. These root servers are copies of 13 different root servers, managed by 12 different organizations, and coordinated through the Internet Assigned Numbers Authority `[IANA 2020]`. The full list of root name servers, along with the organizations that manage them and their IP addresses can be found at `[Root Servers 2020]`. ==Root name servers provide the IP addresses of the TLD servers==. 
 > - **Top-level domain (TLD) servers**. For each of the top-level domains—top-level domains such as `com`, `org`, `net`, `edu`, and `gov`, and all of the country top-level domains such as `uk`, `fr`, `ca`, and `jp` —there is TLD server (or server cluster). The company Verisign Global Registry Services maintains the TLD servers for the `com` top-level domain, and the company Educause maintains the TLD servers for the `edu` top-level domain. The network infrastructure supporting a TLD can be large and complex; see `[Osterweil 2012]` for a nice overview of the Verisign network. See `[TLD list 2020]` for a list of all top-level domains. ==TLD servers provide the IP addresses for authoritative DNS servers==. 
 > - **Authoritative DNS servers**. ==Every organization with publicly accessible hosts (such as Web servers and mail servers) on the Internet must provide publicly accessible DNS records that map the names of those hosts to IP addresses==. An organization’s authoritative DNS server houses these DNS records. 
@@ -1141,7 +1142,7 @@ In theory, any DNS query can be iterative or recursive. For example, Figure 2.20
 ![[20-Application-layer-recursive-queries-DNS.png]]
 In practice, the queries typically follow the pattern in Figure 2.19: ==The query from the requesting host to the local DNS server is recursive, and the remaining queries are iterative==.
 
->[! note] 为什么查询要分两种？
+>[!note] 为什么查询要分两种？
 >递归查询的缺陷：
 >- 问题：根服务器的负担太重
 >- 解决：迭代查询
@@ -1229,7 +1230,7 @@ Because hosts and mappings between hostnames and IP addresses are by no means pe
 - 在上级域的名字服务器中增加两条记录，指向这个新增的子域的域名 和域名服务器的 IP 地址
 - 在新增子域的名字服务器上运行名字服务器，负责本域的名字解析：名字->IP 地址
 
->[! example] 例子：在 com 域中建立一个“Network Utopia”
+>[!example] 例子：在 com 域中建立一个“Network Utopia”
 >1. 到注册登记机构 resigtrar 注册域名 `networkutopia.com`
 >2. 需要向该机构提供权威 DNS 服务器（基本的、和辅助的）的名字和 IP 地址, 登记机构在 com TLD 服务器中插入两条 RR 记录：
 >	- ( `networkutopia.com`, `dns1.networkutopia.com` , NS) 新增子域的域名->维护这个新增子域的权威服务器的域名
@@ -1415,7 +1416,7 @@ BitTorrent is a popular P2P protocol for file distribution `[Chao 2011]`. In Bit
 ![[20-Application-layer-BitTorrent.png]]
 Each torrent has an infrastructure node called a **tracker**. ==When a peer joins a torrent, it registers itself with the tracker and periodically informs the tracker that it is still in the torrent==. In this manner, the tracker keeps track of the peers that are participating in the torrent. A given torrent may have fewer than ten or more than a thousand peers participating at any instant of time.
 
-> [! example] 例：P2P 文件分发 - BitTorrent
+> [!example] 例：P2P 文件分发 - BitTorrent
 > 
 > 当 Alice 加入洪流后，tracker 随机地从洪流中选出 peer 的一个子集（假定 50 个 peer 的子集），并将这 50 个 peer 的 IP 地址发送给 Alice，Alice 持有这张列表并试图与其中的 peer 建立 TCP 连接。若 Alice 成功地与 peer 创建连接，称其为**邻近 peer**。
 > 
@@ -1568,8 +1569,7 @@ When a browser in a user’s host is instructed to retrieve a specific video (id
 	- CDN 可以对其集群和客户端之间的延迟和损耗性能进行定期的实时测量。例如，CDN 可以让其每个集群定期向全球所有 LDNS 发送探测信息（如 ping 消息或 DNS 查询）。
 	- 这种方法的一个缺点是，许多 LDNS 被配置为不响应此类探测。
 
-
-> [! example] CDN 例子：Netflix
+> [!example] CDN 例子：Netflix
 > ![[20-Application-layer-CDN-netflix.png]]
 
 
@@ -1585,7 +1585,7 @@ There are **two types of network applications**.
 	- In this case, the client and server programs employ an application-layer protocol that has not been openly published in an RFC or elsewhere. 
 	- A single developer (or development team) creates both the client and server programs, and the developer has complete control over what goes in the code.
 
->[! warning] 应该使用什么端口号？
+>[!warning] 应该使用什么端口号？
 >- Recall also that when a client or server program implements a protocol defined by an RFC, it should use the well-known port number associated with the protocol; 
 >- conversely, when developing a proprietary application, the developer must be careful to avoid using such well-known port numbers. 
 >
@@ -1634,7 +1634,7 @@ UDP传送的数据可能乱序，也可能丢失
 
 <img src="http://knight777.oss-cn-beijing.aliyuncs.com/img/image-20210724132456460.png" />
 
-> [! example]
+> [!example]
 > 样例：
 > 1. C客户端（UDP）
 > ```c
@@ -1787,7 +1787,7 @@ struct hostent
 
 <img src="http://knight777.oss-cn-beijing.aliyuncs.com/img/image-20210724125259562.png" />
 
-> [! example]
+> [!example]
 > 样例：
 > 1. C客户端（TCP）
 > ```c

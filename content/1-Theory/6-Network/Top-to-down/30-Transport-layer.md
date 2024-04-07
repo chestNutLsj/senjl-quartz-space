@@ -3,6 +3,7 @@ publish: "true"
 tags:
   - Network
   - 计算机网络原理
+date: 2023-10-19
 ---
 ## 3.1 概述和传输层服务
 
@@ -34,7 +35,7 @@ tags:
 有些服务是可以加强的：不可靠 -> 可靠；安全    
 但有些服务是不可以被加强的：带宽，延迟
 
-> [! example] 类比：东、西2个家庭的通信
+> [!example] 类比：东、西2个家庭的通信
 > 
 > Ann 家的12个小孩给 Bill 家的12个小孩发信
 > - 应用层报文 = 信封上的字符
@@ -115,7 +116,7 @@ ClientSocket = socket(PF_INET, SOCK_DGRAM, 0);
 	- 检查报文段的目标端口号
 	- 用该端口号将报文段定位给套接字
 
-> [! example] 例子：UDP socket 传送报文
+> [!example] 例子：UDP socket 传送报文
 > 主机 A 中某进程的源 UDP 端口 19157，发向目的主机 B 的 UDP 端口 46428 的进程：
 > ![[30-Transport-layer-UDP-socket.png]]
 > - 主机 A 中运输层创建一个运输层报文段，其中包括应用程序数据、源端口号 19157、目的端口号 46428 。
@@ -131,7 +132,7 @@ ClientSocket = socket(PF_INET, SOCK_DGRAM, 0);
 - 四元组全部用以将报文段定向（分解）到相应的 TCP socket，
 - 与 UDP socket 不同的是，两个具有不同源 IP 地址或源端口号的到达 TCP 报文段，将被定向到两个不同的 TCP socket，除非 TCP 报文段携带了初始创建连接的请求
 
->[! note] 回顾 TCP 客户端-服务器编程
+>[!note] 回顾 TCP 客户端-服务器编程
 >1. The TCP server application has a “welcoming socket,” that waits for connection establishment requests from TCP clients (see Figure 2.29) on port number 12000. 
 >2. The TCP client creates a socket and sends a connection establishment request segment with the lines:
 > ```
@@ -157,7 +158,7 @@ ClientSocket = socket(PF_INET, SOCK_DGRAM, 0);
 - 服务器能够在一个 TCP 端口上同时支持多个 TCP socket，每个 socket 由其四元组标识
 - 当一个 TCP 报文段到达主机时，所有 4 个字段被用来将报文段定向到相应的 socket。
 
->[! example] TCP socket 传送报文
+>[!example] TCP socket 传送报文
 >主机 C 向服务器 B 发起两个 HTTP 会话，主机 A 向服务器 B 发起一个 HTTP 会话：
 > ![[30-Transport-layer-TCP-socket.png]]
 >- 主机 A、B、C 都有各自的 IP 地址，
@@ -188,7 +189,6 @@ UDP(User Datagram Protocol `[RFC 768]`)：用户数据报协议
     - 在应用层增加可靠性
     - 应用特定的差错恢复
 
-
 ### UDP 的优势
 - **适合实时应用**：不需要较高的发送速率，而要求较低的报文段发送延迟，能够容忍部分数据丢失；而 TCP 的拥塞控制在此时会导致实时应用的性能变差；
 - **适合时延敏感的应用**：如对 DNS 来说，UDP 不会引入建立连接时延；HTTP 通常是建立在 TCP 上的，但是 HTTP/3.0、Google Chrome 的私有 QUIC 协议，是通过 UDP 来提高速率、在应用层保证可靠性；
@@ -198,7 +198,7 @@ UDP(User Datagram Protocol `[RFC 768]`)：用户数据报协议
 ### 常用应用的协议
 ![[30-Transport-layer-applications-protocol.png]]
 
-> [! note] SNMP 为什么选用 UDP？
+> [!note] SNMP 为什么选用 UDP？
 > SNMP 作为网络管理协议，使用 UDP 则能够在网络处于重压状态下运行，而 TCP 的拥塞控制策略会使数据传输难以实现。
 
 >[!note] 流式多媒体应用越来越青睐 TCP
@@ -226,7 +226,7 @@ UDP(User Datagram Protocol `[RFC 768]`)：用户数据报协议
 	    - 如果结果是全 1 串，没有出错；否则至少有一个错误，==整个报文丢弃==或者==警告地发送给应用程序==（校验和没有纠错能力，只能检错）；
 
 
-> [! example] Internet 校验和的例子：两个16bit 的整数相加
+> [!example] Internet 校验和的例子：两个16bit 的整数相加
 > 
 > 注意：当数字相加时，在最高位的进位要回送到最低位，再加到结果上（即最高位的进位数字与末位相加，重新计算得到和）
 >
@@ -237,7 +237,7 @@ UDP(User Datagram Protocol `[RFC 768]`)：用户数据报协议
 > - The 1s complement is obtained by converting all the 0s to 1s and converting all the 1s to 0s. Thus, the 1s complement of the sum 0100101011000010 is 1011010100111101, which becomes the checksum. 
 > - At the receiver, all four 16-bit words are added, including the checksum. If no errors are introduced into the packet, then clearly the sum at the receiver will be 1111111111111111. If one of the bits is a 0, then we know that errors have been introduced into the packet.
 
->[! note] 端到端原则
+>[!note] 端到端原则
 >在无法确保每条链路的可靠性、也无法确保中途路由器内存的差错检测时，如果端到端的数据传输要求提供服务检测，那么 UDP 必须在端到端基础上在传输层提供差错检测。（即便校验和是最基本的、只能提供检错能力的差错检测机制）
 >
 >**端到端原则**：This is an example of the celebrated **end-end principle** in system design `[Saltzer 1984]`, which states that since certain functionality (error detection, in this case) must be implemented on an end-end basis: “functions placed at the lower levels may be redundant or of little value when compared to the cost of providing them at the higher level.”
@@ -401,7 +401,7 @@ Rdt3.0的性能
     - 链路容量比较大，一次发一个 PDU 的不能够充分利用链路的传输能力（信道明明可容纳很多很多包，每次却只有一个包处于信道中，信道利用率极低）
     - 改进办法：[[#流水线 RDT 协议|使用流水线]]！
 
-> [! example] 例：rdt3.0 的低效之处
+> [!example] 例：rdt3.0 的低效之处
 > $1Gbps$ 的链路， $15ms$ 端-端传播延时（ $RTT = 30ms$ ），分组大小为 $1kB = 1000Bytes = 8000bits$ ：   
 > $$T_{transmit} = \frac{L(分组长度, 比特)}{R(传输速率, bps)} = \frac{8kb/pkt}{10^9 b/sec} = 8\mu{s}$$     
 > $$U_{sender} = \frac{L/R}{RTT+L/R} = \frac{{0.008}}{30.008} = 0.00027$$
@@ -579,7 +579,7 @@ GBN 的缺点：在信道差错率较高时，一旦一个分组丢失将引起�
 	- 值得注意的是，在图 3.25 的步骤 2 中，接收方会**重新确认**（而不是忽略）已收到的序列号低于当前窗口基数的数据包。以图 3.23 中的发送方和接收方序列号空间为例，==如果没有从接收方传播到发送方的数据包 send_base 的 ACK，发送方最终将重新发送数据包 send_base，尽管接收方已经收到了该数据包==。如果接收方不确认这个数据包，发送方的窗口就永远不会向前移动！
 	- 发送方和接收方对哪些数据包已正确接收，哪些未正确接收的看法并不总是一致的。对于 SR 协议来说，这意味着发送方和接收方的窗口可能不同，这引入了**同步问题**。
 
->[! important] SR 协议的发送方和接收方窗口同步问题
+>[!important] SR 协议的发送方和接收方窗口同步问题
 > ![[30-Transport-layer-SR-sync.png]]
 >The lack of synchronization between sender and receiver windows has important consequences when we are faced with the reality of a finite range of sequence numbers. Consider what could happen, for example, with a finite range of four packet sequence numbers, 0, 1, 2, 3, and a window size of three. 
 >> 在发送方窗口和接收方窗口处若缺少同步，则会由于有限的序列号的范围而造成严重后果，例如，考虑一个四分组序列的序号 0、1、2、3 以及一个大小为 3 的窗口。
@@ -695,7 +695,7 @@ TCP relies on many of the underlying principles discussed in the previous sectio
 	- As shown in Figure 3.28, ==TCP directs this data to the connection’s **send buffer==**, which is one of the buffers that is set aside during the initial three-way handshake. From time to time, TCP will grab chunks of data from the send buffer and pass the data to the network layer. Interestingly, the TCP specification `[RFC 793]` is not specifying when TCP should actually send buffered data, stating that TCP should “send that data in segments at its own convenience.” (TCP 会先将数据放到连接的发送方缓冲区，并不断地从发送方缓冲区中获取数据并传递给网络层；TCP 不限定何时发送数据，而是应当在它方便的时候以报文段的形式发送数据)
 	- The maximum amount of data that can be grabbed and placed in a segment is limited by the **maximum segment size** (MSS). The MSS is typically set by first determining the length of the largest link-layer frame that can be sent by the local sending host (the so-called maximum transmission unit, MTU), and then ==setting the MSS to ensure that a TCP segment (when encapsulated in an IP datagram) plus the TCP/IP header length (typically 40 bytes) will fit into a single link-layer frame==.(能被 TCP 抓取并包装在一个段中的最大数据量由 MSS 限制，MSS 意为最大段长，通常由最大链路层帧的长度设定——MTU，本地发送方的最大传输单元。MSS 的设置需要保证： TCP 报文段+TCP/IP 首部长度≤链路层帧的长度)
 		- Both Ethernet and PPP link-layer protocols have an MTU of 1,500 bytes. Thus, a typical value of MSS is 1460 bytes. （以太网和 PPP 链路层协议的 MTU 都是1500字节，因此典型的 MSS 值为 1460字节）
-		- Note that the ==MSS is the maximum amount of application-layer data in the segment, not the maximum size of the TCP segment including headers==.（<mark style="background: #FF5582A6;">MSS 是段中能够包含的应用层数据的最大数量，而不是 TCP 段+TCP头的最大长度</mark>）
+		- Note that the ==MSS is the maximum amount of application-layer data in the segment, not the maximum size of the TCP segment including headers==.（**MSS 是段中能够包含的应用层数据的最大数量，而不是 TCP 段+TCP头的最大长度**）
 		- When TCP sends a large file, such as an image as part of a Web page, it typically ==breaks the file into chunks of size MSS== (except for the last chunk, which will often be less than the MSS). Interactive applications, however, often transmit data chunks that are smaller than the MSS; for example, with remote login applications such as ==Telnet and ssh, the data field in the TCP segment is often only one byte==. Because the TCP header is typically 20 bytes (12 bytes more than the UDP header), segments sent by Telnet and ssh may be only 21 bytes in length. ==当 TCP 要发送一个大文件时，通常会将其分解成多个大小为MSS的分组（通常最后一个分片小于MSS）==
 
 - TCP connection composition:
@@ -746,14 +746,14 @@ TCP relies on many of the underlying principles discussed in the previous sectio
     - Suppose that the data stream consists of a file consisting of 500,000 bytes, that the MSS is 1,000 bytes, and that the first byte of the data stream is numbered 0. As shown in Figure 3.30, TCP constructs 500 segments out of the data stream. The first segment gets assigned sequence number 0, the second segment gets assigned sequence number 1,000, the third segment gets assigned sequence number 2,000, and so on. 假设一个数据流有 500,000字节，而 MSS 为1000字节，数据流的第一个字节的序号为 0。像图 3.30中展示的那样，TCP 构造了500个段以存放数据流，第一个段被分配的序列号为 0，第二个为 1000，第三个为 2000，以此类推。
     - Each sequence number is inserted in the sequence number field in the header of the appropriate TCP segment. ==每个序列号都插入在 TCP 段首部的序列号域中==。
 
-- 确认号(ack number)：<mark style="background: #FF5582A6;">期望从另一方收到的下一个字节的序号</mark>
+- 确认号(ack number)：**期望从另一方收到的下一个字节的序号**
     - TCP 是全双工的，因此发送方和接收方的角色可能互换，因此==设置此“确认号域”提示对方要发什么数据==；
     - 举例：Suppose that Host A has received all bytes numbered 0 through 535 from B and suppose that it is about to send a segment to Host B. Host A is waiting for byte 536 and all the subsequent bytes in Host B’s data stream. So Host A puts 536 in the acknowledgment number field of the segment it sends to B. 考虑这样的场景：主机 A 收到了序号0~535的来自主机 B 的所有段，并且希望发送一个段告知主机 B——它正在等待 B 的数据流中第 536个字节及之后的数据，因此 A 发送的确认段的确认号为536。
     - 举例：Suppose that Host A has received one segment from Host B containing bytes 0 through 535 and another segment containing bytes 900 through 1,000. For some reason Host A has not yet received bytes 536 through 899. In this example, ==Host A is still waiting for byte 536 (and beyond) in order to re-create B’s data stream==. Thus, A’s next segment to B will contain 536 in the acknowledgment number field. Because TCP only acknowledges bytes up to the first missing byte in the stream, TCP is said to provide **cumulative acknowledgments**. 考虑这样的场景：主机 A 从主机 B 处接收到两个 TCP 段，分别是 0~535字节和 900~1000字节的两个段，而中间 536~899字节的数据丢失，此时 A 仍在期待收到536字节及之后的内容，于是 A 向 B 发送的下一个 TCP 段（注意不一定是确认段，因为完全可以捎带地确认）中确认号是 536。==TCP 只会确认最后一个收到的字节，因此称 TCP 为累积确认==。
     - 举例：The TCP RFCs do not impose any rules here and leave the decision up to the programmers implementing a TCP implementation. There are basically two choices: either (1) the receiver immediately discards out-of-order segments (which, as we discussed earlier, can simplify receiver design), or (2) the receiver keeps the out-of-order bytes and waits for the missing bytes to fill in the gaps. Clearly, the latter choice is more efficient in terms of network bandwidth, and is the approach taken in practice. RFC 中没有对 TCP 中失序段的处理方式的规定，这取决于实现者自己的抉择——通常有两种：一是接收方立即丢弃失序段；二是接收方保留失序段，并等待丢失字节完成填充。第二种方法对于网络带宽的利用更加高效。
 
 
-> [! example] Telnet: 序号与确认号的使用案例
+> [!example] Telnet: 序号与确认号的使用案例
 > 
 > ![[30-Transport-layer-telnet-seq-ack-num.png]]
 > A 向 B 发起 Telnet 回话，A 作客户，B 为服务器。客户端 A 输入的每个字符都被发送到远程主机 B 上，B 会将该字符回显到客户屏幕，从而确保远程主机 B 确实接收到用户的数据，即用户 A 输入的字符被传输了两次：
@@ -889,7 +889,7 @@ But each time TCP retransmits, it sets the next timeout interval to twice the pr
 
 > 无论何时发生超时，TCP 会立即重传最早未确认的段，但每一次重传，TCP 都会设置下一个超时间隔为之前的两倍，而不是由超时发生前的 `估计RTT` 和 `方差RTT` 重新推导。
 
->[! example] 超时间隔加倍的举例
+>[!example] 超时间隔加倍的举例
 >For example, suppose `TimeoutInterval` associated with the oldest not yet acknowledged segment is 0.75 sec when the timer first expires. TCP will then retransmit this segment and set the new expiration time to 1.5 sec. If the timer expires again 1.5 sec later, TCP will again retransmit this segment, now setting the expiration time to 3.0 sec.
 >
 >Thus, ==the intervals grow exponentially after each retransmission==.
@@ -959,7 +959,7 @@ loop (forever) {
 	} /* end of loop forever */
 ```
 
->[! note] 为什么要等到 3 个冗余 ACK 才重传？而不是 1 个冗余 ACK 就重传？
+>[!note] 为什么要等到 3 个冗余 ACK 才重传？而不是 1 个冗余 ACK 就重传？
 >Suppose packets n, n+1, and n+2 are sent, and that packet n is received and ACKed. If packets n+1 and n+2 are reordered along the end-to-end-path (i.e., are received in the order n+2, n+1) then the receipt of packet n+2 will generate a duplicate ack for n and would trigger a retransmission under a policy of waiting only for second duplicate ACK for retransmission. By waiting for a triple duplicate ACK, it must be the case that two packets after packet are correctly received, while n+1 was not received.
 >
 >==The designers of the triple duplicate ACK scheme probably felt that waiting for two packets (rather than 1) was the right tradeoff between triggering a quick retransmission when needed==, but not retransmitting prematurely in the face of packet reordering.
@@ -983,7 +983,7 @@ A proposed modification to TCP, the so-called selective acknowledgment `[RFC 201
 
 目的：==接收方控制发送方，不让发送方发送的太多、太快，超过了接收方的处理能力==，以至于让接收方的接收缓冲区溢出
 
->[! warning] 不要混淆流量控制与拥塞控制
+>[!warning] 不要混淆流量控制与拥塞控制
 >- 流量控制是由接收方控制发送方，根据接收方缓冲区接收数据的能力提示发送方发送报文的速度，从而达到速度匹配，对于发送方来说是**被动地**听从接收方的指令。
 >- 拥塞控制是发送方通过监测信道，由于 IP 网络的拥塞而**主动地**减缓发送报文的速度。
 >
@@ -1038,7 +1038,7 @@ TCP流量控制
 3. Step 3. ==Upon receiving the SYNACK segment, the client also allocates buffers and variables to the connection==. The client host then sends the server yet another segment; this last segment acknowledges the server’s connection-granted segment (the client does so by putting the value `server_isn+1` in the acknowledgment field of the TCP segment header). **The SYN bit is set to zero**, since the connection is established. This third stage of the three-way handshake may carry client-to server data in the segment payload.
 > 第三步：当收到 SYNACK 段，客户端为连接分配发送方缓冲区和变量，客户端接着发送给服务端新的段——新段确认了 SYNACK 这个段（通过设置确认号为 `server_isn+1`），并且设置 SYN 标记为0，并且可能包含应用层的数据负载。
 
->[! warning] Server allocates buffers too early.
+>[!warning] Server allocates buffers too early.
 >We’ll see in Chapter 8 that the allocation of these buffers and variables before completing the third step of the three-way handshake makes TCP vulnerable to a denial-of-service attack known as SYN flooding.
 >> 由于服务端为连接分配缓冲区过早，这衍生出攻击服务器的一种方式——SYN 洪泛。
 
@@ -1049,7 +1049,7 @@ TCP 3次握手中的捎带：（变化的初始序号+双方确认对方的序�
 - 第二次：server-->client：发送确认 $ACKnum=x+1$ 和服务器一方的初始序号 $y$ （捎带）
 - 第三次：client-->server：发送确认 $ACKnum=y+1$ 和客户端data（捎带）
 
->[! note] 为什么是三次握手而不是两次？
+>[!note] 为什么是三次握手而不是两次？
 >![[30-Transport-layer-two-way-handshake-false.png]]
 >
 >三次握手通过变化的初始序号+双方确认对方的序号，解决半连接和接收老数据问题。
@@ -1071,7 +1071,7 @@ TCP：关闭连接（连接释放）：**4 次挥手**
 	- 客户端接到来自服务器的 FIN 报文段，发送 ACK 确认；同时客户端从收到服务器的 FIN 报文开始，等待一段时间后关闭自己的连接
 - 可以处理同时的 FIN 交换
 
->[! question] 为什么连接的时候是三次握手，关闭的时候却是四次握手
+>[!question] 为什么连接的时候是三次握手，关闭的时候却是四次握手
 >
 >答：因为当 Server 端收到 Client 端的 SYN 连接请求报文后，可以直接发送 SYN+ACK 报文。其中 ACK 报文是用来应答的，SYN 报文是用来同步的。但是关闭连接时，当 Server 端收到 FIN 报文时，很可能并不会立即关闭 SOCKET，所以只能先回复一个 ACK 报文，告诉 Client 端，“你发的 FIN 报文我收到了”。只有等到 Server 端所有的报文都发送完了，我才能发送 FIN 报文，因此不能一起发送。故需要四步握手。
 
@@ -1091,7 +1091,7 @@ TCP：关闭连接（连接释放）：**4 次挥手**
 
 ![[30-Transport-layer-TCP-connection-server-lifetime.png]]
 
->[! note] 如果收到报文段要求的端口不匹配？
+>[!note] 如果收到报文段要求的端口不匹配？
 >Let’s consider what happens when a host receives a TCP segment whose port numbers or source IP address do not match with any of the ongoing sockets in the host. 
 >
 >For example, suppose a host receives a TCP SYN packet with destination port 80, but the host is not accepting connections on port 80 (that is, it is not running a Web server on port 80).
@@ -1108,7 +1108,6 @@ TCP：关闭连接（连接释放）：**4 次挥手**
 THE SYN FLOOD ATTACK We’ve seen in our discussion of TCP’s three-way handshake that a server allocates and initializes connection variables and buffers in response to a received SYN. The server then sends a SYNACK in response, and awaits an ACK segment from the client. If the client does not send an ACK to complete the third step of this 3-way handshake, eventually (often after a minute or more) the server will terminate the half-open connection and reclaim the allocated resources. 
 
 This TCP connection management protocol sets the stage for a classic Denial of Service (DoS) attack known as the SYN flood attack. ==In this attack, the attacker(s) send a large number of TCP SYN segments, without completing the third handshake step. With this deluge of SYN segments, the server’s connection resources become exhausted as they are allocated (but never used!) for half-open connections; legitimate clients are then denied service==. Such SYN flooding attacks were among the first documented DoS attacks `[CERT SYN 1996]`. Fortunately, an effective defense known as SYN cookies `[RFC 4987]` are now deployed in most major operating systems.
-
 
 ***SYN cookies*** work as follows:
 
@@ -1239,7 +1238,7 @@ So here we see yet another cost of dropping a packet due to congestion—***when
 		1. 采用阻塞分组 choke packet 的形式，网络路由器直接反馈信息给发送方
 		2. 路由器标记或更新从发送方流向接收方的分组中的某个字段来指示拥塞的产生。一旦收到一个标记分组后，接收方就会向发送方通知该网络拥塞指示，这种通知至少经过一个完整的往返时间。
 
-> [! example] ATM ABR 拥塞控制（网络辅助的拥塞控制）
+> [!example] ATM ABR 拥塞控制（网络辅助的拥塞控制）
 > 
 > ATM网络数据交换的单位叫 信元（一个小分组，53字节：5字节的头部+48字节的数据载荷）。
 > 
@@ -1385,7 +1384,7 @@ Eventually,
 > 当丢失段的 ACK 到达时，TCP 进入在缩小 `cwnd` 后进入拥塞避免状态；
 > 当超时事件发生时，快速恢复状态在执行与慢启动和拥塞避免中相同的动作后转进到慢启动状态——将 `cwnd` 置为 1MSS 大小，将 `ssthresh` 设置为丢失时间发生时的 `cwnd` 的一半大小。
 
->[! example] 不同版本的 TCP 如何处理拥塞？
+>[!example] 不同版本的 TCP 如何处理拥塞？
 > 
 > - 早期版本的 TCP Tahoe，只要发生丢包事件（超时 or 3 冗余）都无条件地进入慢启动阶段；
 > - Reno 版则综合了快速回复这一特性；
@@ -1483,7 +1482,7 @@ Using this formula, we can see that in order to achieve a throughput of 10 Gbps,
 - 公平性目标：如果 $K$ 个 TCP 会话分享一个链路带宽为 $R$ 的瓶颈，每一个会话的有效带宽为 $R/K$ —— 即每条连接都得到相同份额的链路带宽。
 > 瓶颈链路： By bottleneck link, we mean that for each connection, all the other links along the connection’s path are not congested and have abundant transmission capacity as compared with the transmission capacity of the bottleneck link.
 
-> [! example] AIMD 策略是公平的吗？
+> [!example] AIMD 策略是公平的吗？
 > ![[30-Transport-layer-TCP-fairness-1.png]]
 > Let’s consider the simple case of two TCP connections sharing a single link with transmission rate R, as shown in Figure 3.54. 
 > - Assume that the two connections have the same MSS and RTT (so that if they have the same congestion window size, then they have the same throughput), 

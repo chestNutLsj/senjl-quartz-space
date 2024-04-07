@@ -1,9 +1,7 @@
 ---
 url: https://www.geeksforgeeks.org/applications-of-catalan-numbers/#
-url_2: https://www.geeksforgeeks.org/program-nth-catalan-number/
 title: Applications of Catalan Numbers - GeeksforGeeks
 date: 2023-09-14 19:45:19
-time: 1694691919893
 tags: 
 summary: A Computer Science portal for geeks. It contains well written, well thought and well explained comput......
 ---

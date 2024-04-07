@@ -4,14 +4,15 @@ tags:
   - DSA
   - 邓俊辉
   - Cpp
+date: 2023-08-29
 ---
 ## Algorithm
 $$
-Algorithm + Data\ Structure=Program
+\rm Algorithm + Data\ Structure=Program
 $$
 
 $$
-(Algo+DS)\times Efficiency=Computation
+\rm (Algo+DS)\times Efficiency=Computation
 $$
 
 ## 时间复杂度
@@ -53,7 +54,7 @@ $$
 \end{align*}
 $$
 
-$O(f(n))$ 是 $T(n)$ 的上界渐进，作为 n 充分大时对 $T(n)$ 的悲观估计。
+$O(f(n))$ 是 $T(n)$ 的上界渐进，作为 $n$ 充分大时对 $T(n)$ 的悲观估计。
 
 ### Ω-notation
 当且仅当 $\forall n\gg2,\exists c>0,使得 T(n)>c\cdot f(n)$，记为：
@@ -61,7 +62,7 @@ $$
 T(n)=\Omega(f(n))
 $$
 
-$\Omega(f(n))$ 是 $T(n)$ 的下界渐进，作为 n 充分大时对 $T(n)$ 的乐观估计。
+$\Omega(f(n))$ 是 $T(n)$ 的下界渐进，作为 $n$ 充分大时对 $T(n)$ 的乐观估计。
 
 ### Θ-notation
 
@@ -70,17 +71,17 @@ $$
 T(n)=\Theta(f(n))
 $$
 
-$\Theta(f(n))$ 是 $T(n)$ 的确界，作为 n 充分大时对 $T(n)$ 渐近紧致的估计。
+$\Theta(f(n))$ 是 $T(n)$ 的确界，作为 $n$ 充分大时对 $T(n)$ 渐近紧致的估计。
 
 ![[图01-04.大O记号、大Omega记号和大theda记号.png]]
 
 ### 大 O 记号的多项式
 #### $O (1)$: constant
 
-#### $O (logn)$: ploy-log
+#### $O (\log n)$: ploy-log
 - 底数无所谓；
 - 常系数无所谓；
-- 常数次幂无所谓：$\forall c>0,logn^{c}=c\cdot logn=\Theta(logn)$;
+- 常数次幂无所谓：$\forall c>0,\log n^{c}=c\cdot \log n=\Theta(\log n)$;
 	- 举例：
 $$
 \begin{equation}
@@ -92,7 +93,7 @@ $$
 \end{aligned}
 \end{equation}
 $$
-- 复杂度接近常数：$\forall c>0,logn=O(n^c)$;
+- 复杂度接近常数：$\forall c>0,\log n=O(n^c)$;
 	- $\lim\limits_{n\rightarrow \infty} \frac{\ln(n)}{n^{c}}=0$;
 
 
@@ -103,21 +104,21 @@ $a_{k}\cdot n^{k}+a_{k-1}\cdot n^{k-1}+\cdots+a_{2}\cdot n^{2}+a_{1}\cdot n^{1}+
 无穷级数表示指数： $e^n=1+n+\frac{n^{2}}{2!}+\frac{n^{3}}{3!}+\dots$
 因而 $\forall c>1,n^{c}<e^{n}=O(2^{n})$ 
 
-$O(n^{c})$ 到 $O(2^{n})$ 是有效算法到无效算法的分水岭。
+**$O(n^{c})$ 到 $O(2^{n})$ 是有效算法到无效算法的分水岭**。
 
-**NPC 问题**：No-Polynomial complete
+**NPC 问题**：Non-Polynomial complete
 典型如 2-Subset 问题，其有定理 $|2^{S}|=2^{|S|}=2^{n}$
 
 ![[10-Introduction-算法复杂度层次级别.png]]
 - $\log^{*} n$ 表示对数迭代函数，即取多少次对数，使得 $\log n$ 的值小于等于 1，返回的是对数运算的次数；
-	- $log^{*}_{2}16=3$
-	- $log^{*}_{2}2^{1024}=5:$
-		- $log_{2}2^{1024}=1024$,
-		- $log_{2}1024=10$,
-		- $log_{2}10\approx 3.2$,
-		- $log_{2}3.2\approx 1.8$,
-		- $log_{2}1.8<1$
-	- $log^{*}n=O(log^{*}(logn))$ 
+	- $\log^{*}_{2}16=3$
+	- $\log^{*}_{2}2^{1024}=5:$
+		- $\log_{2}2^{1024}=1024$,
+		- $\log_{2}1024=10$,
+		- $\log_{2}10\approx 3.2$,
+		- $\log_{2}3.2\approx 1.8$,
+		- $\log_{2}1.8<1$
+	- $\log^{*}n=O(\log^{*}(\log n))$ 
 
 ## 复杂度分析
 ### 级数
@@ -136,12 +137,11 @@ $O(n^{c})$ 到 $O(2^{n})$ 是有效算法到无效算法的分水岭。
 **收敛**：
 收敛级数：$O(1)$
 - $\sum\limits_{k=2}^{n}\frac{1}{(k-1)\cdot k}=\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+...+\frac{1}{(n-1)\cdot n}=1-\frac{1}{n}=O(1)$
-- $\sum\limits_{k\ is\ a\ perfect\ power}\frac{1}{k-1}=\frac{1}{3}+\frac{1}{7}+\frac{1}{8}+\frac{1}{15}+...=1=O(1)$
+- $\sum\limits_{\rm k\ is\ a\ perfect\ power}\frac{1}{k-1}=\frac{1}{3}+\frac{1}{7}+\frac{1}{8}+\frac{1}{15}+...=1=O(1)$
 
-几何分布: $O(1)$
+几何分布：$O(1)$
 - $(1-\lambda)\cdot[1+2\lambda+3\lambda^{2}+4\lambda^{3}+...]=\frac{1}{1-\lambda}=O(1),0<\lambda<1$
 - 举例：对于一个抛硬币实验，正面向上概率为 $\lambda$，则抛若干次至第一次出现正面向上的期望为 $(1-\lambda)\cdot[1+2\lambda+3\lambda^{2}+4\lambda^{3}+...]=\frac{1}{1-\lambda}=O(1),0<\lambda<1$
-
 
 **不收敛，但有限**：
 调和级数：$\Theta(logn)$
@@ -157,14 +157,16 @@ $O(n^{c})$ 到 $O(2^{n})$ 是有效算法到无效算法的分水岭。
 
 ### 习题集结论
 
-#### 1-9 log n = O(n^ε)
-对任何 $ε>0$，都有 $\log n=O(n^{ε})$
+#### 1-9 证明 $\log n = O(n^ε)$
+
+> 对任何 $ε>0$，都有 $\log n=O(n^{ε})$
 
 **证明**：
 - 函数 $\ln n$ 增长得极慢，故总存在 $M > 0$，使得 $n > M$ 之后总有 $\ln n < εn$。
 - 令 $N = e^M$，则当 $n > N$（即 $\ln n > M$）之后，总有：$\ln(\ln n) < ε\ln n$，亦即：$\ln n < n^ε$。
 
 #### 1-10 等差等比之和的 O-notation
+
 **等差级数之和与其中最大项的平方同阶**：
 - 考查首项为常数 x、公差为常数 d > 0、长度为 n 的等差级数： $\{ x, x + d, x + 2d, ..., x + (n - 1)d \}$ 
 - 其中末项 $(n - 1)d = \Theta(n)$，各项总和为： $(\frac{d}{2})n^{2} + (x - \frac{d}{2})n = \Theta(n^{2} )$。
@@ -174,6 +176,7 @@ $O(n^{c})$ 到 $O(2^{n})$ 是有效算法到无效算法的分水岭。
 - 其中末项 $xd^{n-1} = \Theta(d^{n} )$，各项总和为： $x(d^{n} -1)/(d-1) = \Theta(d^{n} )$
 
 #### 算法导论中排序渐进增长率的题
+
 ![[算法导论中排序渐进增长率.png]]
 
 ## 迭代与递归
@@ -207,7 +210,7 @@ $$
 \begin{aligned}
 &T(n)=2\cdot T(\frac{n}{2})+O(1) \\
 &...\\
-&T(1)=O(1) //递归基:sum(A,k,k)\\
+&T(1)=O(1)\qquad //递归基:sum(A,k,k)\\
 \end{aligned}
 $$
 
@@ -226,6 +229,7 @@ T(n)&=2\cdot T(\frac{n}{2})+O(1) \\
 $$
 
 ### 判断题：关于减治和分治的区分
+
 **判断**: 用分治思想来解决长度为 n 的数组求和问题 (n 足够大), 递归实例的数目会比用减治的方法少. (❌)
 
 **解析**: 
@@ -246,7 +250,7 @@ Master Theorem的一般形式如下：
 - $n$ is the size of an input problem
 - $a$ is the number of subproblems in the recursion,
 - $b$ is the factor by which the subproblem size is reduced in each recursive call (b>1), (a、b 不能与 n 相关)
-- $f(n)$ denotes the amount of time taken at the top level of the recurrence. ==Another word, $f(n)$ is the time to create the subproblems and combine their results in the above procedure==.
+- $f(n)$ denotes the amount of time taken at the top level of the recurrence. **Another word, $f(n)$ is the time to create the subproblems and combine their results in the above procedure**.
 
 Recurrences of this form often satisfy one of the three following regimes, based on how the work to split/recombine the problem $f(n)$ relates to the critical exponent 
 $$c_{crit}=\log_{b}a=\frac{\log(\#\text{subproblems})}{\log(\text{relative subproblem size)}} $$.
@@ -258,12 +262,12 @@ Work to split/recombine a problem is dwarfed by subproblems. (recursion tree is 
 
 #### Case 2
 Work to split/recombine a problem is comparable to subproblems.
-- 如果 $f(n) = Θ(n^{c_{crit}} * \log^{k} n),k\ge0$，(rangebound by the critical-exponent polynomial, times zero or more optional $\log s$.) 
-- 那么 $T(n) = Θ(n^{c_{crit}} * \log^{(k+1)} n)$，(The bound is splitting term, where the $\log$ is augmented by a single power.)
+- 如果 $f(n) = Θ(n^{c_{crit}} \times \log^{k} n),k\ge0$，(rangebound by the critical-exponent polynomial, times zero or more optional $\log s$.) 
+- 那么 $T(n) = Θ(n^{c_{crit}} \times \log^{(k+1)} n)$，(The bound is splitting term, where the $\log$ is augmented by a single power.)
 - i.e. If $b=a^2$ and $f(n)=\Theta(n^{\frac{1}{2}})$, then $T(n)=\Theta(n^{\frac{1}{2}}\log n)$ 
 - i.e. If $b=a^{2}$ and $f(n)=\Theta(n^{\frac{1}{2}}\log n)$, then $T(n)=\Theta(n^\frac{1}{2}\log^{2}n)$.
 
-> [! note] Extension of Case 2 handles all values of $k$
+> [!note] Extension of Case 2 handles all values of $k$
 > 1) When $f(n)=\Theta(n^{c_{crit}}\log^{k}n)$ for any $k> -1$, 
 > 	- then $T(n)=\Theta(n^{c_{crit}}\log^{k+1}n)$. (The bound is the splitting term, where the $\log$ is augmented by a single power.)
 > 	- i.e. if $b=a^2$ and $f(n)=\Theta(n^{\frac{1}{2}}\times\log^{-\frac{1}{2}}n)$, then $T(n)=\Theta(n^{\frac{1}{2}}\log^{\frac{1}{2}}n)$.
@@ -283,49 +287,85 @@ Work to split/recombine a problem dominates subproblems. (recursion tree is root
 
 ### Example
 #### Case 1：
-$$T(n)=8T\left({\frac {n}{2}}\right)+1000n^{2}$$
 
+$$
+T(n)=8T\left({\frac {n}{2}}\right)+1000n^{2}
+$$
 As one can see from the formula above:
-$$a=8,\,b=2,\,f(n)=1000n^{2}$$, so
-$$f(n) = O\left(n^c\right)$$, where $c=2$.
+$$
+a=8,\,b=2,\,f(n)=1000n^{2}
+$$, so
+$$
+f(n) = O\left(n^c\right)
+$$, where $c=2$.
 
 Next, we see if we satisfy the case 1 condition:
-$$\log _{b}a=\log _{2}8=3>c$$
+$$
+\log _{b}a=\log _{2}8=3>c
+$$
 It follows from the first case of the master theorem that
-$$T(n) = \Theta\left( n^{\log_b a} \right) = \Theta\left( n^{3} \right)$$
+$$
+T(n) = \Theta\left( n^{\log_b a} \right) = \Theta\left( n^{3} \right)
+$$
 
 (This result is confirmed by the exact solution of the recurrence relation, which is $T(n)=1001n^{3}-1000n^{2}$, assuming $T(1)=1$).
 
 #### Case 2
-$$T (n)=2T\left({\frac {n}{2}}\right)+10n$$
+
+$$
+T (n)=2T\left({\frac {n}{2}}\right)+10n
+$$
 As we can see in the formula above the variables get the following values:
-$$a=2,\,b=2,\,c=1,\,f(n)=10n $$
-$$f(n)=\Theta \left(n^{c}\log ^{k}n\right) $$ where $c=1,k=0$.
+$$
+a=2,\,b=2,\,c=1,\,f(n)=10n
+$$
+$$
+f(n)=\Theta \left(n^{c}\log ^{k}n\right)
+$$ where $c=1,k=0$.
 
 Next, we see if we satisfy the case 2 condition:
-$$\log _{b}a=\log _{2}2=1 $$ and therefore, c and $\displaystyle \log _{b}a$ are equal.
+$$
+\log _{b}a=\log _{2}2=1
+$$
+and therefore, c and $\displaystyle \log _{b}a$ are equal.
 
 So it follows from the second case of the master theorem:
-
-$$T(n)=\Theta \left(n^{\log _{b}a}\log ^{k+1}n\right)=\Theta \left(n^{1}\log ^{1}n\right)=\Theta \left(n\log n\right) $$
+$$
+T(n)=\Theta \left(n^{\log _{b}a}\log ^{k+1}n\right)=\Theta \left(n^{1}\log ^{1}n\right)=\Theta \left(n\log n\right)
+$$
 
 Thus the given recurrence relation $T(n)$ was in $\Theta(n \log n)$.
 
 (This result is confirmed by the exact solution of the recurrence relation, which is $T(n)=n+10n\log _{2}n$, assuming $T(1)=1$).
 
 #### Case 3
-$$T(n)=2T\left({\frac {n}{2}}\right)+n^{2} $$
+$$
+T(n)=2T\left({\frac {n}{2}}\right)+n^{2}
+$$
 As we can see in the formula above the variables get the following values:
-$$a=2,\,b=2,\,f(n)=n^{2} $$
-$$f(n)=\Omega \left(n^{c}\right) $$, where $c=2$.
+$$
+a=2,\,b=2,\,f(n)=n^{2}
+$$
+$$
+f(n)=\Omega \left(n^{c}\right)
+$$, where $c=2$.
 
 Next, we see if we satisfy the case 3 condition:
-$$\log _{b}a=\log _{2}2=1 $$, and therefore, yes, $$c>\log _{b}a $$
+$$
+\log _{b}a=\log _{2}2=1
+$$, and therefore, yes,
+$$
+c>\log _{b}a
+$$
 The regularity condition also holds:
-$$2\left({\frac {n^{2}}{4}}\right)\leq kn^{2} $$, choosing $k=\frac{1}{2}$.
+$$
+2\left({\frac {n^{2}}{4}}\right)\leq kn^{2}
+$$, choosing $k=\frac{1}{2}$.
 
 So it follows from the third case of the master theorem:
-$$T\left(n\right)=\Theta \left(f(n)\right)=\Theta \left(n^{2}\right) $$
+$$
+T\left(n\right)=\Theta \left(f(n)\right)=\Theta \left(n^{2}\right)
+$$
 Thus the given recurrence relation $T(n)$ was in $\Theta (n^{2})$, that complies with the $f(n)$ of the original formula.
 
 (This result is confirmed by the exact solution of the recurrence relation, which is $T(n)=2n^{2}-n$, assuming $T(1)=1$)
@@ -333,19 +373,19 @@ Thus the given recurrence relation $T(n)$ was in $\Theta (n^{2})$, that compli
 ### Inadmissible equations
 The following equations cannot be solved using the master theorem:
 
-- $T(n)=2^{n}T\left({\frac {n}{2}}\right)+n^{n}$
-    _a_ is not a constant; the number of subproblems should be fixed.
+- $T(n)=2^{n}T\left({\frac {n}{2}}\right)+n^{n}$，
+    $a$ is not a constant; the number of subproblems should be fixed.
 
-- $T(n)=2T\left({\frac {n}{2}}\right)+{\frac {n}{\log n}}$
+- $T(n)=2T\left({\frac {n}{2}}\right)+{\frac {n}{\log n}}$，
     non-polynomial difference between $f(n)$ and $n^{\log _{b}a}$ (see below; extended version applies)
 
-- $T(n)=0.5T\left({\frac {n}{2}}\right)+n$
+- $T(n)=0.5T\left({\frac {n}{2}}\right)+n$，
     ${\displaystyle a<1}$ cannot have less than one sub problem.
     
-- $T(n)=64T\left({\frac {n}{8}}\right)-n^{2}\log n$
+- $T(n)=64T\left({\frac {n}{8}}\right)-n^{2}\log n$，
     $f(n)$, which is the combination time, is not positive
 
-- $T(n)=T\left({\frac {n}{2}}\right)+n(2-\cos n)$
+- $T(n)=T\left({\frac {n}{2}}\right)+n(2-\cos n)$，
     case 3 but regularity violation.
 
 
@@ -397,7 +437,7 @@ $$
 6. 继续循环，逐步向序列的起始位置移动，同时更新 `s` 和 `gs` 的值。
 7. 循环结束后，变量 `gs` 将包含整个序列中总和最大的连续区段的和，函数返回这个值作为结果。
 
-这种减治策略的思路相对于递增策略具有更好的时间复杂度，为 O(n)，因为它只需一次遍历即可找到最大连续区段和。这是因为在遍历过程中，通过每次比较和重置 `s` 的方式，有效地剪除了负和的后缀，从而保证了在连续区段和变得负数之后能够重新开始寻找可能的更大区段和。
+这种减治策略的思路相对于递增策略具有更好的时间复杂度，为 $O(n)$，因为它只需一次遍历即可找到最大连续区段和。这是因为在遍历过程中，通过每次比较和重置 `s` 的方式，有效地剪除了负和的后缀，从而保证了在连续区段和变得负数之后能够重新开始寻找可能的更大区段和。
 
 ## 动态规划
 ### 求 fib(n)
@@ -423,18 +463,20 @@ $$
 ![[10-Introduction-recursion-LCS-impl.png]]
 
 ![[10-Introduction-recursion-LCS-analyse.png]]
+
 当两个字符序列 `A` 和 `B` 的内容相似度很低，即它们在大部分位置上没有相同的字符，且长度较长时，递归法求解最长公共子序列问题会陷入最坏情况。最坏情况发生在每次递归调用都需要进行两个分支，即分别调用 `lcs(A, n-1, B, m)` 和 `lcs(A, n, B, m-1)`，这会产生大量的重复实例，导致算法的时间复杂度急剧增加。
 
-假设有两个字符序列： 
-A: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-B: abcdefghijklmnopqrstuvwxyz
+假设有两个字符序列：
+- A: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+- B: abcdefghijklmnopqrstuvwxyz
 
 在这个例子中，序列 `A` 包含大写字母，序列 `B` 包含小写字母，它们之间没有相同的字符。这意味着无论怎样的子序列都不会同时出现在两个序列中。因此，在这种情况下，每次递归调用都会产生两个分支，即 `lcs(A, n-1, B, m)` 和 `lcs(A, n, B, m-1)`，并且这两个分支的递归调用也会继续以相同的方式进行，直到序列的长度减少到 0。
 
 考虑其中一个分支，比如 `lcs(A, n-1, B, m)`，这个分支将继续产生类似的分支，一直到 `n` 减少到 0。而另一个分支 `lcs(A, n, B, m-1)` 也会以相同的方式进行。这种情况下，递归调用会产生大量的重复计算，导致时间复杂度急剧上升。
 
 #### 动态规划
-```
+
+```cpp
 // 记忆化版
 unsigned int lcsMemo(char const* A, int n, char const* B, int m) {
 	unsigned int *lcs = new unsigned int[n*m]; //lookup-table of sub-solutions
@@ -463,11 +505,11 @@ unsigned int * const lcs, int const M ) {
 8. 在计算子问题的解后，将其保存到 `lcs` 表中，以便以后的查询，避免了对同一子问题的重复计算。
 9. 主函数 `lcsMemo` 在调用 `lcsM` 函数时传入了 `lcs` 表，以便在递归过程中保存已计算过的子问题的解。最终，主函数返回整个序列的最长公共子序列长度。
 
-这种优化方法通过避免重复计算显著提高了算法的效率，将时间复杂度从指数级别（递归法）降低到了线性时间复杂度（$O (n*m)$）。
+这种优化方法通过避免重复计算显著提高了算法的效率，将时间复杂度从指数级别（递归法）降低到了线性时间复杂度 $O (n\times m)$。
 
 ![[10-Introduction-recursion-LCS-dp.png]]
 
-```
+```cpp
 // 从底向上的迭代法DP
 unsigned int lcs(char const * A, int n, char const * B, int m) {
 	if (n < m) { swap(A, B); swap(n, m); } //make sure m <= n
@@ -500,13 +542,16 @@ unsigned int lcs(char const * A, int n, char const * B, int m) {
 
 ## 番外
 ### 局限 1: 缓存——就地循环位移
-要求：仅用 $O(1)$ 辅助空间，将数组 A\[0, n)中的元素向左循环移动 k 个单元。
+
+要求：仅用 $O(1)$ 辅助空间，将数组 `A[0, n)` 中的元素向左循环移动 k 个单元。
+
 #### BF 版
 
 ![[10-Introduction-shift-bf.jpg]]
 
 #### 迭代版
-```
+
+```cpp
 int shift(int *A, int n, int s, int k)
 {
 	// O(n/gcd(n,k))
@@ -532,6 +577,7 @@ void shift1(int *A,int n,int k){
 	}
 }
 ```
+
 1. `shift` 函数：
     - 首先，它保存了起始位置s处的元素到变量b中。
     - 然后，使用两个指针i和j来表示当前位置和目标位置（根据间隔k计算得到）。
@@ -542,7 +588,7 @@ void shift1(int *A,int n,int k){
     - 在这个函数中，使用了一个循环来调用 `shift` 函数，每次从不同的起始位置s开始进行循环位移，直到所有元素都移动到合适的位置。
     - 时间复杂度：总共进行了n次 `shift` 操作，每个 `shift` 操作的时间复杂度为$O(\frac{n}{gcd(n, k)})$，所以总体时间复杂度为$O(\frac{n^{2}}{gcd(n, k)})$。
 
->[! note] 同余类
+>[!note] 同余类
 >**同余类**：在模运算中，如果两个整数 a 和 b 除以一个正整数 m 的余数相同，即 (a % m) = (b % m)，那么 a 和 b 被称为在模 m 下是同余的。这意味着它们在模 m 的情况下具有相同的剩余值。
 >例如，考虑模 5 的情况
 >- 7 % 5 = 2
@@ -569,7 +615,8 @@ void shift1(int *A,int n,int k){
 
 #### 倒置版
 ![[10-Introduction-shift-reverse.png]]
-```
+
+```cpp
 void reverse(int *A,int lo,int hi){
 	//数组倒置递归版
 	if(lo<hi){
@@ -591,13 +638,15 @@ next: //算法起始位置添加跳转标志
 
 该算法的迭代版本有可能只需更少的交换操作，故单就此指标而言，似乎更加“优于”以上版本。然而就实际的计算效率而言，以上版本却要远远优于其它版本。 
 
-究其原因在于，reverse ()之类的操作所涉及的数据元素，在物理上是连续分布的，因此操作系统的缓存机制可以轻易地被激活，并充分发挥作用；其它版本的交换操作尽管可能更少，但数据元素在空间往往相距很远，甚至随机分布，缓存机制将几乎甚至完全失效。
+究其原因在于，`reverse()` 之类的操作所涉及的数据元素，在物理上是连续分布的，因此操作系统的缓存机制可以轻易地被激活，并充分发挥作用；其它版本的交换操作尽管可能更少，但数据元素在空间往往相距很远，甚至随机分布，缓存机制将几乎甚至完全失效。
 
 在实际的算法设计与编程中，这些方面也是首先必须考虑的因素；在当下，面对规模日益膨胀的大数据，这方面的技巧对算法的实际性能更是举足轻重。
 
 ### 局限 2: 字宽
-输入规模，准确地定义应为——用以描述输入所需的空间规模。思考计算 $power_{a}(n)=a^{n}$，其迭代法代码如下：
-```
+
+输入规模，准确地定义应为——**用以描述输入所需的空间规模**。思考计算 $power_{a}(n)=a^{n}$，其迭代法代码如下：
+
+```cpp
 pow=1;//O(1)
 while(0<n){//O(n)
 	pow *= a;
@@ -605,13 +654,15 @@ while(0<n){//O(n)
 }
 ```
 
-这个计算直接推算时间复杂度，是 $T(n)=1+2n=O(n)$，这是以 n 本身的数值作为输入规模考量，似乎没问题，算法到达了最优。
+这个计算直接推算时间复杂度，是 $T(n)=1+2n=O(n)$，这是以 $n$ 本身的数值作为输入规模考量，似乎没问题，算法到达了最优。
 
-真的如此吗？实际上，此类计算中若以输入指数 n 的二进制位数 $r=1+\lfloor log_{2}n\rfloor$ 作为输入规模，则运行时间为 $O(2^{r})$，显然，算法还有优化的潜力。
+真的如此吗？实际上，此类计算中若以输入指数 $n$ 的二进制位数 $r=1+\lfloor \log_{2}n\rfloor$ 作为输入规模，则运行时间为 $O(2^{r})$，显然，算法还有优化的潜力。
+
 ![[10-Introduction-power_an.png]]
 
-#### 从 O (n)到 O (r=logn)
-```
+#### 从 $O (n)$ 到 $O (r=\log n)$
+
+```cpp
 int power(int a,int n){
 	//迭代版
 	int pow=1,p=a; //O(1)
@@ -627,6 +678,7 @@ int power(int a,int n){
 ```
 
 ![[10-Introduction-power-logn.png]]
+
 1. `int pow = 1, p = a;`：初始化两个变量，`pow` 用于保存结果，初始为1，`p` 用于保存底数 a 的不断平方的结果，初始为 a。
 2. `while (n > 0)`：使用一个循环，只要n大于0，就执行下面的操作。
 3. `if (n & 1)`：这个条件检查n的最低位是否为1，如果是1，就将结果乘以p。这是因为如果n的二进制表示的最低位是1，那么$a^{n}$可以拆分为$a * a^{(n-1)}$，而如果最低位是0，可以拆分为$a^{\frac{n}{2}} * a^{\frac{n}{2}}$，这正是这个算法的核心。
@@ -634,9 +686,9 @@ int power(int a,int n){
 5. `p *= p`：将底数p平方，因为在每一步中，都在将底数p不断平方。
 6. 最后，返回 `pow`，即最终的计算结果。
 
-这个优化版代码的关键思想在于通过二进制分解指数 n，将计算复杂度从 O(n)降低到 O(log n)。它的核心观察是利用了指数 n 的二进制表示，如果 n 的某一位是1，就将对应的底数 a 的幂累积到结果中，然后将 n 右移一位，将指数减小一半，同时底数 a 不断平方。这个方法明显更高效，特别是在计算大指数的情况下。
+这个优化版代码的关键思想在于通过二进制分解指数 $n$，将计算复杂度从 $O(n)$ 降低到 $O(\log n)$ 。它的核心观察是利用了指数 $n$ 的二进制表示，如果 $n$ 的某一位是 1，就将对应的底数 $a$ 的幂累积到结果中，然后将 $n$ 右移一位，将指数减小一半，同时底数 $a$ 不断平方。这个方法明显更高效，特别是在计算大指数的情况下。
 
-```
+```cpp
 inline int sqr(int a){return a*a;}
 int power(int a,int n){
 	//递归版
@@ -652,30 +704,33 @@ int power(int a,int n){
 ```
 
 #### 悖论？
-上面算法可以在 $O(logn)$ 时间内计算出 $power_{a}(n)=a^{n}$，但是 $a^n$ 的二进制展开宽度为 $\Theta (n)$，这意味着即使是直接打印 $a^{n}$ 也需要至少 $\Omega(n)$ 的时间。
+
+上面算法可以在 $O(\log n)$ 时间内计算出 $power_{a}(n)=a^{n}$，但是 $a^n$ 的二进制展开宽度为 $\Theta (n)$，这意味着即使是直接打印 $a^{n}$ 也需要至少 $\Omega(n)$ 的时间。
 
 哪里错了？
 
 1. **常数代价原则 (Uniform Cost Criterion)**：这个原则指出，对于算法的分析，我们通常会关注计算中最昂贵（最耗时）的操作，而忽略较低阶或常数因子的操作。在计算复杂度分析中，我们关注的是算法的渐近行为，即随着输入规模的增加，计算时间的增长趋势。这意味着，即使输入规模 n 较大，只要计算某一步的代价是 O (1)，我们可以将其视为常数时间，不会对渐近复杂度产生重大影响。
 
-2. **对数代价原则 (Logarithmic Cost Criterion)**：这个原则强调了对数时间复杂度的重要性。如果一个算法的计算步骤随着输入规模 n 的增加而以对数方式增加（如 O (log n)），那么它在大规模问题上的性能会比线性增长（O (n)）的算法好得多，即使在小规模问题上，它可能因为常数因子较大而不如线性算法。
+2. **对数代价原则 (Logarithmic Cost Criterion)**：这个原则强调了对数时间复杂度的重要性。如果一个算法的计算步骤随着输入规模 n 的增加而以对数方式增加（如 $O (\log n)$），那么它在大规模问题上的性能会比线性增长（$O (n)$）的算法好得多，即使在小规模问题上，它可能因为常数因子较大而不如线性算法。
 
 现在来解释为什么这个悖论实际上不存在：
 
 - 计算 $a^{n}$ 的二进制展开确实需要 $Θ(n)$ 的时间，但这并不意味着我们必须显式计算每一位的二进制展开并执行相应的乘法操作。在实际的计算机算术中，使用的是更高效的算法，如快速幂算法（也称为指数的二分法），它的时间复杂度是 $O (\log n)$。这意味着我们能够以对数级别的成本来计算 $a^{n}$，而不需要逐位计算。
-- 在常数代价原则的背景下，虽然 $a^{n}$ 的二进制展开宽度为 $Θ(n)$，但计算 $a^{n}$ 的代价并不是逐位计算，而是通过快速幂算法将指数 n 分解为对数级别的子问题。因此，每个子问题的代价是 $O (1)$，虽然有多个子问题，但总的计算时间仍然是 $O (\log n)$，这符合对数代价原则。
+- 在常数代价原则的背景下，虽然 $a^{n}$ 的二进制展开宽度为 $Θ(n)$，但计算 $a^{n}$ 的代价并不是逐位计算，而是通过快速幂算法将指数 $n$ 分解为对数级别的子问题。因此，每个子问题的代价是 $O (1)$，虽然有多个子问题，但总的计算时间仍然是 $O (\log n)$，这符合对数代价原则。
 
-因此，尽管 $a^{n}$ 的二进制展开宽度较大，但我们可以使用高效的算法在 $O (log n)$时间内计算 $a^{n}$，而这并不违反常数代价原则或对数代价原则。这个悖论实际上是由于算法的高效性和渐近分析的原则相结合而产生的。
+因此，尽管 $a^{n}$ 的二进制展开宽度较大，但我们可以使用高效的算法在 $O (\log n)$ 时间内计算 $a^{n}$，而这并不违反常数代价原则或对数代价原则。这个悖论实际上是由于算法的高效性和渐近分析的原则相结合而产生的。
 
 ### 局限 3: 随机数
+
 任给一个数组，理想地将其中元素次序随机打乱：
-```
+
+```cpp
 void shuffle(int A[],int n){
 	while (1<n) swap(A[rand()%n],A[--n]);
 }
 ```
 
-这段代码使用了 Fisher-Yates shuffle 算法来将数组内所有元素的次序随机打乱。该算法是一个经典的洗牌算法，可以等概率地生成所有 n! 中的排列，前提是 `rand()` 函数生成的随机数是均匀分布的，且不会出现重复的随机数。
+这段代码使用了 Fisher-Yates shuffle 算法来将数组内所有元素的次序随机打乱。该算法是一个经典的洗牌算法，可以等概率地生成所有 $n!$ 中的排列，前提是 `rand()` 函数生成的随机数是均匀分布的，且不会出现重复的随机数。
 
 让我们来分析一下为什么这个算法能够生成等概率的排列：
 
@@ -687,6 +742,6 @@ void shuffle(int A[],int n){
 
 由于每个元素都有机会在每一轮中被选为最后一个元素，最终生成的排列是等概率的。这是因为每个元素被选中的概率是 1/n，其中 n 是剩余未处理元素的数量。
 
-关于该问题，可以详细阅读下一章的内容：[[20-Vector#2-6 permute 生成随机排列]] 和
+关于该问题，可以详细阅读下一章的内容：[[21-Vector-Exercise#2-6 permute 生成随机排列|习题 2-6：permute 生成随机排列]] 和 [[18-Fisher-Yates-shuffle]] 。
 
-习题请看： [[11-Intro-Exercise]]
+习题请看： [[11-Intro-Exercise]] 。

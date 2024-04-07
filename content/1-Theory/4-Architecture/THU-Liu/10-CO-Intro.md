@@ -1,3 +1,9 @@
+---
+tags:
+  - 计算机组成原理
+date: 2023-10-18
+publish: "true"
+---
 ## Introduction
 
 ### 计算机程序及分类
