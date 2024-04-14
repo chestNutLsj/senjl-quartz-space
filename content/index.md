@@ -5,7 +5,7 @@ tags:
   - quartz
   - Blog
 ---
-欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： chestnut_lsj@foxmail.com ，或者在本博客的 GitHub Repo 中 [提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
+欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： chestnut_lsj@foxmail.com [^2]，或者在本博客的 GitHub Repo 中 [提交 issue](https://github.com/chestNutLsj/senjl-quartz-space/issues)。
 
 >[!tip] 🎵: Have a relax!
 > ![[未闻花名.jpg]]
@@ -117,3 +117,4 @@ tags:
 - 如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站？
 
 [^1]: 你也可以叫我的花名“花间有酒醉今人”。
+[^2]: 这里由于 Cloudflare 的邮箱保护机制，会隐藏邮箱，你可能需要在浏览器的设置中搜索 JavaScript ，然后开启 JS 的支持才能看到。
