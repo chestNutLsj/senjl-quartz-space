@@ -37,7 +37,7 @@ tags:
 
 - Cpp
 
-- Python
+- [[Python学习之路|Python]]
 
 - Rust
 
