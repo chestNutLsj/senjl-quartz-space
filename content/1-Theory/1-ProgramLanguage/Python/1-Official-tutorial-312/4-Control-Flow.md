@@ -1,3 +1,9 @@
+---
+date: 2024-04-10
+tags:
+  - Python
+publish: "true"
+---
 # More Control Flow Tools
 
 As well as the `while` statement just introduced, Python uses a few more that we will encounter in this chapter.
@@ -668,104 +674,130 @@ def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
 ```
 
 where `/` and `*` are optional. If used, these symbols indicate the kind of parameter by how the arguments may be passed to the function: positional-only, positional-or-keyword, and keyword-only. Keyword parameters are also referred to as named parameters.
-> 上面的函数定义中 `/` 和 `*` 是可选的
+> 上面的函数定义中 `/` 和 `*` 是可选的，如果使用，这些符号表示参数的类型，即参数如何传递给函数——只通过位置、通过位置或关键字、只通过关键字。
+> 关键字参数有时也称为 *命名参数*（*named parameters*，意为固定名称地传参）
 
 #### Positional-or-Keyword Arguments
 
 If `/` and `*` are not present in the function definition, arguments may be passed to a function by position or by keyword.
+> 默认的方式，即如果 `/` 和 `*` 没有显式地指出，那么参数就会通过位置或关键字的方式传递给函数。
 
 #### Positional-Only Parameters
 
 Looking at this in a bit more detail, it is possible to mark certain parameters as *positional-only*. If *positional-only*, the parameters' order matters, and the parameters cannot be passed by keyword. Positional-only parameters are placed before a `/` (forward-slash). The `/` is used to logically separate the positional-only parameters from the rest of the parameters. If there is no `/` in the function definition, there are no positional-only parameters.
+> 如果参数是仅通过位置传递的，那么参数摆放的位置就至关重要。仅通过位置传递的参数放置在 `/` 符号之前，如果没有该符号，那么就不存在仅通过位置传递的参数。
+> 
+> 在 `/` 符号之后的参数，可能是仅通过关键字传递，也可能是通过关键字或位置传递皆可的参数。
 
 Parameters following the `/` may be *positional-or-keyword* or *keyword-only*.
 
 #### Keyword-Only Arguments
 
 To mark parameters as *keyword-only*, indicating the parameters must be passed by keyword argument, place an `*` in the arguments list just before the first *keyword-only* parameter.
+> 要告知解释器该函数是仅通过关键字传递的，那么就应当将参数列表放置在 `*` 符号之后。
 
 #### Function Examples
 
 Consider the following example function definitions paying close attention to the markers `/` and `*`:
 
-    >>> def standard_arg(arg):
-    ...     print(arg)
-    ...
-    >>> def pos_only_arg(arg, /):
-    ...     print(arg)
-    ...
-    >>> def kwd_only_arg(*, arg):
-    ...     print(arg)
-    ...
-    >>> def combined_example(pos_only, /, standard, *, kwd_only):
-    ...     print(pos_only, standard, kwd_only)
+```python
+>>> def standard_arg(arg):
+...     print(arg)
+...
+>>> def pos_only_arg(arg, /):
+...     print(arg)
+...
+>>> def kwd_only_arg(*, arg):
+...     print(arg)
+...
+>>> def combined_example(pos_only, /, standard, *, kwd_only):
+...     print(pos_only, standard, kwd_only)
+```
 
-The first function definition, `standard_arg`, the most familiar form, places no restrictions on the calling convention and arguments may be passed by position or keyword:
+The first function definition, `standard_arg`, **the most familiar form, places no restrictions on the calling convention** and arguments may be passed by position or keyword:
 
-    >>> standard_arg(2)
-    2
-    
-    >>> standard_arg(arg=2)
-    2
+```
+>>> standard_arg(2)
+2
+
+>>> standard_arg(arg=2)
+2
+```
 
 The second function `pos_only_arg` is restricted to only use positional parameters as there is a `/` in the function definition:
 
-    >>> pos_only_arg(1)
-    1
-    
-    >>> pos_only_arg(arg=1)
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: pos_only_arg() got some positional-only arguments passed as keyword arguments: 'arg'
+```python
+>>> pos_only_arg(1)
+1
+
+>>> pos_only_arg(arg=1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: pos_only_arg() got some positional-only arguments passed as keyword arguments: 'arg'
+```
 
 The third function `kwd_only_args` only allows keyword arguments as indicated by a `*` in the function definition:
 
-    >>> kwd_only_arg(3)
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: kwd_only_arg() takes 0 positional arguments but 1 was given
-    
-    >>> kwd_only_arg(arg=3)
-    3
+```python
+>>> kwd_only_arg(3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: kwd_only_arg() takes 0 positional arguments but 1 was given
+
+>>> kwd_only_arg(arg=3)
+3
+```
 
 And the last uses all three calling conventions in the same function definition:
 
-    >>> combined_example(1, 2, 3)
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: combined_example() takes 2 positional arguments but 3 were given
-    
-    >>> combined_example(1, 2, kwd_only=3)
-    1 2 3
-    
-    >>> combined_example(1, standard=2, kwd_only=3)
-    1 2 3
-    
-    >>> combined_example(pos_only=1, standard=2, kwd_only=3)
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: combined_example() got some positional-only arguments passed as keyword arguments: 'pos_only'
+```python
+>>> combined_example(1, 2, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: combined_example() takes 2 positional arguments but 3 were given
+
+>>> combined_example(1, 2, kwd_only=3)
+1 2 3
+
+>>> combined_example(1, standard=2, kwd_only=3)
+1 2 3
+
+>>> combined_example(pos_only=1, standard=2, kwd_only=3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: combined_example() got some positional-only arguments passed as keyword arguments: 'pos_only'
+```
 
 Finally, consider this function definition which has a potential collision between the positional argument `name` and `**kwds` which has `name` as a key:
+> 最后一个特殊情况，在下面的函数定义中，通过位置传递的参数 `name` 和以 `name` 为键的 `**kwds ` 之间可能会存在冲突。
+> *（前文说到，`**kwds` 是以字典作为参数，因此其中会有键值，这里讨论的问题就是前一个参数名和字典中键名混淆了）*。
 
-    def foo(name, **kwds):
-        return 'name' in kwds
+```python
+def foo(name, **kwds):
+	return 'name' in kwds
+```
 
 There is no possible call that will make it return `True` as the keyword `'name'` will always bind to the first parameter. For example:
+> 由于关键字 `'name'` 是字典传参的一个键，因此任何调用都会发生歧义，也就不会返回 `True` 。
 
-    >>> foo(1, **{'name': 2})
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: foo() got multiple values for argument 'name'
-    >>>
+```python
+>>> foo(1, **{'name': 2})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: foo() got multiple values for argument 'name'
+>>>
+```
 
 But using `/` (positional only arguments), it is possible since it allows `name` as a positional argument and `'name'` as a key in the keyword arguments:
+> 但是如果使用 `/` 规定好仅通过位置传递的参数，由于这允许 `name` 作为位置参数而 `'name'` 作为关键字参数的键，于是不会发生歧义。
 
-    >>> def foo(name, /, **kwds):
-    ...     return 'name' in kwds
-    ...
-    >>> foo(1, **{'name': 2})
-    True
+```
+>>> def foo(name, /, **kwds):
+...     return 'name' in kwds
+...
+>>> foo(1, **{'name': 2})
+True
+```
 
 In other words, the names of positional-only parameters can be used in `**kwds` without ambiguity.
 
@@ -773,155 +805,188 @@ In other words, the names of positional-only parameters can be used in `**kwds` 
 
 The use case will determine which parameters to use in the function definition:
 
-    def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+```
+def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+```
 
 As guidance:
 
 - Use positional-only if you want the name of the parameters to not be available to the user. This is useful when parameter names have no real meaning, if you want to enforce the order of the arguments when the function is called or if you need to take some positional parameters and arbitrary keywords.
+> **如果不想让用户看到参数的名称，请使用 positional-only 的参数**。当参数名称没有实际意义时，当需要在调用函数时强制执行参数顺序时，或者当需要使用某些位置参数和任意关键字时，这种方法非常有用。
+
 - Use keyword-only when names have meaning and the function definition is more understandable by being explicit with names or you want to prevent users relying on the position of the argument being passed.
+> 当名称具有意义，并且函数定义通过明确的名称更容易理解，或者希望避免用户依赖于所传递参数的位置时，请使用 keyword-only 参数。
+
 - For an API, use positional-only to prevent breaking API changes if the parameter's name is modified in the future.
+> 对于 API，**使用 positional-only 可防止在将来修改参数名称时破坏 API 的稳定性**。
 
-### Arbitrary Argument Lists
+### Arbitrary[^7] Argument Lists
 
-single: \* (asterisk); in function calls
+Finally, the least frequently used option is to specify that a function can be called with an arbitrary number of arguments. These arguments will be wrapped up in a tuple (see [Tuples and Sequences](https://docs.python.org/3/tutorial/datastructures.html#tut-tuples)). Before the variable number of arguments, zero or more normal arguments may occur.
+> 最后，最不常用的选项是指定函数可以用任意数量的参数调用。这些参数将封装在一个元组中（参见元组和序列）。在可变参数个数（的元组）之前，可能会出现零个或多个普通参数。
 
-Finally, the least frequently used option is to specify that a function can be called with an arbitrary number of arguments. These arguments will be wrapped up in a tuple (see `tut-tuples`). Before the variable number of arguments, zero or more normal arguments may occur. :
+```python
+def write_multiple_items(file, separator, *args):
+	file.write(separator.join(args))
+```
 
-    def write_multiple_items(file, separator, *args):
-        file.write(separator.join(args))
+Normally, these *variadic* arguments will be last in the list of formal parameters, because they scoop[^8] up all remaining input arguments that are passed to the function. Any formal parameters which occur after the `*args` parameter are 'keyword-only' arguments, meaning that they can only be used as keywords rather than positional arguments. 
+> 通常，这些可变数量参数会排在形参列表的最后，因为它们会**占用传递给函数的所有剩余输入参数**，而任何出现在 `*args` 参数之后的形参都是 keyword-only 参数。
 
-Normally, these *variadic* arguments will be last in the list of formal parameters, because they scoop up all remaining input arguments that are passed to the function. Any formal parameters which occur after the `*args` parameter are 'keyword-only' arguments, meaning that they can only be used as keywords rather than positional arguments. :
-
-    >>> def concat(*args, sep="/"):
-    ...     return sep.join(args)
-    ...
-    >>> concat("earth", "mars", "venus")
-    'earth/mars/venus'
-    >>> concat("earth", "mars", "venus", sep=".")
-    'earth.mars.venus'
+```python
+>>> def concat(*args, sep="/"):
+...     return sep.join(args)
+...
+>>> concat("earth", "mars", "venus")
+'earth/mars/venus'
+>>> concat("earth", "mars", "venus", sep=".")
+'earth.mars.venus'
+```
 
 ### Unpacking Argument Lists
 
-The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call requiring separate positional arguments. For instance, the built-in `range` function expects separate *start* and *stop* arguments. If they are not available separately, write the function call with the `*` -operator to unpack the arguments out of a list or tuple:
+The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call requiring separate positional arguments. For instance, the built-in [`range()`]( https://docs.python.org/3/library/stdtypes.html#range "range") function expects separate _start_ and _stop_ arguments. If they are not available separately, write the function call with the `*` -operator to unpack the arguments out of a list or tuple:
+> 如果参数已经包含在 list 或 tuple 中，但若为需要单独位置参数的函数进行解包后传递时，就会发生特殊的情况：例如对内置函数 `range` 需要 *start* 和 *stop* 两个位置参数，如果不能独立地从参数中获取，则需要利用 `*` 运算符进行解包：
 
-    >>> list(range(3, 6))            # normal call with separate arguments
-    [3, 4, 5]
-    >>> args = [3, 6]
-    >>> list(range(*args))            # call with arguments unpacked from a list
-    [3, 4, 5]
-
-single: \*\*; in function calls
+```python
+>>> list(range(3, 6))            # normal call with separate arguments
+[3, 4, 5]
+>>> args = [3, 6]
+>>> list(range(*args))            # call with arguments unpacked from a list
+[3, 4, 5]
+```
 
 In the same fashion, dictionaries can deliver keyword arguments with the `**` -operator:
+> 同样的风格，对于关键字参数，则需要 `**` 运算符进行解包。
 
-    >>> def parrot(voltage, state='a stiff', action='voom'):
-    ...     print("-- This parrot wouldn't", action, end=' ')
-    ...     print("if you put", voltage, "volts through it.", end=' ')
-    ...     print("E's", state, "!")
-    ...
-    >>> d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
-    >>> parrot(**d)
-    -- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+```python
+>>> def parrot(voltage, state='a stiff', action='voom'):
+...     print("-- This parrot wouldn't", action, end=' ')
+...     print("if you put", voltage, "volts through it.", end=' ')
+...     print("E's", state, "!")
+...
+>>> d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+>>> parrot(**d)
+-- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+```
 
 ### Lambda Expressions
 
-Small anonymous functions can be created with the `lambda` keyword. This function returns the sum of its two arguments: `lambda a, b: a+b`. Lambda functions can be used wherever function objects are required. They are syntactically restricted to a single expression. Semantically, they are just syntactic sugar for a normal function definition. Like nested function definitions, lambda functions can reference variables from the containing scope:
+Small anonymous functions can be created with the [`lambda`](https://docs.python.org/3/reference/expressions.html#lambda) keyword. This function returns the sum of its two arguments: `lambda a, b: a+b`. Lambda functions can be used wherever function objects are required. They are syntactically restricted to a single expression. Semantically, they are just syntactic sugar for a normal function definition. Like nested function definitions, lambda functions can reference variables from the containing scope:
+> 使用 lambda 关键字可以创建**匿名函数**。
+> - 例如：该函数返回两个参数之和：`lambda a, b: a+b`。
+> - 只要需要函数对象，就可以使用 lambda 函数。
+> - 它们在语法上仅限于单个表达式。
+> - 从语义上讲，它们只是普通函数定义的语法糖。
+> - 与嵌套函数定义一样，lambda 函数可以引用包含作用域的变量：
 
-    >>> def make_incrementor(n):
-    ...     return lambda x: x + n
-    ...
-    >>> f = make_incrementor(42)
-    >>> f(0)
-    42
-    >>> f(1)
-    43
+```cpp
+>>> def make_incrementor(n):
+...     return lambda x: x + n
+...
+>>> f = make_incrementor(42)
+>>> f(0)
+42
+>>> f(1)
+43
+```
 
 The above example uses a lambda expression to return a function. Another use is to pass a small function as an argument:
+> 上面的例子是使用 lambda 表达式返回函数运算的结果；另一种用法是作为参数传递给函数：
 
-    >>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
-    >>> pairs.sort(key=lambda pair: pair[1])
-    >>> pairs
-    [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+```cpp
+>>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+>>> pairs.sort(key=lambda pair: pair[1])
+>>> pairs
+[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+```
 
 ### Documentation Strings
 
-single: docstrings single: documentation strings single: strings, documentation
-
 Here are some conventions about the content and formatting of documentation strings.
+> 下面是文档字符串的一些内容和规范。
 
 The first line should always be a short, concise summary of the object's purpose. For brevity, it should not explicitly state the object's name or type, since these are available by other means (except if the name happens to be a verb describing a function's operation). This line should begin with a capital letter and end with a period.
+> **第一行应简明扼要地概述该对象的用途**。为简洁起见，不应明确说明对象的名称或类型，因为这些内容可通过其他方式获得（除非名称恰好是描述函数操作的动词）。这一行应以大写字母开头，句号结尾。
 
 If there are more lines in the documentation string, the second line should be blank, visually separating the summary from the rest of the description. The following lines should be one or more paragraphs describing the object's calling conventions, its side effects, etc.
+> **如果文档字符串的行数较多，则第二行应为空行**，以便在视觉上将摘要与其余说明分开。下面几行应为一个或多个段落，描述对象的调用约定、副作用等。
 
-The Python parser does not strip indentation from multi-line string literals in Python, so tools that process documentation have to strip indentation if desired. This is done using the following convention. The first non-blank line *after* the first line of the string determines the amount of indentation for the entire documentation string. (We can't use the first line since it is generally adjacent to the string's opening quotes so its indentation is not apparent in the string literal.) Whitespace "equivalent" to this indentation is then stripped from the start of all lines of the string. Lines that are indented less should not occur, but if they occur all their leading whitespace should be stripped. Equivalence of whitespace should be tested after expansion of tabs (to 8 spaces, normally).
+The Python parser does not strip[^9] indentation from multi-line string literals in Python, so tools that process documentation have to strip indentation if desired. This is done using the following convention. The first non-blank line *after* the first line of the string determines the amount of indentation for the entire documentation string. (We can't use the first line since it is generally adjacent to the string's opening quotes so its indentation is not apparent in the string literal.) Whitespace "equivalent" to this indentation is then stripped from the start of all lines of the string. Lines that are indented less should not occur, but if they occur all their leading whitespace should be stripped. Equivalence of whitespace should be tested after expansion of tabs (to 8 spaces, normally).
+> Python 解析器不会对 Python 中的多行字符串常量进行缩进处理，因此处理文档的工具必须根据需要进行缩进处理。具体做法如下：
+> - 字符串第一行后的第一个非空行决定整个文档字符串的缩进量。(我们不能使用第一行，因为它通常与字符串开头的引号相邻，所以在字符串字面中它的缩进并不明显）
+> - 然后，从字符串所有行的开头去掉与该缩进“相当”的空白。
+> - 缩进较小的行不应出现，但如果出现，则应去除所有前导空白。
+> - 应在扩展制表符（通常为 8 个空格）后测试空白的等效性。
 
 Here is an example of a multi-line docstring:
 
-    >>> def my_function():
-    ...     """Do nothing, but document it.
-    ...
-    ...     No, really, it doesn't do anything.
-    ...     """
-    ...     pass
-    ...
-    >>> print(my_function.__doc__)
-    Do nothing, but document it.
-    
-        No, really, it doesn't do anything.
+```python
+>>> def my_function():
+...     """Do nothing, but document it.
+...
+...     No, really, it doesn't do anything.
+...     """
+...     pass
+...
+>>> print(my_function.__doc__)
+Do nothing, but document it.
+
+	No, really, it doesn't do anything.
+```
 
 ### Function Annotations
 
-Zachary Ware \<<zachary.ware@gmail.com>\>
+[Function annotations](https://docs.python.org/3/reference/compound_stmts.html#function) are completely optional metadata information about the types used by user-defined functions (see [**PEP 3107**](https://peps.python.org/pep-3107/) and [**PEP 484**](https://peps.python.org/pep-0484/) for more information).
+> **函数注解**是关于用户定义函数所使用类型的可选的元数据信息。
 
-pair: function; annotations single: -\>; function annotations single: : (colon); function annotations
+[Annotations](https://docs.python.org/3/glossary.html#term-function-annotation) are stored in the `__annotations__` attribute of the function as a dictionary and have no effect on any other part of the function. Parameter annotations are defined by a colon after the parameter name, followed by an expression evaluating to the value of the annotation. Return annotations are defined by a literal `->`, followed by an expression, between the parameter list and the colon denoting the end of the [`def`](https://docs.python.org/3/reference/compound_stmts.html#def) statement. The following example has a required argument, an optional argument, and the return value annotated:
+> 注解以字典形式存储在函数的 `__annotations__` 属性中，对函数的其他部分没有影响。
+> - **参数注解**的定义方法是在参数名称后加冒号，然后是一个表达式，该表达式的值就是注解的值
+> - **返回值注解**的定义是在参数列表和表示 `def` 语句结束的冒号之间用一个运算符 `->` ，然后是一个表达式。
+> 
+> 下面的示例注释了一个必选参数、一个可选参数和返回值：
 
-`Function annotations <function>` are completely optional metadata information about the types used by user-defined functions (see `3107` and `484` for more information).
-
-`Annotations <function annotation>` are stored in the `!__annotations__` attribute of the function as a dictionary and have no effect on any other part of the function. Parameter annotations are defined by a colon after the parameter name, followed by an expression evaluating to the value of the annotation. Return annotations are defined by a literal `->`, followed by an expression, between the parameter list and the colon denoting the end of the `def` statement. The following example has a required argument, an optional argument, and the return value annotated:
-
-    >>> def f(ham: str, eggs: str = 'eggs') -> str:
-    ...     print("Annotations:", f.__annotations__)
-    ...     print("Arguments:", ham, eggs)
-    ...     return ham + ' and ' + eggs
-    ...
-    >>> f('spam')
-    Annotations: {'ham': <class 'str'>, 'return': <class 'str'>, 'eggs': <class 'str'>}
-    Arguments: spam eggs
-    'spam and eggs'
+```python
+>>> def f(ham: str, eggs: str = 'eggs') -> str:
+...     print("Annotations:", f.__annotations__)
+...     print("Arguments:", ham, eggs)
+...     return ham + ' and ' + eggs
+...
+>>> f('spam')
+Annotations: {'ham': <class 'str'>, 'return': <class 'str'>, 'eggs': <class 'str'>}
+Arguments: spam eggs
+'spam and eggs'
+```
 
 ## Intermezzo: Coding Style
 
-Georg Brandl \<<georg@python.org>\>
+Now that you are about to write longer, more complex pieces of Python, it is a good time to talk about *coding style*. Most languages can be written (or more concise, *formatted*) in different styles; some are more readable than others. **Making it easy for others to read your code is always a good idea**, and adopting a nice coding style helps tremendously for that.
 
-pair: coding; style
+For Python, [**PEP 8**](https://peps.python.org/pep-0008/) has emerged as the style guide that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Every Python developer should read it at some point; here are the most important points extracted for you:
 
-Now that you are about to write longer, more complex pieces of Python, it is a good time to talk about *coding style*. Most languages can be written (or more concise, *formatted*) in different styles; some are more readable than others. Making it easy for others to read your code is always a good idea, and adopting a nice coding style helps tremendously for that.
-
-For Python, `8` has emerged as the style guide that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Every Python developer should read it at some point; here are the most important points extracted for you:
-
-- Use 4-space indentation, and no tabs.
-
-  4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.
-
-- Wrap lines so that they don't exceed 79 characters.
-
-  This helps users with small displays and makes it possible to have several code files side-by-side on larger displays.
-
-- Use blank lines to separate functions and classes, and larger blocks of code inside functions.
-
+- **Use 4-space indentation, and no tabs**.
+    
+    4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.
+    
+- **Wrap lines so that they don’t exceed 79 characters**.
+    
+    This helps users with small displays and makes it possible to have several code files side-by-side on larger displays.
+    
+- **Use blank lines to separate functions and classes**, and larger blocks of code inside functions.
+    
 - When possible, put comments on a line of their own.
+    
+- **Use docstrings**.
+    
+- **Use spaces around operators and after commas**, but not directly inside bracketing constructs: `a = f(1, 2) + g(3, 4)`.
+    
+- Name your classes and functions consistently; the convention is to use `UpperCamelCase` for classes and `lowercase_with_underscores` for functions and methods. **Always use `self` as the name for the first method argument** (see [A First Look at Classes](https://docs.python.org/3/tutorial/classes.html#tut-firstclasses) for more on classes and methods).
+    
+- Don’t use fancy encodings if your code is meant to be used in international environments. Python’s default, UTF-8, or even plain ASCII work best in any case.
+    
+- Likewise, **don’t use non-ASCII characters in identifiers** if there is only the slightest chance people speaking a different language will read or maintain the code.
 
-- Use docstrings.
-
-- Use spaces around operators and after commas, but not directly inside bracketing constructs: `a = f (1, 2) + g (3, 4)`.
-
-- Name your classes and functions consistently; the convention is to use `UpperCamelCase` for classes and `lowercase_with_underscores` for functions and methods. Always use `self` as the name for the first method argument (see `tut-firstclasses` for more on classes and methods).
-
-- Don't use fancy encodings if your code is meant to be used in international environments. Python's default, UTF-8, or even plain ASCII work best in any case.
-
-- Likewise, don't use non-ASCII characters in identifiers if there is only the slightest chance people speaking a different language will read or maintain the code.
-
-**Footnotes**
 
 [^1]: Actually, *call by object reference* would be a better description, since if a mutable object is passed, the caller will see any changes the callee makes to it (items inserted into a list).
 [^2]: 意为“派上用场”
@@ -929,3 +994,6 @@ For Python, `8` has emerged as the style guide that most projects adhere to; it 
 [^4]: 
 [^5]: 属于 Python 自己为了效率而进行的优化，暂时不必管它。
 [^6]: 什么是 keyword argument？根据文档的定义，指的是在函数调用中前面带有标识符（如 `name=`）的参数，或在字典中作为值传递的参数，前面带有 `**` 。例如复数计算函数 `complex()` 有这两种调用方式，其中的 `3` 和 `5` 都是关键字参数：`complex(real=3, imag=5)` 或 `complex(**{'real': 3, 'imag': 5})`
+[^7]: 意为“任意的”
+[^8]: scoop 本义为汤勺，scoop up 意为用勺子舀起，在这里引申为占用的空间。
+[^9]: 本义为“除去”，“脱光”，这里引申为“处理”
