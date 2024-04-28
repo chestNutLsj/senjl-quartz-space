@@ -114,7 +114,7 @@ tags:
 
 - 个人介绍
 
-- 如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站？
+- [[My-ENotes-System|如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站]] ？
 
 [^1]: 你也可以叫我的花名“花间有酒醉今人”。
 [^2]: 这里由于 Cloudflare 的邮箱保护机制，会隐藏邮箱，你可能需要在浏览器的设置中搜索 JavaScript ，然后开启 JS 的支持才能看到。

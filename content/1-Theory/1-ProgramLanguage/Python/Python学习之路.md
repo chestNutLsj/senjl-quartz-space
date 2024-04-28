@@ -17,6 +17,8 @@ publish: "true"
 - [[2-interpreter]]
 - [[3-introduction]]
 - [[4-Control-Flow]]
+- [[5-Data-Structures]]
+- [[6-Modules]]
 
 ## 进阶：编写优美的代码——*Fluent Python 2nd*
 
