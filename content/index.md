@@ -13,7 +13,7 @@ tags:
 
 ## Learn in 2024
 
-- [x] 1 月 ~ 3 月：准备复试内容、参加机试与面试、撰写 [[#考研这两年——我的清华梦！|上岸经验贴]] ；
+- [x] 1 月 ~ 3 月：准备复试内容、参加机试与面试、撰写 [[How-to-prepare-for-11912-effectively?|上岸经验贴]] ；
 
 - [ ] 4 月 ~ 8 月：
 	- [ ] 健身减肥计划
@@ -35,7 +35,7 @@ tags:
 
 #### 编程语言
 
-- Cpp
+- [[C++学习之路|C++]]
 
 - [[Python学习之路|Python]]
 
@@ -43,11 +43,11 @@ tags:
 
 #### 数据结构
 
-- [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/)的课程：[[DSACpp|数据结构C++版]] ；
+- 清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|数据结构C++版]] ；
 
 #### 操作系统
 
-- 《操作系统精髓与设计原理》：[[Internal&Design-Principle-Notes|读书笔记]] ；
+- 《操作系统精髓与设计原理 9 th》： [[Internal&Design-Principle-Notes|读书笔记]] ；
 - 《rCore Tutorial Book v3》；
 
 #### 计算机组成原理
@@ -63,8 +63,6 @@ tags:
 #### 算法
 
 - AcWing：[[AcWing基础篇|算法基础课]]、算法提高课、算法进阶课
-
-#### 编译原理
 
 ### 软件开发
 
