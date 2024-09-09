@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
-    ignorePatterns: [".obsidian", ".trash"],
+    ignorePatterns: [".obsidian", ".trash", ".stfolder"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
