@@ -1,4 +1,5 @@
 import { QuartzConfig } from "./quartz/cfg"
+import enUS from "./quartz/i18n/locales/en-US"
 import * as Plugin from "./quartz/plugins"
 
 /**
@@ -8,23 +9,23 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "🌰Senjl's Digital Garden🇨🇳",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
+    ignorePatterns: [".obsidian", ".trash"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "Kaushan Script",
+        body: "Noto Sans Simplified Chinese",
+        code: "Noto Sans Mono",
       },
       colors: {
         lightMode: {
@@ -65,14 +66,14 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
+      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: true }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [Plugin.ExplicitPublish()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
