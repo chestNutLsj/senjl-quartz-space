@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: obsidian-cs-career
+created: 2024-06-16T17:42:10+08:00
