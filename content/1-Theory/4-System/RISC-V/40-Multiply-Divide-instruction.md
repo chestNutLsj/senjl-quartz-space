@@ -1,3 +1,10 @@
+---
+date: 2023-10-11
+tags:
+  - RISC-V
+  - System
+publish: "true"
+---
 ![[40-Multiply-Divide-instruction-illustration.png]]
 ## 除法
 

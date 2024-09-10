@@ -1,11 +1,10 @@
 ---
-url: https://www.cnblogs.com/harrypotterjackson/p/17548837.html#_label7
 title: 详解 RISC v 中断
-date: 2023-10-25 20:26:39
-tags: 
-summary:
+date: 2023-10-14
+tags:
+  - RISC-V
+  - System
 ---
-
 ## RISC-V 中断与异常
 
 trap（陷阱）可以分为异常与中断。在 RISC v 下，中断有三种来源：software interrupt、timer interrupt（顾名思义，时钟中断）、external interrupt。

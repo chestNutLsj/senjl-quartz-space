@@ -1,3 +1,10 @@
+---
+date: 2023-10-11
+tags:
+  - RISC-V
+  - System
+publish: "true"
+---
 ![[30-RISC-V-assembly-src-to-elf.png]]
 
 ![[30-RISC-V-assembly-src2elf.png]]

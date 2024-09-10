@@ -1,3 +1,10 @@
+---
+date: 2023-10-13
+tags:
+  - RISC-V
+  - System
+publish: "true"
+---
 到目前为止，本书主要关注 RISC-V 对通用计算的支持：我们引入的所有指令都在用户模式（应用程序的代码在此模式下运行）下可用。本章介绍两种新的权限模式：
 - 运行最可信的代码的机器模式（machine mode），
 - 以及为 Linux，FreeBSD 和 Windows 等操作系统 提供支持的监管者模式（supervisor mode）。

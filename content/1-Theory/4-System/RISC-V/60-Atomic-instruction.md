@@ -1,3 +1,10 @@
+---
+date: 2023-10-11
+tags:
+  - RISC-V
+  - System
+publish: "true"
+---
 ![[60-Atomic-instruction-formats.png]]
 RV32A 有两种类型的原子操作：
 - 内存原子操作（AMO）

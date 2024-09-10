@@ -15,19 +15,20 @@ tags:
 
 - [x] 1 月 ~ 3 月：准备复试内容、参加机试与面试、撰写 [[How-to-prepare-for-11912-effectively？|上岸经验贴]] ；
 
-- [x] 4 月 ~ 8 月：
+- [x] 4 月 ~ 8 月：开学前的准备
 	- [x] [[如何科学、高效地减脂？|健身减肥计划]]
 	- [x] 阅读《毛泽东选集》
 	- [ ] 阅读《费曼的物理学讲义》
 	- [ ] 深入学习现代 Cpp 、Python、Rust
 	- [ ] 深入学习线性代数和概率论，夯实深度学习的基础
-	- [ ] 深入学习网络协议和 SDN 网络
+	- [ ] 深入学习网络协议
 
 - [ ] 9 月 ~ 12 月：研究生理论课程学习+论文阅读找 idea
-	- [ ] 数值分析
+	- [ ] [[数值分析笔记|数值分析]]
 	- [ ] 矩阵分析
 	- [ ] 计算机网络体系结构
-	- [ ] 
+	- [ ] 联邦学习
+	- [ ] 精读 40 篇论文： [[Paper-Reading-Records]] ，寻找研究方向及 idea
 
 ## 考研这两年
 
@@ -41,35 +42,36 @@ tags:
 
 ### 数学基础
 
-- 数值分析
+- [[数值分析笔记|数值分析]]
 - 矩阵分析
+- 离散数学
+- 概率论
+- 信息论
 
 #### 编程语言
 
 - [[C++学习之路|C++]]
-
 - [[Python学习之路|Python]]
-
 - Rust
 
 #### 数据结构
 
-- 清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|数据结构C++版]] ；
+- 清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|邓公数据结构笔记]] ；
 
 #### 操作系统
 
-- 《操作系统精髓与设计原理 9 th》： [[Internal&Design-Principle-Notes|读书笔记]] ；
-- 《rCore Tutorial Book v3》；
+- 《操作系统精髓与设计原理 9th》： [[Internal&Design-Principle-Notes|OS精髓与设计原理读书笔记]] ；
+- 《rCore Tutorial Book v3》： ；
 
 #### 计算机组成原理
 
 - CSAPP
-- RISC-V
-- THU 刘卫东老师的PPT ：[[THU-Computer-Organization]]
+- RISC-V： [[RISC-V-Briefing-Manual|RISC-V简明手册]] ；
+- THU 刘卫东老师的PPT ： [[THU-Computer-Organization]] ；
 
 #### 计算机网络
 
-- 自顶向下第 8 版：[[Top2down-Summary]]
+- 自顶向下第 8 版： [[Top2down-Summary]] ；
 - 计算机网络体系结构：
 
 #### 算法
@@ -92,9 +94,17 @@ tags:
 
 #### 深度学习
 
-- 《动手学深度学习 PyTorch 版》：[[Dive-Into-DL]] ；
+- 《动手学深度学习 2nd PyTorch 版》： [[Dive-Into-DL]] ；
 
 ### 学术生涯
+
+#### 论文阅读记录
+
+- [[Paper-Reading-Records]]
+
+#### 数据中心
+
+
 
 ### 随便捣鼓
 
@@ -102,19 +112,19 @@ tags:
 
 - [[ArchLinux使用笔记]] ；
 
-## Keen to Explore the World
+## Exploring the Real World
 
-## Consider Society from the Perspective of Marxist
+### Consider Society from the Perspective of Marxist
 
-### Marx&Engels
+#### Marx&Engels
 
-### Lenin
+#### Lenin
 
-### Mao
+#### Mao
 
 - [[论持久战]] ；
 
-### Deng
+#### Deng
 
 - [[中国共产党中央委员会关于建国以来党的若干历史问题的决议]] ；
 
