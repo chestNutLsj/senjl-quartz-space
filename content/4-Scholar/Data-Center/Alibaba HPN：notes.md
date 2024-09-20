@@ -1,3 +1,11 @@
+---
+publish: "true"
+tags:
+  - datacenter
+  - LLM
+  - architecture
+date: 2024-09-14
+---
 ## Prerequisite Knowledge
 
 >[!question] What is ECMP?
