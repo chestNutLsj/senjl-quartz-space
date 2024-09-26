@@ -22,7 +22,12 @@ author: SenjLee
 
 ### 9 月
 
+SIGCOMM 24：
+
 - [Alibaba HPN](https://ennanzhai.github.io/pub/sigcomm24-hpn.pdf)： [[Alibaba HPN：notes|阅读笔记]]
-- [Characterization of LLM Development in the Datacenter](https://www.usenix.org/conference/nsdi24/presentation/hu)： [[Characterization of LLM Development：notes|阅读笔记]]
+
+USENIX 24：
+
+- [Characterization of LLM Development in the Datacenter](https://www.usenix.org/conference/nsdi24/presentation/hu)： [[Characterization of LLM Development in the Datacenter：notes|阅读笔记]]
 	- Official Slides：[nsdi24\_slides-hu.pdf](https://www.usenix.org/system/files/nsdi24_slides-hu.pdf)
-	- Official codes and other asstes：[GitHub - InternLM/AcmeTrace](https://github.com/InternLM/AcmeTrace)
+	- Official codes and other assets： [GitHub - InternLM/AcmeTrace](https://github.com/InternLM/AcmeTrace)
