@@ -82,62 +82,61 @@ int main() {
 
 #### 过程
 
-???+ note "参考代码"
-    ```c++
-    #include <cstdio>  //code by Alphnia
-    #include <cstring>
-    #include <iostream>
-    using namespace std;
-    #define N 50005
-    #define ll long long
-    ll a, b;
-    ll f[15], ksm[15], p[15], now[15];
-    
-    ll dfs(int u, int x, bool f0,
-           bool lim) {  // u 表示位数，f0 是否有前导零，lim 是否都贴在上限上
-      if (!u) {
-        if (f0) f0 = 0;
-        return 0;
-      }
-      if (!lim && !f0 && (~f[u])) return f[u];
-      ll cnt = 0;
-      int lst = lim ? p[u] : 9;
-      for (int i = 0; i <= lst; i++) {  // 枚举这位要填的数字
-        if (f0 && i == 0)
-          cnt += dfs(u - 1, x, 1, lim && i == lst);  // 处理前导零
-        else if (i == x && lim && i == lst)
-          cnt += now[u - 1] + 1 +
-                 dfs(u - 1, x, 0,
-                     lim && i == lst);  // 此时枚举的前几位都贴在给定的上限上。
-        else if (i == x)
-          cnt += ksm[u - 1] + dfs(u - 1, x, 0, lim && i == lst);
-        else
-          cnt += dfs(u - 1, x, 0, lim && i == lst);
-      }
-      if ((!lim) && (!f0)) f[u] = cnt;  // 只有不贴着上限和没有前导零才能记忆
-      return cnt;
-    }
-    
-    ll gans(ll d, int dig) {
-      int len = 0;
-      memset(f, -1, sizeof(f));
-      while (d) {
-        p[++len] = d % 10;
-        d /= 10;
-        now[len] = now[len - 1] + p[len] * ksm[len - 1];
-      }
-      return dfs(len, dig, 1, 1);
-    }
-    
-    int main() {
-      scanf("%lld%lld", &a, &b);
-      ksm[0] = 1;
-      for (int i = 1; i <= 12; i++) ksm[i] = ksm[i - 1] * 10ll;
-      for (int i = 0; i < 9; i++) printf("%lld ", gans(b, i) - gans(a - 1, i));
-      printf("%lld\n", gans(b, 9) - gans(a - 1, 9));
-      return 0;
-    }
-    ```
+```c++
+#include <cstdio>  //code by Alphnia
+#include <cstring>
+#include <iostream>
+using namespace std;
+#define N 50005
+#define ll long long
+ll a, b;
+ll f[15], ksm[15], p[15], now[15];
+
+ll dfs(int u, int x, bool f0,
+	   bool lim) {  // u 表示位数，f0 是否有前导零，lim 是否都贴在上限上
+  if (!u) {
+	if (f0) f0 = 0;
+	return 0;
+  }
+  if (!lim && !f0 && (~f[u])) return f[u];
+  ll cnt = 0;
+  int lst = lim ? p[u] : 9;
+  for (int i = 0; i <= lst; i++) {  // 枚举这位要填的数字
+	if (f0 && i == 0)
+	  cnt += dfs(u - 1, x, 1, lim && i == lst);  // 处理前导零
+	else if (i == x && lim && i == lst)
+	  cnt += now[u - 1] + 1 +
+			 dfs(u - 1, x, 0,
+				 lim && i == lst);  // 此时枚举的前几位都贴在给定的上限上。
+	else if (i == x)
+	  cnt += ksm[u - 1] + dfs(u - 1, x, 0, lim && i == lst);
+	else
+	  cnt += dfs(u - 1, x, 0, lim && i == lst);
+  }
+  if ((!lim) && (!f0)) f[u] = cnt;  // 只有不贴着上限和没有前导零才能记忆
+  return cnt;
+}
+
+ll gans(ll d, int dig) {
+  int len = 0;
+  memset(f, -1, sizeof(f));
+  while (d) {
+	p[++len] = d % 10;
+	d /= 10;
+	now[len] = now[len - 1] + p[len] * ksm[len - 1];
+  }
+  return dfs(len, dig, 1, 1);
+}
+
+int main() {
+  scanf("%lld%lld", &a, &b);
+  ksm[0] = 1;
+  for (int i = 1; i <= 12; i++) ksm[i] = ksm[i - 1] * 10ll;
+  for (int i = 0; i < 9; i++) printf("%lld ", gans(b, i) - gans(a - 1, i));
+  printf("%lld\n", gans(b, 9) - gans(a - 1, 9));
+  return 0;
+}
+```
 
 ## 例题二
 
@@ -339,77 +338,77 @@ int main() {
 
 ### 实现
 
-???+ note "参考代码"
-    ```c++
-    #include <bits/stdc++.h>  //code by Alphnia
-    using namespace std;
-    #define N 1505
-    #define ll long long
-    #define mod 1000000007
-    int n, m;
-    char s[N], c[N];
-    int ch[N][10], fail[N], ed[N], tot, len;
-    
-    void insert() {
-      int now = 0;
-      int L = strlen(s);
-      for (int i = 0; i < L; ++i) {
-        if (!ch[now][s[i] - '0']) ch[now][s[i] - '0'] = ++tot;
-        now = ch[now][s[i] - '0'];
-      }
-      ed[now] = 1;
-    }
-    
-    queue<int> q;
-    
-    void build() {
-      for (int i = 0; i < 10; ++i)
-        if (ch[0][i]) q.push(ch[0][i]);
-      while (!q.empty()) {
-        int u = q.front();
-        q.pop();
-        for (int i = 0; i < 10; ++i) {
-          if (ch[u][i]) {
-            fail[ch[u][i]] = ch[fail[u]][i], q.push(ch[u][i]),
-            ed[ch[u][i]] |= ed[fail[ch[u][i]]];
-          } else
-            ch[u][i] = ch[fail[u]][i];
-        }
-      }
-      ch[0][0] = 0;
-    }
-    
-    ll f[N][N][2], ans;
-    
-    void add(ll &x, ll y) { x = (x + y) % mod; }
-    
-    int main() {
-      scanf("%s", c);
-      n = strlen(c);
-      scanf("%d", &m);
-      for (int i = 1; i <= m; ++i) scanf("%s", s), insert();
-      build();
-      f[0][0][1] = 1;
-      for (int i = 0; i < n; ++i) {
-        for (int j = 0; j <= tot; ++j) {
-          if (ed[j]) continue;
-          for (int k = 0; k < 10; ++k) {
-            if (ed[ch[j][k]]) continue;
-            add(f[i + 1][ch[j][k]][0], f[i][j][0]);
-            if (k < c[i] - '0') add(f[i + 1][ch[j][k]][0], f[i][j][1]);
-            if (k == c[i] - '0') add(f[i + 1][ch[j][k]][1], f[i][j][1]);
-          }
-        }
-      }
-      for (int j = 0; j <= tot; ++j) {
-        if (ed[j]) continue;
-        add(ans, f[n][j][0]);
-        add(ans, f[n][j][1]);
-      }
-      printf("%lld\n", ans - 1);
-      return 0;
-    }
-    ```
+
+```c++
+#include <bits/stdc++.h>  //code by Alphnia
+using namespace std;
+#define N 1505
+#define ll long long
+#define mod 1000000007
+int n, m;
+char s[N], c[N];
+int ch[N][10], fail[N], ed[N], tot, len;
+
+void insert() {
+  int now = 0;
+  int L = strlen(s);
+  for (int i = 0; i < L; ++i) {
+	if (!ch[now][s[i] - '0']) ch[now][s[i] - '0'] = ++tot;
+	now = ch[now][s[i] - '0'];
+  }
+  ed[now] = 1;
+}
+
+queue<int> q;
+
+void build() {
+  for (int i = 0; i < 10; ++i)
+	if (ch[0][i]) q.push(ch[0][i]);
+  while (!q.empty()) {
+	int u = q.front();
+	q.pop();
+	for (int i = 0; i < 10; ++i) {
+	  if (ch[u][i]) {
+		fail[ch[u][i]] = ch[fail[u]][i], q.push(ch[u][i]),
+		ed[ch[u][i]] |= ed[fail[ch[u][i]]];
+	  } else
+		ch[u][i] = ch[fail[u]][i];
+	}
+  }
+  ch[0][0] = 0;
+}
+
+ll f[N][N][2], ans;
+
+void add(ll &x, ll y) { x = (x + y) % mod; }
+
+int main() {
+  scanf("%s", c);
+  n = strlen(c);
+  scanf("%d", &m);
+  for (int i = 1; i <= m; ++i) scanf("%s", s), insert();
+  build();
+  f[0][0][1] = 1;
+  for (int i = 0; i < n; ++i) {
+	for (int j = 0; j <= tot; ++j) {
+	  if (ed[j]) continue;
+	  for (int k = 0; k < 10; ++k) {
+		if (ed[ch[j][k]]) continue;
+		add(f[i + 1][ch[j][k]][0], f[i][j][0]);
+		if (k < c[i] - '0') add(f[i + 1][ch[j][k]][0], f[i][j][1]);
+		if (k == c[i] - '0') add(f[i + 1][ch[j][k]][1], f[i][j][1]);
+	  }
+	}
+  }
+  for (int j = 0; j <= tot; ++j) {
+	if (ed[j]) continue;
+	add(ans, f[n][j][0]);
+	add(ans, f[n][j][1]);
+  }
+  printf("%lld\n", ans - 1);
+  return 0;
+}
+```
 
 此题可以很好地帮助理解数位 DP 的原理。
 

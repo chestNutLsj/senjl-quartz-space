@@ -168,4 +168,4 @@
 
 从一个更高和更广泛的层次上看，各种外设虽然差异很大，但也有基本的读写操作，可以通过文件来进行统一的抽象，并在操作系统内部实现中来隐藏对外设的具体访问过程，从而让用户可以以统一的文件操作来访问各种外设。这样就可以把==文件看成是对外设的一种统一抽象，应用程序通过基本的读写操作来完成对外设的访问==。
 
-[Fetching Title #79xm ]( http://docs.linuxtone.org/ebooks/C&CPP/c/ch20s01.html )
+ http://docs.linuxtone.org/ebooks/C&CPP/c/ch20s01.html

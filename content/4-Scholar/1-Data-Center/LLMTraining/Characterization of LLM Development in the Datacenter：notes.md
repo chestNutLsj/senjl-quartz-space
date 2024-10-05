@@ -24,7 +24,7 @@ title: Charactrization of LLM Development in the Datacenter.
 2) ***Tailored Software Stack***. LLM 的尺寸过大，因此有如 Deepspeed、Megatron、Alpa 等定制化的技术通过 hybrid parallelism 或 state-sharding optimizer 来加速训练。
 3) ***Unified Architecture***. 传统 DL 的模型种类繁多（如 CNN、RNN 等），而 LLMs 几乎都是 transformer-based、decoder-only 的架构（其他新兴架构还未广泛应用），因此结构的同质性表明 LLM 开发流水线在不同数据中心之间具有高度的统一性和相似度。
 
-为了更细致地分析 LLM 开发的特征，文章依托上海 AI lab 的数据中心 Acme 进行了深入研究：
+为了更细致地分析 LLM 开发的特征，文章依托上海 AI Lab 的数据中心 `Acme` 进行了深入研究：
 - [[#`Acme` Overview|设备详情]]
 - [[#Traces from `Acme`|数据来源]]
 
@@ -37,7 +37,7 @@ title: Charactrization of LLM Development in the Datacenter.
 4) ***[[#High Model Loading and Data Preprocessing Overhead|Long GPU Idle Time in Evaluation Workload]]***. 
 5) ***[[#Failure Analysis|Frequent Job Failures]]***.
 
-为了解决这些问题，文章中设计了两个系统并集成在 [PJLab 的LLM 框架](https://github.com/InternLM/InternEvo) 中以提升 LLM 开发的鲁棒性和效率。这两个系统分别实现了两个关键目标：
+为了解决这些问题，文章中设计了两个系统并集成在 [PJLab 的 LLM 框架](https://github.com/InternLM/InternEvo) 中以提升 LLM 开发的鲁棒性和效率。这两个系统分别实现了两个关键目标：
 1. One for ***[[#Fault-tolerant Pretraining|fault-tolerant pretraining]]***.
 2. The other for ***[[#Decoupled Scheduling for Evaluation|decoupled scheduling for evaluation]]***.
 
@@ -331,7 +331,7 @@ GPU 过热可能会导致 NVLinkError 或 ECCError，这种现象在很大程度
 
 ### Fault-tolerant Pretraining
 
->**通过引入大语言模型进行故障分析和自动重启，增强故障容忍度**。
+>**通过引入 LLM 进行故障分析和自动重启，增强故障容忍度**。
 
 前文说到，保持维护者随叫随到地修复 LLM 训练过程中的错误虽然是当前业界主流的做法，但是对维护者的负担过大，并且 GPU 利用率不高。因此需要设计一种**自动检测错误并恢复的系统**来重启训练。
 

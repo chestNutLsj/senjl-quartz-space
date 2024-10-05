@@ -39,7 +39,7 @@ tags:
 
 ### 计算机科学基础
 
-### 数学基础
+#### 数学基础
 
 - [[数值分析笔记|数值分析]]
 - 矩阵分析
@@ -55,22 +55,22 @@ tags:
 
 #### 数据结构
 
-- 清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|邓公数据结构笔记]] ；
+- 清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|邓公数据结构笔记]] 
 
 #### 操作系统
 
-- 《操作系统精髓与设计原理 9th》： [[Internal&Design-Principle-Notes|OS精髓与设计原理读书笔记]] ；
-- 《rCore Tutorial Book v3》： ；
+- 《操作系统精髓与设计原理 9th》： [[Internal&Design-Principle-Notes|OS精髓与设计原理读书笔记]] 
+- 《rCore Tutorial Book v3》： 
 
 #### 计算机组成原理
 
 - CSAPP
 - RISC-V： [[RISC-V-Briefing-Manual|RISC-V简明手册]] ；
-- THU 刘卫东老师的PPT ： [[THU-Computer-Organization]] ；
+- THU 刘卫东老师的PPT ： [[THU-Computer-Organization]] 
 
 #### 计算机网络
 
-- 自顶向下第 8 版： [[Top2down-Summary]] ；
+- 自顶向下第 8 版： [[Top2down-Summary]] 
 - 计算机网络体系结构：
 
 #### 算法
@@ -81,15 +81,15 @@ tags:
 
 #### 软件工程
 
-- 清华大学软件学院刘强老师：[[Software-Construction-notes|软件工程]] ；
+- 清华大学软件学院刘强老师：[[Software-Construction-notes|软件工程]] 
 
 ### 人工智能
 
 #### 机器学习
 
 - [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程：
-	- [[ML-Foundations-Index|机器学习基石]] ；
-	- [[ML-Techniques-Index|机器学习技法]] ；
+	- [[ML-Foundations-Index|机器学习基石]] 
+	- [[ML-Techniques-Index|机器学习技法]] 
 
 #### 深度学习
 
@@ -133,6 +133,6 @@ tags:
 
 - 个人介绍
 - [[My-ENotes-System|如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站]] ？
-- [[Outside Links|通往站外~]]
+- [[Outside Links|通往站外]]
 
 [^1]: 你也可以叫我的花名“花间有酒醉今人”。

@@ -55,7 +55,7 @@ author: StudyingFather, NachtgeistW, countercurrent-time, Ir1d, H-J-Granger, Chr
 STDIO 交互（标准 I/O 交互）是 Codeforces、AtCoder 等在线平台的交互手段，也是 ICPC 系列赛事中的标准。Codeforces 提供了一个更加简要的 [说明（英文）](https://codeforces.com/blog/entry/45307)。
 
 ??? 例题 "ZQC 的迷宫"
-    [LOJ #559.「LibreOJ Round #9」ZQC 的迷宫](https://loj.ac/problem/559)
+    [LOJ #559.「LibreOJ Round # 9」ZQC 的迷宫](https://loj.ac/problem/559)
     
     请注意最下方添加内容。
     
@@ -105,7 +105,7 @@ STDIO 交互的一个明显优势在于它可以支持任何编程语言，但�
 
 **通信题** 是需要两个选手程序进行通信，合作完成某项任务的题目。第一个程序接收问题的输入，并产生某些输出；第二个程序的输入会与第一个的输出相关（有时是原封不动地作为一个参数，有时会由评测端处理得到），它需要产生问题的解。
 
-通信题的例子有：[UOJ #178. 新年的贺电](https://uoj.ac/problem/178)，[#454.【UER #8】打雪仗](https://uoj.ac/problem/454) 等。
+通信题的例子有： [UOJ # 178. 新年的贺电](https://uoj.ac/problem/178)， [# 454.【UER # 8】打雪仗](https://uoj.ac/problem/454) 等。
 
 本地测试的方法由于题目设定的不同而多种多样，常用的形式如：
 
