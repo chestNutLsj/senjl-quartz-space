@@ -1,5 +1,5 @@
 ---
-publish: ""
+publish: "true"
 tags:
   - Network
   - 计算机网络原理
@@ -532,7 +532,7 @@ As illustrated in Figure 6.14, each upstream channel is divided into intervals o
 
 链路层设备如链路层交换机等，不识别网络层地址，因此 RIP、OSPF 这类路由选择算法无法用于确定链路层帧的路径——因而需要链路层地址转发链路层帧。
 
-### 链路层寻址和ARP
+### 链路层寻址和 ARP
 
 - MAC地址
     - IP地址：
@@ -569,8 +569,8 @@ As illustrated in Figure 6.14, each upstream channel is divided into intervals o
 		3) 另外一个选择就是不使用任何地址；不用MAC地址，则每到来一个帧都要上传到IP层次，由它判断是不是需要接受，干扰一次
 
 - 帧的发送与广播
-	- When an adapter wants to send a frame to some destination adapter, ==the sending adapter inserts the destination adapter’s MAC address into the frame and then sends the frame into the LAN==. Thus, when an adapter receives a frame, it will check to see whether the destination MAC address in the frame matches its own MAC address. If there is a match, the adapter extracts the enclosed datagram and passes the datagram up the protocol stack. If there isn’t a match, the adapter discards the frame, without passing the network-layer datagram up. Thus, the destination only will be interrupted when the frame is received.（要发送给指定目的适配器时，会将目的适配器的 MAC 地址插入帧中再发送到 LAN。当适配器收到帧时，检查其中的 MAC 地址是否匹配，若匹配则提取帧中的数据并上交给网络层；若不匹配，则丢弃。）
-	- However, sometimes a sending adapter does want all the other adapters on the LAN to receive and process the frame it is about to send. In this case, the sending adapter inserts a special MAC broadcast address into the destination address field of the frame. For LANs that use 6-byte addresses (such as Ethernet and 802.11), the broadcast address is a string of 48 consecutive 1s (that is, FF-FF-FF-FF-FF-FF in hexadecimal notation).（若将插入的 MAC 地址设置为 FF-FF-FF-FF-FF-FF，则意味着在LAN中广播该帧）
+	- When an adapter wants to send a frame to some destination adapter, the sending adapter inserts the destination adapter’s MAC address into the frame and then sends the frame into the LAN. Thus, when an adapter receives a frame, it will check to see whether the destination MAC address in the frame matches its own MAC address. If there is a match, the adapter extracts the enclosed datagram and passes the datagram up the protocol stack. If there isn’t a match, the adapter discards the frame, without passing the network-layer datagram up. Thus, the destination only will be interrupted when the frame is received.（要发送给指定目的适配器时，会将目的适配器的 MAC 地址插入帧中再发送到 LAN。当适配器收到帧时，检查其中的 MAC 地址是否匹配，若匹配则提取帧中的数据并上交给网络层；若不匹配，则丢弃。因此目的适配器只会在帧被接收时中断，从而提高了运行效率。）
+	- However, sometimes a sending adapter does want all the other adapters on the LAN to receive and process the frame it is about to send. In this case, the sending adapter inserts a special MAC broadcast address into the destination address field of the frame. For LANs that use 6-byte addresses (such as Ethernet and 802.11), the broadcast address is a string of 48 consecutive 1s (that is, FF-FF-FF-FF-FF-FF in hexadecimal notation).（若将插入的 MAC 地址设置为 FF-FF-FF-FF-FF-FF，则意味着在 LAN 中广播该帧）
 
 - 地址解析协议：Address Resolution Protocol
 	- 提供 IP 地址和 MAC 地址之间的转换：
