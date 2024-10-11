@@ -1,3 +1,12 @@
+/*
+ * @Author: Lee Sen.J
+ * @Date: 2024-09-10 00:46:46
+ * @LastEditors: chestNutLsj lisj24@mails.tsinghua.edu.cn
+ * @LastEditTime: 2024-10-11 23:42:43
+ * @FilePath: \quartz\quartz.config.ts
+ * @Description: 
+ * 
+ */
 import { QuartzConfig } from "./quartz/cfg"
 import enUS from "./quartz/i18n/locales/en-US"
 import * as Plugin from "./quartz/plugins"
@@ -17,7 +26,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
-    ignorePatterns: [".obsidian", ".trash", ".stfolder"],
+    ignorePatterns: [".obsidian", ".trash",],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",

@@ -1,3 +1,12 @@
+/*
+ * @Author: Lee Sen.J
+ * @Date: 2024-09-09 18:23:01
+ * @LastEditors: chestNutLsj lisj24@mails.tsinghua.edu.cn
+ * @LastEditTime: 2024-10-11 23:32:55
+ * @FilePath: \quartz\quartz\plugins\transformers\toc.ts
+ * @Description: 
+ * 
+ */
 import { QuartzTransformerPlugin } from "../types"
 import { Root } from "mdast"
 import { visit } from "unist-util-visit"
@@ -12,7 +21,7 @@ export interface Options {
 }
 
 const defaultOptions: Options = {
-  maxDepth: 3,
+  maxDepth: 4,
   minEntries: 1,
   showByDefault: true,
   collapseByDefault: false,

@@ -9,13 +9,13 @@ export const sharedPageComponents: SharedLayout = {
     Component.Comments({
       provider: "giscus",
       options: {
-        // from giscu config's data-repo
+        // from giscus config's data-repo
         repo: "chestNutLsj/senjl-quartz-space",
-        // from giscu config's data-repo-id
+        // from giscus config's data-repo-id
         repoId: "R_kgDOK_jAvg",
-        // from giscu config's data-category
+        // from giscus config's data-category
         category: "Announcements",
-        // from giscu config's data-category-id
+        // from giscus config's data-category-id
         categoryId: "DIC_kwDOK_jAvs4CjRYH",
 
         // how to map pages -> discussions
@@ -62,7 +62,9 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
+    Component.DesktopOnly(Component.TableOfContents({
+      layout: "legacy",
+    })),
     Component.Backlinks(),
   ],
 }
