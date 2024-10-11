@@ -220,33 +220,43 @@ g(w_{k}^{r,i})=\frac{1}{b}\sum\limits_{(x,y)\in(\mathcal{X}_{k}^{b},\mathcal{Y}_
 $$
 在更新本地模型 $w_{k}^{r,i}$ 时使用基准 SGD 优化算法：
 $$
-w_{k}^{r,i+1}=w_{k}^{r,i}-\eta\cdot g(w_{k}^{r,i})
+w_{k}^{r,i+1}=w_{k}^{r,i}-\eta\cdot g(w_{k}^{r,i}),\tag{11}
 $$
 此处 $\eta$ 是本地学习率。除了 SGD 还可以使用其他优化算法，例如 RMSProp、Adam、Momentum 等。
 
-$$\begin{align*}\\ 
-&\textbf{Algorithm 1.} \text{(Worker) }Local Training\\ 
-&\textbf{Input: } 工作者的数量\ K;全局学习率\ \epsilon;传播函数\ f;\\
-&每个工作者处的样本规模\ \{n_{k}\}_{K},(\forall k\in[1,K]);总样本规模\ n；最大迭代轮次\ R.\\
-1:&\quad \\
-2:&\quad \\
-3:&\quad \\
-4:&\quad \\
-5:&\quad \\
-6:&\quad \\
-7:&\quad \\
-8:&\quad \\
-9:&\quad \\
-10:&\quad \\
-11:&\quad \\
-12:&\quad \\
-13:&\quad \\ 
-&\textbf{Output: } \text{近似的最佳权重}w^{*}=w^{R}.\\ 
-\end{align*}$$
+本地训练的协调算法如下（看完后面的 Algo 1 和 Algo 2 再回来看）：
+$$
+\begin{align*}\\ 
+&\textbf{Algorithm 3.} \text{(Worker) }LocalTraining\\ 
+&\textbf{Input: } 本地数据(\mathcal{X}_{k},\mathcal{Y}_{k});全局最大迭代轮次R;本地学习率\eta\ ;批尺寸b;传播函数f.\\
+\\
+1:&\quad i_{k}=r_{k}=0,t_{k}=CurrentTime();//初始化\\
+2:&\quad w_{k}^{0,0}=w^{0},m_{k}=\frac{RTT}{2};//从\text{Parameter Server}拉取初始模型，并测量传输时间\\
+3:&\quad 训练一轮获取计算时间\ c_{k};\\
+4:&\quad \textbf{while } r_{k}<R :\\
+5:&\quad \quad a_{k}=StateQuerying(k,i_{k},r_{k},c_{k},m_{k},t_{k});//向\text{State Server}发起查询得到后续动作\\
+6:&\quad \quad \textbf{if } a_{k}=TRAIN \textbf{ then:}\\
+7:&\quad \quad \quad t_{c}=CurrentTime();\\
+8:&\quad \quad \quad 从本地数据(\mathcal{X}_{k},\mathcal{Y}_{k})中采样得到一批子数据(\mathcal{X}_{k}^{b},\mathcal{Y}_{k}^{b}); \\
+9:&\quad \quad \quad g(w_{k}^{r,i})=\frac{1}{b}\sum\limits_{(x,y)\in(\mathcal{X}_{k}^{b},\mathcal{Y}_{k}^{b})}\sum\limits_{c=1}^{C}p(y=c)[\nabla_{w}\log f_{c}(x,w_{k}^{r,i})];//计算梯度\\
+10:&\quad \quad \quad w_{k}^{r,i+1}=w_{k}^{r,i}-\eta\cdot g(w_{k}^{r,i});//更新本地模型\\
+11:&\quad \quad \quad  t_{k}=CurrentTime();\\
+12:&\quad \quad \quad c_{k}=t_{k}-t_{c};//更新计算耗时\\
+13:&\quad \quad \quad i_{k}=i_{k}+1;\\
+14:&\quad \quad \textbf{else:}\\
+15:&\quad \quad \quad \Delta w_{k}^{r}=w_{k}^{r,i_{k}}-w_{k}^{r,0};//计算更新\\
+16:&\quad \quad \quad 将更新推送到\text{Parameter Server}同时测量传输耗时m_{k};\\
+17:&\quad \quad \quad w_{k}^{r_{k}+1,0}=w^{r_{k}+1};//拉取最新的更新\\
+18:&\quad \quad \quad i_{k}=0,r_{k}=r_{k}+1;//更新计数器\\
+19:&\quad \quad \quad t_{k}=CurrentTime();\\
+20:&\quad \quad \quad StateReport();//报告\text{worker }k已经进入了新的一轮训练
+
+\end{align*}
+$$
 
 #### State Querying
 
-worker $k$ 需要向 State Server 发起查询以获得下一步动作的指示，因为它自己并非全知。因此 worker $k$ 向 State Server 发送查询信息，其中包含当前状态的六元组 $(k,i_{k},r_{k},c_{k},m_{k},t_{k})$ 。在 State Server 上的状态查询伪代码如下所示，决定发起查询的 worker $k$ 下一步动作的详细细节已由前文公式(1)、(2)、(3) 描述： 
+worker $k$ 需要向 State Server 发起查询以获得下一步动作的指示，因为它自己并非全知。因此 worker $k$ 向 State Server 发送查询信息，其中包含当前状态的六元组 $(k,i_{k},r_{k},c_{k},m_{k},t_{k})$ 。在 State Server 上的状态查询伪代码如下所示，决定发起查询的 worker $k$ 下一步动作的详细细节已由前文公式 (1)、(2)、(3) 描述： 
 $$
 \begin{align*}\\ 
 &\textbf{Algorithm 1.} \text{ (State Server) }StateQuerying\\ 
@@ -259,15 +269,15 @@ $$
 3:&\quad \textbf{If } i_{k}==0\ \textbf{ or }r_{k}>r_{s}:\\
 4:&\quad\quad\textbf{return } a_{k}=TRAIN; \\
 5:&\quad t_{c}=CurrentTime();//滞后者s完成其本地的训练，或者\text{worker }k时间不足以多一轮迭代\\
-6:&\quad \textbf{If }k==s \textbf{ or }i_{s}==1\textbf{ or }a_{s}=SYNC\textbf{ or }不等式(3)不成立:\\
+6:&\quad \textbf{If }k==s \textbf{ or }i_{s}==1\textbf{ or }a_{s}=SYNC\textbf{ or }t_{c}+d_{k}>\tilde{t}_{s}://即不等式(3)不成立\\
 7:&\quad \quad S[k].action=SYNC//更新\text{worker }k的动作\\
-8:&\quad \quad \textbf{return } a_{k}=SYNC;\\\\
+8:&\quad \quad \textbf{return } a_{k}=SYNC;\\
 9:&\quad \textbf{return } a_{k}=TRAIN;\\
 &\textbf{Output: } \text{带有下一动作 }a_{k}\text{ 的状态响应信息.}\\ 
 \end{align*}
 $$
 
-状态回复信息中附带的动作 $a_{k}$ 将会指导 worker $k$ 做出相应的动作。如果 $a_{k}=TRAIN$ ，则 worker $k$ 有足够的时间完成新的一轮训练 $i\leftarrow i+1$ ；否则将会收到 $a_{k}=SYNC$ ，这意味着要么滞后者 $s$ 完成其训练，要么 worker $k$ 没有足够的时间再完成一轮训练，此时的 worker $k$ 已经到达了局部训练的目标，因此应立即进行同步当前已有的数据。
+状态回复信息中附带的动作 $a_{k}$ 将会指导 worker $k$ 做出相应的动作。如果 $a_{k}=TRAIN$ ，则 worker $k$ 有足够的时间完成新的一轮训练 $i\leftarrow i+1$ ；否则将会收到 $a_{k}=SYNC$ ，这意味着要么滞后者 $s$ 完成其训练，要么 worker $k$ 没有足够的时间再完成一轮训练，此时的 worker $k$ 已经到达了局部训练的目标，满足了**第二个目标**——最大化利用阻塞时间（反过来说就是最小化阻塞时间的浪费），因此应立即进行同步当前已有的数据。
 
 #### Global Synchronization
 
@@ -279,44 +289,100 @@ $$
 $$
 \Delta w^{r}=\sum\limits_{k=1}^{K} \frac{n_{k}}{n}\Delta w_{k}^{r},\tag{13}
 $$
-接下来被合并的更新会被 worker 们拉取并更新全局模型 $w^{r}$
+接下来被合并的更新会被 worker 们拉取并更新全局模型 $w^{r}$ 
 $$
 w^{r+1}=w^{r}+\epsilon\cdot\Delta w^{r},\tag{14}
-$$ \
+$$
 这里 $\epsilon$ 是全局学习率（默认设置为 1）。最新的全局模型 $w^{r+1}$ 接下来会同步给所有 worker，开启下一轮的迭代训练直到训练轮次达到最大 $R$ 。全局同步的伪代码如下：
- 
 $$
 \begin{align*}\\ 
 &\textbf{Algorithm 2.} \text{(Parameter Server) }GlobalSynchronization\\ 
 &\textbf{Input: } 工作者的数量\ K;全局学习率\ \epsilon;传播函数\ f;\\
 &每个工作者处的样本规模\ \{n_{k}\}_{K},(\forall k\in[1,K]);总样本规模\ n；最大迭代轮次\ R.\\
-1:&\quad \\
-2:&\quad \\
-3:&\quad \\
-4:&\quad \\
-5:&\quad \\
-6:&\quad \\
-7:&\quad \\
-8:&\quad \\
-9:&\quad \\
-10:&\quad \\
-11:&\quad \\
-12:&\quad \\
-13:&\quad \\ 
-&\textbf{Output: } \text{近似的最佳权重}w^{*}=w^{R}.\\ 
+\\
+1:&\quad r=0;//初始化迭代轮次的计数器\\
+2:&\quad StateReset(K);//初始化\text{ State Server}\\
+3:&\quad w^{0}=Xavier(f);//初始化全局模型的权重\\
+4:&\quad \textbf{While } r<R :\\
+5:&\quad \quad \textbf{for } \text{each worker }k \textbf{ in }[1,K]:\\
+6:&\quad \quad \quad \text{Send the weight }w^{r}\text{ to worker }k;\\
+7:&\quad \quad \Delta w^{r}=0;//清除已合并的更新\\
+8:&\quad \quad \textbf{for } \text{each worker }k \textbf{ in }[1,K]:\\
+9:&\quad \quad \quad \text{Receive the update }\Delta w_{k}^{r}\text{ from worker }k;\\
+10:&\quad \quad \quad \Delta w^{r}\leftarrow\Delta w^{r}+ \frac{n_{k}}{n}\Delta w_{k}^{r};//合并更新\\
+11:&\quad \quad w^{r}\leftarrow w^{r}+\epsilon\cdot\Delta w^{r};//更新全局模型(依据公式14)\\
+12:&\quad \quad r\leftarrow r+1;\\
+13:&\quad \textbf{return } w^{R};\\ 
+&\textbf{Output: } \text{最佳模型 }w^{*}\text{ 的近似 }w^{R}.\\ 
 \end{align*}
 $$
+上述流程（Algo 2）实现了**第一个目标**（最小化全局损失）。等式 11 通过梯度下降减少局部损失 $l_{k}$ 来训练局部模型 $w_{k}^{r,i}$ ，等式 13、14 则合并参与方们的更新并优化全局模型 $w^{r}$，减少全局损失率 $l_{g}$ 。通过重复这些操作，可以最小化全局损失 $l_{g}$ 并找到一个全局模型 $w^{R}$ 作为最佳模型 $w^{*}$ 的近似。
 
+*****
 
+![[Esyncnotes-fig6-SSGD-Esync.png]]
 
+回到以 high level 的角度观察训练，Fig 6(b) 展示了早期训练中的一个轮次，其中计算能力强的 $B$ 方在有限的时间内进行了多轮训练得到了本地模型 $w_{B}^{r,4}$ ，它已经非常接近全局最佳模型 $w^{*}$ ，在一定程度上推动了滞后者 $A$ 方的模型 $w_{A}^{r,1}$ 并使其更接近全局最佳模型，从而加速了收敛和避免了阻塞。
+
+同时，ESync 在后续的训练（$r\rightarrow R$）中并不会陷入局部最佳陷阱，如 Fig 6(c) 所示，powerful party $B$ 的本地模型 $w_{B}^{r,3}$ 经过多轮迭代已经到达其局部最佳 $w_{B}^{*}$ ，但滞后方 $A$ 仍在慢慢推动全局模型 $w^{r+1}$ 离开 $B$ 的局部最佳（因为 $|w^{r}-w_{A}^{*}|$ 差距过大，显然是有错误的），最终全局模型 $w^{R}$ 抵达了全局最佳模型 $w^{*}$ 附近的动态平衡点。
+
+ESync 在有限带宽的 cross-silo FL 中亦可以有效运行，这是因为其同时向上游和下游发送更新信息，更新信息可以通过稀疏化技术进行压缩。Lin 等人的论文发现，99.9% 的梯度是多余的，丢弃这些梯度对精度的影响可以忽略不计。因此，我们可以对上下游的冗余更新进行稀疏压缩，从而减少 95% 需要传输的更新。
 
 ## Convergence Analysis
 
+>本节将从理论上分析 ESync 算法的收敛精度和收敛速率，并将 ESync 与 SSGD 和 FedAvg 的比较进行说明。
+
+定义 $w_{f}^{r}$ 为联邦训练中第 $r$ 轮的模型，$w_{c}^{r}$ 为集中训练中第 $r$ 轮的模型，因此二者之差别 $||w_{f}^{r}-w_{c}^{r}||$ 用于量化精度差距，模型差距越小，则收敛精度越高。
+
+
+
 ## Experimental Evaluation
+
+>我们在 MXNET 上制作了 ESync 的原型，在各种设置（不同模型、数据集、数据分布、计算异构性）下进行了大量实验，并将其与传统 DML 和 cross-silo FL 的基准算法进行了比较。
 
 ### Experimental Setup
 
+*环境设置*。测试平台建在一个共享数据中心内，拥有 1 Gbps 带宽的局域网网络。 我们使用 3 台机器来模拟 12 个隔离方。 这些机器共有 6 个 GTX 1080 TI GPU 和 6 个英特尔 E 5-2650 v 4 CPU。 我们分别为 12 方运行 12 个 docker 容器，每方贡献 1 个 Worker。 因此，我们有 6 个 GPU Worker 和 6 个 CPU Worker 来训练联合模型。 除非另有说明，计算异质性默认为 hc 1/4 150，即当 CPU 工作者完成一次局部迭代时，GPU 工作者可以训练 150 次局部迭代。 此外，我们随机选择一台机器运行两个额外的容器，其中一个用于参数服务器，另一个用于状态服务器。
+
+*模型和数据集*。我们在实验中使用了多种卷积模型，包括经典的 AlexNet [46]、ResNet [47]、[48]、Inception [49] 以及 [15] 中使用的轻量级模型。 我们使用最广泛使用的 CIFAR 10 [9] 和 Fashion-MNIST [45] 数据集进行实验。CIFAR 10 是一个图片分类数据集，由 10 个类别的 50,000 个训练样本和 10,000 个测试样本组成。 FashionMNIST 是一个服装分类数据集，由 10 个类别的 60,000 个训练样本和 10,000 个测试样本组成。 训练样本按照表 2 所示的 i.i.d. 或非 i.i.d. 设置平均分为 12 个工人。 我们默认使用 i.i.d.设置，以突出 ESync 对计算异质性的优势。
+
+*基准算法*。域内 FL 是本文提出的一个新概念，因此我们使用传统 DML 算法（SSGD [10]、ASGD [13]、DC-ASGD [14]）和 cross-silo FL 算法（FedAvg [2]、FedDrop [11]、TiFL [12]、FedAsync [15]）作为基准，比较它们的收敛精度、训练效率、数据吞吐量、流量负载和计算平衡。
+
+*训练超参数*。我们使用 SGD 优化器进行局部训练，并在以下实验中默认设置局部学习率 $\eta=.0.001$、全局学习率 $\epsilon=1$、批量大小 $b=32$、局部 epoch 数 $E=1$。
+
 ### Numerical Results
+
+#### ESync 与传统 DML 算法对比
+
+![[Esyncnotes-fig9-train-efficiency.png]]
+
+*训练效率*。我们使用不同的模型和数据集来比较 ESync 与高频同步 SSGD、ASGD 和 DC-ASGD 算法的训练效率。 图 9 a 显示了在 ResNet 18 模型和 i.i.d. Fashion-MNIST 数据集上测试准确率随时间变化的曲线。 结果表明，ESync 在训练初期的训练效率与 ASGD 和 DC-ASGD 相近，并能在很短的时间内收敛到最先进的精度（SOTA）。 同时，当测试精度达到 0.8 时，ESync 比 SSGD 节省了 85% 的时间。 图 9 b 对 AlexNet 模型进行了更复杂的设置，使用 i.i.d. CIFAR 10 数据集。 结果表明，**ESync 可以在更复杂的任务中实现更高的加速度，其中 ESync 的训练效率远远超过 SSGD、ASGD 和 DC-ASGD**。 需要注意的是，由于散兵游勇导致效率低下，SSGD 远未在相同时间内收敛。
+
+![[Esyncnotes-Fig10-time-reduction.png]]
+*时间节省*。我们在多个模型上重复 ESync 和 SSGD 的实验，并比较测试准确率达到 0.8 时的训练时间。 图 10 显示了使用 i.i.d. FashionMNIST 数据集的 ResNet 50-v 1、ResNet 50-v 2、AlexNet 和 Inception-v 3 模型的测试准确率随时间变化的曲线，表 3 给出了测试准确率达到 0.8 所需的时间。 结果表明，在 AlexNet 模型上，**ESync 比 SSGD 最多缩短了 96% 的时间**。 原因是 ESync 利用阻塞时间处理更多样本，加速了公式（20）中 m 的增加，因此收敛速度比 SSGD 快。
+
+![[Esyncnotes-table3-converged-accuracy.png]]
+*收敛精度*。我们使用 SGD 优化器用完整的时尚-MNIST 数据集（CSGD）训练了一个集中模型，并在表 3 中给出了 CSGD 和 ESync 的收敛精度。 结果表明，ESync 并没有影响收敛精度，令人惊讶的是，**ESync 甚至比 SSGD 获得了更高的收敛精度**。 原因可能是 ESync 的权重发散引入了适量的噪声，有助于全局模型从尖锐最小值逃逸到平坦最小值，而平坦最小值往往具有更好的泛化效果。
+
+![[Esyncnotes-fig11-noniid-performance.png]]
+*Non-i.i.d 数据上的性能表现*。图 11 a 显示了在非 i.i.d 的时尚-MNIST 数据集上，ESync、SSGD、ASGD 和 DC-ASGD 在 AlexNet 模型上的表现。 非 i.i.d. 数据放大了 ASGD 和 DC-ASGD 梯度延迟的影响，导致训练效率急剧下降。 虽然 ASGD 和 DC-ASGD 在训练初期仍有较高的效率，但其准确率很快就被 SSGD 超越，从而失去了效率优势。 ESync 也受到非 i.i.d. 数据的影响，但它在早期训练中的效率仍然接近 ASGD 和 DC-ASGD，准确率也始终优于 SSGD。
+
+*应对不同异构性的能力*。我们通过设置 docker 容器的 CPU 可获取资源来调整一些 worker 的计算能力，以微调计算异构性 $h_{c}$ 。图 11 b 显示了在 ResNet 18 模型上使用 i.i.d. Fashion-MNIST 数据集的测试准确率随轮变化的曲线，其中 h c 从 10 增加到 300。 结果表明，随着 hc 的增加，ESync 的训练效率不断提高，并最终稳定在最佳效率。 我们发现，即使在 hc 1/4 300 : 1 的情况下，ESync 也不会带来精度损失。 这是因为当进行了足够多的局部迭代后，由于局部模型已陷入局部最优，此后的更多迭代将毫无用处，但滞后模型仍能将局部模型推出局部最优。 然而，当 hc 减小到 1 : 1 时，ESync 最终会退化为 SSGD，从而适应同质环境。
+
+#### ESync 与 cross-silo FL 算法对比
+
+FedAvg 因其高效的通信而被广泛应用于跨分站 FL 中，但它也会受到散兵游勇造成的训练效率低下的影响，特别是当阻塞时间淹没了通信效率的提高时。 有人提出了解决杂波的方法，其中 FedAsync、TiFL 和 FedDrop 被用作基准。
+
+![[Esyncnotes-fig12-esync-vs-fedasync-tifl.png]]
+
+*ESync vs. FedAsync*. FedAsync 使用加权平均法异步更新全局模型。 我们在实验中使用了 FedAsync 建议的设置。 模型由 4 个卷积层和 1 个全连接层组成。 训练样本被裁剪成 $(24,24)$ 的形状，并分成 50 个批次。 推荐的多项式函数（FedAsync +Poly）和铰链函数（FedAsync+Hinge）用于衰减混合超参数 $\alpha$（0.6 或 0.9），推荐的超参数 a 1/4 0:5 用于 FedAsync+Poly 和 a 1/4 10, b 1/4 4 用于 FedAsync+Hinge。 图 12 a 显示了 ESync、FedAvg 和 FedAsync 使用 i.i.d. Fashion-MNIST 数据集测试的准确率。 FedAsync 通过异步更新避免了阻塞，在早期训练中比 FedAvg 实现了更高的效率。 然而，强大的计算异质性 hc 1/4 150 : 1 加剧了延迟更新的影响，严重破坏了准确性，最终使 FedAsync 被 FedAvg 超越。 相反，在所有推荐设置下，ESync 在效率和准确性方面都优于 FedAvg 和 FedAsync，因为 ESync 是一种没有延迟更新的同步算法。
+
+*ESync vs. TiFL*. TiFL 将具有相似延迟的工人分成若干层级，每轮选择一个层级，并从该层级中随机选择指定数量的工人参与训练。 我们将 12 个工人分为 2 层（T 1 和 T 2），其中 T 1 有 8 个 GPU 工人，T 2 有 4 个 CPU 工人。 我们使用静态层级选择算法，并将每个层级被选中的初始概率设为 P ðT 1Þ 1/4 0:5 和 P ðT 2Þ 1/4 0:5（简称为 TiFL:PðT 2Þ）。 为了减少整体训练时间，我们将 T 2 层的选择限制为最大次数 Credits 2 1/4 20（简称为 TiFL:CðT 2Þ）。 然后，从所选层级中随机抽取 4 名工人参与训练。 图 12 b 显示了 ESync、FedAvg 和 TiFL 在 ResNet 34 模型和 i.i.d. Fashion-MNIST 数据集上随时间变化的测试准确率。 结果表明，TiFL 只实现了训练效率的小幅提高。 原因是散兵也可能以概率 P ðT 2Þ 被采样，直到它们被选中 Credits 2 次，它们的长计算时间 E nc s b Credits 2 也会被添加到整体训练时间中。 假设 P ðT 2Þ ！ 0 或 Credits 2 ！ 0 是提高训练效率的好方法。 此时，落伍者被选中的可能性较小，但他们贡献更新的可能性也较小，这就使得落伍者的数据无法被使用，从而造成精度损失（图 13 b 中与 FedDrop 一起解释）。 相反，ESync 最大限度地利用了散兵和强力工人之间的重叠时间，散兵的计算时间可以视为不包含在整体训练时间中，因此 ESync 可以达到比 TiFL 更高的训练效率。
+
+![[Esyncnotes-fig13-esync-vs-feddrop.png]]
+
+*ESync vs. FedDrop*. FedDrop 会在收到足够多的更新时更新全局模型，而未能及时报告更新的落伍者将被直接忽略。 测试平台有 8 个 GPU 工作者和 4 个 CPU 工作者，计算异质性为 h c 1/4 150 : 1。 设^K 为放弃的工人数，12 ^K 为接收时间窗口内接受的工人数。 为了实现更高的效率，我们将 ^K 从 4 增加到 11（称为 FedDrop ( ^K)），并在图 13 a 中绘制了使用 i.i.d. FashionMNIST 数据集的 ResNet 34 模型的测试准确率随时间变化的曲线。结果表明，FedDrop 可以通过淘汰滞后者在早期训练中有效加速，但过早收敛，精度较低。 图 13 b 显示了 FedDrop 在不同 ^K 条件下的收敛测试损失。 由于丢弃工人等同于丢弃训练数据，随着丢弃工人的增加，收敛损失会继续恶化，这意味着收敛精度也在恶化。 相反，ESync 仍然比 FedDrop 更高效、更准确，因为它不丢弃工人，收敛精度也比 FedAvg 更高（命题 2），其中 FedDrop ( ^K) ( ^K 4) 相当于规模较小的 FedAvg。
+
 
 [^1]: Mcmahan, H., et al. Communication-Efficient Learning of Deep Networks from Decentralized Data.
 [^2]: Yao, Xin, et al. “Federated Learning with Unbiased Gradient Aggregation and Controllable Meta Updating.” Cornell University - arXiv, Cornell University - arXiv, Oct. 2019.
