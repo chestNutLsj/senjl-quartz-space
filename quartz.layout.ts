@@ -41,6 +41,7 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       GitHub: "https://github.com/chestNutLsj",
       // "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "RSS Subscribe": "https://chestNutLsj.github.io/senjl-quartz-space/index.xml",
     },
   }),
 }
