@@ -12,7 +12,9 @@ date: 2024-02-15
 >一天，软件工程师、计算机科学家和数学家在圆明园相遇，他们看 到湖面上游来一只黑天鹅，于是不约而同地使用各自领域的建模方法描述这只黑天鹅：
 >- 在软件工程师的模型中，将天鹅建模为黑色的：$\forall x,\text{Swan}(x)\to \text{Black}(x)$ ；
 >- 计算机科学家的模型中，仅将一部分天鹅建模为黑色的：$\exists x,\text{Swan}(x)\wedge\text{Black}(x)$ ；
->- 数学家的模型则是：在圆明园，有一个湖上，存在至少一只天鹅，它的一面是黑色的… ：$$
+>- 数学家的模型则是：在圆明园，有一个湖上，存在至少一只天鹅，它的一面是黑色的… ：
+>
+>$$
 >\exists x\exists y\exists z\exists u,\text{Swan}(x)\wedge\text{Lake}(y)\wedge\text{SwimOn}(x,y)\wedge\text{At}(y,Palace)\wedge\text{Black}(OneSide(x))
 >$$
 >

@@ -2,7 +2,7 @@
  * @Author: Lee Sen.J
  * @Date: 2024-09-10 00:46:46
  * @LastEditors: chestNutLsj lisj24@mails.tsinghua.edu.cn
- * @LastEditTime: 2024-10-11 23:42:43
+ * @LastEditTime: 2024-10-13 20:12:17
  * @FilePath: \quartz\quartz.config.ts
  * @Description: 
  * 
@@ -18,12 +18,10 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🌰Senjl's Digital Garden🇨🇳",
+    pageTitle: "🌰Senjl's Digital Garden🐉",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: null,
     locale: "en-US",
     baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
     ignorePatterns: [".obsidian", ".trash",],
@@ -70,12 +68,15 @@ const config: QuartzConfig = {
       }),
       Plugin.SyntaxHighlighting({
         theme: {
-          light: "github-light",
-          dark: "github-dark",
+          light: "solarized-light",
+          dark: "one-dark-pro",
         },
-        keepBackground: false,
+        keepBackground: true,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: true }),
+      Plugin.ObsidianFlavoredMarkdown({
+        enableInHtmlEmbed: true,
+        highlight: true,
+      }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
@@ -92,6 +93,9 @@ const config: QuartzConfig = {
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,
+        rssLimit: 5,
+        rssFullHtml: true,
+        includeEmptyFiles: false,
       }),
       Plugin.Assets(),
       Plugin.Static(),

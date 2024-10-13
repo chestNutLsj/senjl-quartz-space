@@ -39,9 +39,9 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/chestNutLsj",
+      "GitHub": "https://github.com/chestNutLsj",
       // "Discord Community": "https://discord.gg/cRFFHYye7t",
-      "RSS Subscribe": "https://chestNutLsj.github.io/senjl-quartz-space/index.xml",
+      "RSS Feed": "https://chestNutLsj.github.io/senjl-quartz-space/index.xml",
     },
   }),
 }
