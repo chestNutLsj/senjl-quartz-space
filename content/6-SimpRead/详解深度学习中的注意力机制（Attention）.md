@@ -2,8 +2,8 @@
 url: https://zhuanlan.zhihu.com/p/379722366
 title: 详解深度学习中的注意力机制（Attention）
 date: 2023-04-02 16:22:32
-tag: 
-summary: 
+tags:
+  - attention
 ---
 今天我们来探讨下深度学习中的 Attention 机制，中文名为 “注意力”。
 

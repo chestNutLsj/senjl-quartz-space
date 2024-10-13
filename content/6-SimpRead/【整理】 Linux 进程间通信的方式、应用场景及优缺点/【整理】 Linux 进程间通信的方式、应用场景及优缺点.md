@@ -1,10 +1,10 @@
 ---
 url: https://www.cnblogs.com/feily/articles/14160817.html
-title:  Linux 进程间通信的方式、应用场景及优缺点
+title: Linux 进程间通信的方式、应用场景及优缺点
 date: 2023-10-23 18:56:14
 time: 1698058574539
-tag: 
-summary: 
+tags:
+  - Linux
 ---
 目录
 

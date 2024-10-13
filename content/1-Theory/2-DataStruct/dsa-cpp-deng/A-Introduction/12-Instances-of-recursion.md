@@ -1,5 +1,6 @@
 ---
-publish:
+publish: 
+date: 2023-09-15
 ---
 ## Hanoi 问题
 描述：法国数学家 Edouard Lucas 于 1883 提出的 Hanoi 塔问题，可形象地描述如下：

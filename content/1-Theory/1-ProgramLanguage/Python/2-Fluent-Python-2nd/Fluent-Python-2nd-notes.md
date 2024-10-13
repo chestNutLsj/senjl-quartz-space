@@ -1,8 +1,5 @@
 ---
-title: Fluent Python Clear, Concise, and Effective Programming
-author: undefined
-publisher: O'Reilly Media
-status: false
+title: Fluent Python 2nd
 tags:
   - Python
 ---

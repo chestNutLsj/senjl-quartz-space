@@ -1,5 +1,6 @@
 ---
 publish: "true"
+date: 2023-07-23
 tags:
   - ArchLinux
   - Linux

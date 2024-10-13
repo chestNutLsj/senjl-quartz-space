@@ -3,6 +3,7 @@ publish: "true"
 tags:
   - ArchLinux
   - Linux
+date: 2023-07-17
 ---
 
 由于 archlinux 的更新策略很激进, 导致某些软件过新, 而一些依赖并没有支持, 比如著名的 [virtualbox 在 linux5.18 内核下的崩溃open in new window](https://bugs.archlinux.org/task/74900) ， 所以有时候不得不安装过时的软件或者降级已安装的软件。

@@ -1,6 +1,7 @@
 ---
 url: https://www.tutorialspoint.com/design_and_analysis_of_algorithms/design_and_analysis_of_algorithms_fisher_yates_shuffle.htm
 publish: "true"
+date: 2023-09-18
 ---
 ## Introduction
 

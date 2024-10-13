@@ -1,8 +1,10 @@
 ---
 publish: "true"
+date: 2023-07-23
 tags:
   - ArchLinux
   - Linux
+date: 2023-07-15
 ---
 
 ## 全局查看

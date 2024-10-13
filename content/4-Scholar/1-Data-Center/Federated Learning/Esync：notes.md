@@ -334,7 +334,23 @@ ESync 在有限带宽的 cross-silo FL 中亦可以有效运行，这是因为�
 
 定义 $w_{f}^{r}$ 为联邦训练中第 $r$ 轮的模型，$w_{c}^{r}$ 为集中训练中第 $r$ 轮的模型，因此二者之差别 $||w_{f}^{r}-w_{c}^{r}||$ 用于量化精度差距，模型差距越小，则收敛精度越高。
 
+**Assumption 1**. 给定 $K$ 个 worker 和 $n$ 个样本 $(\mathcal{X},\mathcal{Y})$ ，并将 $n_{k}$ 样本 $(\mathcal{X}_{k},\mathcal{Y}_{k})$ 按照 non-i.i.d. 、$p_{k},\text{where }p_{k_{1}}\neq p_{k_{2}}\text{ for any }k_{1\ne}k_{2}$  的分布分配给 $k$ 个 worker 。对于 $C$ 中的每个类 $c$，$K$ 个 worker 的总体数据分布 $\sum_{k=1}^{K}\frac{n_{k}}{\sum_{k=1}^{K}n_{k}}p_{k}(y=c)$ 与人口分布 $p(y=c)$ 是相同的。
 
+假定 Assumption 1 成立，并且对于 $[1, C]$ 中的每个类 $c$，$\nabla_{w}\mathbb{E}_{x|y=c}[\log f_{c}(x, w)]$ 是 $\lambda_{x|y=c}$ -Lipschitz[^10] 的。 工作者 $k$ 每进行 $i_{k}$ 次本地迭代，就会同步更新一次。 那么，ESync 的权重发散的边界为
+$$
+||w_{f}^{r}-w_{c}^{r}||_{\text{ESync}}\le\sum\limits_{k=1}^{K} \frac{I}{i}\left(\underbrace{(a_{k})^{I}||w_{f}^{(r-1)I}-w_{c}^{(r-1)I}||}_{\text{weight divergence after (r-1)th round}}+\underbrace{\eta\underbrace{\sum\limits_{c=1}^{C}||p_{k}(y=c)-p(y=c)||}_{\text{distribution distance}}\underbrace{(\sum\limits _{j=0}^{I-1}(a_{k})^{j}g_{\max}(w_{c}^{rI-1-j}))}_{\text{biased gradient}}}_{\text{distribution divergence}}\right)\tag{15}
+$$
+此处 $\alpha_{k}=\big(1+\eta\sum_{c=1}^{C}p_{k}(y=c)\lambda_{x|y=c}\big)$，$g_{\operatorname*{max}}\big(w_{c}^{r I-1-j}\big)=\operatorname*{max}_{c=1}^{C}\lvert\lvert\nabla_{w}\mathbb{E}_{x\rvert y=c}[\log f_{c}(x,w_{c}^{r I-1-j})]\rvert\rvert$，$i=\sum_{k=1}^{K}i_{k}$，并且 $I=\mathrm{max}_{k}i_{k}$ 。
+
+**Proof**. 令 $i=\sum_{k=1}^{K}i_{k}$ ，则会得到
+$$
+\begin{array}
+{r l}&{\|w_{f}^{r}-w_{c}^{r}\|_{\text{ESync}}=\|\displaystyle\sum_{k=1}^{K}\displaystyle\frac{i_{k}}{i}w_{k}^{ri_{k}}-w_{c}^{ri_{k}}\|
+\leq\displaystyle\sum_{i=1}^{K}\displaystyle\frac{i_{k}}{i}\|w_{ k}^{ri_{k}}-w_{c}^{ri_{k}}\|}\\
+&{=\displaystyle\sum_{k=1}^{K}\displaystyle\frac{i_{k}}{i}\|w_{i k}^{ri_{k}-1}-\eta\displaystyle\sum_{c=1}^{C}p_{k}(y=c)\nabla_{w}\mathbb{E}_{x|y=c}[\log f_{c}(x,w_{k}^{ri_{k}-1})]}\\
+&{\quad\quad-w_{c}^{\epsilon,k-1}+\eta\displaystyle\sum_{c=1}^{K}p_{k}(y=c)\nabla_{w}\mathbb{E}_{x_{|y|<c}}[\log f_{c}(x,w_{c}^{\epsilon,k-1})]\|}\\ &{\leq\displaystyle\sum_{k=1}^{K}\displaystyle\frac{i_{k}}{i_{l}}\|w_{i k}^{\epsilon,k-1}-w_{c}^{\epsilon,k-1}\|+\eta\displaystyle\sum_{k=1}^{K}\displaystyle\frac{i_{k}}{i_{l}}\|\displaystyle\sum_{c=1}^{C}p_{k}(y=c)}\\ &{\quad\quad(\nabla_{w}\mathbb{E}_{x|y=c}[\log f_{c}(x,w_{i k}^{\epsilon,k-1})]-\nabla_{w}\mathbb{E}_{x|y=c}[\log f_{c}(x,w_{c}^{\epsilon,k-1})])\|}\\ &{\leq\displaystyle\sum_{i=1}^{K}\displaystyle\frac{\alpha_{i}i_{k}}{i_{l}}\|w_{i k}^{\epsilon,k-1}-w_{c}^{\epsilon,k-1}\|,}
+\end{array}\tag{16}
+$$
 
 ## Experimental Evaluation
 
@@ -393,3 +409,4 @@ FedAvg 因其高效的通信而被广泛应用于跨分站 FL 中，但它也会
 [^7]: Zinkevich, Martin, et al. “Parallelized Stochastic Gradient Descent.” Neural Information Processing Systems, Neural Information Processing Systems, Dec. 2010.
 [^8]: Dean, J. Michael, et al. “Large Scale Distributed Deep Networks.” Neural Information Processing Systems, Neural Information Processing Systems, Dec. 2012.
 [^9]: [Integer programming - Wikipedia](https://en.wikipedia.org/wiki/Integer_programming?useskin=vector)
+[^10]: [[Lipschitz continuity|什么是 λ-Lipschitz 的？]]

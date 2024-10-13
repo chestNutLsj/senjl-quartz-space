@@ -1,5 +1,6 @@
 ---
-publish:
+publish: 
+date: 2023-09-17
 ---
 Intuitively, the assertion "_f_(_x_) is _o_(_g_(_x_))" (read "_f_(_x_) is little-o of _g_(_x_)") means that _g_(_x_) grows much faster than _f_(_x_).
 

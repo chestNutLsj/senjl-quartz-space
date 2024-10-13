@@ -3,6 +3,7 @@ publish: "true"
 tags:
   - ArchLinux
   - Linux
+date: 2023-07-17
 ---
 
 ### 00. Pacman常用命令

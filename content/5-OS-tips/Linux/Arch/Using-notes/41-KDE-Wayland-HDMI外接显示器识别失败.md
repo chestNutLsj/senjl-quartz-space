@@ -1,5 +1,6 @@
 ---
 publish: "true"
+date: 2023-07-23
 ---
 这个问题在 tg 上的 archlinuxcn 群里得到了详细的解答，记录如下。
 

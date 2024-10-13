@@ -1,6 +1,7 @@
 ---
 url: https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con
 publish: "true"
+date: 2024-04-24
 ---
 在 Linux 设备上有这样一些术语常常让人感到混沌：terminal、shell、tty、console。事实上，这组术语与计算机的发展历史息息相关，下面就是从Stack Overflow 中摘抄的解释，帮助读者理解。
 

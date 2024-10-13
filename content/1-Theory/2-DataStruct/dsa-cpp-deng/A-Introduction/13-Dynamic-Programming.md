@@ -1,5 +1,6 @@
 ---
-publish:
+publish: 
+date: 2023-09-13
 ---
 ## Introduction
 本章将介绍介绍动态规划（Dynamic Programming, DP）及其解决的问题、根据其设计的算法及优化。
