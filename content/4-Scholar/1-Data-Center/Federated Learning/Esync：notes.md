@@ -179,6 +179,7 @@ $$
 $$
 w^{*}=\underset{w}{\arg\min}\ l_{g}(w,\mathcal{X},\mathcal{Y})\tag{7}
 $$
+
 #### Minimize Blocking Time
 
 对于参与方 $k$ ，其有计算耗时 $c_{k}$ 和传输耗时 $m_{k}$ ，故总的延迟为 $d_{k}=c_{k}+m_{k}$ 。找出计算耗时和传输耗时中的极值：$c_{max}=\max \{c_{k}|k\in[1,K]\},c_{min}=\min\{c_{k}|k\in[1,K]\}$，$m_{max}=\max \{m_{k}|k\in[1,K]\},m_{min}=\min\{m_{k}|k\in[1,K]\}$ 。定义计算异构性为 $h_{c}=\frac{c_{max}}{c_{min}}$ ，通信异构性为 $h_{m}=\frac{m_{max}}{m_{min}}$ 。
@@ -328,7 +329,7 @@ $$
 
 ESync 在有限带宽的 cross-silo FL 中亦可以有效运行，这是因为其同时向上游和下游发送更新信息，更新信息可以通过稀疏化技术进行压缩。Lin 等人的论文发现，99.9% 的梯度是多余的，丢弃这些梯度对精度的影响可以忽略不计。因此，我们可以对上下游的冗余更新进行稀疏压缩，从而减少 95% 需要传输的更新。
 
-## Convergence Analysis
+## Convergence Analysis[^11]
 
 >本节将从理论上分析 ESync 算法的收敛精度和收敛速率，并将 ESync 与 SSGD 和 FedAvg 的比较进行说明。
 
@@ -360,7 +361,7 @@ $$
 
 *环境设置*。测试平台建在一个共享数据中心内，拥有 1 Gbps 带宽的局域网网络。 我们使用 3 台机器来模拟 12 个隔离方。 这些机器共有 6 个 GTX 1080 TI GPU 和 6 个英特尔 E 5-2650 v 4 CPU。 我们分别为 12 方运行 12 个 docker 容器，每方贡献 1 个 Worker。 因此，我们有 6 个 GPU Worker 和 6 个 CPU Worker 来训练联合模型。 除非另有说明，计算异质性默认为 hc 1/4 150，即当 CPU 工作者完成一次局部迭代时，GPU 工作者可以训练 150 次局部迭代。 此外，我们随机选择一台机器运行两个额外的容器，其中一个用于参数服务器，另一个用于状态服务器。
 
-*模型和数据集*。我们在实验中使用了多种卷积模型，包括经典的 AlexNet [46]、ResNet [47]、[48]、Inception [49] 以及 [15] 中使用的轻量级模型。 我们使用最广泛使用的 CIFAR 10 [9] 和 Fashion-MNIST [45] 数据集进行实验。CIFAR 10 是一个图片分类数据集，由 10 个类别的 50,000 个训练样本和 10,000 个测试样本组成。 FashionMNIST 是一个服装分类数据集，由 10 个类别的 60,000 个训练样本和 10,000 个测试样本组成。 训练样本按照表 2 所示的 i.i.d. 或非 i.i.d. 设置平均分为 12 个工人。 我们默认使用 i.i.d.设置，以突出 ESync 对计算异质性的优势。
+*模型和数据集*。我们在实验中使用了多种卷积模型，包括经典的 AlexNet、ResNet、Deep ResNet、Inception 以及 [^6] 中使用的轻量级模型。我们使用最广泛使用的 CIFAR10 和 Fashion-MNIST 数据集进行实验。CIFAR10 是一个图片分类数据集，由 10 个类别的 50,000 个训练样本和 10,000 个测试样本组成。 Fashion-MNIST 是一个服装分类数据集，由 10 个类别的 60,000 个训练样本和 10,000 个测试样本组成。训练样本按照表 2 所示的 i.i.d. 或非 i.i.d. 设置平均分为 12 个工人。 我们默认使用 i.i.d.设置，以突出 ESync 对计算异质性的优势。
 
 *基准算法*。域内 FL 是本文提出的一个新概念，因此我们使用传统 DML 算法（SSGD [10]、ASGD [13]、DC-ASGD [14]）和 cross-silo FL 算法（FedAvg [2]、FedDrop [11]、TiFL [12]、FedAsync [15]）作为基准，比较它们的收敛精度、训练效率、数据吞吐量、流量负载和计算平衡。
 
@@ -410,3 +411,4 @@ FedAvg 因其高效的通信而被广泛应用于跨分站 FL 中，但它也会
 [^8]: Dean, J. Michael, et al. “Large Scale Distributed Deep Networks.” Neural Information Processing Systems, Neural Information Processing Systems, Dec. 2012.
 [^9]: [Integer programming - Wikipedia](https://en.wikipedia.org/wiki/Integer_programming?useskin=vector)
 [^10]: [[Lipschitz continuity|什么是 λ-Lipschitz 的？]]
+[^11]: 懒得抄了，看原文吧，证明很复杂。

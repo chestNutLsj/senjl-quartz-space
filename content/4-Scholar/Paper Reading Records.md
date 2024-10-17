@@ -30,7 +30,7 @@ author: SenjLee
 
 ### 10 月
 
-1. [【USENIX ATC 22】Hashing Design in Modern Networks: Challenges and Mitigation Techniques](https://www.usenix.org/conference/atc22/presentation/xu)
+1. [【USENIX ATC 22】Hashing Design in Modern Networks: Challenges and Mitigation Techniques](https://www.usenix.org/conference/atc22/presentation/xu)： [[Hashing Design in Modern Networks：notes|阅读笔记]]
 2. [【USENIX ATC 21】Hashing Linearity Enables Relative Path Control in Data Centers](https://www.usenix.org/conference/atc21/presentation/zhang-zhehui)
 3. [【NSDI 23】Empowering Azure Storage with RDMA](https://www.usenix.org/conference/nsdi23/presentation/bai)
 4. [【TSC 20】Esync: Accelerating Intra-Domain Federated Learning in Heterogeneous Data Centers](https://ieeexplore.ieee.org/abstract/document/9292461)： [[Esync：notes|阅读笔记]]
