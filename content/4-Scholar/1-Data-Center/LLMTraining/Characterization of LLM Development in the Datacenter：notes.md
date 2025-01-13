@@ -109,7 +109,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 >**作业持续时间反而变短了？！**
 
-与刻板印象里 LLM 是长期任务不同，根据下图 Fig 2(a) 中 `Seren` 和 `Kalos` 的数据，LLM 的平均作业持续时间（GPU job durations，专指作业运行时间，不包括排队延时）较过去其他数据中心的 DL 任务的平均作业持续时间，缩短了 2.7 至 12.8 倍。具体地说，作业持续时间的中位数大约是 2 min，这比其他数据中心的数据是缩短了 1.7 至 7.2 倍。
+与刻板印象里 LLM 是长期任务不同，根据下图 Fig 2(a) 中 `Seren` 和 `Kalos` 的数据，LLM 的平均作业持续时间（GPU jdSsob durations，专指作业运行时间，不包括排队延时）较过去其他数据中心的 DL 任务的平均作业持续时间，缩短了 2.7 至 12.8 倍。具体地说，作业持续时间的中位数大约是 2 min，这比其他数据中心的数据是缩短了 1.7 至 7.2 倍。
 
 >To provide an explanation for this observation, we outline **four potential factors**: 
 > 

@@ -94,4 +94,123 @@ Fig 2 显示了 B4 WAN Stargate 站点的拓扑结构。每个站点最多由 4 
 
 ### Hash Correlation Causes Traffic Polarization and Load Imbalance
 
+#### Limited Number of Hash Functions Leads to Hash Correlation.
+
+#### Random Seeds Are Not Effective.
+
+Applying a random seed is a linear operation and it can not decorrelate a hash function's output effectively.
+
+## Hashing Design in Multi-stage Networks
+
+### Strawman solution: per-stage hashing
+
+### Per-port hashing
+
+### Color recombining
+
+### Hashing design for multi-stage Clos does not work in spineless DCNs and WANs
+
+## Mitigating Correlation for Mesh Networks
+
+### The Coprime Theorem
+
+互素理论的关键思想是，**互素数进行模运算会使哈希函数的输出不相关**。
+
+考虑到一个哈希函数 $H$ 散列结果的值域为 $\{0，1，...，\hat{H}\}$，我们应用两个互素数的模运算，从 $H$ 得出两个独立的哈希函数 $H_1$ 和 $H_2$，其中 $\hat{H}$ 为最大的散列值。
+
+在交换机中，我们使用哈希函数通过执行模运算来选择下一跳，即 $H (x)\%m$ ，其中 $H (x)$ 是数据包 $x$ 的哈希值，$m$ 是 ECMP 或 WCMP 组中下一跳的数量。考虑这样的场景：在一条转发路径上有两个交换机，它们都选择哈希函数 $H$ 选取下一跳，这样就像 Fig 4b 中提到的那样发生散列相关和流量极化现象。如公式 1 所示，在这两个开关中使用的是相同的哈希函数 $H$，我们可以在第一个交换机上使用导出的 $H_1$（$H_1 = H\%q_1$）从 $m_1$ 个下一跳中选择一个作为下一跳，而在第二个交换机上使用 $H_2$（$H_2 = H\%q_2$）从 $m_2$ 个下一跳中选择一个作为下一跳。
+
+$$
+H_{i}=H\%q_{i},i\in\{1,2\}\tag{1}
+$$
+
+定理 2 表明这两个哈希函数没有相关性：
+
+ 
+$$\begin{align*}\\ 
+&\textbf{Theorem 2} \text{}\\ 
+& \forall i,j, \text{Prob}(H_{2}(x)\%m_{2}=j|H_{1}(x)\%m_{1}=i) \simeq \text{Prob}(H_{2}(x)\%m_{2}=j)\\
+& \text{if the following two conditions are satisfied:}\\
+&\textit{Condition 1: } q_{1}\gg m_{1} \text{ or } q_{1}\%m_{1}=0,\text{ and }q_{2}\gg m_{2} \text{ or } q_{2}\%m_{2}=0; \\ 
+&\textit{Condition 2: } \hat{H}\gg q_{1}q_{2} \text{}\\
+& \text{where }q_{1}\text{ and }q_{2}\text{ are two coprime values, }\\
+&m_{1}\text{ and }m_{2}\text{ are the number of next hops, and }x\text{ is a packet.}\\
+&\textbf{用简要的中文描述：}\text{}\\ 
+\end{align*}$$
+
+该定理表明，对于输入 $x$，当选择适当的共素数 $q_1$ 和 $q_2$ 时（$q_1$ 和 $q_2$ 的选择应满足定理 2 的条件 1 和 2），$H_2\%m_2$ 的哈希值与 $H_1\%m_1$ 的哈希值是独立的。定理 2 的证明见附录。
+
+### Coprime for ECMP
+
+当两个哈希函数相关时，我们只需选择两个共素数，然后应用额外的模运算，就能得到两个独立的哈希函数，如公式 1 所示。
+
+在交换机中为散列值添加额外的调制运算似乎既直观又简单，但这需要对交换机硬件进行修改，而我们使用的交换机芯片并不提供这种功能。即使交换机供应商在其下一代芯片中提供这种功能，我们也必须更换所有现有的交换机，这将是一项艰巨而昂贵的任务。
+
+相反，我们提出：复制 ECMP 组条目，以匹配 SDN 控制器中的互素值，并通过现有的 OpenFlow 接口与交换机流量表和组表进行交互。图 11 显示了该方法的流程。
+
+![[Hashing Design in Modern Networksnotes-fig11-apply-coprime.png]]
+
+我们用一个例子来解释。假设 IP 前缀 `10.1.2.0/24` 的 ECMP 组中有两个出口端口。 假设发生一次哈希相关，我们选择 5 的共素值来减轻哈希相关性。我们不需要修改交换机硬件来实现两次模运算 $h\%5\%2$（h 是散列函数返回的散列值）以选择出口端口，而是在 ECMP 组中将 2 个物理端口复制为 5 个逻辑端口。这样，我们只需进行一次模操作（即 $h\%5$）即可确定逻辑端口，并最终确定物理出口。目前的商品交换机都支持复制 ECMP 组条目以匹配互素值，我们只需在 SDN 控制器中添加少量逻辑即可。请注意，图 11 显示，一个流量表包含许多 IP 前缀/流量，它们共享交换机中的同一个组（多路径）表，因此我们需要在 $\text{hash value \% group size}$ 上添加一个偏移量，以索引每个 IP 前缀/流量。
+
+上述互素 ECMP 分组大小方法有两个技术难题：
+1) 交换机内存使用量增加，特别是在共素值较大的情况下。 内存使用量增加了 $\mathcal{O} (\frac{q}{m})$ 倍，其中 $q$ 和 $m$ 分别是互素数和原始 ECMP 组大小；
+2) ECMP 精度损失，即 ECMP 组中不同出口端口的预期权重和实际权重之间的差异。 为了节省交换机内存，我们可能希望选择较小的共素值。 但是，小的共素值与定理 2 中的条件 1 相矛盾；此外，我们还需要容忍小的共素值带来的 ECMP 精度损失。 在计算 ECMP 分组大小时，有些端口会重复 $⌊q/m⌋$ 次，有些端口会重复 $⌊q/m⌋ + 1$ 次。 因此，当 $q/m$ 较小时，会带来 ECMP 精度损失。
+
+我们使用变异系数 (CV，coefficient of variation) 来衡量互素值的有效性。假设我们有 $m$ 个链路，每个链路的预期流量为 $p_{i} = \frac{1}{m}$ 。使用互素值 $q$ 后，实际流量分布为 $\hat{pi} = (⌊q/m⌋ + I (i ≤q\%m))/q$ ，其中 $I (.)$ 为指示函数，$i∈\{0, m - 1\}$ 为端口 id，当 $i≤q\%m$ 时，$I (. ) = 1$。 CV 是针对 $\hat{pi}$ 计算的。 在我们的共素法实现过程中，我们在遵守交换芯片提供的 ECMP 表大小限制的同时，最大限度地降低了 CV。
+
+### Coprime for WCMP
+
+正如文献[37]所述，链路或交换机故障导致的拓扑不对称要求加权成本多路径（WCMP）根据下游跳数的能力按比例分配流量。 在本节中，我们将把基于互素的方法从 ECMP 扩展到 WCMP。
+
+一种简单直接的方法是将 WCMP 组视为由 W 个 ECMP 端口组成的 ECMP 组，其中 W 是权重之和，即 $W = ∑_i w_i$，$w_i$ 是端口 $i$ 的权重，我们将 W 个 ECMP 端口复制为 q 个逻辑端口，就像 ECMP 组一样，其中 q 是一个共素值。但是，复制后的权重可能与预期的 WCMP 权重有很大偏差。 一个例子如图 12 a 所示：
+![[Hashing Design in Modern Networksnotes-fig12-coprime-for-wcmp.png]]
+WCMP 组中有两个端口，它们的权重分别为 3 和 1，即 $w_1 = 3$ 和 $w_2 = 1$ 。这个 WCMP 组可视为一个 ECMP 组，其中 W = 4 个 ECMP 端口。 假设我们选择一个互素值 7，复制后的实际权重为 $\hat{w_1} = 6$ 和 $\hat{w_2} = 1$，这与预期的 WCMP 权重相差很大。 我们使用 $\{\hat{w_{i}}/w_{i}\}$ 的 CV 值来量化差异。 如图 12 a 所示，CV 为 0.33。
+
+为了减小 WCMP 组大小互素处理后的实际权重与预期 WCMP 权重之间的差异，我们提出了一种改进算法来重复 WCMP 组中的条目，记作 *split coprime* 。假设 WCMP 组有 m 个端口，端口 $i$ 的权重为 $w_i$，$W = ∑_i w_i$，选择的互素值为 q。我们将互素值拆分为两部分：$ˆq = a ∗ W$ 和 $r = q\%W$ ，其中 $a = ⌊q/W ⌋$。 直观的做法是将端口复制到 $ˆq$ 逻辑端口，也就是说，每个 WCMP 端口都被复制了 $w_i ∗ a$ 次。 我们按以下方式将 m 个端口复制到左侧 $r$ 个条目：每个端口 $i$ 复制 $⌊r/m⌋+I (i < r\%m)$ 次，其中 $I (.)$ 是一个指示函数，当 $i < r\%m$ 时，$i∈ \{0, 1, ..., m - 1\}$，$I (.) = 1$ 。 图 12 展示了一个 WCMP 分组的互素化过程：对于 ˆq，两个 WCMP 端口复制 $w_i$ 次，$w_1 = 3$，$w_2 = 1$；对于 r，端口 1 复制 2 次，端口 1 复制 1 次。 采用这种改进算法后，CV 值比简单地将 WCMP 组视为 ECMP 组的方法要小得多。
+
+对于 WCMP，互素化的内存成本可以忽略不计，因为即使没有互素化，我们也需要进行 WCMP 量化（即通过复制 ECMP 表项来近似小数权重）[37]，以确保组中的 WCMP 项数不超过预定义的限制。
+
+## Evaluation
+
+### Experiment Setup
+
+**流量跟踪**。
+
+**网络拓扑**。
+
+**哈希函数**。
+
+**度量参数**。
+
+### Color Recombining for Multi-stage DCN
+
+我们首先研究了针对多级 DCN 提出的**带有颜色重组的逐端口散列**（以下简称为颜色重组）方案的流量负载平衡性能，并与**带有随机种子的逐阶段散列**（以下简称为每级散列）进行了比较。对于每阶段散列，我们为每个阶段分配一个独立的散列函数，并用随机种子初始化每个散列函数。
+
+![[Hashing Design in Modern Networksnotes-fig13-link-utilization.png]]
+图 13 显示了一个 ECMP 组中八个链路的归一化链路利用率。 从图中可以看出，在颜色重组中，所有 8 个链路的链路利用率都差不多，都在 0.67 左右，但每阶段散列方法却显示出严重的不均匀性。 在颜色重组中，我们只在颜色重组发生时重复使用哈希函数，这就消除了哈希相关性；但在每阶段散列中，某些哈希函数在不考虑相关性的情况下被重复使用，而且随机种子是线性运算，无法对重复使用的哈希函数进行装饰。
+
+我们还计算了每个 ECMP 组的 CV，并在图 14 中绘制了 CV 的 CDF。
+![[Hashing Design in Modern Networksnotes-fig14-CV-CDF.png]]
+所有颜色重组的 CV 值都低于 0.05，但每阶段散列的 CV 值可能高于 0.6（注意，CV 值为 1 意味着标准偏差等于平均值）。 换句话说，与使用随机种子的每级散列相比，使用颜色重组方法的每端口散列可将 CV 值降低约一个数量级。较大的 CV 值意味着同一 ECMP 组中的链路没有得到合理利用，导致网络容量浪费和不必要的热链路，从而在大流量负载下造成网络拥塞。
+
+### Coprime for Spineless DCN
+
+在 spineless DCN 中，所有八个服务器区块都以 DRing 拓扑连接[13]。 我们为每对服务器块选择两个共素值，以减轻它们之间的哈希相关性。 我们将互素方案与每级散列进行了比较，在每级散列中，每个服务器块使用 3 个从 RTAG 7 散列系列中随机选择的散列函数，每个函数都有一个随机种子。 我们进行了实验，以评估基于互素的 ECMP 和 WCMP 方法。
+
+**Coprime for ECMP**. 图 20 显示了连接两个服务器区块的 16 条链路的归一化链路利用率。
+![[Hashing Design in Modern Networksnotes-fig20-coprime-link-utilization.png]]
+所有链接的利用率都在 0.75 左右，其中，两个服务器区块的互素值分别为 8（注意每个 ECMP 组有 8 个端口，因为服务器区块的每个 $S_3$ 芯片有 8 个向上的端口）和 57。 然而，使用每级哈希算法，最大/最小链路利用率的比值都高于 2。 由于缺少独立的散列函数，每级散列不得不重复使用某些相同的散列函数（即使这些散列函数带有随机种子），这就导致了流量极化，如图 20 所示。
+
+在量化方面，基于互素的方法优于每级散列，其 CV 值降低了约 80%。
+![[Hashing Design in Modern Networksnotes-fig14~19-eval.png]]
+如图 15 所示，对于基于互素的方法，所有 CV 值都低于 0.1，但对于每级散列，CV 值可能高达 0.5。
+
+在减轻散列相关性时，共素值很重要：**大的共素值比小的更有效**。 我们评估了从 9 到 73 的五个不同的共素值，并在图 16 中显示了 CV。 从图中可以看出，当共素值为 9 时，CV 值接近 0.4。 当共素值增加到 73 时，与 57 相比，改进并不明显。 这一结果与我们在第 4.2 节末尾的分析一致，该分析描述了内存使用和 ECMP 精度之间的权衡。 如何选择 coprime 值取决于交换机的内存和可容忍的不平衡程度。
+
+### Coprime for WAN
+
+### Hardware Testbed Evaluation and Production Fabric Deployment
+
+## Related Work
+
 [^1]: MingyangZhang, et al. Gemini: Practical Reconfigurable Datacenter Networks with Topology and Traffic Engineering.
