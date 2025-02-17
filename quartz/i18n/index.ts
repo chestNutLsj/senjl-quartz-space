@@ -14,12 +14,16 @@ import uk from "./locales/uk-UA"
 import ru from "./locales/ru-RU"
 import ko from "./locales/ko-KR"
 import zh from "./locales/zh-CN"
+import zhTw from "./locales/zh-TW"
 import vi from "./locales/vi-VN"
 import pt from "./locales/pt-BR"
 import hu from "./locales/hu-HU"
 import fa from "./locales/fa-IR"
 import pl from "./locales/pl-PL"
 import cs from "./locales/cs-CZ"
+import tr from "./locales/tr-TR"
+import th from "./locales/th-TH"
+import lt from "./locales/lt-LT"
 
 export const TRANSLATIONS = {
   "en-US": enUs,
@@ -58,12 +62,16 @@ export const TRANSLATIONS = {
   "ru-RU": ru,
   "ko-KR": ko,
   "zh-CN": zh,
+  "zh-TW": zhTw,
   "vi-VN": vi,
   "pt-BR": pt,
   "hu-HU": hu,
   "fa-IR": fa,
   "pl-PL": pl,
   "cs-CZ": cs,
+  "tr-TR": tr,
+  "th-TH": th,
+  "lt-LT": lt,
 } as const
 
 export const defaultTranslation = "en-US"

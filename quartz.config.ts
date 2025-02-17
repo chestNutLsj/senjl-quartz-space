@@ -26,6 +26,7 @@ const config: QuartzConfig = {
     baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
     ignorePatterns: [".obsidian", ".trash",],
     defaultDateType: "created",
+    generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
