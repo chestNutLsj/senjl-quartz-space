@@ -1,3 +1,12 @@
+/*
+ * @Author: Lee Sen.J
+ * @Date: 2025-02-16 23:53:29
+ * @LastEditors: Senj Lee lisj24@mails.tsinghua.edu.cn
+ * @LastEditTime: 2025-02-17 23:05:20
+ * @FilePath: \quartz\quartz.config.ts
+ * @Description: 
+ * 
+ */
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
@@ -8,25 +17,32 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "🌰Senjl's Digital Garden🐉",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
-    locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    analytics: null,
+    locale: "zh-CN",
+    baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
+    ignorePatterns: [".trash",],
     defaultDateType: "created",
-    generateSocialImages: false,
+    // generateSocialImages: true,
+    generateSocialImages: {
+      colorScheme: "lightMode", // what colors to use for generating image, same as theme colors from config, valid values are "darkMode" and "lightMode"
+      width: 800, // width to generate with (in pixels)
+      height: 630, // height to generate with (in pixels)
+      excludeRoot: false, // wether to exclude "/" index path to be excluded from auto generated images (false = use auto, true = use default og image)
+    },
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "Fondamento",
+        body: "Nunito Sans",
+        code: "Noto Sans Mono",
+        // header: "Schibsted Grotesk",
+        // body: "Source Sans Pro",
+        // code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
@@ -62,19 +78,22 @@ const config: QuartzConfig = {
       }),
       Plugin.SyntaxHighlighting({
         theme: {
-          light: "github-light",
-          dark: "github-dark",
+          light: "solarized-light",
+          dark: "one-dark-pro",
         },
-        keepBackground: false,
+        keepBackground: true,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
+      Plugin.ObsidianFlavoredMarkdown({
+        enableInHtmlEmbed: true,
+        highlight: true,
+      }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [Plugin.ExplicitPublish()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
@@ -84,6 +103,9 @@ const config: QuartzConfig = {
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,
+        rssLimit: 5,
+        rssFullHtml: true,
+        includeEmptyFiles: false,
       }),
       Plugin.Assets(),
       Plugin.Static(),

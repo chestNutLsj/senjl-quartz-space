@@ -1,0 +1,31 @@
+{
+  "immediateReplace": true,
+  "suggester": true,
+  "historyPriority": true,
+  "historyLimit": 100,
+  "history": [
+    ":star:",
+    ":smiling_face_with_tear:",
+    ":laughing:",
+    ":question:",
+    ":cry:",
+    ":symbols:",
+    ":white_check_mark:",
+    ":x:",
+    ":red_circle:",
+    ":1st_place_medal:",
+    ":musical_note:",
+    ":arrow_right:",
+    ":smile:",
+    ":warning:",
+    ":heavy_multiplication_x:",
+    ":angry:",
+    ":put_litter_in_its_place:",
+    ":sweat_smile:",
+    ":fire:",
+    ":earth_asia:",
+    ":clock6:",
+    ":a:",
+    ":100:"
+  ]
+}

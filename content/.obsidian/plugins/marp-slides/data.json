@@ -1,0 +1,10 @@
+{
+  "CHROME_PATH": "",
+  "ThemePath": "",
+  "EnableHTML": true,
+  "MathTypesettings": "mathjax",
+  "HTMLExportMode": "bare",
+  "EXPORT_PATH": "",
+  "EnableSyncPreview": true,
+  "EnableMarkdownItPlugins": false
+}

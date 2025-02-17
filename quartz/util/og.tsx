@@ -11,7 +11,8 @@ import { ThemeKey } from "./theme"
  * @returns FontOptions for header and body
  */
 export async function getSatoriFont(headerFontName: string, bodyFontName: string) {
-  const headerWeight = 700 as FontWeight
+  // const headerWeight = 700 as FontWeight
+  const headerWeight = 400 as FontWeight
   const bodyWeight = 400 as FontWeight
 
   // Fetch fonts

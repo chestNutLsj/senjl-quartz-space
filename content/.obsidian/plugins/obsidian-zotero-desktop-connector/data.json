@@ -1,0 +1,13 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "Scholar/Papers",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [],
+  "exportFormats": [],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "exeOverridePath": "/home/westwoods/Downloads/minitools/pdfannots2json",
+  "openNoteAfterImport": true,
+  "shouldShowCiteSuggest": true
+}

@@ -1,0 +1,13 @@
+{
+  "accentColor": "#828cc9",
+  "cssTheme": "Minimal",
+  "baseFontSize": 16,
+  "monospaceFontFamily": "0xProto Nerd Font Mono",
+  "textFontFamily": "更纱黑体 UI SC",
+  "interfaceFontFamily": "微软雅黑",
+  "theme": "moonstone",
+  "baseFontSizeAction": true,
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "showRibbon": true
+}

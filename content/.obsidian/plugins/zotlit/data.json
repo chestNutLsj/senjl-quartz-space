@@ -1,0 +1,27 @@
+{
+  "logLevel": "INFO",
+  "citationEditorSuggester": true,
+  "showCitekeyInSuggester": true,
+  "literatureNoteFolder": "6-Scholar",
+  "enableServer": true,
+  "serverPort": 9091,
+  "serverHostname": "127.0.0.1",
+  "template": {
+    "folder": "0-Assets/Templates/ZtTemplates",
+    "templates": {
+      "filename": "<%= it.citekey ?? it.DOI ?? it.title ?? it.key %>.md"
+    }
+  },
+  "updateAnnotBlock": true,
+  "updateOverwrite": true,
+  "autoPairEta": true,
+  "autoTrim": [
+    "nl",
+    "nl"
+  ],
+  "autoRefresh": true,
+  "zoteroDataDir": "/home/senjl/Zotero",
+  "citationLibrary": 1,
+  "imgExcerptImport": "copy",
+  "imgExcerptPath": "6-Scholar/ZtImgExcerpt"
+}

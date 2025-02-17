@@ -1,0 +1,22 @@
+{
+  "tag": "book",
+  "libraries": [
+    "/home/senjl/MyLibrary/csBook"
+  ],
+  "savePath": "0-Assets/Epubook",
+  "assetsPath": "{{savePath}}/{{bookName}}/images",
+  "serialNumber": true,
+  "serialNumberDelta": 0,
+  "propertysTemplate": "title: {{bookName}}\nauthor: {{author}}\npublisher: {{publisher}}\nstatus: false",
+  "granularity": 4,
+  "imageFormat": "![](imagePath)",
+  "autoOpenRightPanel": false,
+  "allbooks": true,
+  "removeDuplicateFolders": false,
+  "tags": [
+    "book"
+  ],
+  "libratys": [
+    "/home/senjl/MyLearning/Obsidian/my-cs-career/1-Theory/5-OS-principle/rCore-tutorial/Appendix"
+  ]
+}

@@ -1,3 +1,12 @@
+/*
+ * @Author: Lee Sen.J
+ * @Date: 2025-02-16 23:53:29
+ * @LastEditors: Senj Lee lisj24@mails.tsinghua.edu.cn
+ * @LastEditTime: 2025-02-17 23:06:30
+ * @FilePath: \quartz\quartz.layout.ts
+ * @Description: 
+ * 
+ */
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
@@ -5,11 +14,43 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        // from giscus config's data-repo
+        repo: "chestNutLsj/senjl-quartz-space",
+        // from giscus config's data-repo-id
+        repoId: "R_kgDOK_jAvg",
+        // from giscus config's data-category
+        category: "Announcements",
+        // from giscus config's data-category-id
+        categoryId: "DIC_kwDOK_jAvs4CjRYH",
+
+        // how to map pages -> discussions
+        // defaults to 'pathname'
+        mapping: "pathname",
+
+        // use strict title matching
+        // defaults to true
+        strict: false,
+
+        // whether to enable reactions for the main post
+        // defaults to true
+        reactionsEnabled: true,
+
+        // where to put the comment input box relative to the comments
+        // defaults to 'bottom'
+        inputPosition: "bottom",
+      }
+
+    }),
+  ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/chestNutLsj",
+      // "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "RSS Feed": "https://chestNutLsj.github.io/senjl-quartz-space/index.xml",
     },
   }),
 }

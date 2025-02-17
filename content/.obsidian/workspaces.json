@@ -1,0 +1,440 @@
+{
+  "workspaces": {
+    "Interview": {
+      "main": {
+        "id": "39fa8c9602f2ecd2",
+        "type": "split",
+        "children": [
+          {
+            "id": "94b87839314f3da6",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "4cb848acaa9ad64e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "0-Assets/Scheme/2024/Interview/1-综合面问题模拟.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "df5abb9dec50efb7",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "0-Assets/Scheme/2024/Interview/3-专业面问题模拟.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "d4747bce900e402d",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "3-AI/2-DeepLearning/Dive-into-DL-pytorch/90-Attention-Mechanisms/60-self-attention-and-positional-encoding.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "13990ef7f5c4dc71",
+        "type": "split",
+        "children": [
+          {
+            "id": "b59937020c8d4ec4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3d3d978ac964e0aa",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "dc96c4984a9ef34e",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "\\var",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "byCreatedTimeReverse"
+                  }
+                }
+              },
+              {
+                "id": "de0f37b73b7ef6dc",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              },
+              {
+                "id": "5019e4a770c657c5",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 266.50577545166016,
+        "collapsed": true
+      },
+      "right": {
+        "id": "1516a4ce828ea6b6",
+        "type": "split",
+        "children": [
+          {
+            "id": "e5810eded0ce3a81",
+            "type": "tabs",
+            "dimension": 44.09368635437882,
+            "children": [
+              {
+                "id": "866a4e016d81b567",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "0-Assets/Scheme/2024/Interview/3-专业面问题模拟.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "d09bc9f761ff2d4d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "0-Assets/Scheme/2024/Interview/3-专业面问题模拟.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "c0995ac0f8458ff0",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  }
+                }
+              },
+              {
+                "id": "ca076cf8039593e7",
+                "type": "leaf",
+                "state": {
+                  "type": "zotero-annotation-view",
+                  "state": {
+                    "file": "0-Assets/Scheme/2024/Interview/3-专业面问题模拟.md",
+                    "itemId": -1,
+                    "attachmentId": -1,
+                    "follow": null
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          },
+          {
+            "id": "2aabb86f31957f99",
+            "type": "tabs",
+            "dimension": 55.90631364562118,
+            "children": [
+              {
+                "id": "5402e2346c010391",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "0-Assets/Scheme/2024/Interview/3-专业面问题模拟.md"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "markdown-importer:打开 Markdown 格式转换器": false,
+          "oz-clear-unused-images:Clear Unused Images": false,
+          "obsidian42-brat:BRAT": false,
+          "obsidian-importer:Open Importer": false,
+          "omnisearch:Omnisearch": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "homepage:Open homepage": false,
+          "obsidian-advanced-slides:Show Slide Preview": false,
+          "workspaces:管理工作区布局": false
+        }
+      },
+      "active": "df5abb9dec50efb7"
+    },
+    "Algo-AcWing": {
+      "main": {
+        "id": "39fa8c9602f2ecd2",
+        "type": "split",
+        "children": [
+          {
+            "id": "6afa48a5f06de21a",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "29888a09a10ec495",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/50-dynamic-programming.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "c86a4bc7d1122a24",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/30-graph.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "44b32dcfc9d10eb6",
+                "type": "leaf",
+                "state": {
+                  "type": "release-notes",
+                  "state": {
+                    "currentVersion": "1.5.11"
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "13990ef7f5c4dc71",
+        "type": "split",
+        "children": [
+          {
+            "id": "b59937020c8d4ec4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3d3d978ac964e0aa",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "dc96c4984a9ef34e",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "\\var",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "byCreatedTimeReverse"
+                  }
+                }
+              },
+              {
+                "id": "de0f37b73b7ef6dc",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              },
+              {
+                "id": "5019e4a770c657c5",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 266.50577545166016,
+        "collapsed": true
+      },
+      "right": {
+        "id": "1516a4ce828ea6b6",
+        "type": "split",
+        "children": [
+          {
+            "id": "e5810eded0ce3a81",
+            "type": "tabs",
+            "dimension": 44.09368635437882,
+            "children": [
+              {
+                "id": "866a4e016d81b567",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/30-graph.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "d09bc9f761ff2d4d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/30-graph.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "c0995ac0f8458ff0",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  }
+                }
+              },
+              {
+                "id": "ca076cf8039593e7",
+                "type": "leaf",
+                "state": {
+                  "type": "zotero-annotation-view",
+                  "state": {
+                    "file": "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/30-graph.md",
+                    "itemId": -1,
+                    "attachmentId": -1,
+                    "follow": null
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          },
+          {
+            "id": "2aabb86f31957f99",
+            "type": "tabs",
+            "dimension": 55.90631364562118,
+            "children": [
+              {
+                "id": "5402e2346c010391",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/30-graph.md"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "markdown-importer:打开 Markdown 格式转换器": false,
+          "oz-clear-unused-images:Clear Unused Images": false,
+          "obsidian42-brat:BRAT": false,
+          "obsidian-importer:Open Importer": false,
+          "omnisearch:Omnisearch": false,
+          "homepage:Open homepage": false,
+          "obsidian-advanced-slides:Show Slide Preview": false,
+          "workspaces:管理工作区布局": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false
+        }
+      },
+      "active": "c86a4bc7d1122a24",
+      "mtime": "2024-03-20T14:18:21+08:00"
+    }
+  },
+  "active": "Algo-AcWing"
+}

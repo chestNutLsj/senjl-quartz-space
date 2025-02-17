@@ -1,0 +1,21 @@
+{
+  "pluginList": [
+    "l1xnan/obsidian-better-export-pdf",
+    "aoout/obsidian-epub-importer",
+    "stefanopagliari/bibnotes",
+    "Yaozhuwa/easy-typing-obsidian",
+    "Kenshin/simpread-obsidian-plugin"
+  ],
+  "pluginSubListFrozenVersion": [],
+  "themesList": [],
+  "updateAtStartup": false,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": true,
+  "notificationsEnabled": true,
+  "personalAccessToken": "",
+  "ribbonIconEnabled": true
+}
