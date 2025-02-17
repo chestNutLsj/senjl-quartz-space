@@ -2,7 +2,7 @@
  * @Author: Lee Sen.J
  * @Date: 2024-09-10 00:46:46
  * @LastEditors: chestNutLsj lisj24@mails.tsinghua.edu.cn
- * @LastEditTime: 2024-10-13 20:12:17
+ * @LastEditTime: 2025-02-17 20:55:05
  * @FilePath: \quartz\quartz.config.ts
  * @Description: 
  * 
@@ -26,7 +26,7 @@ const config: QuartzConfig = {
     baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
     ignorePatterns: [".obsidian", ".trash",],
     defaultDateType: "created",
-    generateSocialImages: false,
+    generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
