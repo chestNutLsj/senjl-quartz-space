@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "76162a8836091ca9",
+        "id": "cddd8e2d84fb1a35",
         "type": "tabs",
         "children": [
           {
-            "id": "bc3db45d9db73f66",
+            "id": "bb911d44186d1c19",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -81,7 +81,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "alphabetical",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "标签"
@@ -91,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 217.5
+    "width": 260.5
   },
   "right": {
     "id": "1516a4ce828ea6b6",
@@ -100,7 +102,7 @@
       {
         "id": "e5810eded0ce3a81",
         "type": "tabs",
-        "dimension": 62.23132036847492,
+        "dimension": 43.739279588336196,
         "children": [
           {
             "id": "866a4e016d81b567",
@@ -108,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_v3_report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "index 的反向链接列表"
+              "title": "DeepSeek_v3_report 的反向链接列表"
             }
           },
           {
@@ -127,12 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "7-Health/README.md",
+                "file": "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_v3_report.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "README 的出链列表"
+              "title": "DeepSeek_v3_report 的出链列表"
             }
           },
           {
@@ -165,7 +167,7 @@
       {
         "id": "2aabb86f31957f99",
         "type": "tabs",
-        "dimension": 37.768679631525075,
+        "dimension": 56.26072041166381,
         "children": [
           {
             "id": "5402e2346c010391",
@@ -186,7 +188,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 363.5
+    "width": 245.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,17 +208,42 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "bc3db45d9db73f66",
+  "active": "bb911d44186d1c19",
   "lastOpenFiles": [
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_v3_report.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_V3_Report_Annotation.md",
     "index.md",
+    "4-Scholar/Paper Reading Records.md",
+    "4-Scholar/1-Data-Center/LLMTraining/Characterization of LLM Development in the Datacenter：notes.md",
+    "4-Scholar/1-Data-Center/LLMTraining/Alibaba HPN：notes.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-distill-from-R1.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-rewardbench-eval.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-open-ended-eval.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-posttrain-eval.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-scope-of-load-balance.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-ablation-for-auxiliary-free.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-ablation-for-MTP.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-pretrain-benchmark.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-long-context-extension.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Understand MLA.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/DeepSeek_v3_report-fine-grained-quantization.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeekMoE_notes.md",
+    "4-Scholar/2-LLM/理解RoPE.md",
+    "1-Theory/4-System/THU-Liu/Organization2022fall.pdf",
+    "1-Theory/5-Operating-System/Internal&design-principle/Internal&Design-Principle-Notes.md",
+    "1-Theory/6-Network/DCN-Forouzan/DCN-summary.pdf",
+    "1-Theory/5-Operating-System/Internal&design-principle/mindmap/mindmap.md",
+    "1-Theory/6-Network/THU-Xu/精简版PPT.pdf",
+    "1-Theory/6-Network/THU-Xu/期末复习提纲.pdf",
+    "1-Theory/6-Network/THU-Xu/题目练习.md",
+    "5-OS-tips/Windows/Windows下奇奇怪怪的需求与解决方案.md",
+    "5-OS-tips/Windows/将windows默认编码GBK改为UTF-8.md",
+    "5-OS-tips/Windows/硬盘损失数据恢复.md",
+    "6-SimpRead/【整理】 Linux 进程间通信的方式、应用场景及优缺点/【整理】 Linux 进程间通信的方式、应用场景及优缺点.md",
+    "8-ComputerCulture/Programming Fonts.md",
     "4-Scholar/1-Data-Center/LLMTraining/DeepSeek",
-    "0-Assets/Homepage-assets/未闻花名3.png",
     "0-Assets/Homepage-assets/未闻花名2.png.~tmp",
-    "0-Assets/Homepage-assets/未闻花名2.png",
-    "0-Assets/Homepage-assets/未闻花名1.png",
     "0-Assets/Homepage-assets/未闻花名1.png.~tmp",
-    "0-Assets/Homepage-assets/未闻花名.png",
     "0-Assets/Templates/ZtTemplates/zt-cite2.eta.md",
     "0-Assets/Templates/ZtTemplates/zt-colored.eta.md",
     "5-OS-tips/Windows/修改C盘User目录中用户名.md",
@@ -227,32 +254,8 @@
     "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/3-Attached-resources.md",
     "0-Assets/Experience/从山西小镇做题家到北雷村再到五道口.md",
     "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1-Preface.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.6 Companion Website fluentpython.com.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/2-How-the-book-organized.md",
-    "1-Theory/1-ProgramLanguage/Python/Python学习之路.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.7 Conventions Used in This Book.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.8 Using Code Examples.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.11 Acknowledgments.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.10 How to Contact Us.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.9 O’Reilly Online Learning.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.5 Soapbox My Personal Perspective.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.4 Hands-On Approach.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.3 Five Books in One.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.2 Who This Book Is Not For.md",
-    "1-Theory/1-ProgramLanguage/Python/2-Fluent-Python-2nd/Part0-Preface/1.1 Who This Book Is For.md",
-    "4-Scholar/1-Data-Center/Path Control/assets/Hashing Design in Modern Networksnotes-fig14~19-eval.png",
-    "4-Scholar/1-Data-Center/Path Control/assets/Hashing Design in Modern Networksnotes-fig20-coprime-link-utilization.png",
-    "4-Scholar/1-Data-Center/Path Control/assets/Hashing Design in Modern Networksnotes-fig14-CV-CDF.png",
-    "4-Scholar/1-Data-Center/Path Control/assets/Hashing Design in Modern Networksnotes-fig13-link-utilization.png",
-    "4-Scholar/1-Data-Center/Path Control/assets/Hashing Design in Modern Networksnotes-fig12-coprime-for-wcmp.png",
-    "4-Scholar/1-Data-Center/Path Control/assets/Hashing Design in Modern Networksnotes-fig11-apply-coprime.png",
     "9-Marxist/50-CPC",
     "4-Scholar/0-Report Slides/assets/FL-Presentationi-LeeSenJ.pdf",
-    "4-Scholar/1-Data-Center/Path Control/assets",
-    "4-Scholar/1-Data-Center/Path Control",
-    "1-Theory/0-Math/Mathematical-Analysis",
-    "4-Scholar/1-Data-Center/Federated Learning/assets",
-    "4-Scholar/1-Data-Center/Federated Learning",
     "1-Theory/2-DataStruct/dsa-cpp-deng/G-Exam/未命名.canvas",
     "未命名.canvas",
     "MyHome.canvas",

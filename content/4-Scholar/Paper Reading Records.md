@@ -39,6 +39,14 @@ author: SenjLee
 
 摆烂。
 
-### 12 月
+## 2025
 
-1. 
+### 1 月
+
+玩去了。
+
+### 2 月
+
+- DeepSeek 系列：
+	- [[DeepSeek_V3_Report_Annotation]]
+	- [[DeepSeekMoE_notes]]

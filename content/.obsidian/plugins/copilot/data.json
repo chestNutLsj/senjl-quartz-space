@@ -1,4 +1,5 @@
 {
+  "isPlusUser": false,
   "plusLicenseKey": "",
   "openAIApiKey": "",
   "openAIOrgId": "",
@@ -37,27 +38,47 @@
   "enableEncryption": false,
   "maxSourceChunks": 3,
   "groqApiKey": "",
+  "mistralApiKey": "",
   "activeModels": [
+    {
+      "name": "copilot-plus-flash",
+      "provider": "copilot-plus",
+      "enabled": true,
+      "isBuiltIn": true,
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
+    },
     {
       "name": "gpt-4o",
       "provider": "openai",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "gpt-4o-mini",
       "provider": "openai",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "claude-3-5-sonnet-latest",
       "provider": "anthropic",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "gpt-4-turbo",
@@ -125,12 +146,23 @@
       "core": true
     },
     {
+      "name": "copilot-plus-large",
+      "provider": "copilot-plus-jina",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true,
+      "believerExclusive": true,
+      "dimensions": 1024
+    },
+    {
       "name": "copilot-plus-multilingual",
       "provider": "copilot-plus-jina",
       "enabled": true,
       "isBuiltIn": true,
       "isEmbeddingModel": true,
-      "core": true
+      "core": true,
+      "dimensions": 512
     },
     {
       "name": "text-embedding-3-small",
@@ -162,11 +194,14 @@
       "isEmbeddingModel": true
     }
   ],
-  "embeddingRequestsPerSecond": 10,
+  "embeddingRequestsPerMin": 90,
+  "embeddingBatchSize": 16,
   "disableIndexOnMobile": true,
   "showSuggestedPrompts": true,
   "showRelevantNotes": true,
   "numPartitions": 1,
   "enabledCommands": {},
-  "promptUsageTimestamps": {}
+  "promptUsageTimestamps": {},
+  "defaultConversationNoteName": "{$topic}@{$date}_{$time}",
+  "embeddingRequestsPerSecond": 10
 }

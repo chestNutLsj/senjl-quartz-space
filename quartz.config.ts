@@ -2,7 +2,7 @@
  * @Author: Lee Sen.J
  * @Date: 2025-02-16 23:53:29
  * @LastEditors: Senj Lee lisj24@mails.tsinghua.edu.cn
- * @LastEditTime: 2025-02-17 23:05:20
+ * @LastEditTime: 2025-02-25 23:12:59
  * @FilePath: \quartz\quartz.config.ts
  * @Description: 
  * 
@@ -86,8 +86,11 @@ const config: QuartzConfig = {
       Plugin.ObsidianFlavoredMarkdown({
         enableInHtmlEmbed: true,
         highlight: true,
+        enableCheckbox: true,
+        enableYouTubeEmbed: true,
+        enableVideoEmbed: true,
       }),
-      Plugin.GitHubFlavoredMarkdown(),
+      // Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),

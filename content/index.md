@@ -11,6 +11,11 @@ tags:
 > ![[未闻花名1.png]]
 > ![[V.A. - 未闻花名 (口琴版).mp3]]
 
+> [!example] 帖子精选
+> - **论文注解**：
+> 	- [[DeepSeek_V3_Report_Annotation]]
+> 	- [[Characterization of LLM Development in the Datacenter：notes]]
+
 ## Learn in 2024
 
 > [!success]+ 🎉我成功上岸啦!!!
@@ -46,103 +51,79 @@ tags:
 
 ### 计算机科学基础
 
-#### 数学基础
+1. 数学基础
+	- [[数值分析笔记|数值分析]]
+	- 矩阵分析
+	- 离散数学
+	- 概率论
+	- 信息论
 
-- [[数值分析笔记|数值分析]]
-- 矩阵分析
-- 离散数学
-- 概率论
-- 信息论
+2. 编程语言
+	- [[C++学习之路|C++]]
+	- [[Python学习之路|Python]]
+	- Rust
 
-#### 编程语言
+3. 数据结构与算法
+	-  清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|邓公数据结构笔记]]
+	- AcWing：[[AcWing基础篇|算法基础课]]、算法提高课、算法进阶课
+ 
 
-- [[C++学习之路|C++]]
-- [[Python学习之路|Python]]
-- Rust
+4. 操作系统
+	- 《操作系统精髓与设计原理 9th》： [[Internal&Design-Principle-Notes|OS精髓与设计原理读书笔记]]
+	- 《rCore Tutorial Book v3》：
 
-#### 数据结构
+5. 计算机组成原理
+	- CSAPP
+	- RISC-V： [[RISC-V-Briefing-Manual|RISC-V简明手册]] ；
+	- THU 刘卫东老师的PPT ： [[THU-Computer-Organization]]
 
-- 清华大学计算机系 [邓俊辉老师](https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/) 的课程： [[DSACpp|邓公数据结构笔记]]
+6. 计算机网络
+	- 自顶向下第 8 版： [[Top2down-Summary]]
 
-#### 操作系统
-
-- 《操作系统精髓与设计原理 9th》： [[Internal&Design-Principle-Notes|OS精髓与设计原理读书笔记]]
-- 《rCore Tutorial Book v3》：
-
-#### 计算机组成原理
-
-- CSAPP
-- RISC-V： [[RISC-V-Briefing-Manual|RISC-V简明手册]] ；
-- THU 刘卫东老师的PPT ： [[THU-Computer-Organization]]
-
-#### 计算机网络
-
-- 自顶向下第 8 版： [[Top2down-Summary]]
-- 计算机网络体系结构：
-
-#### 算法刷题
-
-- AcWing：[[AcWing基础篇|算法基础课]]、算法提高课、算法进阶课
-
-### 软件开发
-
-#### 软件工程
-
-- 清华大学软件学院刘强老师：[[Software-Construction-notes|软件工程]]
+7. 软件工程
+	- 清华大学软件学院刘强老师： [[Software-Construction-notes|软件工程]]
 
 ### 人工智能
 
-#### 机器学习
+1. 机器学习
+	- [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程： [[ML-Foundations-Index|机器学习基石]]、[[ML-Techniques-Index|机器学习技法]]
 
-- [林轩田老师](https://www.csie.ntu.edu.tw/~htlin/mooc/)的课程：
-  - [[ML-Foundations-Index|机器学习基石]]
-  - [[ML-Techniques-Index|机器学习技法]]
+2. 深度学习
+	- 《动手学深度学习 2nd PyTorch 版》： [[Dive-Into-DL]] ；
 
-#### 深度学习
+3. System for AI
 
-- 《动手学深度学习 2nd PyTorch 版》： [[Dive-Into-DL]] ；
-
-#### System for AI
-
-#### LLM
+4. LLM
 
 ### 学术生涯
 
-#### 论文阅读记录
-
-- [[Paper Reading Records]]
-
-#### 组会汇报记录
-
-- [[Archive of Report Slides]]
+1. 论文阅读记录：[[Paper Reading Records]]
+2. 组会汇报记录： [[Archive of Report Slides]]
+3. 科研周报：
 
 ### 随便捣鼓
 
-#### Linux
-
-- [[ArchLinux使用笔记]]
+1. Linux
+	- [[ArchLinux使用笔记]]
+2. Windows
+	- [[Windows下奇奇怪怪的需求与解决方案]]
 
 ## Exploring the Real World
 
-### 从马克思主义者的角度看待世界运行
+### 自然科学
 
-#### Marx & Engels
+### 社会科学
 
-- 梦开始的地方：[[共产党宣言]]
+1. Marx & Engels
+	- 梦开始的地方： [[共产党宣言]]
 
-#### Lenin
+2. Lenin
 
-#### 毛泽东
+3. 毛泽东
+	- [[论持久战]]
 
-- [[论持久战]]
-
-#### 邓小平
-
-- [[中国共产党中央委员会关于建国以来党的若干历史问题的决议]]
-
-#### 中国共产党
-
-- [[中国共产党党章]]
+4. 邓小平
+	- [[中国共产党中央委员会关于建国以来党的若干历史问题的决议]]
 
 ## Keep Healthy
 

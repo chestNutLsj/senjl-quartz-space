@@ -32,5 +32,3 @@ author: SenjLee
 
 - [HPN 论文笔记分享链接](https://readpaper.com/pdf-annotate/note?pdfId=2477082312618631936&noteId=2477082683042292480)
 
-![[Qian 等 - 2024 - Alibaba HPN A Data Center Network for Large Language Model Training.pdf]]
-

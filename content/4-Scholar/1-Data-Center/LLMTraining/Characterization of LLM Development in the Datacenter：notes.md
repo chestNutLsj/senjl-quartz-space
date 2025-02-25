@@ -393,12 +393,6 @@ Limitations include:
 2) 主要集中分析 GPU 任务，对 CPU 任务的分析空间有限。
 3) 主要描述基于 transformer 的、仅解码器架构的模型（如 GPT-3 和 LLaMA 2）。对于较新的模型架构，如混合专家模型（Mixture of Experts）、多模态大语言模型（Multimodal LLM）涉及较少。
 
-## Appendix
-
-### Noted PDF
-
-![[Hu 等 - 2024 - Characterization of LLM Development.pdf]]
-
 [^1]: 这里似乎与 Alibaba HPN 的结论有冲突？其实不是，Alibaba HPN 中的占用率指的是吞吐量（throughput），这里的占用率指的是带宽（bandwidth）。
 [^2]: 狠狠 PUSH GPU 导致的（确信
 [^3]: Host Channel Adapter
