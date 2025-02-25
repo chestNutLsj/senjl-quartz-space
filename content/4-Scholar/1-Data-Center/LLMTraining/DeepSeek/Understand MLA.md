@@ -1,7 +1,7 @@
 ---
 tags:
-  - deepseek
-  - LLM
+  - DeepSeek
+  - Theory
 date: 2025-02-18
 publish: "true"
 ---
