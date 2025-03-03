@@ -2,6 +2,7 @@
 tags:
   - DeepSeek
   - Investigation
+  - OpenSourceWeek
 date: 2025-02-25
 publish: "true"
 ---
@@ -223,6 +224,30 @@ def low_latency_combine(hidden_states: torch.Tensor,
 
 ## Investigation
 
+### `kernels/` 文件树介绍
+
+**总体结构**：
+
+* `intranode.cu` : 处理单个节点内的专家并行通信，利用 NVLink 实现高速数据传输。
+* `runtime.cu` : 提供一些辅助函数，例如类型转换、内存操作等，供其他内核调用。
+* `internode.cu` : 处理跨节点间的专家并行通信，利用 RDMA 实现数据传输。
+* `internode_ll.cu` : 提供低延迟跨节点通信的内核，同样基于 RDMA。
+* `api.cuh`, `configs.cuh`, `exception.cuh` : 头文件，定义了内核 API、配置结构和异常处理机制。
+
+**优化目标和实现策略**：
+
+1. **高吞吐量 (High Throughput)** : 尽可能提高单位时间内的数据传输量。
+2. **低延迟 (Low Latency)** : 尽可能缩短数据传输的完成时间。
+3. **低精度支持 (FP8 Support)** : 支持 FP8 数据类型，以减少内存占用和计算量。
+4. **通信与计算重叠 (Communication-Computation Overlap)** : 隐藏通信延迟，提高整体效率。
+5. **灵活的 SM 控制 (SM Number Control)** : 允许用户控制内核使用的 SM 数量，以适应不同的硬件配置和工作负载。
+
+### MoE 的 EP 存在哪些问题
+
+- 通信开销：每个 Expert 可能分布在不同设备上，所以需要跨设备进行通信，特别是 all-to-all 通信模式下，通信开销会引入巨大负担；
+- 负载均衡问题：在 Token 路由到不同专家时，如果分配不当，就会导致某些 Expert 过热，而某些遇冷，在训练阶段还会导致过热专家“过拟合”问题；
+- 动态路由自身限制：MoE 模型中，token 在选择专家时，超过专家的容量就会 drop 掉多余的 token，从而导致训练效果变差。
+
 ### 涉及的并行策略
 
 1. **Intra-node 高吞吐量通信**：
@@ -259,25 +284,25 @@ def low_latency_combine(hidden_states: torch.Tensor,
 4. **动态负载均衡**：
    - 在 `get_dispatch_layout` 内核中，统计各专家和Rank的令牌分布（`num_tokens_per_expert` 和 `num_tokens_per_rank`），动态调整数据分区。
 
+## Technical Details
+
 ### 如何支持低精度操作？
 
 1. **FP8 和 BF16 数据类型**：
-   - 在低延迟模式下，支持 FP8 和 BF16 数据类型。
-   - 例如，在 `low_latency_dispatch` 和 `low_latency_combine` 方法中，输入和输出张量支持 `torch.bfloat16` 和 `torch.float8_e4m3fn`，这些张量来自 FP8 量化。
+   - 在低延迟模式下，支持 FP8 和 BF16 数据类型。例如，在 `low_latency_dispatch` 和 `low_latency_combine` 方法中，输入和输出张量支持 `torch.bfloat16` 和 `torch.float8_e4m3fn`，这些张量来自 FP8 量化。
 
 2. **量化和反量化**：
-   - 在低延迟模式下，数据在传输前会被量化为低精度格式（如 FP8），以减少通信开销。
-   - 在接收端，数据会被反量化回高精度格式（如 BF16）。
+   - 在低延迟模式下，数据在传输前会被量化为低精度格式（如 FP8），以减少通信开销。在接收端，数据会被反量化回高精度格式（如 BF16）。
    - `low_latency_dispatch`的输出`recv_x`是`float8_e4m3fn`类型，配合`packed_recv_x_scales`（`torch.float`）存储动态缩放因子，实现混合精度通信。数据在传输前被量化为FP8，接收端通过反量化恢复为BF16。内核自动处理 BF16 到 FP8 的转换，无需显式调用量化函数，减少计算开销。
 
-### 针对非对称带宽转发的内核
+### DeepEP 内核针对非对称带宽转发的处理
 
 DeepEP 通信库通过以下方式优化非对称带宽转发：
 
 1. **IBGDA（InfiniBand Global Device Access）**：
    - 在低延迟模式下，启用 IBGDA 功能，允许 GPU 直接访问远程 GPU 的内存，避免数据包在 NVLink 和 RDMA 之间的转发。
    - 利用 `NVSHMEM` 的 GPU 直接 RDMA 特性，绕过 CPU，实现 GPU 内存到远程 GPU 内存的直接传输。通过设置环境变量 `NVSHMEM_IB_ENABLE_IBGDA=1` 和 `NVSHMEM_IBGDA_NIC_HANDLER=gpu` 实现。
-   - **零拷贝与流水线**：在`dispatch`内核中，使用`nvshmemx_int8_put_nbi_warp`非阻塞写入，结合循环展开（`#pragma unroll`）实现数据流水线，最大化带宽利用率。
+   - 零拷贝与流水线：在  `dispatch 内核中，使用 使用 `nvshmemx_int8_put_nbi_wa 非阻塞写入，结合循环展开（环展开（`#pragma unroll`）实现数据流水线，最大化带宽利用率。
 
 2. **禁用自适应路由（AR）**：
    - 在低延迟模式下，禁用自适应路由（AR），以避免数据包在 NVLink 和 RDMA 之间的转发。
@@ -335,3 +360,68 @@ DeepEP 通信库通过以下方式优化非对称带宽转发：
    - 预分配缓冲区 ：低延迟模式使用固定大小缓冲区（`num_max_dispatch_tokens_per_rank`），避免动态内存操作。
    - 无前缀计算 ：通过预定义布局（`packed_recv_layout_range`）直接索引，省去SM密集的前缀和计算。
    - **事件回调机制**：`hook` 通过CUDA事件（如 `cudaEventRecord`）通知计算流，无需SM主动轮询，释放计算资源。
+
+### 未定义行为的极限优化
+
+V3 论文中提到：
+> In addition, both dispatching and combining kernels overlap with the computation stream, so we also consider their impact on other SM computation kernels. Specifically, we employ customized PTX (Parallel Thread Execution) instructions and auto-tune the communication chunk size, which significantly reduces the use of the L2 cache and the interference to other SMs.
+
+在 DeepEP 的 `utils.cuh` 文件中，利用 UB 代码对 L2 缓存做出的优化：
+```cuda
+#ifndef DISABLE_AGGRESSIVE_PTX_INSTRS
+#define LD_NC_FUNC "ld.global.nc.L1::no_allocate.L2::256B"  // 关键优化点
+#else
+#define LD_NC_FUNC "ld.volatile.global"
+#endif
+
+template <>
+__device__  __forceinline__ int ld_nc_global(const int *ptr) {
+    int ret;
+    asm volatile(LD_NC_FUNC ".s32 %0, [%1];" : "=r"(ret) : "l"(ptr));
+    return ret;
+}
+```
+
+这段代码是自定义的内存加载指令优化，控制数据在 GPU 内存层级间的流动方式，减少 L2 cache 的使用。
+
+`ld.global.nc.L1::no_allocate.L2::256B 的含义：`
+- `ld.global` 表示从全局内存读取数据；
+- `nc` 表示非连贯读取；
+- `L1::no_allocate` 意思是不要把数据放在 L1 缓存
+- `L2::256B` 是使用 256 字节的 L2 cache
+
+假设现在有一个 GPU 集群通信的场景，数据流向是：
+
+```
+GPU1---->GPU2---->GPU3，
+```
+
+数据需要经过 GPU2 进行转发。
+
+**未优化时的数据流：**
+
+* GPU1 发送数据到 GPU2:
+
+```text
+数据 -> GPU2 L2 Cache -> GPU2 L1 Cache -> 读取处理 -> 写回L2 Cache
+```
+
+* GPU2 转发到 GPU3:
+
+```text
+L2 Cache中的数据 -> 读取 -> 发送到GPU3
+```
+
+问题：
+
+* 数据在 L2 缓存中占用空间
+* 其他 SM 在做计算时，需要用 L2 缓存存储中间结果
+* 导致缓存冲突，计算性能下降
+
+**使用了优化后：**
+
+* `L1::no_allocate` 完全不使用 L1 缓存
+* `nc(non-coherent)` 跳过缓存一致性检查
+* `L2::256B` 只在 L2 中短暂停留，使用优化的块大小
+
+这个场景的前提是，要识别出只需要使用一次的通信数据。然后为这些数据相当于开通了一个快速通道，进行处理，所以能提高效率。

@@ -8,7 +8,7 @@ tags:
 欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： `lisj24 at mails.tsinghua.edu.cn` ，或者在本博客页底的评论区[^2]中发起讨论。
 
 > [!tip] 🎵: Have a relax!
-> ![[未闻花名1.png]]
+> ![未闻花名1](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/%E6%9C%AA%E9%97%BB%E8%8A%B1%E5%90%8D1.png)
 > ![[V.A. - 未闻花名 (口琴版).mp3]]
 
 > [!example] 帖子精选
@@ -83,6 +83,9 @@ tags:
 7. 软件工程
 	- 清华大学软件学院刘强老师： [[Software-Construction-notes|软件工程]]
 
+8. GPU 编程
+	- [[Learning CUDA Programming|CUDA 编程]]
+
 ### 人工智能
 
 1. 机器学习
@@ -134,5 +137,5 @@ tags:
 - [[Outside Links|通往站外]]
 
 [^1]: 你也可以叫我的笔名“花间有酒醉今人”。
-    
+
 [^2]: Powered by [giscus](https://giscus.app/zh-CN).
