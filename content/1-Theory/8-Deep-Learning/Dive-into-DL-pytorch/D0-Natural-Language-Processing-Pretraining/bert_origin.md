@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Bidirectional Encoder Representations from Transformers (BERT)
 :label:`sec_bert`
 

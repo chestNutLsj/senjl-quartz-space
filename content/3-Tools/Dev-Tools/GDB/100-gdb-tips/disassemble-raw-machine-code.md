@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示程序原始机器码 
 
 ## 例子

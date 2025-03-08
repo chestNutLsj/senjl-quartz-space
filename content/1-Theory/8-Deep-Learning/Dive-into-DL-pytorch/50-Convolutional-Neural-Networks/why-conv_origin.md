@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # From Fully-Connected Layers to Convolutions
 :label:`sec_why-conv`
 

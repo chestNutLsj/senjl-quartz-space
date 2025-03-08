@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://leetcode.cn/problems/largest-rectangle-in-histogram/solutions/266844/zhu-zhuang-tu-zhong-zui-da-de-ju-xing-by-leetcode-/?utm_source=LCUS&utm_medium=ip_redirect&utm_campaign=transfer2china
 publish: "true"
 date: 2023-09-30

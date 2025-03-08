@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 An access violation is a specific type of error that occurs when a program attempts to access an illegal memory location. In C++, access violations are most commonly caused by:
 
 - **Dereferencing a null or invalid pointer.**

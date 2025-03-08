@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置被调试程序的环境变量
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## How to deal with overfitting using regularization
 
 ![](https://miro.medium.com/v2/resize:fit:770/1*7S6lwTgY129EFhBIKQVYUg.png)

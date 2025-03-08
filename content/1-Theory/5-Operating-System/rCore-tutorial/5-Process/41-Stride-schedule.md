@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 >[! warning]
 >注意，这部分内容来自 uCore 的实验指导书，但原理与 rCore 类似
 

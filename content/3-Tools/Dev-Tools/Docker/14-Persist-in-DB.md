@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Persist the DB
 
 In case you didn't notice, your todo list is empty every single time you launch the container. Why is this? In this part, you'll dive into how the container is working.

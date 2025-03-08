@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 将源程序和汇编指令映射起来
 
 ## 例子

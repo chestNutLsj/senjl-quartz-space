@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [cizixs.com](https://cizixs.com/2017/02/10/network-virtualization-network-namespace/)
 
 > network namespace 是实现网络虚拟化的重要功能，它能创建多个隔离的网络空间，它们有独自的网络栈信息。

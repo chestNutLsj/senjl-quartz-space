@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_1_2_pytorch-basics-autograd/
 title: 2.1.2 AutoGrad - PyTorch Tutorial
 date: 2023-04-06 16:35:09

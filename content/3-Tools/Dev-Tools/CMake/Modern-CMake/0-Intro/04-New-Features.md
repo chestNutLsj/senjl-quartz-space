@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 CMake 修改记录的简化版本，这里仅挑了作者认为的重点。这里，每个版本的名称都由作者自行命名，不要太在意。
 
 ## [CMake 3.0](https://cmake.org/cmake/help/latest/release/3.0.html)：接口库

@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter04_advanced/4_2_2_tensorboardx/
 title: 4.2.2 TensorBoardX - PyTorch Tutorial
 date: 2023-04-12 20:16:19

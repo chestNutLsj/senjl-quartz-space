@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Natural Language Processing: Pretraining
 :label:`chap_nlp_pretrain`
 

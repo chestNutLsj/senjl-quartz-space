@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 控制流程
 
 CMake 有一个 [`if`](https://cmake.org/cmake/help/latest/command/if.html) 语句，尽管经过多次版本迭代它已经变得非常复杂。这里有一些全大写的变量你可以在 `if` 语句中使用，并且你既可以直接引用也可以利用 `${}` 来对他进行解析（ `if` 语句在历史上比变量拓展出现的更早 ）。这是一个 `if` 语句的例子：

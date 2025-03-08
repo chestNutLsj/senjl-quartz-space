@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Modern Convolutional Neural Networks
 :label:`chap_modern_cnn`
 

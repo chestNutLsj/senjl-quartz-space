@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 情感分析及数据集
 :label:`sec_sentiment`
 

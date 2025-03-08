@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Just compiling with `rustc` is fine for simple programs, but as your project grows, you’ll want to manage all the options and make it easy to share your code. Cargo is useful in such case, which will help you write real-world Rust programs.
 
 ## What is Cargo?

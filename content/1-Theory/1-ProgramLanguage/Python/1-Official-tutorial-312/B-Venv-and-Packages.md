@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Virtual Environments and Packages
 
 ## Introduction

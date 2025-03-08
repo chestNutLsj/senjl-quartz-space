@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Softirqs
 
 softirqs can not be used by device drivers, they are reserved for various kernel subsystems. Because of this there is a fixed number of softirqs defined at compile time. For the current kernel version we have the following types defined:

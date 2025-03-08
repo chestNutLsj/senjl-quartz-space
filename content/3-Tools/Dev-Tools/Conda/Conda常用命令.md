@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 创建conda环境
 ```shell
 conda create --name env_name python=3.9(env_package_name) -y

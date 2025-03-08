@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Environment and Distribution Shift
 
 In the previous sections, we worked through

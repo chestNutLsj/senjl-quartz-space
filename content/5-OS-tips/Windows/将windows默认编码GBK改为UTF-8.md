@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 修改默认编码为UTF-8
 ![[修改windows编码为utf-8.png]]
 

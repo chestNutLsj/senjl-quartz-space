@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Networks with Parallel Concatenations (GoogLeNet)
 :label:`sec_googlenet`
 

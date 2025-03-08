@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Cargo是Rust的构建系统和包管理器，可以帮助开发人员下载和管理依赖选项。在Rust中包称为`crate`，具体参阅Rust社区的[Cargo FAQ](https://doc.rust-lang.org/cargo/faq.html)来了解。
 
 使用`help`命令行参数查看Cargo的一些帮助：

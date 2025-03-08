@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Convexity
 :label:`sec_convexity`
 

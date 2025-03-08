@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 直接执行函数
 ## 例子
 	#include <stdio.h>

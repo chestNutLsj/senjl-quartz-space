@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 为系统调用设置catchpoint
 ## 例子
 	#include <stdio.h>

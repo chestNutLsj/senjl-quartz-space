@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Debuggers are essential tools for any C++ programmer, as they help in detecting, diagnosing, and fixing bugs in the code. They serve as an invaluable resource in identifying and understanding potential errors in the program.
 
 ## Types of Debuggers

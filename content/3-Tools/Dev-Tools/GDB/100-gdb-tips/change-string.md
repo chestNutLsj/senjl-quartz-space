@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 改变字符串的值
 ## 例子
 	#include <stdio.h>

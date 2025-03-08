@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 参数服务器
 :label:`sec_parameterserver`
 

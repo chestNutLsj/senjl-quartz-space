@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 title: 机会留给有准备的人——11912备考经验贴
 author: 花间有酒醉今人
 tags:

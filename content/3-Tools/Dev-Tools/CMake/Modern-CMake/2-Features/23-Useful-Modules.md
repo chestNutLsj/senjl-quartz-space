@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 在 CMake 的 [modules](https://cmake.org/cmake/help/latest/manual/cmake-modules.7.html) 集合了很多有用的模组，但是有一些模块相比于其他的更有用。以下是一些比较出彩的：
 
 ## [CMakeDependentOption](https://cmake.org/cmake/help/latest/module/CMakeDependentOption.html)

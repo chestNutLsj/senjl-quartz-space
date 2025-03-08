@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Computational Performance
 :label:`chap_performance`
 

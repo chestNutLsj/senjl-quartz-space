@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 GoogleTest 和 GoogleMock 是非常经典的选择；不过就我个人经验而言，我会推荐你使用 Catch2，因为 GoogleTest 十分遵循谷歌的发展理念；它假定用户总是想使用最新的技术，因此会很快的抛弃旧的编译器（不对其适配）等等。添加 GoogleMock 也常常令人头疼，并且你需要使用 GoogleMock 来获得匹配器(matchers)，这在 Catch2 是一个默认特性，而不需要手动添加（但 docstest 没有这个特性）。
 
 ## 子模块(Submodule)的方式（首选）

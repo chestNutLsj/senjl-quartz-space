@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 >[!warning] Prerequisite knowledge
 >You should properly understand of [[33-Dynamic-memory]]
 

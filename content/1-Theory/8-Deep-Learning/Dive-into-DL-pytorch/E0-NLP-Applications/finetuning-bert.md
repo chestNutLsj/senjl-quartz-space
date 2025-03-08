@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 针对序列级和词元级应用微调BERT
 :label:`sec_finetuning-bert`
 

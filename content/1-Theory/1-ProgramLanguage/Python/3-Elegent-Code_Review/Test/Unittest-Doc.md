@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://docs.python.org/3/library/unittest.html
 title: unittest — Unit testing framework — Python 3.12.1 documentation
 date: 2024-02-08

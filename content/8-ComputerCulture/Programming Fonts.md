@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Noto, Mono, Sans, Serif都是什么意思？
 ### Mono
 即`monospaced font`，意为等宽字体，表示所有字符宽度相等，一般情况下设置英文字符为中文字符的一般宽度，即`half width`和`full width`之别：

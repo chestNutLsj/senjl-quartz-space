@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 # 单处理器调度
 ## 处理器调度类型

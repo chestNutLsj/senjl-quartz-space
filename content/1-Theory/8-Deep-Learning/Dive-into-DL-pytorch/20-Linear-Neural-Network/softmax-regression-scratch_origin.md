@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Implementation of Softmax Regression from Scratch
 :label:`sec_softmax_scratch`
 

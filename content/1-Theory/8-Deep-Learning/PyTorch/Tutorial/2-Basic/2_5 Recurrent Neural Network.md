@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_5_recurrent-neural-network/
 title: 2.5 Recurrent Neural Network - PyTorch Tutorial
 date: 2023-04-10 16:01:22

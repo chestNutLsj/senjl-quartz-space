@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ```shell
 # 添加用户并创建其家目录
 $ useradd -m user_name

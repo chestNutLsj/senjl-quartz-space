@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 The `string` class has been briefly introduced in an earlier chapter. It is a very powerful class to handle and manipulate strings of characters. However, because strings are, in fact, sequences of characters, we can represent them also as plain arrays of elements of a character type. (字符串本质是字符序列，可以将其表示为字符类型的数组)
 
 For example, the following array:

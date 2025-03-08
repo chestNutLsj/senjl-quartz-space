@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Object Detection and Bounding Boxes
 :label:`sec_bbox`
 

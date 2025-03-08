@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Continue study
 Although you're done with the get started guide, there's still a lot more to learn about containers.
 

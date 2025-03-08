@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Custom Layers
 
 One factor behind deep learning's success

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 配置gdb init文件 
 
 ## 技巧

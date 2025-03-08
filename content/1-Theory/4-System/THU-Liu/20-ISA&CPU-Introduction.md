@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 tags:
   - 计算机组成原理
 date: 2023-10-25

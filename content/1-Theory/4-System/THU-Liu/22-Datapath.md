@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 指令格式
 ![[20-RV32I-instruction-format.png]]
 - 指令格式将 32 位分为不同的“域”

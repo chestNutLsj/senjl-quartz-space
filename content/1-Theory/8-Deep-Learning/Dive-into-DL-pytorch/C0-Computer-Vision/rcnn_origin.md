@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Region-based CNNs (R-CNNs)
 
 

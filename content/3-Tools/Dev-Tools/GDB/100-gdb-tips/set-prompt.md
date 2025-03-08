@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置命令提示符 
 
 ## 例子

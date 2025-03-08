@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 在编写 CMake 之前，要确保你已经清楚了如何运行 CMake 来构建文件。 几乎所有 CMake 项目都一样。
 
 ## 构建项目

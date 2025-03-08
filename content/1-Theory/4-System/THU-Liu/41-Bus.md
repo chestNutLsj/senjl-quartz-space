@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 总线概念
 
 ![[41-Bus.png]]

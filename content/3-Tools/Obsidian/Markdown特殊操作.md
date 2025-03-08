@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Markdown特殊操作
 
 1. 分页

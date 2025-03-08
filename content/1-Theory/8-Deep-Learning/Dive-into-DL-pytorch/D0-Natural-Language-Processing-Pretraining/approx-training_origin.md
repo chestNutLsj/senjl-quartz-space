@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Approximate Training
 :label:`sec_approx_train`
 

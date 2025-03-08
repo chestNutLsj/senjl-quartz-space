@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Multiscale Object Detection
 
 In :numref:`sec_anchor`,

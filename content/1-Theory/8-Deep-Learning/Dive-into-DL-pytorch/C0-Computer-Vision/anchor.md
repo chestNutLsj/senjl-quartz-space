@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 锚框
 :label:`sec_anchor`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## C++ STL 关联式容器是什么
 ----------------

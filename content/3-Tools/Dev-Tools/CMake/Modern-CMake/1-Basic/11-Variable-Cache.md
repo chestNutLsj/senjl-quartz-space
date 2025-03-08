@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 本地变量
 
 我们首先讨论变量。你可以这样声明一个本地 ( local ) 变量：

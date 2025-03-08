@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Implementation of Multilayer Perceptrons from Scratch
 :label:`sec_mlp_scratch`
 

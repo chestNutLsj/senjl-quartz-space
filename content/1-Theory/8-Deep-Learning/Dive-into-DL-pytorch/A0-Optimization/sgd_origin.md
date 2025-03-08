@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Stochastic Gradient Descent
 :label:`sec_sgd`
 

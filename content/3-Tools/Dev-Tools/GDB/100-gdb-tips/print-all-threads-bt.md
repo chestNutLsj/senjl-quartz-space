@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印所有线程的堆栈信息
 ## 例子
 	#include <stdio.h>

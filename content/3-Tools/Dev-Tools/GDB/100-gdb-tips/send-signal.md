@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 给程序发送信号
 ## 例子
 	#include <stdio.h>

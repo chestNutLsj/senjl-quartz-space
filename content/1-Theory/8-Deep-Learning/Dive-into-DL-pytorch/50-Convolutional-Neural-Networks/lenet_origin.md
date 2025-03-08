@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Convolutional Neural Networks (LeNet)
 :label:`sec_lenet`
 

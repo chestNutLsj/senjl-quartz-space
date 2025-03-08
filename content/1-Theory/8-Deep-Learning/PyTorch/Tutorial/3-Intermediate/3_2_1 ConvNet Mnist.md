@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter03_intermediate/3_2_1_cnn_convnet_mnist/
 title: 3.2.1 ConvNet Mnist - PyTorch Tutorial
 date: 2023-04-10 17:43:35

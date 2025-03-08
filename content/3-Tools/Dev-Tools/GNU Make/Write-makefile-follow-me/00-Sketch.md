@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://seisman.github.io/how-to-write-makefile/overview.html
 ---
 

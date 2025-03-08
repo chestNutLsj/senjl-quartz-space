@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Hello, World!
 
 ## 1. 总览Android

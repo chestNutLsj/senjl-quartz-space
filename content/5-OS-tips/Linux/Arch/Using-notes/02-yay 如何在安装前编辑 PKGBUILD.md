@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### 02-yay 如何在安装前编辑 PKGBUILD
 
 * `yay -G <package_name>`

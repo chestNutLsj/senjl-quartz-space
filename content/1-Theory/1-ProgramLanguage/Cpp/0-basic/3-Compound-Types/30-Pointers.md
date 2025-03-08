@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 In earlier chapters, variables have been explained as locations in the computer's memory which can be accessed by their identifier (their name). This way, the program does not need to care about the physical address of the data in memory; it simply uses the identifier whenever it needs to refer to the variable.（前文中变量被解释成计算机主存的位置，可以通过标识符访问，程序不必关心主存中数据的物理地址，只要在需要时引用变量标识符即可）
 
 For a C++ program, the memory of a computer is like a succession of memory cells, each one byte in size, and each with a unique address. These single-byte memory cells are ordered in a way that allows data representations larger than one byte to occupy memory cells that have consecutive addresses.（这些单字节主存单元的排序方式允许大于一个字节的数据表示占据具有连续地址的主存单元）

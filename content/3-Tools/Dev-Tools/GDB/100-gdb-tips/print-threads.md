@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 查看线程信息
 ## 例子
 	#include <stdio.h>

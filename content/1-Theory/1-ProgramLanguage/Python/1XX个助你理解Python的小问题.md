@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 底层运算
 
 ### 1. `a+=b` 和 `a=a+b` 的区别

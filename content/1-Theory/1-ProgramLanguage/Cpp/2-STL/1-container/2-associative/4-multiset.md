@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 前面章节中，对 set 容器做了详细的讲解。回忆一下，set 容器具有以下几个特性：
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 CMake 提供 Boost 库的查找包，但其工作方式有些奇怪。[FindBoost](https://cmake.org/cmake/help/latest/module/FindBoost.html) 中可获得完整的描述：这只是一个概述，并提供一个示例。务必查看页面上使用 CMake 的最低版本，然后再查看有哪些支持的选项。
 
 首先，可以在搜索 Boost 之前设置的一组变量，自定义选定 Boost 库的行为。可设置的变量随着 CMake 的发展变得越来越多，这里仅设置三个常见的变量：

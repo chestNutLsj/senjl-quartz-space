@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Generally, the Git proxy configuration depends on the [Git Server Protocol](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols) you use. And there're two common protocols: SSH and HTTP/HTTPS. Both require a proxy setup already. In the following, I assume a SOCKS5 proxy set up on `localhost:1080`. But it can also be a HTTP proxy. I'll talk about how to set up a SOCKS5 proxy later.
 
 ## SSH Protocol

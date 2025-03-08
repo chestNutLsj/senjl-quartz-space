@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 试探与回溯
 ### 忒修斯法宝
 > [! note] 忒修斯的法宝与回溯策略

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 静态存储器存储原理
 
 ### 结构

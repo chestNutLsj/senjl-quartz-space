@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 >[! tip] Newer CMake.
 >你的 CMake 版本应该比你的编译器要更新，它应该比你使用的所有库（尤其是 Boost）都要更新。新版本对任何一个人来说都是有好处的。
 

@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 tags:
   - CUDA
 date: 2025-02-27

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 继 map、multimap、set、multiset 关联式容器之后，从本节开始，再讲解一类 “特殊” 的关联式容器，它们常被称为“无序容器”、“哈希容器” 或者 “无序关联容器”。
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 自动反汇编后面要执行的代码
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Automatic Parallelism
 :label:`sec_auto_para`
 

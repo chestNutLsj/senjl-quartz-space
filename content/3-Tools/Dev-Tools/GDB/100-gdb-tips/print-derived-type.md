@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 按照派生类型打印对象
 
 ## 例子

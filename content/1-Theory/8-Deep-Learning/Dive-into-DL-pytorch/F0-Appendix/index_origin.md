@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Appendix: Tools for Deep Learning
 :label:`chap_appendix_tools`
 

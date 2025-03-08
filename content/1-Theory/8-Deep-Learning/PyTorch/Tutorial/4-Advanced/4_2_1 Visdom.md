@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter04_advanced/4_2_1_visdom/
 title: 4.2.1 Visdom - PyTorch Tutorial
 date: 2023-04-12 20:15:46

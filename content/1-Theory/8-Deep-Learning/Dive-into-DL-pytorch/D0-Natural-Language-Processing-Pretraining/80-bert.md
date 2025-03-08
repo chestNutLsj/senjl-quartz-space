@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 来自Transformers的双向编码器表示（BERT）
 :label:`sec_bert`
 

@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 publish: 
 date: 2023-10-09
 tags:

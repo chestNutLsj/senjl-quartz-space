@@ -1,9 +1,10 @@
 ---
+image-auto-upload: false
 publish: "true"
 url: https://www.sciencedirect.com/science/article/pii/S0743731516300399
 date: 2024-09-27
 tags:
-  - datacenter
+  - DataCenter
   - architecture
   - paper-reading
 ---

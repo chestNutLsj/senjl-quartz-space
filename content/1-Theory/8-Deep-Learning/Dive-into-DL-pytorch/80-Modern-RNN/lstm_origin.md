@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Long Short-Term Memory (LSTM)
 :label:`sec_lstm`
 

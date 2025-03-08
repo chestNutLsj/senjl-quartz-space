@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 The Copy-Write idiom, sometimes called the Copy-on-Write (CoW) or “lazy copying” idiom, is a technique used in programming to minimize the overhead of copying large objects. It helps in reducing the number of actual copy operations by using shared references to objects and only copying the data when it’s required for modification.
 
 Let’s understand this with a simple example:

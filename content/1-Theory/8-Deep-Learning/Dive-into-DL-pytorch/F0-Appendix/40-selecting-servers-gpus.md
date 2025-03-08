@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 选择服务器和GPU
 :label:`sec_buy_gpu`
 

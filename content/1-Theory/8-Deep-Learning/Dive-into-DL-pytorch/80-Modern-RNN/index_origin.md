@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Modern Recurrent Neural Networks
 :label:`chap_modern_rnn`
 

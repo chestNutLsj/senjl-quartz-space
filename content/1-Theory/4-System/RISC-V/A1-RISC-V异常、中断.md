@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 title: 详解 RISC v 中断
 date: 2023-10-14
 tags:

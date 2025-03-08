@@ -2,7 +2,7 @@
  * @Author: Lee Sen.J
  * @Date: 2025-02-16 23:53:29
  * @LastEditors: Senj Lee lisj24@mails.tsinghua.edu.cn
- * @LastEditTime: 2025-02-17 23:06:30
+ * @LastEditTime: 2025-03-09 00:23:25
  * @FilePath: \quartz\quartz.layout.ts
  * @Description: 
  * 
@@ -68,6 +68,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
+    Component.RecentNotes({
+      title: "Recent writing",
+      limit: 3,
+      showTags: false,
+      // linkToMore: ""
+    }),
     Component.Explorer(),
   ],
   right: [
@@ -87,5 +93,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.Explorer(),
   ],
-  right: [],
+  right: [
+    Component.RecentNotes(),
+  ],
 }

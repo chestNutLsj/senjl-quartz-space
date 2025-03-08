@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 网桥
 
 ### 网桥工作原理

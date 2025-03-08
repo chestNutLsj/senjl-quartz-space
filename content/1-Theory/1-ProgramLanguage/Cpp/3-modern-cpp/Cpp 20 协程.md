@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## C++20 协程
 ------------

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 本篇是学习`Linux Shell`的第二篇——配置文件及`shell`环境。
 
 ## 1. `shell`环境

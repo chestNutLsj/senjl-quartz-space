@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 CMake 3.9+ 中对 [OpenMP](https://cmake.org/cmake/help/latest/module/FindOpenMP.html) 的支持进行了极大的改善。现代（TM）CMake 使用 OpenMP 链接到一个目标的方法如下：
 
 ```

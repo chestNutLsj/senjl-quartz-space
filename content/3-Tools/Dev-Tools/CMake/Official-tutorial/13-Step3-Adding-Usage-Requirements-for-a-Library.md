@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Exercise 1 - Adding Usage Requirements for a Library
 
 [Usage requirements](https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html#target-usage-requirements) of a target parameters allow for far better control over a library or executable's link and include line while also giving more control over the transitive property of targets inside CMake. The primary commands that leverage usage requirements are:

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Using Jupyter Notebooks
 :label:`sec_jupyter`
 

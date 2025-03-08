@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ```yaml
 # 语言: None, Cpp, Java, JavaScript, ObjC, Proto, TableGen, TextProto
 Language: Cpp

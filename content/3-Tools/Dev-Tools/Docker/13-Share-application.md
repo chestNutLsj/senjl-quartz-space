@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Share the application
 
 Now that you've built an image, you can share it. To share Docker images, you have to use a Docker registry. The default registry is Docker Hub and is where all of the images you've used have come from.

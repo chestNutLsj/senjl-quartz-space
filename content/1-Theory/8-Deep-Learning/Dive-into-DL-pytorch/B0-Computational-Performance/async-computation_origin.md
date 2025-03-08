@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Asynchronous Computation
 :label:`sec_async`
 

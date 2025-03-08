@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置观察点只针对特定线程生效
 ## 例子
 	#include <stdio.h>

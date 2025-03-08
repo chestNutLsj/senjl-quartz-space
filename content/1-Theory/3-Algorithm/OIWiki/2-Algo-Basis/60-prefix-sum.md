@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 前缀和
 
 ### 定义

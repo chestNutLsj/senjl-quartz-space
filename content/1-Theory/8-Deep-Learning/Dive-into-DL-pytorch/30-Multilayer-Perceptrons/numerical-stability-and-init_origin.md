@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Numerical Stability and Initialization
 :label:`sec_numerical_stability`
 

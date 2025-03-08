@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 为调试进程产生core dump文件
 
 

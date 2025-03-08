@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Weak Pointer
 
 A `weak_ptr` is a type of smart pointer in C++ that adds a level of indirection and safety to a raw pointer. It is mainly used to break reference cycles in cases where two objects have shared pointers to each other, or when you need a non-owning reference to an object that is managed by a `shared_ptr`.

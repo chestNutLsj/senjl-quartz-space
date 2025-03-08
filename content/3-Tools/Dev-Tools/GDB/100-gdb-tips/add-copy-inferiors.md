@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 一个gdb会话中同时调试多个程序
 ## 例子
 	a.c:

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 支持预处理器宏信息
 
 ## 例子

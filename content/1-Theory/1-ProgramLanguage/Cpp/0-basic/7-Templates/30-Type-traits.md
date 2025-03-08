@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Type Traits are a set of template classes in C++ that help in getting the information about the type’s properties, behavior, or characteristics. They can be found in the `<type_traits>` header file. By using Type Traits, you can adapt your code depending on the properties of a given type, or even enforce specific properties for your type parameters in template code.
 
 Some common type traits are:

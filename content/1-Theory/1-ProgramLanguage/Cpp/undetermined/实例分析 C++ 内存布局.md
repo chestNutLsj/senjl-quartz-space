@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: http://notes.maxwi.com/2016/06/11/cpp-memory-layout/
 title: 实例分析 C++ 内存布局 | blueyi's notes
 date: 2023-07-25 17:18:51

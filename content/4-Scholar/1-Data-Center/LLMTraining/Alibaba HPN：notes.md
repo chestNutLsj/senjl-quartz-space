@@ -1,7 +1,8 @@
 ---
+image-auto-upload: false
 publish: "true"
 tags:
-  - datacenter
+  - DataCenter
   - LLM
   - architecture
 date: 2024-09-14

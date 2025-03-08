@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## OS 的功能
 
 ## OS 的历史

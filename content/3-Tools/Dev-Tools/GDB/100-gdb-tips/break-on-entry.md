@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在程序入口处打断点 
 
 ## 获取程序入口

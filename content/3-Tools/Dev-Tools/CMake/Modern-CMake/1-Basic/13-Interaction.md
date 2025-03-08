@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 通过 CMake 配置文件
 
 CMake 允许你在代码中使用 `configure_file` 来访问 CMake 变量。该命令将一个文件（ 一般以 `.in` 结尾 ）的内容复制到另一个文件中，并替换其中它找到的所有 CMake 变量。如果你想要在你的输入文件中避免替换掉使用 `${}` 包含的内容，你可以使用 `@ONLY` 关键字。还有一个关键字 `COPY_ONLY` 可以用来作为 `file(COPY` 的替代字。

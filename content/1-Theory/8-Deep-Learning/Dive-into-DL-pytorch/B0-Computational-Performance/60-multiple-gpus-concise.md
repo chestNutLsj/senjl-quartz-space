@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 多GPU的简洁实现
 :label:`sec_multi_gpu_concise`
 

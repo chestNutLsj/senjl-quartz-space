@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## impl in cpp
 ```cpp
 #include <iostream>

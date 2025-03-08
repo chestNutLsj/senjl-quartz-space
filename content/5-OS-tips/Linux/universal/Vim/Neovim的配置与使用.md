@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 https://zhuanlan.zhihu.com/p/382092667
 
 https://github.com/ayamir/nvimdots/wiki/Prerequisites

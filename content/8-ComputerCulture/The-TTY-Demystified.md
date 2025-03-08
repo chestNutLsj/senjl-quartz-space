@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://www.linusakesson.net/programming/tty/
 ---
 # The TTY demystified

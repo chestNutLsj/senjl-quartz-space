@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Automatic Differentiation
 :label:`sec_autograd`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 使用命令的缩写形式
 
 ## 技巧

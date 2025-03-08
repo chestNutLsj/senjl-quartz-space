@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 前面在讲解如何创建 map、multimap、set 以及 multiset 容器时，遗留了一个问题，即如何自定义关联式容器中的排序规则？
 

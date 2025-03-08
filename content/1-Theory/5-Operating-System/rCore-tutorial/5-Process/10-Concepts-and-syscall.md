@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 本节导读
 
 本节的内容有：

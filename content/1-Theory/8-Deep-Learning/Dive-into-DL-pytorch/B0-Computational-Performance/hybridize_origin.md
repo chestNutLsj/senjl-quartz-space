@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Compilers and Interpreters
 :label:`sec_hybridize`
 

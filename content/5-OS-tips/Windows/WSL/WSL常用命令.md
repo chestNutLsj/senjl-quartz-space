@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 注销 WSL 中特定分发
 
 ```shell

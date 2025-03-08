@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 本节我们将完成环境配置并成功运行 rCore-Tutorial-v3 。整个流程分为下面几个部分：
 
 *   系统环境配置

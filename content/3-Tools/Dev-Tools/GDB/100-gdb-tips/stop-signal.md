@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 信号发生时是否暂停程序
 ## 例子
 	#include <stdio.h>

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ![[project-structure.png]]
 
 在第 6 行中参数 `'/'` 称为 URL（Uniform Resource Locator）

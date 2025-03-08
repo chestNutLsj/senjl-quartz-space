@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 **Auto**
 
 `auto` is a keyword in C++ language introduced in C++11, which is used for automatic type deduction. It automatically deduces the type of a variable from the type of its initializer expression at compile time.

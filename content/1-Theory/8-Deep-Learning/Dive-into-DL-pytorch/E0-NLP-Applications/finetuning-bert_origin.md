@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Fine-Tuning BERT for Sequence-Level and Token-Level Applications
 :label:`sec_finetuning-bert`
 

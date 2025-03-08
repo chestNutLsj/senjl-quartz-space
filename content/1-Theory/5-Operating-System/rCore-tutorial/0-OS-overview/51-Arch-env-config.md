@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 安装 Qemu
 ```
 sudo pacman -S qemu-full

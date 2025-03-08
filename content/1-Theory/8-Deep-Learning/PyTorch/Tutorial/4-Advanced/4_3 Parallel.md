@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter04_advanced/4_3_multiply-gpu-parallel-training/
 title: 4.3 Parallel - PyTorch Tutorial
 date: 2023-04-12 20:17:18

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 为什么要用软件包管理器？
 类似Mac、Linux下的软件包管理器homebrew、apt、pacman等，Scoop是Windows下的软件包管理器，使用软件包管理器进行软件安装和管理好处多多，比如：
 - 安装软件包时快捷地添加用户环境变量，方便在终端中直接运行`.exe`；

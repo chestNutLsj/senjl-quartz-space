@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Semantic Segmentation and the Dataset
 :label:`sec_semantic_segmentation`
 

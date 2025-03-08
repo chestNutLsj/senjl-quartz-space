@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Name mangling, also known as name decoration, is a technique used by compilers to encode additional information about the scope, type, linkage, or other identifying information of an identifier (function names, variable names, etc.) within its name. The primary purpose of name mangling is to support function overloading, which allows multiple functions with the same name but different parameter lists to coexist in a single program.
 
 In C++, the compiler generates a mangled name for each function and variable based on their scopes and types. The mangled name is usually formed by concatenating the original name, parameter types, and other information, often using a prefix or suffix.

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Create a Project Directory
 It doesn’t matter to Rust where your code lives, but for the exercises and projects in this book, we suggest making a _projects_ directory in your home directory and keeping all your projects there.
 

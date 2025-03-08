@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 date: 2023-10-10
 tags:
   - RISC-V

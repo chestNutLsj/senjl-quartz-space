@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 更新时的输出信息
 
 ```

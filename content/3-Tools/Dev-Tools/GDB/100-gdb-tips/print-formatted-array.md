@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 格式化打印数组
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 预训练BERT
 :label:`sec_bert-pretraining`
 

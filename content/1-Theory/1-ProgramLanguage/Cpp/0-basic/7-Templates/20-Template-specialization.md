@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Template specialization is a way to customize or modify the behavior of a template for a specific type or a set of types. This can be useful when you want to optimize the behavior or provide specific implementation for a certain type, without affecting the overall behavior of the template for other types.
 
 There are two main ways you can specialize a template:

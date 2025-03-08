@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Linear Regression Implementation from Scratch
 :label:`sec_linear_scratch`
 

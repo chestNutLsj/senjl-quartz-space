@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 不论我们在讨论 SDN，NFV 或者其他的虚拟网络技术，有一点需要明确，网络数据包最终都是跑在物理网络上。物理网络的特性，例如带宽，MTU，延时等，最终直接或者间接决定了虚拟虚拟网络的特性。可以说 [物理网络](https://zhida.zhihu.com/search?content_id=4140916&content_type=Article&match_order=3&q=%E7%89%A9%E7%90%86%E7%BD%91%E7%BB%9C&zhida_source=entity)决定了虚拟网络的 “天花板”。在 Mirantis 对 [OpenStack Neutron 的性能测试](https://zhuanlan.zhihu.com/p/24766892)报告中可以看出， [网络设备](https://zhida.zhihu.com/search?content_id=4140916&content_type=Article&match_order=1&q=%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87&zhida_source=entity)的升级和调整，例如采用 [高速网卡](https://zhida.zhihu.com/search?content_id=4140916&content_type=Article&match_order=1&q=%E9%AB%98%E9%80%9F%E7%BD%91%E5%8D%A1&zhida_source=entity)，配置 MTU 9000，可以明显提高虚拟网络的传输效率。在对 [网络性能](https://zhida.zhihu.com/search?content_id=4140916&content_type=Article&match_order=1&q=%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD&zhida_source=entity)进行优化时，有些物理网络特性可以通过升级设备或线路来提升，但是有些与网络架构有关。升级或者改动网络架构带来的风险和成本是巨大的，因此在架设数据中心初始，网络架构的选择和设计尤其需要谨慎。另一方面，在设计虚拟网络时，不可避免的需要考虑实际的物理网络架构，理解物理网络架构对于最终理解虚拟网络是不可缺少的。
 

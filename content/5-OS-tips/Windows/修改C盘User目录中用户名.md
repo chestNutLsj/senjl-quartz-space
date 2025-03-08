@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 参考视频教程：[Windows修改C盘下Users用户文件夹下的中文名文件夹](https://www.bilibili.com/video/BV1eN4y157vj)。
 😄
 

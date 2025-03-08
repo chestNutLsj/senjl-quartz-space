@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 The non-copyable idiom is a C++ design pattern that prevents objects from being copied or assigned. It’s usually applied to classes that manage resources, like file handles or network sockets, where copying the object could cause issues like resource leaks or double deletions.
 
 To make a class non-copyable, you need to delete the copy constructor and the copy assignment operator. This can be done explicitly in the class declaration, making it clear to other programmers that copying is not allowed.

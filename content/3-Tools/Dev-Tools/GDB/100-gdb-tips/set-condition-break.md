@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置条件断点 
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 Before getting any deeper into this chapter, you should have a proper understanding of pointers and class inheritance. If you are not really sure of the meaning of any of the following expressions, you should review the indicated sections:
 

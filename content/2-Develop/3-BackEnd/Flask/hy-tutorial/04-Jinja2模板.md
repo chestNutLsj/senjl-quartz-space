@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 实际的网站开发中，需要渲染大量的 HTML 富文本，如果将这些 HTML 代码用字符串的形式写在视图函数中，后期维护将极其困难。
 
 在 Flask 中渲染 HTML 交给模版引擎 Jinja 2 实现。

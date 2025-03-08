@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 The memory model in C++ defines how the program stores and accesses data in computer memory. It consists of different segments, such as the Stack, Heap, Data and Code segments. Each of these segments is used to store different types of data and has specific characteristics.
 
 ## Stack Memory

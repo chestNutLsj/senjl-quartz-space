@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Boost
 Boost is a collection of high-quality and widely-used C++ libraries that are designed to help developers write efficient and portable code. They are modular and can be included in your projects as needed. Boost libraries provide various functionalities, including support for parallelism, multithreading, memory management, string manipulation, and advanced data structures.
 

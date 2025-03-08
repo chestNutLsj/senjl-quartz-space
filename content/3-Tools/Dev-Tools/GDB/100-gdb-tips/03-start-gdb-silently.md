@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 启动时不显示提示信息
 
 ## 例子

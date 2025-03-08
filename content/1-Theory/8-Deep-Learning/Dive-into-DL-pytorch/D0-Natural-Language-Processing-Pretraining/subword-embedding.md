@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 子词嵌入
 :label:`sec_fasttext`
 

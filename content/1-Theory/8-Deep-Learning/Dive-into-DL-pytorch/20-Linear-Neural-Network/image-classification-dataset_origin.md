@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # The Image Classification Dataset
 :label:`sec_fashion_mnist`
 

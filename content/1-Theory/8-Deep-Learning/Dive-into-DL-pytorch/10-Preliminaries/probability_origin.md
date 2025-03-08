@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Probability
 :label:`sec_prob`
 

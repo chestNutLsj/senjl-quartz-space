@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在匿名空间设置断点
 
 ## 例子

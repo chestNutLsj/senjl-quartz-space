@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Set up a new project
 ```shell
 cargo new guessing_game

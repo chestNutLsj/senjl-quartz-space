@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 假装我们有用不完的物理内存
 
 ​[视频解说](https://www.bilibili.com/video/BV1RK4y1R7Kf?p=9)​

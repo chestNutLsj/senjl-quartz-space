@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Attention Scoring Functions
 :label:`sec_attention-scoring-functions`
 

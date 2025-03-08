@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 操作系统：唯一的使命就是帮助程序运行
 
 ​[视频解说](https://www.bilibili.com/video/BV1RK4y1R7Kf?p=8)​

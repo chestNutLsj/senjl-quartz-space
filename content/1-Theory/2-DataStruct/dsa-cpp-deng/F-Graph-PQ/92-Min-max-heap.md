@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 | Algorithm | Average      | Worst case |
 | --------- | ------------ | ---------- |

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 1 Lambda 表达式
 

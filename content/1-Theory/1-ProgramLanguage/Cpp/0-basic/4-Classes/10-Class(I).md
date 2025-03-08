@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Classes are an expanded concept of _data structures_: like data structures, they can contain data members, but they can also contain functions as members.
 
 An object is an instantiation of a class. In terms of variables, a class would be the type, and an object would be the variable.

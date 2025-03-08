@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Interactive Input Editing and History Substitution
 
 Some versions of the Python interpreter support editing of the current input line and history substitution, similar to facilities found in the Korn shell and the GNU Bash shell. This is implemented using the [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library, which supports various styles of editing. This library has its own documentation which we won't duplicate here.

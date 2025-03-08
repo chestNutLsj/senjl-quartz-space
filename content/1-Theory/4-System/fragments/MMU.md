@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ![[MMU-MMU-principle.png]]
 MMU (Memory Management Unit)，即内存管理单元，是现代 CPU 架构中不可或缺的一部分。
 

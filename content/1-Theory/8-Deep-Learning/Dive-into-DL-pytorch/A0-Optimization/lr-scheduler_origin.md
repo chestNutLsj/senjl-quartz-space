@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Learning Rate Scheduling
 :label:`sec_scheduler`
 

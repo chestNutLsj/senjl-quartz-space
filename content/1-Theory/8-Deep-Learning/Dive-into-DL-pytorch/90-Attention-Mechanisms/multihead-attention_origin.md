@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Multi-Head Attention
 :label:`sec_multihead-attention`
 

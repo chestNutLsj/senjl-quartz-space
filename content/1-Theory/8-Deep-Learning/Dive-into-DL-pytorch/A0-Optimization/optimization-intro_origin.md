@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Optimization and Deep Learning
 
 In this section, we will discuss the relationship between optimization and deep learning as well as the challenges of using optimization in deep learning.

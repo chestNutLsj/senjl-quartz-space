@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置读观察点
 ## 例子
 	#include <stdio.h>

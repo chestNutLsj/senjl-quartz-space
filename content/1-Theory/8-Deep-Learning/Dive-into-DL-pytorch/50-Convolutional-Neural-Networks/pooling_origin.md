@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Pooling
 :label:`sec_pooling`
 

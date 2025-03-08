@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 A simple C++ statement is each of the individual instructions of a program, like the variable declarations and expressions seen in previous sections. They always end with a semicolon (`;`), and are executed in the same order in which they appear in a program.
 
 But programs are not limited to a linear sequence of statements. During its process, a program may repeat segments of code, or take decisions and bifurcate (分岔). For that purpose, C++ provides flow control statements that serve to specify what has to be done by our program, when, and under which circumstances.

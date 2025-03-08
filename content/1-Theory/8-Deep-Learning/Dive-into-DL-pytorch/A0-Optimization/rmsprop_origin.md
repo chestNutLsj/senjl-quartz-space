@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # RMSProp
 :label:`sec_rmsprop`
 

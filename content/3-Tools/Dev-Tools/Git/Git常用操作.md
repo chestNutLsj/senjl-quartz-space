@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 记录在使用过程中常见操作。
 
 ## Git pull 强制覆盖本地文件

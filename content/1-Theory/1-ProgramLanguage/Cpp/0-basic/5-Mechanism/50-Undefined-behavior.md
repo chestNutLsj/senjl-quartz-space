@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## **Undefined Behavior**
 
 Undefined behavior in C++ refers to a situation where a program’s behavior cannot be predicted due to any violation of the language rules. It is a result of various factors like uninitialized variables, using pointers to deallocated memory, out-of-bounds memory access, etc. The C++ standard does not define the behavior in such cases, which means the compiler or the runtime system is free to handle these situations in any way it wants.

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 调整窗口大小
 ## 例子
 	#include <stdio.h>

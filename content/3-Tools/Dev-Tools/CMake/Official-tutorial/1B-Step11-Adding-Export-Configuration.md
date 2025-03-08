@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 During [`Installing and Testing`]( https://cmake.org/cmake/help/latest/guide/tutorial/Installing%20and%20Testing.html#guide:tutorial/Installing%20and%20Testing "tutorial/Installing and Testing") of the tutorial we added the ability for CMake to install the library and headers of the project. During [`Packaging an Installer`]( https://cmake.org/cmake/help/latest/guide/tutorial/Packaging%20an%20Installer.html#guide:tutorial/Packaging%20an%20Installer "tutorial/Packaging an Installer") we added the ability to package up this information so it could be distributed to other people.
 
 The next step is to add the necessary information so that other CMake projects can use our project, be it from a build directory, a local install or when packaged.

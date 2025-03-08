@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Training on Multiple GPUs
 :label:`sec_multi_gpu`
 

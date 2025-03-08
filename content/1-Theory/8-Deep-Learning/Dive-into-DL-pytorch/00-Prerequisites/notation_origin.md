@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Notation
 :label:`chap_notation`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 课后练习
 
 ### 编程题

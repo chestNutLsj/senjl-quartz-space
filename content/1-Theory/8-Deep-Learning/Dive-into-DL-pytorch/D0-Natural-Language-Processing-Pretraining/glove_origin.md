@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Word Embedding with Global Vectors (GloVe)
 :label:`sec_glove`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Process
 
 ![[20-进程与线程-mindmap.png]]

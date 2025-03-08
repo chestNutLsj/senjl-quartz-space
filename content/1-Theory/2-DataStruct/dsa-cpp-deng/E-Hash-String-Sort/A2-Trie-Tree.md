@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://en.wikipedia.org/wiki/Trie?useskin=vector
 ---
 ## Introduction

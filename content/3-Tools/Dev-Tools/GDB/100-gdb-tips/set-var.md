@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置变量的值
 
 ## 例子

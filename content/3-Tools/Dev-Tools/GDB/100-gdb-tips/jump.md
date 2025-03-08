@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 跳转到指定位置执行 
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Multilayer Perceptrons
 :label:`sec_mlp`
 

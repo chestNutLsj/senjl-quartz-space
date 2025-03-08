@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Deep Convolutional Neural Networks (AlexNet)
 :label:`sec_alexnet`
 

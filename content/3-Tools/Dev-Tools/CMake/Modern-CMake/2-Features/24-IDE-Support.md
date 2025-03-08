@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 一般来说，IDE 已经被标准的 CMake 的项目支持。不过这里有一些额外的东西可以帮助 IDE 表现得更好：
 
 ## 用文件夹来组织目标 (target)

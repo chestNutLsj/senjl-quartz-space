@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 publish: "true"
 date: 2025-02-18
 tags:

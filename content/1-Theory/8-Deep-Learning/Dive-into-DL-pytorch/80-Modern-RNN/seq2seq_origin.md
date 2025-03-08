@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 #  Sequence to Sequence Learning
 :label:`sec_seq2seq`
 

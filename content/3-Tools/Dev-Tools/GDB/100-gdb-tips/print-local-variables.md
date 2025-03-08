@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印函数局部变量的值 
 
 ## 例子

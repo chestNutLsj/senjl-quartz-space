@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Neural Style Transfer
 
 If you are a photography enthusiast, 

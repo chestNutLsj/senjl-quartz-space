@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 随机梯度下降
 
 在前面的章节中，我们一直在训练过程中使用随机梯度下降，但没有解释它为什么起作用。为了澄清这一点，我们刚在 [[30-gradient-descent|梯度下降一节]] 中描述了其基本原则。本节继续更详细地说明*随机梯度下降*（stochastic gradient descent）。

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 安装、生成密钥、部署
 

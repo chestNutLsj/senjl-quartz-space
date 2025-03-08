@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Package managers are tools that automate the process of installing, upgrading, and managing software (libraries, frameworks, and other dependencies) for a programming language, such as C++.
 
 Some popular package managers used in the C++ ecosystem include:

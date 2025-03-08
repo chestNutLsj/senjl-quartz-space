@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Predicting House Prices on Kaggle
 :label:`sec_kaggle_house`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 退出正在调试的函数
 
 ## 例子

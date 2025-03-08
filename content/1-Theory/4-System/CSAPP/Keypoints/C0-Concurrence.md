@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 并发与并行，傻傻分不清楚？
 
 ## 

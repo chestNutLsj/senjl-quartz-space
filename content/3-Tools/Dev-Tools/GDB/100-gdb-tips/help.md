@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 得到命令的帮助信息
 
 ## 技巧

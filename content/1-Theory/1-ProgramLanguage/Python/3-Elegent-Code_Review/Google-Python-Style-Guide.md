@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 title: Style guides for Google-originated open-source projects
 tags:
   - Python

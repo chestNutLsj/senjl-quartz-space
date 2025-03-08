@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Natural Language Inference: Using Attention
 :label:`sec_natural-language-inference-attention`
 

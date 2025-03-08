@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://fengmuzi2003.gitbook.io/csapp3e/di-3-zhang-ji-qi-ji-bian-cheng
 title: 第 03 章：程序的机器级表示 - CSAPP 重点解读
 date: 2023-09-11 22:53:21

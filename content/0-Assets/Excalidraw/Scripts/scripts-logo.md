@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ![[Normalize Selected Arrows.svg]]
 ![[Add Connector Point.svg]]
 ![[Add Next Step in Process.svg]]

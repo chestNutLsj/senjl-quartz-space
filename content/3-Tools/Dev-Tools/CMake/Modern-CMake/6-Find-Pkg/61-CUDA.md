@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 使用 CUDA 有两种方式：CMake 3.8（Windows 为3.9）中引入的新方法，应该比旧的方法更受欢迎 —— 可能会在旧包中使用这种方法，所以本节会提一下。与旧语言不同，CUDA 的支持一直在快速发展，因为构建 CUDA 非常困难，所以建议_使用最新版本_的 CMake！CMake 3.17 和 3.18 有很多直接针对 CUDA 的改进。
 
 对于 CUDA 和现代 CMake 来说，一个很好的参考是 CMake 开发者 Robert Maynard 在 GTC 2017 的 [演讲 ppt](http://on-demand.gputechconf.com/gtc/2017/presentation/S7438-robert-maynard-build-systems-combining-cuda-and-machine-learning.pdf)。

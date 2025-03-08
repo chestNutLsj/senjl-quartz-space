@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## Type aliases (typedef / using)
 

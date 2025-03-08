@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示C++ vtable以及相应的内容
 
 ## 例子

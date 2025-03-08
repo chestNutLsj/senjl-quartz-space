@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # AdaGrad算法
 :label:`sec_adagrad`
 

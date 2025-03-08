@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 判断
 
 1. 由同⼀组共 n 个词条构成的任意两棵 BST，经 O(logn)次 zig 或 zag 旋转之后，必定可以相互转换。

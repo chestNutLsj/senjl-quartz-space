@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 C and C++ are two popular programming languages with some similarities, but they also have key differences. C++ is an extension of the C programming language, with added features such as object-oriented programming, classes, and exception handling. Although both languages are used for similar tasks, they have their own syntax and semantics, which makes them distinct from each other.
 
 ## Syntax and Semantics

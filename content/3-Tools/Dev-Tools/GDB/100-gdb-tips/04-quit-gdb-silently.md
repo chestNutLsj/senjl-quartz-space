@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # gdb退出时不显示提示信息
 
 

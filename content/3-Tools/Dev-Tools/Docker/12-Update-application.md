@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Update the application
 
 ### Update the source code

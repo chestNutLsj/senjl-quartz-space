@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 定义
 
 （还记得这些定义吗？在阅读下列内容之前，请务必了解 [图论相关概念](https://oi-wiki.org/graph/concept/) 中的基础部分。）

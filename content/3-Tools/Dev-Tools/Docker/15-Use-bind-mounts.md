@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Use bind mounts
 
 In [[14-Persist-in-DB|part 4]], you used a volume mount to persist the data in your database. A volume mount is a great choice when you need somewhere persistent to store your application data.

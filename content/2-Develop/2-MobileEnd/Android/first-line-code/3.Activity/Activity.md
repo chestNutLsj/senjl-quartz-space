@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Activity
 
 Activity是一种可以包含用户界面的组件，主要用于和用户进行交互。一个应用程序中可以包含零个或多个Activity。

@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://github.com/Tomek52/hardcore_dining_philosophers/blob/master/README.md
 ---
 

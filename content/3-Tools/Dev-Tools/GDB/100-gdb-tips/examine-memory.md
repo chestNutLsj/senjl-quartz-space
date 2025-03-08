@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印内存的值
 ## 例子
 	#include <stdio.h>

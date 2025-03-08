@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 #  Preliminaries
 :label:`chap_preliminaries`
 

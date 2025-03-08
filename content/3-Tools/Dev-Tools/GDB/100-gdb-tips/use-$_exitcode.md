@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 使用“$_exitcode”变量
 ## 例子
 	int main(void)

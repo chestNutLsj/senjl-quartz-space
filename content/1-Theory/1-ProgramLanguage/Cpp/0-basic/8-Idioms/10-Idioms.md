@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 C++ idioms are well-established patterns or techniques that are commonly used in C++ programming to achieve a specific outcome. They help make code efficient, maintainable, and less error-prone. Here are some of the common C++ idioms:
 
 ## 1. Resource Acquisition is Initialization (RAII)

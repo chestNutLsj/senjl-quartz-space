@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://llvm.org/docs/CMakePrimer.html#ft-view
 ---
 > [!Warning] Disclaimer

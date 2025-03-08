@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Recurrent Neural Networks
 :label:`chap_rnn`
 

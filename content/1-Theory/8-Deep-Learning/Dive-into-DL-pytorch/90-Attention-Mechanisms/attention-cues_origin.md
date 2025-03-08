@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Attention Cues
 :label:`sec_attention-cues`
 

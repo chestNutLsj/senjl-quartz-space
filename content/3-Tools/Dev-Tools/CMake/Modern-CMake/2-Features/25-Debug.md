@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 你可能需要对你的 CMake 构建过程或你的 C++ 代码进行调试。本文将介绍这两者。
 
 ## 调试 CMake

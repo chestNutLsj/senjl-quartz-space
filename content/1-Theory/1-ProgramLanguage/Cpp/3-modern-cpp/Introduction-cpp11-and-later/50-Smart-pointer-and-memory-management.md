@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 1 RAII 与引用计数
 

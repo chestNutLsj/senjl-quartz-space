@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 指定程序的输入输出设备
 
 ## 例子

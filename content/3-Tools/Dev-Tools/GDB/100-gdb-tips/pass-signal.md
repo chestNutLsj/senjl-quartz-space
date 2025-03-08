@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 信号发生时是否把信号丢给程序处理
 ## 例子
 	#include <stdio.h>

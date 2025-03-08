@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 代码框架  
 ```cpp
 #include <iostream>

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## CPU
 
 >[!note] Intel CPU 的后缀含义

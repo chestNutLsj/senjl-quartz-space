@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Configuration
 
 The Docker daemon can be configured either through a configuration file at `/etc/docker/daemon.json` or by adding command line flags to the `docker.service` systemd unit. According to the [Docker official documentation](https://docs.docker.com/config/daemon/#configure-the-docker-daemon), the configuration file approach is preferred. If you wish to use the command line flags instead, use [systemd drop-in files](https://wiki.archlinux.org/title/Systemd#Drop-in_files "Systemd") to override the `ExecStart` directive in `docker.service`.

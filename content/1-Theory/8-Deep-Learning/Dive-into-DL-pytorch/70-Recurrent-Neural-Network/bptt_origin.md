@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Backpropagation Through Time
 :label:`sec_bptt`
 

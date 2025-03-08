@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 publish: "true"
 date: 2023-10-22
 ---

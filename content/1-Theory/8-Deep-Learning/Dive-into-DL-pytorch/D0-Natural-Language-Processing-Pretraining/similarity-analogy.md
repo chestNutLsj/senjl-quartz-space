@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 词的相似性和类比任务
 :label:`sec_synonyms`
 

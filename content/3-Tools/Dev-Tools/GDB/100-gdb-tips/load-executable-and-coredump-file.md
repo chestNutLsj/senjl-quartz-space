@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 加载可执行程序和core dump文件 
 
 ## 例子

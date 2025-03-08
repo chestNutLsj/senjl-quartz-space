@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Gradient Descent
 :label:`sec_gd`
 

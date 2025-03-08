@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在Solaris上使用maintenance命令查看线程信息
 
 

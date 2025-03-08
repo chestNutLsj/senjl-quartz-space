@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Fully Convolutional Networks
 :label:`sec_fcn`
 

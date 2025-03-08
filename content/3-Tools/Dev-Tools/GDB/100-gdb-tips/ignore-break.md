@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 忽略断点 
 
 ## 例子

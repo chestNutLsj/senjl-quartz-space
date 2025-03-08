@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Natural Language Processing: Applications
 :label:`chap_nlp_app`
 

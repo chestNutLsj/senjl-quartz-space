@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 图像增广
 :label:`sec_image_augmentation`
 

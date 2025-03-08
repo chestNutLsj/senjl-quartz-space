@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Batch Normalization
 :label:`sec_batch_norm`
 

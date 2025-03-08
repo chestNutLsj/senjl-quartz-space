@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印程序动态分配内存的信息
 ## 例子
 	#include <stdio.h>

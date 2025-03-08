@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 硬盘存储
 
 ### 非易失性存储器

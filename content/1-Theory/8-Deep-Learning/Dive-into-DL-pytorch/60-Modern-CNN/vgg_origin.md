@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Networks Using Blocks (VGG)
 :label:`sec_vgg`
 

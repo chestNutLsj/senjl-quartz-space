@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 C++ is known as a statically-typed language, which means the data types of its variables are determined at compile time. However, C++ also provides concepts to have certain level of _dynamic typing_, which means determining the data types of variables at runtime.
 
 Here is a brief overview of two ways to achieve dynamic typing in C++:

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印静态变量的值 
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 流水线概述
 ### 流水线执行效率与特点
 ![[24-Pipeline-phase.png]]

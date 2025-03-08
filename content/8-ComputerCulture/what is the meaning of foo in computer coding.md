@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 不管是java，Ｃ＋＋，还是PHP，每次都能看到 foo = bar 的例子，这两个单词很恶心，foo查不到字典，bar的解释又让人跟编程联系不上，更弄不清楚这个神秘的foo是个什么关系。
 

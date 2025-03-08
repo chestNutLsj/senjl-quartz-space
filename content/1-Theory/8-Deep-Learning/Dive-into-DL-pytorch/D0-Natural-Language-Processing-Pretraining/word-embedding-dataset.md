@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 用于预训练词嵌入的数据集
 :label:`sec_word2vec_data`
 

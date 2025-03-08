@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Parameter Management
 
 Once we have chosen an architecture

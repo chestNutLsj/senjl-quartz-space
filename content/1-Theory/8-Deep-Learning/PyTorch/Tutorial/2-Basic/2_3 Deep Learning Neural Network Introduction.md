@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_3_deep-learning-neural-network-introduction/
 title: 2.3 Deep Learning Neural Network Introduction - PyTorch Tutorial
 date: 2023-04-10 15:50:29

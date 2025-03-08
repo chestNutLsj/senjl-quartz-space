@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Why Rust?
 No matter what kind of code you are writing now, Rust ==empowers you to reach farther==, to program with confidence in a wider variety of domains than you did before.
 

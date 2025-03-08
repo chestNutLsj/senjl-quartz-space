@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 我们知道，C++ 11 为 STL 标准库增添了 4 种无序（哈希）容器，前面已经对 unordered_map 和 unordered_multimap 容器做了详细的介绍，本节再讲解一种无序容器，即 unordered_set 容器。
 

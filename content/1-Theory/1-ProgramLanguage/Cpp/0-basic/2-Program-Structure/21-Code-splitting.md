@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Code splitting refers to the process of breaking down a large code base into smaller, more manageable files or modules. This helps improve the organization, maintainability, and readability of the code. In C++, code splitting is generally achieved through the use of separate compilation, header files, and source files.
 
 ## Header Files (.h or .hpp)

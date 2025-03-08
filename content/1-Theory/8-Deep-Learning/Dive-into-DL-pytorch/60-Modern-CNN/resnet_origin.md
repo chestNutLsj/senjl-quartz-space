@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Residual Networks (ResNet)
 :label:`sec_resnet`
 

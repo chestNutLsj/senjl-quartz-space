@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 只允许一个线程运行
 ## 例子
 	#include <stdio.h>

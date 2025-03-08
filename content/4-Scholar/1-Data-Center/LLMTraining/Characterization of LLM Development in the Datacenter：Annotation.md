@@ -1,10 +1,12 @@
 ---
+image-auto-upload: true
 date: 2024-09-21
 tags:
-  - datacenter
+  - DataCenter
   - LLM
   - architecture
   - paper-reading
+  - Annotation
 author: SenjLee
 publish: "true"
 title: Charactrization of LLM Development in the Datacenter.
@@ -45,7 +47,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 ### LLM Development Pipeline
 
-![[Characterization of LLM Developmentnotes-fig1-LLM-pipeline.png]]
+![Characterization of LLM Developmentnotes-fig1-LLM-pipeline](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig1-LLM-pipeline.png)
 
 >Fig 1 展示了大语言模型开发的完整流程，包括五个不同的阶段（蓝色块），从零开始到服务（跟随蓝色箭头）。灰色圆形箭头表示预训练阶段能够进行定期的对齐和评估，以评估中间模型并动态调整配置。
 
@@ -67,7 +69,7 @@ title: Charactrization of LLM Development in the Datacenter.
 ###  `Acme` Overview
 
 `Acme` 中有专门用于 LLM 开发的两个集群：`Seren` 和 `Kalos` ，
-![[Characterization of LLM Developmentnotes-table1-acme-devices.png]]
+![Characterization of LLM Developmentnotes-table1-acme-devices](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-table1-acme-devices.png)
 
 >**设备详情**：
 > - `Seren` 和 `Kalos` 分别拥有 2,288 和 2,416 个 GPU。
@@ -92,7 +94,7 @@ title: Charactrization of LLM Development in the Datacenter.
 >**跟踪数据的来源**：
 >- Our characterization study is based on traces collected from two LLM clusters in `Acme`. The traces span 6 months from March to August 2023.
 >- `Seren` contains 368K CPU jobs and 664K GPU jobs, while `Kalos` job trace consists of 42K CPU jobs and 20K GPU jobs.
->- 性能改进的对比对象：负载传统 DL 任务的传统数据中心集群![[Characterization of LLM Developmentnotes-table2-other-clusters.png]]
+>- 性能改进的对比对象：负载传统 DL 任务的传统数据中心集群![Characterization of LLM Developmentnotes-table2-other-clusters](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-table2-other-clusters.png)
 >- The data sources for the traces used in paper's study: 
 >	1) *Job Log*. 从调度器数据库中收集的作业日志，其中包含每个作业的详细信息——包括作业的执行时间（提交、开始和结束）、最终状态（完成、取消、失败）、请求的资源（CPU、GPU、主存）、工作目录以及其他相关数据。
 >	2) *Hardware Monitor Data*. 这包括从各种来源获取的长期、多维硬件数据：从 Prometheus 数据库中收集 CPU、主存和网络使用数据，从 NVIDIA DCGM 中获取与 GPU 相关的指标，以及从 IPMI 中获取与电力相关的数据。这些数据的采样间隔设置为 15 秒。
@@ -118,7 +120,7 @@ title: Charactrization of LLM Development in the Datacenter.
 >3) *Extensive associated workloads*. LLM 开发流程包含大量的小规模相关联的任务，例如 evaluation 任务等，这在 [[#Workload Categories|下一节]] 会详述。
 >4) *High incompletion rate*. 大约 40% 的 LLM 作业会失败，完成的作业仅仅占用 20%～30％的 GPU 资源。$\rightarrow$ **This highlights the urgent need for a [[#Fault-tolerant Pretraining|fault-tolerant system]].**
 
-![[Characterization of LLM Developmentnotes-fig2-GPU-utilization.png]]
+![Characterization of LLM Developmentnotes-fig2-GPU-utilization](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig2-GPU-utilization.png)
 #### Polarized GPU Utilization
 
 >**GPU 利用率变得更极端！**
@@ -131,7 +133,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 >**工作负载的分布极度不均衡！**
 
-![[Characterization of LLM Developmentnotes-fig3-GPU-numbers.png]]
+![Characterization of LLM Developmentnotes-fig3-GPU-numbers](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig3-GPU-numbers.png)
 
 对于作业请求 GPU 数量的情况分布，所有集群都呈现出相似的模式——大多数作业是单 GPU 作业，仅不到7%的作业请求超过 8 个 GPU 。然而，在考察GPU时间时，单 GPU 作业在 `Seren` 和 `Kalos` 中仅占不到 2% 的资源，而在 `PAI` 中却占据了超过68%的 GPU 时间。与此形成鲜明对比的是，大规模作业（≥ 256个GPU）在 `Kalos` 中主导了 GPU 时间，占据了超过 96% 的资源。
 
@@ -149,7 +151,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 > **对于不同种类的作业而言，作业数量与资源利用并不相关**。
 
-![[Characterization of LLM Developmentnotes-fig4-different-workload-types.png]]
+![Characterization of LLM Developmentnotes-fig4-different-workload-types](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig4-different-workload-types.png)
 
 显然，评估任务在两个集群中的总任务数量中占大多数，但它们消耗的资源相对较少（在 `Kalos` 中仅占 0.8%）。相比之下，预训练任务仅占总任务数量的 0.9% 和 3.2%，但在 `Seren` 和 `Kalos` 中分别消耗了总 GPU 时间的 69.5%和 94.0%。
 
@@ -157,7 +159,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 >**作业类型与 GPU 需求强相关**。
 
-![[Characterization of LLM Developmentnotes-fig5-GPU-demand.png]]
+![Characterization of LLM Developmentnotes-fig5-GPU-demand](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig5-GPU-demand.png)
 
 >Each box is framed by the first and third quartiles, while the median value is indicated by the black line within the box. Both whiskers are defined at 1.5× the InterQuartile Range (IQR).
 
@@ -169,7 +171,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 >**不同类型任务在时间分布上大体接近，但存在不公平现象**。
 
-![[Characterization of LLM Developmentnotes-fig6-temporal-distribution.png]]
+![Characterization of LLM Developmentnotes-fig6-temporal-distribution](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig6-temporal-distribution.png)
 
 在任务持续时间方面，尽管**预训练任务的持续时间最长**，但它们的中位数时间超过其他类型工作的中位数时间仍在一个数量级以内，并且在两个集群中均只有不到 5% 的任务持续时间超过一天。这是由于预训练过程中频繁的失败，这一点将在后文 [[#Failure Analysis]] 一节中进一步探讨。
 
@@ -177,7 +179,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 ### Infrastructure
 
-![[Characterization of LLM Developmentnotes-fig7-infra-utilization.png]]
+![Characterization of LLM Developmentnotes-fig7-infra-utilization](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig7-infra-utilization.png)
 
 > DCGM 是英伟达提供的数据中心 GPU 管理器，通过 DCGM 能够收集细粒度的性能计数器指标，包括 SM 活动[^6]（`PROF_SM_ACTIVE`）、TC 活动[^7]（`PROF_PIPE_TENSOR_ACTIVE`）、GPU 主存占用（`DEV_FB_USED`）等。
 
@@ -203,7 +205,7 @@ title: Charactrization of LLM Development in the Datacenter.
 
 >**LLM 开发会产生大量的电力需求及二氧化碳释放**。
 
-![[Characterization of LLM Developmentnotes-fig8-fig9-power-consumption.png]]
+![Characterization of LLM Developmentnotes-fig8-fig9-power-consumption](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig8-fig9-power-consumption.png)
 
 从 Fig 8(a) 中可以观察到，大约 30%的 GPU 处于空闲状态，但仍需消耗 60w 的电力。此外，由于密集的计算需求，`Seren` 和 `Kalos` 中分别有 22.1%和 12.5%的 GPU 消耗超过 400 瓦（TDP[^8]），其中一些甚至达到 600 瓦。这可能会导致一些亚稳态（metastable）问题的风险。
 
@@ -217,7 +219,7 @@ Fig 8(b) 展示了 `Seren` 中所有 GPU 服务器的功耗分布，以及额外
 
 #### GPU SM Utilization
 
-![[Characterization of LLM Developmentnotes-fig10-GPUSM-utilization.png]]
+![Characterization of LLM Developmentnotes-fig10-GPUSM-utilization](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig10-GPUSM-utilization.png)
 
 Fig 10 展示了在不同训练策略下，相同大语言模型的 GPU SM 利用率。两个版本保持相同的批量大小（batchsize），并根据各自的配置进行了优化。显然，相对于 InternEvo V1，V2 的峰值 SM 利用率更高一筹，并且空闲时段更少，加速了大约 16% 。
 
@@ -225,7 +227,7 @@ InternEvo V1 的三维并行（3D parallelism）的利用率相对较低，主�
 
 #### GPU Memory Footprint
 
-![[Characterization of LLM Developmentnotes-fig11-memory-snapshot.png]]
+![Characterization of LLM Developmentnotes-fig11-memory-snapshot](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig11-memory-snapshot.png)
 
 >For a model comprising $Ψ$[^9] parameters, in the mainstream mixed precision training using Adam optimizer, the memory footprint of the parameters, gradients, and optimizer states are $2Ψ$, $2Ψ$, and $12Ψ$, respectively. To reduce memory cost, ZeRO effectively shards redundant memory of these elements across global GPU workers.
 
@@ -235,7 +237,7 @@ Fig 11 展示了由 PyTorch 主存快照工具捕获的实际 GPU 主存使用�
 
 #### Imbalance in Activation Sizes
 
-![[Characterization of LLM Developmentnotes-fig12-GPU-memory-consumption.png]]
+![Characterization of LLM Developmentnotes-fig12-GPU-memory-consumption](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig12-GPU-memory-consumption.png)
 
 在使用流水线并行时，每个 rank[^10] 需要持有不同数量的激活值（activations，用于反向传播），因为各个流水线 rank 中等待反向传播计算的微批次（micro-batches）数量不同。
 
@@ -249,7 +251,7 @@ Fig 12 绘制了不同流水线 rank 上的不平衡问题，这表明应该采�
 
 >**模型加载和数据预处理的开销过大**。
 
-![[Characterization of LLM Developmentnotes-fig13-SM-utilization-during-evaluate.png]]
+![Characterization of LLM Developmentnotes-fig13-SM-utilization-during-evaluate](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig13-SM-utilization-during-evaluate.png)
 
 在评估任务的启动阶段，必须为每个任务加载模型检查点（对应上图 Model Load 部分）。此外，数据预处理阶段（对应上图 Data Preprocess 部分），特别是词元化（tokenization）过程，占据了大量的时间。这些因素导致分配的 GPU 资源在相当长的时间内未被充分利用。如 Fig 13 所示，评估任务在实际 GPU 进行推断之前消耗了超过 1 分钟的时间，占评估总时长的 29.5%。这种开销可能会随着模型或数据集的增大而增加。
 
@@ -273,7 +275,7 @@ Fig 12 绘制了不同流水线 rank 上的不平衡问题，这表明应该采�
 
 >**对故障进行分类**。
 
-![[Characterization of LLM Developmentnotes-table3-job-failure.png]]
+![Characterization of LLM Developmentnotes-table3-job-failure](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-table3-job-failure.png)
 
 上述 Table 3 提供了 `Acme` 数据中心中常见故障的总结，包括它们的发生频率和重启时间。这些故障大体地分为三类：
 - **Infrastructure.** 基础设施相关的故障源于计算平台或远程存储中的潜在问题。这些故障主要发生在作业执行过程中途，尤其是在预训练任务中。由于恢复过程费时费力，它们严重影响了训练进度。
@@ -319,7 +321,7 @@ GPU 过热可能会导致 NVLinkError 或 ECCError，这种现象在很大程度
 
 重启训练需要恢复到上一个 checkpoint ，此间的训练过程将会抛弃。当今的 LLM 框架并没有自动重启的机制，因此需要维护者随叫随到地监视运行情况，考虑是否重启作业。
 
-![[Characterization of LLM Developmentnotes-fig14-failure-recovery.png]]
+![Characterization of LLM Developmentnotes-fig14-failure-recovery](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig14-failure-recovery.png)
 
 在 Fig 14 中记录了两种尺寸的 LLM 的训练过程，特别标出了夜间重启。
 - 104B 模型是在框架仍处于开发阶段早期的尝试，因此，加载先前模型检查点的过程导致了整体训练过程中的重大损失。
@@ -340,7 +342,7 @@ GPU 过热可能会导致 NVLinkError 或 ECCError，这种现象在很大程度
 2. Diagnosis, 通过启发式的规则与 LLM 的结合，精确地识别出不同错误发生的根本原因
 3. Recovery, 通过全面的检测工具定位问题节点，并且自动地从正确的检查点恢复、重启
 
-![[Characterization of LLM Developmentnotes-fig15-failure-tolerant.png]]
+![Characterization of LLM Developmentnotes-fig15-failure-tolerant](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig15-failure-tolerant.png)
 
 要实现这个自动检测并恢复的系统需要实现这三个模块：
 
@@ -373,7 +375,7 @@ GPU 过热可能会导致 NVLinkError 或 ECCError，这种现象在很大程度
 2. 解耦指标计算；
 3. 基于先验知识的弹性调度。
 
-![[Characterization of LLM Developmentnotes-fig16-evaluation-optimize.png]]
+![Characterization of LLM Developmentnotes-fig16-evaluation-optimize](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Characterization%20of%20LLM%20Developmentnotes-fig16-evaluation-optimize.png)
 
 1. ***Decoupling Remote Model Loading***. 鉴于 LLMs 尺寸巨大，从远程存储中检索和加载它们是一个极耗时的过程。此外，大量评估任务（约 60 个数据集）的并发执行会因争用加剧而进一步延长加载时间。Fig 16(left) 展示了在 `Seren` 中进行的一系列并发评估试验中的平均模型加载速度。<u>结果显示，当单节点上单 GPU 试验的数量从 1 增加到 8 时，由于 NIC 的带宽限制（25 Gb/s），加载速度大幅下降。另一方面，当试验数量在 8 到 256 个之间时，加载速度趋于稳定</u>。由这一观察启发，不再将每个评估数据集作为一个单独的试验提交，而是**将模型加载过程与评估过程分离**，如 Fig 16(right) 所示。具体来说，试验协调器首先从集群调度器中检索可用节点列表，然后为每个节点生成一系列前驱作业。这些作业将模型从远程存储加载到本地共享主存中。随后，协调器向调度器提交评估作业，这些作业通过高带宽的 PCIe 加载模型。*这种方法有效利用了空闲的主机主存*。评估完成后，协调器会清除文件。
 2. ***Decoupling Metric Computation***. 如 [[#Evaluation Workload|Fig 13]] 所示，如图 13 所示，评估过程通常涉及复杂且耗时的指标计算。例如，必须在 HumanEval 和 MBPP 等数据集上执行复杂的程序正确性测试。为解决这一问题，**将指标计算过程与评估试验解耦**。当模型推断在 GPU 上执行后，其输出被迅速保存到文件中，终止推断任务。由于输出通常是基于文本的（small size），因此文件转储过程非常迅速。随后，生成 CPU 任务来执行指标计算。*这种方法有效减少了 GPU 空闲时间并加速了评估过程，还利用了 CPU 的算力*。

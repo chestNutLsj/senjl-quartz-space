@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Machine Translation and the Dataset
 :label:`sec_machine_translation`
 

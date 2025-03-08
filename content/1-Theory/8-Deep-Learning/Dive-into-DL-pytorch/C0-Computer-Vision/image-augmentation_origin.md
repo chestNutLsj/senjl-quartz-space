@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Image Augmentation
 :label:`sec_image_augmentation`
 

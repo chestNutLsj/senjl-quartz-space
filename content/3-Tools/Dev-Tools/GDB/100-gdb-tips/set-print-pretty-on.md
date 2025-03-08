@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 每行打印一个结构体成员 
 
 ## 例子

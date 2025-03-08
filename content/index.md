@@ -4,8 +4,9 @@ publish: "true"
 tags:
   - quartz
   - Blog
+image-auto-upload: true
 ---
-欢迎来到 SenjL[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮： `lisj24 at mails.tsinghua.edu.cn` ，或者在本博客页底的评论区[^2]中发起讨论。
+欢迎来到我[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮：`lisj24 at mails.tsinghua.edu.cn`，或者在本博客页底的评论区 [^2] 中发起讨论。
 
 > [!tip] 🎵: Have a relax!
 > ![未闻花名1](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/%E6%9C%AA%E9%97%BB%E8%8A%B1%E5%90%8D1.png)
@@ -13,8 +14,9 @@ tags:
 
 > [!example] 帖子精选
 > - **论文注解**：
-> 	- [[DeepSeek_V3_Report_Annotation]]
-> 	- [[Characterization of LLM Development in the Datacenter：notes]]
+> 	- [[DeepSeek_V3_Report：Annotation]]
+> 	- [[Characterization of LLM Development in the Datacenter：Annotation]]
+> 	- [[Jupiter_Rising：Annotation]]
 
 ## Learn in 2024
 
@@ -41,11 +43,13 @@ tags:
 
 ## Learn in 2025
 
-- [ ] 1 月 ~ 2 月：开展科研工作的前置学习
-  - [ ] 阅读 DeepSeek 的 Tech Report、
-  - [ ] 学习 NCCL/MSCCL 库及 GPU 基础知识、
-  - [ ] 广泛阅读论文，记录在册： [[Paper Reading Records]] ；
+- [x] 1 月 ~ 2 月：开展科研工作的前置学习
+    - [x] 阅读 DeepSeek 的 [[DeepSeek_V3_Report：Annotation|Tech Report]]、
+    - [ ] 学习 NCCL/MSCCL 库及 GPU 基础知识、
+    - [ ] 广泛阅读论文，记录在册： [[Paper Reading Records]] ；
 - [ ] 3 月 ~ 5 月：初步开展科研工作
+	- [ ] 学习 CUDA 编程
+	- [ ] 保持对 DeepSeek、Kimi、Minimax 等前沿公司的技术的追更
 
 ## My CS Career
 
@@ -135,6 +139,8 @@ tags:
 - 个人介绍
 - [[My-ENotes-System|如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站]] ？
 - [[Outside Links|通往站外]]
+
+---
 
 [^1]: 你也可以叫我的笔名“花间有酒醉今人”。
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在gdb中执行cd和pwd命令
 
 ## 技巧

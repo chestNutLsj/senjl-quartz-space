@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示汇编代码窗口
 ## 例子
 	#include <stdio.h>

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Sentiment Analysis: Using Convolutional Neural Networks 
 :label:`sec_sentiment_cnn`
 

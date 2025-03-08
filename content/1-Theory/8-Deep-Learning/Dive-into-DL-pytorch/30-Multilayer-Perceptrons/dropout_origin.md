@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Dropout
 :label:`sec_dropout`
 

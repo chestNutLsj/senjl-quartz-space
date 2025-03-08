@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Exercise 1 - Install Rules
 
 Often, it is not enough to only build an executable, it should also be installable. With CMake, we can specify install rules using the [`install()`](https://cmake.org/cmake/help/latest/command/install.html#command:install "install") command. Supporting local installations for your builds in CMake is often as simple as specifying an install location and the targets and files to be installed.

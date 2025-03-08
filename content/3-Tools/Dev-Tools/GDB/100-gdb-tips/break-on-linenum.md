@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在文件行号上打断点
 
 ## 例子

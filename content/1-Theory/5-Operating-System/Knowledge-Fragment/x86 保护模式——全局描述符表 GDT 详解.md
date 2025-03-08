@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://blog.csdn.net/abc123lzf/article/details/109289567
 title: (25 条消息) x86 保护模式——全局描述符表 GDT 详解_gdt 字符_A__Plus 的博客 - CSDN 博客
 date: 2023-07-20 17:04:19

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 详细文档可参考[Archwiki-Ranger](https://wiki.archlinux.org/title/Ranger_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))，[Ranger-Official-user-guide](https://github.com/ranger/ranger/wiki/Official-user-guide)。
 
 使用命令`sudo pacman -S ranger`下载完成后，在终端中运行`ranger`来启动，

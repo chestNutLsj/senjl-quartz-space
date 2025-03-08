@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 自然语言推断：使用注意力
 :label:`sec_natural-language-inference-attention`
 

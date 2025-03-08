@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 实现古人“天涯若比邻”的梦想
 
 ## 

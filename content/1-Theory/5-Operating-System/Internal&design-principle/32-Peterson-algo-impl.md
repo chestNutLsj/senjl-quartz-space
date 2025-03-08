@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 头文件
 ```cpp
 #ifndef PETERSON_ALGO_H  

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 使用断点命令改变程序的执行
 
 ## 例子

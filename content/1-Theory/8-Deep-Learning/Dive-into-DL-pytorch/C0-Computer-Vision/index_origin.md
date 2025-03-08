@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Computer Vision
 :label:`chap_cv`
 

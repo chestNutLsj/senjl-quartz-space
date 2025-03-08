@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Concise Implementation of Softmax Regression
 :label:`sec_softmax_concise`
 

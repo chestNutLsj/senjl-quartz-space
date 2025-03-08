@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Beam Search
 :label:`sec_beam-search`
 

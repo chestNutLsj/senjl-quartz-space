@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Linear Regression
 :label:`sec_linear_regression`
 

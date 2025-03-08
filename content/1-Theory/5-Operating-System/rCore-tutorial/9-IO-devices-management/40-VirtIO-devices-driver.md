@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### 本节导读
 
 本节主要介绍了 QEMU 模拟的 RISC-V 计算机中的 virtio 设备的架构和重要组成部分，以及面向 virtio 设备的驱动程序主要功能；并对 virtio-blk 设备及其驱动程序，virtio-gpu 设备及其驱动程序进行了比较深入的分析。

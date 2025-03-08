@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 CMake 有两种打包方式：一是使用 `CPackConfig.cmake` 文件；二是将 CPack 变量放置在 CMakeLists.txt 文件中。若想要包含主构建的相关变量（比如：版本号），可以使用配置文件的方式。这里，我将展示第二种方式：
 
 ```

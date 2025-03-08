@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Constants are expressions with a fixed value.  
 
 ## Literals

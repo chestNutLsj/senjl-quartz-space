@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 >[!tip] Prerequisite
 >- [Process Synchronization](https://www.geeksforgeeks.org/process-synchronization-set-1/),

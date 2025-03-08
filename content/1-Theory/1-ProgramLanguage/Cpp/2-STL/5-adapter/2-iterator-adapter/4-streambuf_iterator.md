@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 > 在学习本节之前，读者有必要先了解什么是缓冲区，可阅读《[进入缓冲区（缓存）的世界](http://www.cdsy.xyz/computer/programme/vc/20201226/cd16089893876300.html)》一节做详细了解。
 

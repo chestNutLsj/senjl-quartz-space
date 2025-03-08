@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Word Embedding (word2vec)
 :label:`sec_word2vec`
 

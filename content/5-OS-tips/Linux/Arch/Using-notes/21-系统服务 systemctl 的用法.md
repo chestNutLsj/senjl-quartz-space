@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### 21-系统服务 systemctl 的用法
 
 ```shell

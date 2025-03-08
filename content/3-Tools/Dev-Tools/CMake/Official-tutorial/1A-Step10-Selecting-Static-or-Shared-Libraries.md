@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 In this section we will show how the [`BUILD_SHARED_LIBS`]( https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html#variable:BUILD_SHARED_LIBS "BUILD_SHARED_LIBS") variable can be used to control the default behavior of [`add_library()`]( https://cmake.org/cmake/help/latest/command/add_library.html#command:add_library "add_library"), and allow control over how libraries without an explicit type (`STATIC`, `SHARED`, `MODULE` or `OBJECT`) are built.
 
 To accomplish this we need to add [`BUILD_SHARED_LIBS`](https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html#variable:BUILD_SHARED_LIBS "BUILD_SHARED_LIBS") to the top-level `CMakeLists.txt`. We use the [`option()`](https://cmake.org/cmake/help/latest/command/option.html#command:option "option") command as it allows users to optionally select if the value should be `ON` or `OFF`.

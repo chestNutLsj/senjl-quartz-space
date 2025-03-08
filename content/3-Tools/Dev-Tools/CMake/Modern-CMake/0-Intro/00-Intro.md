@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Modern CMake 简体中文版
 
 ### 资源

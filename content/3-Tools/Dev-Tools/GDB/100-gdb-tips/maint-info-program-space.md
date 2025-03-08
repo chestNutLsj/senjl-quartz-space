@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印程序进程空间信息
 ## 例子
 	a.c:

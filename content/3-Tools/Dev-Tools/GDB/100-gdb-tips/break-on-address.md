@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在程序地址上打断点 
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 priority_queue 容器适配器模拟的也是队列这种存储结构，即使用此容器适配器存储元素只能 “从一端进（称为队尾），从另一端出（称为队头）”，且每次只能访问 priority_queue 中位于队头的元素。
 

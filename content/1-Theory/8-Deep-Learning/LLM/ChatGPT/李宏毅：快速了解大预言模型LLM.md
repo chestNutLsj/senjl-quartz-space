@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 <iframe title="80分鐘快速了解大型語言模型 (5:30 有咒術迴戰雷)" src="https://www.youtube.com/embed/wG8-IUtqu-s?feature=oembed" height="150" width="200" style="aspect-ratio: 1.33333 / 1; width: 100%; height: 100%;" allowfullscreen="" allow="fullscreen"></iframe>
 
 ## 论文链接

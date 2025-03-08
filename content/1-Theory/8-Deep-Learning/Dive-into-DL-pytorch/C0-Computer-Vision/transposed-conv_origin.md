@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Transposed Convolution
 :label:`sec_transposed_conv`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 The erase-remove idiom is a common C++ technique to efficiently remove elements from a container, particularly from standard sequence containers like `std::vector`, `std::list`, and `std::deque`. It leverages the standard library algorithms `std::remove` (or `std::remove_if`) and the member function `erase()`.
 
 The idiom consists of two steps:

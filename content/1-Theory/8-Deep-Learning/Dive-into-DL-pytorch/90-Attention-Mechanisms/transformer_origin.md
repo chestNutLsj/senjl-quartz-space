@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Transformer
 :label:`sec_transformer`
 

@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_2_deep-learning-mathematics-basic/
 title: 2.2 Deep Learning Mathematics Basic - PyTorch Tutorial
 date: 2023-04-10 15:45:41

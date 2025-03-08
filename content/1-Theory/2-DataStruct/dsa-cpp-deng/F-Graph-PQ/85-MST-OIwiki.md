@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 定义
 
 在阅读下列内容之前，请务必阅读 [图论相关概念](https://oi-wiki.org/graph/concept/) 与 [树基础](https://oi-wiki.org/graph/tree-basic/) 部分，并了解以下定义：

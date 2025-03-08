@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 单周期 CPU 设计
 ### 要实现的指令集
 选取 RISC-V 指令中9条典型指令组成的子集：

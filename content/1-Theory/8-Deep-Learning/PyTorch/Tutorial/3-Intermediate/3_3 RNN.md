@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter03_intermediate/3_3_rnn/
 title: 3.3 RNN - PyTorch Tutorial
 date: 2023-04-10 17:44:36

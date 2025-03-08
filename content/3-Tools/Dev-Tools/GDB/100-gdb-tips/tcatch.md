@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 让catchpoint只触发一次
 ## 例子
 	#include <stdio.h>

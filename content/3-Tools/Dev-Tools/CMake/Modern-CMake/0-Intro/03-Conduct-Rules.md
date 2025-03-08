@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## CMake 应避免的行为
 
 接下来的两个列表很大程度上基于优秀的 gist [Effective Modern CMake](https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1). 那个列表更长且更详细，也非常欢迎你去仔细阅读它。

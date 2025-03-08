@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Multithreading is the concurrent execution of multiple threads within a single process or program. It improves the performance and efficiency of an application by allowing multiple tasks to be executed in parallel.
 
 In C++, multithreading support is available through the `thread` library introduced in the C++11 standard.

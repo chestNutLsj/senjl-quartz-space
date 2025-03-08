@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印数组中任意连续元素值 
 
 ## 例子

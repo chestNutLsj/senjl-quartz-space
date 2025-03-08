@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 /*
 
 format **the left to right** mind map

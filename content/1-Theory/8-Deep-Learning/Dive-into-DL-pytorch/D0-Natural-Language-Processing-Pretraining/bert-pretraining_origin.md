@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Pretraining BERT
 :label:`sec_bert-pretraining`
 

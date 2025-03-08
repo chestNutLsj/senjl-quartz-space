@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Linear Algebra
 :label:`sec_linear-algebra`
 

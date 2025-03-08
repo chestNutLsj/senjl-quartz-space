@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 脱机技术
 ![[61-SPOOLing-offline.png]]
 

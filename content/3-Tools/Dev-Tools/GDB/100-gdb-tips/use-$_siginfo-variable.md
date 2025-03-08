@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 使用“$_siginfo”变量
 ## 例子
 	#include <stdio.h>

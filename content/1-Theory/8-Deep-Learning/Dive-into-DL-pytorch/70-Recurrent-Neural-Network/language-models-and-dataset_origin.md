@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Language Models and the Dataset
 :label:`sec_language_model`
 

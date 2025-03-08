@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Brief Tour of the Standard Library
 
 ## Operating System Interface

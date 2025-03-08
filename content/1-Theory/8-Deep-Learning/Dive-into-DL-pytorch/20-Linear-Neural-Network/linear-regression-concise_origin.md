@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Concise Implementation of Linear Regression
 :label:`sec_linear_concise`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 关于 C++ 的基本概念
 ### 语言类型

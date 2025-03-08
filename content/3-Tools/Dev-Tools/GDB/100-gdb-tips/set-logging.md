@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 记录执行gdb的过程
 ## 例子
 	#include <stdio.h>

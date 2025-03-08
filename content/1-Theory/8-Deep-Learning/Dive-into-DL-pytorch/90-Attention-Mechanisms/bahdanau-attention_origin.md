@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Bahdanau Attention
 :label:`sec_seq2seq_attention`
 

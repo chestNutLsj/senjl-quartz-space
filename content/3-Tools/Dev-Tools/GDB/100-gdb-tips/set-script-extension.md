@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 按何种方式解析脚本文件 
 
 ## 例子

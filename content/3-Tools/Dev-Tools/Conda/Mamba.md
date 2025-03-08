@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 官方文档：[Welcome to Mamba’s documentation! ](https://mamba.readthedocs.io/en/latest/index.html)；
 
 ## Intro

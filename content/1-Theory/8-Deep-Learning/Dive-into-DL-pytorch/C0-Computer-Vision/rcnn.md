@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 区域卷积神经网络（R-CNN）系列
 :label:`sec_rcnn`
 

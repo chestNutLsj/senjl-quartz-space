@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 C++ provides the following classes to perform output and input of characters to/from files:
 

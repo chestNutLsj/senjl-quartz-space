@@ -1,10 +1,13 @@
 ---
+image-auto-upload: true
 tags:
   - LLM
   - DeepSeek
+  - Annotation
 date: 2025-02-18
 publish: "true"
 ---
+
 > [!question] 读完论文你应该收获什么？
 > ### **Problem**  
 > 1. **What problem is the paper solving?**  
@@ -91,13 +94,13 @@ publish: "true"
 
 #### Multi-Head Latent Attention
 
-![[DeepSeek_v3_report-MLA.png]]
+![DeepSeek_v3_report-MLA](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-MLA.png)
 
 关于 MLA 的数学公式解析及部分问题探讨请看这篇： [[Understand MLA]] 。
 
 #### DeepSeekMoE with Auxiliary-Loss-Free Load Balancing
 
-![[DeepSeek_v3_report-MoE.png]]
+![DeepSeek_v3_report-MoE](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-MoE.png)
 
 关于 DeepSeekMoE 的详解请看这篇： [[DeepSeekMoE_notes]] 。这里着重看 V3 中采用的辅助无损负载均衡策略的效果。
 
@@ -203,7 +206,7 @@ $$
 
 > *V3 中 MTP 目标的核心思想是**通过独立的输出头并行地预测 $D$ 个额外 token，以顺序预测的额外 token 将保持每个预测深度上因果链的完整性**。*
 
-![[DeepSeek_v3_report-MTP-objective.png]]
+![DeepSeek_v3_report-MTP-objective](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-MTP-objective.png)
 
 准确地说，V3 MTP 使用 $D$ 个顺序模块来预测 $D$ 个额外 token ，其中每个 MTP 模块包含一个**共用**的嵌入层 $\text{Emb}(\cdot)$ 、一个**共用**的输出头 $\text{OutHead}(\cdot)$ 、一个 Transformer 块组 $\text{TRM}_{k}(\cdot)$ 、以及一个线性投影矩阵 $M_{k}\in \mathbb{R}^{d\times 2d}$ 、一个 RMSNorm 标准化层。
 
@@ -315,15 +318,15 @@ V3 的训练框架是从头构建的轻量级训练框架 HAI-LLM，应用了跨
 跨节点的专家并行会引入通信开销，导致计算和通信之比接近 1:1，显然计算资源未得到充分利用，因此设计了 DualPipe 算法，通过将前向和后向传播过程中的计算和通信阶段重叠减少流水线的气泡，使得 PP 更高效。
 
 DualPipe 的核心思想是**在一对独立的前向和后向块（forward and backward chunk）内重叠计算和通信**。具体来说，V3将每个块分为四个部分：`attention`、`all-to-all dispatch`、`MLP` 和 `all-to-all combine` 。特别是，对于向后块，`attention` 和 `MLP` 进一步分为两部分，分别用于输入和权重—— `backward for input` 、`backward for weights` 。此外，还有一个 `PP communication` 组件。这些组件在计算和通信过程的分配就如图 4 所示：
-![[DeepSeek_v3_report-overlapping-strategy.png]]
+![DeepSeek_v3_report-overlapping-strategy](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-overlapping-strategy.png)
 在这种重叠策略中，就可以**确保在计算过程中可以完全隐藏 all-to-all 和 PP 通信**。另外，对于一对前向和后向块，还可以重新排列这些组件，并手动调整专用于通信与计算的 GPU SM 的比例。
 
 在高效的重叠策略基础上，完整的 DualPipe 调度如图 5 所示：
-![[DeepSeek_v3_report-DualPipe.png]]
+![DeepSeek_v3_report-DualPipe](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-DualPipe.png)
 它采用**双向流水线调度**，同时从流水线两端馈送 micro-batch ，并且可以完全重叠大部分通信。这种重叠也确保了，**即使随着模型规模的进一步扩展，只要保持恒定的计算与通信比率，就仍然可以在节点之间采用细粒度的专家，同时实现接近零的 all-to-all 通信开销**。
 
 此外，即使在没有繁重通信负担的更一般场景中，DualPipe 算法仍然表现出效率优势。在表 2 中，总结了不同 PP 方法的流水线气泡和内存使用情况：
-![[DeepSeek_v3_report-DualPipe-advantages.png]]
+![DeepSeek_v3_report-DualPipe-advantages](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-DualPipe-advantages.png)
 如表所示，
 - 与 ZB1P 和 1F1B 相比，DualPipe 显著减少了气泡，同时仅将激活时内存占用的峰值增加了 $\frac{1}{pp}$ 倍；
 - 尽管 DualPipe 需要保留模型参数的两个副本，但这并不会显著增加内存消耗，因为我们在训练过程中使用了较大的专家并行规模；
@@ -536,7 +539,7 @@ FP8 精度的运算（例如通用矩阵乘法 GEneral Matrix Multiplication）�
 
 #### Mixed Precision Framework
 
-![[DeepSeek_v3_report-FP8-framework.png]]
+![DeepSeek_v3_report-FP8-framework](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-FP8-framework.png)
 
 核心思路是：**大多计算密集型操作在 FP8 格式执行，少数关键操作有策略地维持原数据格式以平衡训练效率（准确说是稳定训练动态，降低崩溃几率从而提高效率）和数值稳定**。
 
@@ -549,7 +552,9 @@ FP8 精度的运算（例如通用矩阵乘法 GEneral Matrix Multiplication）�
 基于混合精度的 FP8 训练框架，V3 采用了一些策略来强化低精度训练的准确度，聚焦于量化方法和乘法处理。
 
 **1. Fine-Grained Quantization**. 在低精度训练框架中，由于 FP8 格式的范围有限，存在上溢和下溢风险。一般做法是，将输入张量的最大绝对值缩放到 FP8 的最大可表示值，将输入分布与 FP8 格式的可表示范围对齐。但此方法会导致低精度训练对激活异常值高度敏感，严重降低量化精度。
-![[DeepSeek_v3_report-fine-grained-quantization.png]]
+
+![DeepSeek_v3_report-fine-grained-quantization](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-fine-grained-quantization.png)
+
 为了解决这个问题，V3 提出了一种**细粒度量化**方法，该方法在更细粒度的级别上应用缩放。如图 7（a）所示：
 1) 对于激活，在 $1 \times 128$ 的分片基础上对元素进行分组和缩放（即每 128 个通道对应一个 token）；
 2) 对于权重，以 $128 \times 128$ 的分块为基础（即每 128 个输入通道每 128 个输出通道）对元素进行分组和缩放。
@@ -557,7 +562,7 @@ FP8 精度的运算（例如通用矩阵乘法 GEneral Matrix Multiplication）�
 
 **2. Increasing Accumulation Precision**. 低精度 GEMM 操作饱受下溢问题之困扰，其准确性很大程度上取决于高精度的累积（通常在 FP32 精度下进行）。然而，FP8 GEMM 在 NVIDIA H800 GPU 上的累积精度仅限于保留约 14 位，远低于 FP32 的累积精度。当内部维度 K 较大时（大规模模型训练的典型场景，此时训练中批量大小和模型宽度都会增加），这个问题将变得更加明显。
 以 K=4096 的两个随机矩阵的 GEMM 运算为例，张量核（Tensor Core）中有限的累积精度将导致最大相对误差接近 2%。尽管存在这些问题，有限的累积精度仍然是少数 FP8 框架的默认选项，严重限制了训练精度。
-![[DeepSeek_v3_report-fine-grained-quantization.png]]
+![DeepSeek_v3_report-fine-grained-quantization](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-fine-grained-quantization.png)
 为了解决这个问题，V3 采取了 **promotion to CUDA Core** 以提高精度的策略。该过程如图 7（b）所示，具体来说，在 Tensor Core 上执行 MMA（矩阵乘法累加）期间，使用有限的位宽累加中间结果。一旦达到 $N_C$ 区间，这些部分结果将被复制到 CUDA Core 上的 FP32 寄存器，在那里进行全精度 FP32 的累加。如前所述，**细粒度量化会沿着内部维度 K 应用每组缩放因子**。这些缩放因子可以在 CUDA Core 上高效地相乘，作为去量化过程，额外的计算成本最小。
 > [!question]- 从 FP32 重新量化为 FP8 是否会产生不可接受的精度损失？
 >  1. **分组缩放因子的作用：**
@@ -856,7 +861,7 @@ V3 采用与 DeepSeek-V2 类似的方法启用长上下文功能——在预训�
 
 YaRN 配置与 DeepSeek-V2 中使用的配置一致，仅应用于解耦的共享密钥 $k^R_t$。两个阶段的超参数保持一致，放缩因子 $s=40$，$α=1$，$β=32$，放缩因子 $\sqrt{t}=0.1 \ln s+1$。在第一阶段，序列长度设置为 32K，batch size 为 1920。在第二阶段，序列长度增加到 128K，batch size 减少到 480。两个阶段的学习率都设置为 $7.3×10^{−6}$，与预训练阶段的最终学习率相匹配。
 
-![[DeepSeek_v3_report-long-context-extension.png]]
+![DeepSeek_v3_report-long-context-extension](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-long-context-extension.png)
 通过这个两阶段的扩展训练，DeepSeek-V3 能够处理长达 128K 的输入，同时保持强大的性能。图 8 显示，DeepSeek-V3 在监督微调后，在“Needle In A Haystack”（NIAH）测试中取得了显著的性能，证明了在高达 128K 的上下文窗口长度上具有一致的鲁棒性。
 
 ### Evaluations
@@ -864,7 +869,7 @@ YaRN 配置与 DeepSeek-V2 中使用的配置一致，仅应用于解耦的共�
 **Benchmarks**. V3 的基础模型在多语言（中英为主）语料库上进行预训练，评估框架集成在 HAI-LLM 内部。根据 DeepSeek 团队之前的工作，对 HellaSwag、PIQA、WinoGrande、RACE Middle、RACE High、MMLU、MMLU Redux、MMLU Pro、MMMLU、ARC Easy、ARC Challenge、c-Eval、CMMLU、C3 和 CCPM 等数据集采用基于 perplexity 的评估，并对 TriviaQA、NaturalQuestions、DROP、MATH、GSM8K、MGSM、HumanEval、MBPP、LiveCodeBench Base、CRUXEval、BBH、AGIEval、CLUEWSC、CMRC 和 CMath 采用基于生成的评估。此外，对 Pile-test 进行了基于语言建模（language-modeling-based）的评估，并使用每字节比特数（Bits-Per-Byte）作为指标，以确保使用不同 tokenizer 的模型之间的公平比较。
 
 **Results**. 
-![[DeepSeek_v3_report-pretrain-benchmark.png]]
+![DeepSeek_v3_report-pretrain-benchmark](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-pretrain-benchmark.png)
 DeepSeek-V3-Base 与其他开源基础模型进行比较：
 1) 与 DeepSeek-V2-Base 相比，由于模型架构的改进、模型大小和训练 token 的扩展以及数据质量的提高，DeepSeek-V3-Base 的性能明显优于预期。
 2) 与最先进的中国开源模型 Qwen2.5 72B Base 相比，DeepSeek-V3-Base 也显示出显著的优势，特别是在英语、多语言、代码和数学基准测试方面。至于中文基准测试，除了中文多学科多项选择任务 CMMLU 外，DeepSeek-V3-Base 的表现也优于 Qwen2.5 72B。
@@ -878,7 +883,7 @@ $$
 ### Discussion
 
 **Ablation Studies for Multi-Token Prediction**. 
-![[DeepSeek_v3_report-ablation-for-MTP.png]]
+![DeepSeek_v3_report-ablation-for-MTP](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-ablation-for-MTP.png)
 具体来说，在不同尺度的两个基线模型上验证了 MTP 策略：
 - 在小规模上训练的基线 MoE 模型，该模型在 1.33T 令牌上包含 15.7B 个总参数。
 - 在大规模上，训练的基线 MoE 模型，该模型在 540B 令牌上包含 228.7B 个总参数。
@@ -886,14 +891,14 @@ $$
 从表中可以看出，MTP 策略在大多数评估基准上都提高了模型性能。
 
 **Ablation Studies for Auxiliary-Loss-Free Balancing Strategy**. 
-![[DeepSeek_v3_report-ablation-for-auxiliary-free.png]]
+![DeepSeek_v3_report-ablation-for-auxiliary-free](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-ablation-for-auxiliary-free.png)
 在表 5 中显示了辅助无损耗平衡策略的消融结果，同样在不同尺度的两个基线模型上验证了这一策略：
 - 这两个基线模型都纯粹使用辅助损失来促进负载平衡，并使用带有 top-K 亲和度归一化的 sigmoid 门控函数。- 它们控制辅助损失强度的超参数分别与 DeepSeek-V2-Lite 和 DeepSeek-V2 相同。
 - 在这两个基线模型之上，在保持训练数据和其他架构不变的情况下，通过删除所有辅助损耗，并引入了辅助无损耗平衡策略进行比较。
 从表中可以观察到，辅助无损失策略在大多数评估基准上始终取得了更好的模型性能。
 
 ***Batch-Wise Load Balance* VS. *Sequence-Wise Load Balance***.
-![[DeepSeek_v3_report-scope-of-load-balance.png]]
+![DeepSeek_v3_report-scope-of-load-balance](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-scope-of-load-balance.png)
 辅助无损耗平衡和序列辅助损耗之间的关键区别在于它们的**平衡范围**：批量级和序列级：
 - 与序列辅助损失相比，批量级平衡施加了更灵活的约束，因为它不会对每个序列强制执行域内平衡。这种灵活性使专家能够更好地专注于不同的领域。
 - 为了验证这一点，通过记录并分析 Pile-test 集中不同域上基于 16B 辅助损失的基线和 16B 辅助无损失模型的专家载荷。如图 9 所示，可以观察到辅助无损失模型如预期的那样展示了更大的专家专业化模式。
@@ -959,7 +964,7 @@ $$
 #### Standard Evaluation
 
 下表是性能展示：
-![[DeepSeek_v3_report-posttrain-eval.png]]
+![DeepSeek_v3_report-posttrain-eval](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-posttrain-eval.png)
 
 **English Benchmarks**. MMLU 是一个被广泛认可的基准，旨在评估大型语言模型在不同知识领域和任务中的性能。DeepSeek-V3 显示出具有竞争力的性能，与顶级机型如 LLaMA3.1-405B、GPT-4o 和 Claude Sonnet 3.5 不相上下，同时显著优于 Qwen2.5 72B。此外，DeepSeek-V3 在 MMLU Pro 中表现出色，MMLU Pro 是一个更具挑战性的教育知识基准，紧随 Claude Sonnet 3.5 之后。在 MMLU-Redux 上，DeepSeek-V3 超越了它的同行。此外，在博士级评估测试平台 GPQA Diamond 上，DeepSeek-V3 取得了显著的成绩，仅次于 Claude 3.5 十四行诗，并以巨大的优势超过了所有其他竞争对手。在理解 DROP、LongBench v2 和 FRAMES 等长上下文基准中，DeepSeek-V3 继续展示其作为顶级模型的地位。它实现了令人印象深刻的 91.6 F1 成绩在 3 杆设置下降，跑赢了所有其他型号在这一类别。在 FRAMES 上，DeepSeekV3 是一个需要回答超过 100k 个令牌上下文的问题的基准，它紧随 GPT-4o 之后，同时以显著的优势超过了所有其他模型。这证明了 DeepSeek-V3 处理超长上下文任务的强大能力。DeepSeek-V3 的长上下文功能通过其在 LongBench v2 上的同类最佳性能得到进一步验证，LongBench v2 是在 DeepSeek V3 发布前几周发布的数据集。在事实知识基准上，SimpleQA、DeepSeek-V3 落后于 GPT-4o 和 Claude Sonnet，主要是由于其设计重点和资源分配。DeepSeek-V3 分配了更多的培训令牌来学习中文知识，从而在 C-SimpleQA 上获得了优异的性能。在遵循指令的基准测试中，DeepSeek-V3 显著优于其前身 DeepSeek-V2-series，突出了其更好地理解和遵守用户定义的格式约束的能力。
 
@@ -970,7 +975,7 @@ $$
 #### Open-Ended Evaluation
 
 除了标准基准之外，还使用 LLM 作为评判标准来评估开放式生成任务模型，结果如表 7 所示。
-![[DeepSeek_v3_report-open-ended-eval.png]]
+![DeepSeek_v3_report-open-ended-eval](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-open-ended-eval.png)
 具体而言，坚持 AlpacaEval 2.0 和 Arena-Hard 的原始配置，它们利用 GPT-4-Turbo-1106 作为两两比较的判断标准。
 - 在 Arena-Hard 上，DeepSeek-V3 与基线 GPT-4-0314 相比，获得了超过 86%的胜率，表现与顶级模型如 Claude-Sonnet-3.5-1022 不相上下。这突显了 DeepSeek-V3 的强大功能，特别是在处理复杂提示（包括编码和调试任务）时。此外，DeepSeek-V3 作为第一个在 Arena-Hard 基准上超过 85%的开源模型，实现了突破性的里程碑。这一成就显著弥合了开源模型和闭源模型之间的性能差距，为开源模型在具有挑战性的领域中能够实现的目标设定了新的标准。
 - DeepSeek-V3 在 AlpacaEval 2.0 上展示了卓越的性能，优于封闭源代码和开放源代码模型。这表明它在编写任务和处理简单的问答场景方面具有出色的能力。值得注意的是，它以 20%的显著幅度超过了 DeepSeek-V2.5-0905，突出了在处理简单任务方面的实质性改进，并展示了其改进的有效性。
@@ -978,7 +983,7 @@ $$
 #### DeepSeek-V3 as a Generative Reward Model
 
 将 DeepSeek-V3 的判断能力与最先进的模型（即 GPT-4o 和 Claude-3.5）进行了比较。表 8 显示了 RewardBench 中这些模型的性能。
-![[DeepSeek_v3_report-rewardbench-eval.png]]
+![DeepSeek_v3_report-rewardbench-eval](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-rewardbench-eval.png)
 DeepSeek-V3 的性能可与 GPT-4o-0806 和 Claude-3.5-Sonnet-1022 的最佳版本媲美，同时超过其他版本。此外，投票技术还可以增强 DeepSeek-V3 的判断能力。因此，使用 DeepSeekV3 和投票来提供开放式问题的自我反馈，从而提高对齐过程的有效性和鲁棒性。
 
 ### Discussion
@@ -986,7 +991,7 @@ DeepSeek-V3 的性能可与 GPT-4o-0806 和 Claude-3.5-Sonnet-1022 的最佳版�
 #### Distillation from DeepSeek-R1
 
 在基于 DeepSeek-V2.5 的 DeepSeok-R1 蒸馏的贡献上进行消融实验。基线是在短 CoT 数据上训练的，而其竞争对手使用由上述专家检查点生成的数据。表 9 展示了蒸馏数据的有效性，显示了 LiveCodeBench 和 MATH-500 基准测试的显著改进。
-![[DeepSeek_v3_report-distill-from-R1.png]]
+![DeepSeek_v3_report-distill-from-R1](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-distill-from-R1.png)
 此实验揭示了一个有趣的权衡：**蒸馏导致更好的性能，但也大大增加了平均响应长度**。为了在模型精度和计算效率之间保持平衡，DS 团队在蒸馏中为 DeepSeek-V3 仔细选择了最佳设置。
 
 从研究中表明，从推理模型中提取知识是 post-training 优化的一个很有前途的方向。虽然当前的工作侧重于从数学和编码领域提取数据，但这种方法显示了在各种任务领域中更广泛应用的潜力。在这些特定领域中证明的有效性表明，长 CoT 蒸馏对于提高其他需要复杂推理的认知任务中的模型性能是有价值的。跨不同领域进一步探索这种方法仍然是未来研究的一个重要方向。

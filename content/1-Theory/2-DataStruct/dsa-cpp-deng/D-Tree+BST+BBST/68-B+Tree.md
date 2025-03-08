@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://www.programiz.com/dsa/b-plus-tree
 ---
 ## Introduction

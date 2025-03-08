@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 1 正则表达式简介
 

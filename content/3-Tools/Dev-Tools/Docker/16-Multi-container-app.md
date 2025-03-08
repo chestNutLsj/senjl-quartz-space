@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Multi container apps
 
 Up to this point, you've been working with single container apps. But, now you will add MySQL to the application stack. The following question often arises - "Where will MySQL run? Install it in the same container or run it separately?" 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 A **hidden Markov model** (**HMM**) is a Markov model in which the observations are dependent on a latent (or "hidden") Markov process (referred to as $\displaystyle X$). An HMM requires that there be an observable process ${\displaystyle Y}$ whose outcomes depend on the outcomes of ${\displaystyle X}$ in a known way. Since $\displaystyle X$ cannot be observed directly, the goal is to learn about state of  $\displaystyle X$ by observing  $\displaystyle Y$ By definition of being a Markov model, an HMM has an additional requirement that the outcome of $\displaystyle Y$ at time $t=t_0$ must be "influenced" exclusively by the outcome of  $\displaystyle X$ at $t=t_0$ and that the outcomes of  $\displaystyle X$ and  $\displaystyle Y$ at  ![{\displaystyle t<t_{0}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/112ff019aeabac599ad8c97e3cbe65e491c5c7e7) must be conditionally independent of  $\displaystyle Y$ at $t=t_0$ given  $\displaystyle X$ at time  ![{\displaystyle t=t_{0}.}](https://wikimedia.org/api/rest_v1/media/math/ren$t=t_0$ihood. For linear chain HMMs, the Baum–Welch algorithm can be used to estimate the parameters.
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 C++ STL 标准库中提供有 4 种无序关联式容器，本节先讲解 unordered_map 容器。
 

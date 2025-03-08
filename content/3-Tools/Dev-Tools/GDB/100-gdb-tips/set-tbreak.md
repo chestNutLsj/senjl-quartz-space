@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置临时断点 
 
 ## 例子

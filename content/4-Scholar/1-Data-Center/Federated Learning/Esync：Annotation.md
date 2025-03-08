@@ -1,7 +1,9 @@
 ---
+image-auto-upload: false
 tags:
   - FederatedLearning
-  - datacenter
+  - DataCenter
+  - Annotation
 date: 2024-10-05
 publish: "true"
 title: "Esync: Accelerating Intra-Domain Federated Learning in Heterogeneous Data Centers"

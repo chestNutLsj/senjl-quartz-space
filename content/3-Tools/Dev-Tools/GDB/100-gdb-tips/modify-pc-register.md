@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 修改PC寄存器的值
 ## 例子
 	#include <stdio.h>

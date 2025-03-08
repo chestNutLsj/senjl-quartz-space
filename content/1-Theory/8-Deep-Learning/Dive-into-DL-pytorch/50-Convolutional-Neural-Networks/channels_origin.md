@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Multiple Input and Multiple Output Channels
 :label:`sec_channels`
 

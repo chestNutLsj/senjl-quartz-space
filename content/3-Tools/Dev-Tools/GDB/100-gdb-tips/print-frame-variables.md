@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印调用栈帧中变量的值 
 
 ## 例子

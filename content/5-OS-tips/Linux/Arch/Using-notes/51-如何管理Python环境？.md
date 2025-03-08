@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 
 ### 01. 如何管理Python环境？

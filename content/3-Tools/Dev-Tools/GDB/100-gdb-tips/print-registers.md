@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印寄存器的值
 
 

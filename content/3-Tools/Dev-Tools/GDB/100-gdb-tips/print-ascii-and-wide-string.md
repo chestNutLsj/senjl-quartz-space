@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印ASCII和宽字符字符串
 ## 例子
 	#include <stdio.h>

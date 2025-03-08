@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Next suppose that we want to distribute our project to other people so that they can use it. We want to provide both binary and source distributions on a variety of platforms. This is a little different from the install we did previously in [`Installing and Testing`]( https://cmake.org/cmake/help/latest/guide/tutorial/Installing%20and%20Testing.html#guide:tutorial/Installing%20and%20Testing "tutorial/Installing and Testing"), where we were installing the binaries that we had built from the source code. In this example we will be building installation packages that support binary installations and package management features. To accomplish this we will use CPack to create platform specific installers. Specifically we need to add a few lines to the bottom of our top-level `CMakeLists.txt` file.
 
 >[!todo]- CMakeLists.txt

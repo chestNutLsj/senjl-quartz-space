@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 
 excalidraw-plugin: parsed
 tags: [excalidraw]

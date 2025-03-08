@@ -2,6 +2,7 @@
 publish: "true"
 date: 2024-05-16
 title: 新世纪重读毛泽东，借经典深悟社会现象
+image-auto-upload: false
 ---
 
 

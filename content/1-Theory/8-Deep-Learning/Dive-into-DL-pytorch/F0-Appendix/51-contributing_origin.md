@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Contributing to This Book
 :label:`sec_how_to_contribute`
 

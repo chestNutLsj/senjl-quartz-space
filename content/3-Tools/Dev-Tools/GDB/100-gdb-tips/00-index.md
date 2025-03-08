@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 信息显示
 * [显示gdb版本信息](01-show-version.md): show version
 * [显示gdb版权相关信息](02-show-copying-warranty.md)

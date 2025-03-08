@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## What is Docker?
 
 Docker is a software platform designed for building an application in a loosely isolated environment called a container. Containers are essentially lightweight and contain everything required to run the application, so we don’t need to worry about files installed in the Host computer. We can run many containers on the host machine without affecting one another. Docker provides us with a way to create, run, manage and communicate with the containers.

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在gdb中执行shell命令和make
 
 ## 技巧

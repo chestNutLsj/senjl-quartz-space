@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://github.com/sebastiankliem/eos2017_memory-management-demo
 ---
 ## LinkedList

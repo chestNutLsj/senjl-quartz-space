@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Copy-swap is a C++ idiom that leverages the copy constructor and swap function to create an assignment operator. It follows a simple, yet powerful paradigm: create a temporary copy of the right-hand side object, and swap its contents with the left-hand side object.
 
 Here’s a brief summary:

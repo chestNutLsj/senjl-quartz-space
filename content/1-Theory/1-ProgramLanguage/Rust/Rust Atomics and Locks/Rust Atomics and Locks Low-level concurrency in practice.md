@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 cover: Rust Atomics and Locks Low-level concurrency in practice/cover.xhtml
 tags: 
   - book

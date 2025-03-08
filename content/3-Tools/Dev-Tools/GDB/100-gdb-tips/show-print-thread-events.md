@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 不显示线程启动和退出信息
 ## 例子
 	#include <stdio.h>

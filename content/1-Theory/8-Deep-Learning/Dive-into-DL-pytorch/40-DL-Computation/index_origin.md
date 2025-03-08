@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Deep Learning Computation
 :label:`chap_computation`
 

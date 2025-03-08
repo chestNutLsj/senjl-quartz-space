@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置被调试程序的参数
 
 ## 技巧

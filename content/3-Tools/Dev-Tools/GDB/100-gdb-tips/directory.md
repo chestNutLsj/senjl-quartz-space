@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置源文件查找路径
 ## 例子
 	#include <stdio.h>

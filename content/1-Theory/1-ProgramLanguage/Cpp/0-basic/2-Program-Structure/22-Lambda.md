@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 A lambda function, or simply “lambda”, is an anonymous (unnamed) function that is defined in place, within your source code, and with a concise syntax. Lambda functions were introduced in C++11 and have since become a widely used feature, especially in combination with the Standard Library algorithms.
 
 ## Syntax

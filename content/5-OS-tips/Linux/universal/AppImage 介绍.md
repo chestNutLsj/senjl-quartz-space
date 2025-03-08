@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://www.cnblogs.com/pipci/p/16109756.html
 title: 如何在 Linux 中使用 AppImage [完整指南]
 date: 2023-03-29 18:03:42

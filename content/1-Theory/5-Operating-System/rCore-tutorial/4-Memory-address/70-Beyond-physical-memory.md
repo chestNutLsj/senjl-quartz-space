@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 本节导读
 
 ### 有限的物理内存

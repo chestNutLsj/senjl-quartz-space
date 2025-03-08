@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Containerize an application
 
 For the rest of this guide, you'll be working with a simple todo list manager that runs on `Node.js`. If you're not familiar with `Node.js`, don't worry. This guide doesn't require any prior experience with JavaScript.

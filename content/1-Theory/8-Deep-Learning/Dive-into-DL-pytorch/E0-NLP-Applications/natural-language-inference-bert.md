@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 自然语言推断：微调BERT
 :label:`sec_natural-language-inference-bert`
 

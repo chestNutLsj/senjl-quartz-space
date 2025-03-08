@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://www.geeksforgeeks.org/b-trees-implementation-in-c/
 ---
 ## Introduction

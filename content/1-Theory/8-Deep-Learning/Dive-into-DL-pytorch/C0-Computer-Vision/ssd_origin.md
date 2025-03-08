@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Single Shot Multibox Detection
 :label:`sec_ssd`
 

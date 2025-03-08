@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Self-Attention and Positional Encoding
 :label:`sec_self-attention-and-positional-encoding`
 

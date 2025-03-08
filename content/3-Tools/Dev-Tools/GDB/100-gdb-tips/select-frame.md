@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 选择函数堆栈帧
 ## 例子
 	#include <stdio.h>

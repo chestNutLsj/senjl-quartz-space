@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Word Similarity and Analogy
 :label:`sec_synonyms`
 

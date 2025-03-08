@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Object lifetime refers to the time during which an object exists, from the moment it is created until it is destroyed. In C++, an object’s lifetime can be classified into four categories:
 
 - **Static Storage Duration**: Objects with static storage duration exist for the entire run of the program. These objects are allocated at the beginning of the program’s run and deallocated when the program terminates. Global variables, static data members, and static local variables fall into this category.

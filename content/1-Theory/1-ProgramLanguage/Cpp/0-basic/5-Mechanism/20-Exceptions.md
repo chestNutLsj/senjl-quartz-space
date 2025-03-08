@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 Exceptions provide a way to react to exceptional circumstances (like runtime errors) in programs by transferring control to special functions called _handlers_. （通过将控制权转移到特殊的处理函数以应对程序运行中的异常状况）
 

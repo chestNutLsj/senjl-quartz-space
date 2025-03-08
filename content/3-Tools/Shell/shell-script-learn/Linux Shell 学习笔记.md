@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 `Shell`环境基于Arch Linux 5.15.12；GNU bash，版本 5.1.12(1)-release (x86_64-pc-linux-gnu)
 
 学习资料基于[快乐的Linux命令行](https://billie66.github.io/TLCL/)，本书是[The Linux Command Line](http://linuxcommand.org/)的中文版。虽然大体的翻译比较贴切，但仍不免有些部分翻译比较生硬或缺乏逻辑，笔者在写博客时对这些进行了一定的改善，如果在阅读时仍感觉到逻辑缺失，可以去查看[英文原版](https://billie66.github.io/TLCL/book/)。

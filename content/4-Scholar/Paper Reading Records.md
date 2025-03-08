@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 publish: "true"
 date: 2024-09-08
 tags:
@@ -23,7 +24,7 @@ author: SenjLee
 ### 9 月
 
 1. ⭐[【SIGCOMM 24】Alibaba HPN](https://ennanzhai.github.io/pub/sigcomm24-hpn.pdf)： [[Alibaba HPN：notes|阅读笔记]]
-2. [【NSDI 24】Characterization of LLM Development in the Datacenter](https://www.usenix.org/conference/nsdi24/presentation/hu)： [[Characterization of LLM Development in the Datacenter：notes|阅读笔记]]
+2. [【NSDI 24】Characterization of LLM Development in the Datacenter](https://www.usenix.org/conference/nsdi24/presentation/hu)： [[Characterization of LLM Development in the Datacenter：Annotation|阅读笔记]]
 	- Official Slides：[nsdi24\_slides-hu.pdf](https://www.usenix.org/system/files/nsdi24_slides-hu.pdf)
 	- Official codes and other assets： [GitHub - InternLM/AcmeTrace](https://github.com/InternLM/AcmeTrace)
 3. [【JPDC 16】 The features, hardware, and architectures of data center networks: A survey](https://www.sciencedirect.com/science/article/pii/S0743731516300399)： [[The features, hardware, and architectures of DCN：A survey|阅读笔记]]
@@ -33,11 +34,11 @@ author: SenjLee
 1. [【USENIX ATC 22】Hashing Design in Modern Networks: Challenges and Mitigation Techniques](https://www.usenix.org/conference/atc22/presentation/xu)： [[Hashing Design in Modern Networks：notes|阅读笔记]]
 2. [【USENIX ATC 21】Hashing Linearity Enables Relative Path Control in Data Centers](https://www.usenix.org/conference/atc21/presentation/zhang-zhehui)
 3. [【NSDI 23】Empowering Azure Storage with RDMA](https://www.usenix.org/conference/nsdi23/presentation/bai)
-4. [【TSC 20】Esync: Accelerating Intra-Domain Federated Learning in Heterogeneous Data Centers](https://ieeexplore.ieee.org/abstract/document/9292461)： [[Esync：notes|阅读笔记]]
+4. [【TSC 20】Esync: Accelerating Intra-Domain Federated Learning in Heterogeneous Data Centers](https://ieeexplore.ieee.org/abstract/document/9292461)： [[Esync：Annotation|阅读笔记]]
 
-### 11 月
+### 11~12 月
 
-摆烂。
+摆烂。期末考试。
 
 ## 2025
 
@@ -48,5 +49,8 @@ author: SenjLee
 ### 2 月
 
 - DeepSeek 系列：
-	- [[DeepSeek_V3_Report_Annotation]]
+	- [[DeepSeek_V3_Report：Annotation]]
 	- [[DeepSeekMoE_notes]]
+
+- 数据中心的路由计算：
+	- [[Jupiter_Rising：Annotation]]

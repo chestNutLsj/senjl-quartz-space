@@ -1,0 +1,3 @@
+---
+image-auto-upload: false
+---

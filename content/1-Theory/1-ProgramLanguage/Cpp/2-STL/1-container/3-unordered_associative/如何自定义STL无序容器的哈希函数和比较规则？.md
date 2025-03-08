@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 前面在讲解 unordered_map、unordered_multimap、unordered_set 以及 unordered_multiset 这 4 种无序关联式容器（哈希容器）时，遗留过一个共性问题，即如何给无序容器自定义一个哈希函数和比较规则？
 

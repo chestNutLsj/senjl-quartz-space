@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印一个结构体成员的偏移量
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 用于预训练BERT的数据集
 :label:`sec_bert-dataset`
 

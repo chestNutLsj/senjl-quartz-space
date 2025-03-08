@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Adam算法
 :label:`sec_adam`
 

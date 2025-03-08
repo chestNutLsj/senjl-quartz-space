@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 A compiler is a computer program that translates source code written in one programming language into a different language, usually machine code or assembly code, that can be executed directly by a computer’s processor. In the context of C++, compilers take your written C++ source code and convert it into an executable program.
 
 ## Popular C++ Compilers

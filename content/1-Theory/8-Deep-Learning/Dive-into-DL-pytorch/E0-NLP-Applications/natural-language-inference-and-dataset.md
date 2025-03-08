@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 自然语言推断与数据集
 :label:`sec_natural-language-inference-and-dataset`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 目标检测和边界框
 :label:`sec_bbox`
 

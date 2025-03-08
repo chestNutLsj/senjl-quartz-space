@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 forward_list 是 C++ 11 新添加的一类容器，其底层实现和 list 容器一样，采用的也是链表结构，只不过 forward_list 使用的是单链表，而 list 使用的是双向链表（如图所示）。
 

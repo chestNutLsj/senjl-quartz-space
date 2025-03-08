@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印进程内存信息
 
 

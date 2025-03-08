@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ```python
 import torch
 import torchvision

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印变量的类型和所在文件 
 
 ## 例子

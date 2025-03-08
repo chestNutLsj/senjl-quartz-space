@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 通过为ptrace调用设置catchpoint破解anti-debugging的程序
 ## 例子
 	#include <sys/ptrace.h>

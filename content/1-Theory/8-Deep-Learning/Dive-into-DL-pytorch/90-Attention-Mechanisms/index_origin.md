@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Attention Mechanisms
 :label:`chap_attention`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Reference documentation: [Use callouts](https://help.obsidian.md/How+to/Use+callouts)。
 
 ## Intro

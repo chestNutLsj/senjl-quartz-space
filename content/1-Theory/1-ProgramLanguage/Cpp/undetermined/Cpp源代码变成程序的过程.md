@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: http://notes.maxwi.com/2016/06/05/source-to-program/
 ---
 

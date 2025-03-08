@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Sentiment Analysis and the Dataset
 :label:`sec_sentiment`
 

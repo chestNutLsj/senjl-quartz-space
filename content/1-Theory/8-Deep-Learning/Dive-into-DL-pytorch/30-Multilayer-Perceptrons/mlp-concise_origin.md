@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Concise Implementation of Multilayer Perceptrons
 :label:`sec_mlp_concise`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Layers and Blocks
 :label:`sec_model_construction`
 

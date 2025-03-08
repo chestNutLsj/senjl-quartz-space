@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## search ()
 
 find_end () 函数用于在序列 A 中查找序列 B 最后一次出现的位置。那么，如果想知道序列 B 在序列 A 中第一次出现的位置，该如何实现呢？可以借助 search () 函数。

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 列出函数的名字
 
 ## 例子

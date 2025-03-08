@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Hello, world!
 The best way to learn a programming language is by writing programs. Typically, the first program beginners write is a program called "Hello World", which simply prints "Hello World" to your computer screen. Although it is very simple, it contains all the fundamental components C++ programs have:  
   

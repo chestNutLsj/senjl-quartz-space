@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## `conda init powershell` 无效
 在 windows 上，常常由于用户文件夹为中文名称而导致脚本运行失败，例如此处使用 `conda init powershell` 脚本对 powershell 环境初始化时，可能导致初始化无效。（然而 `conda init cmd.exe` 则可以成功） 
 

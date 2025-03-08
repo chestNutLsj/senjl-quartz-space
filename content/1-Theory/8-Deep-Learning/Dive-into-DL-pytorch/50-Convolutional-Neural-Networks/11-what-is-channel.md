@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://zhuanlan.zhihu.com/p/251068800
 publish: "true"
 tags:

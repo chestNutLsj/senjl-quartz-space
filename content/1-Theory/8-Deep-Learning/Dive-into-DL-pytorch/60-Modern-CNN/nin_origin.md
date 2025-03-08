@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Network in Network (NiN)
 :label:`sec_nin`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 前面章节详细地介绍了 unordered_set 容器的特定和用法，在此基础上，本节再介绍一个类似的 C++ STL 无序容器，即 unordered_multiset 容器。
 

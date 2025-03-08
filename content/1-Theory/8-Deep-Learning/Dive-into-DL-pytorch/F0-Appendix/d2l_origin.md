@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # `d2l` API Document
 :label:`sec_d2l`
 

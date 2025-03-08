@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # File I/O
 
 So far we discussed how to process data and how

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Functions allow to structure programs in segments of code to perform individual tasks.
 
 In C++, a function is a group of statements that is given a name, and which can be called from some point of the program. The most common syntax to define a function is:

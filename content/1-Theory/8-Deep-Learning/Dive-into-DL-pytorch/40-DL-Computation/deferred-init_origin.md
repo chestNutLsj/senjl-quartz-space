@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Deferred Initialization
 :label:`sec_deferred_init`
 

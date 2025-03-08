@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 红黑树
 ### 高度与深度问题
 

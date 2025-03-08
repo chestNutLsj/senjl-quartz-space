@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 学习率调度器
 :label:`sec_scheduler`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## how to escape the pipe character in a markdown table?
 Reference: https://www.designcise.com/web/tutorial/how-to-escape-the-pipe-character-in-a-markdown-table
 

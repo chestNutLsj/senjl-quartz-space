@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Argument Dependent Lookup (ADL) or Koenig Lookup is a mechanism in C++ that allows the compiler to search for the appropriate function to call based on the types of arguments provided. It is particularly helpful when using overloaded functions or operators in a namespace.
 
 ADL allows the compiler to find functions in the same namespace as the arguments, even if the function is not declared at the point of use or within the namespace provided. This is especially useful when working with templates or generic programming.

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 保存已经设置的断点
 
 ## 例子

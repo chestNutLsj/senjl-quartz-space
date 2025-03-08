@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 安装Rust
 
 在ArchLinux上安装Rust非常简单，可以有两种方法：

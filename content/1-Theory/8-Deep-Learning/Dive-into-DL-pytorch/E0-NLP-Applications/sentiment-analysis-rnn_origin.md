@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Sentiment Analysis: Using Recurrent Neural Networks
 :label:`sec_sentiment_rnn`
 

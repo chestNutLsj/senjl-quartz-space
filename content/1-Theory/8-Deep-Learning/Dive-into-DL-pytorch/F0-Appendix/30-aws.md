@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 使用Amazon EC2实例
 :label:`sec_aws`
 

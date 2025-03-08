@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 windows terminal算是Windows上比较好用的终端之一了，并且安装方便，直接在微软应用商店下载即可（win11内置了windows terminal），接下来我们进行一些配置来使得它更加美观、好用。
 
 ## 0x00快捷键启动

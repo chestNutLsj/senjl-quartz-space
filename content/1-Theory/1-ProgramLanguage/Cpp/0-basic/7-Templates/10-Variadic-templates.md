@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Variadic templates are a feature in C++11 that allows you to define a template with a variable number of arguments. This is especially useful when you need to write a function or class that can accept different numbers and types of arguments.
 
 ## Syntax

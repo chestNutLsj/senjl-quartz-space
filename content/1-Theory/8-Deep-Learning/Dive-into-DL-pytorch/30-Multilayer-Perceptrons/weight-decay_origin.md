@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Weight Decay
 :label:`sec_weight_decay`
 

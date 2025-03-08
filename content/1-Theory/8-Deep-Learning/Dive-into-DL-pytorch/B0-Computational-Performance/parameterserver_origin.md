@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Parameter Servers
 :label:`sec_parameterserver`
 

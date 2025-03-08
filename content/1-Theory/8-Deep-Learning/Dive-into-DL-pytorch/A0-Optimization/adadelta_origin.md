@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Adadelta
 :label:`sec_adadelta`
 

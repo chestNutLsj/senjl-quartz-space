@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter03_intermediate/3_1_logistic-regression/
 title: 3.1 Logistic Regression - PyTorch Tutorial
 date: 2023-04-10 17:42:43

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Bidirectional Recurrent Neural Networks
 :label:`sec_bi_rnn`
 

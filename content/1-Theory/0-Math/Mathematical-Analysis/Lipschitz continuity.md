@@ -4,7 +4,7 @@ tags:
 publish: "true"
 date: 2024-10-12
 ---
-在阅读 [[Esync：notes#Convergence Analysis|论文]] 时收敛性分析部分，出现了一个很难理解的假设：
+在阅读 [[Esync：Annotation#Convergence Analysis|论文]] 时收敛性分析部分，出现了一个很难理解的假设：
 
 >**Assumption 1**. 给定 $K$ 个 worker 和 $n$ 个样本 $(\mathcal{X},\mathcal{Y})$ ，并将 $n_{k}$ 样本 $(\mathcal{X}_{k},\mathcal{Y}_{k})$ 按照 non-i.i.d. 、$p_{k},\text{where }p_{k_{1}}\neq p_{k_{2}}\text{ for any }k_{1\ne}k_{2}$  的分布分配给 $k$ 个 worker 。对于 $C$ 中的每个类 $c$，$K$ 个 worker 的总体数据分布 $\sum_{k=1}^{K}\frac{n_{k}}{\sum_{k=1}^{K}n_{k}}p_{k}(y=c)$ 与人口分布 $p(y=c)$ 是相同的。
 >

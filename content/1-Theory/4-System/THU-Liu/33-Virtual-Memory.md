@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 为什么需要虚拟内存？
 
 ![[33-Virtual-Memory-VA2PA.png]]

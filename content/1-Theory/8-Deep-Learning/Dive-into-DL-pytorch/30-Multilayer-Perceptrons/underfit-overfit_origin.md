@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Model Selection, Underfitting, and Overfitting
 :label:`sec_model_selection`
 

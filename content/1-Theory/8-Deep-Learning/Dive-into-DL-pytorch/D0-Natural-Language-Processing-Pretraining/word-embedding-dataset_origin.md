@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # The Dataset for Pretraining Word Embeddings
 :label:`sec_word2vec_data`
 

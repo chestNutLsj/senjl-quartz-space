@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 9-3 SkipList, AVLTree, SplayTree, (2,3)-Tree 的接口效率比较
 1. 就 search ()/get ()接口的效率而言，SplayTree 最优
 2. 就 insert ()/put ()接口的效率而言，SkipList 最优，AVLTree 优于 (2,3)-Tree

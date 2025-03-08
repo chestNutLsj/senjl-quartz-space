@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Using AWS EC2 Instances
 :label:`sec_aws`
 

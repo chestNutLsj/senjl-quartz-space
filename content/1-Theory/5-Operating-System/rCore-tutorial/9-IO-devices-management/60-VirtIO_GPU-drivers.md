@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 本节导读
 
 本节主要介绍了与操作系统无关的基本 virtio_gpu 设备驱动程序的设计与实现，以及如何在操作系统中封装 virtio_gpu 设备驱动程序，实现对丰富多彩的 GUI app 的支持。

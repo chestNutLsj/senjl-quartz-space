@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 tags:
   - Network
 date: 2024-10-04

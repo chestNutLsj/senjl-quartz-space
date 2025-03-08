@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://dockerlabs.collabnix.com/docker/cheatsheet/
 title: The Ultimate Docker Cheat Sheet | dockerlabs
 date: 2023-09-22 12:37:19

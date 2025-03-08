@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://makefiletutorial.com/#makefile-cookbook
 title: Makefile Tutorial By Example
 date: 2023-04-13 11:20:24

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Natural Language Inference and the Dataset
 :label:`sec_natural-language-inference-and-dataset`
 

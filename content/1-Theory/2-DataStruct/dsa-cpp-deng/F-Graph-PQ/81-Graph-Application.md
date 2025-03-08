@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 拓扑排序
 
 ### DAG

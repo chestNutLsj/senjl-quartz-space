@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 参考博客：[Linux Windows双系统时间不一致](https://eason0210.github.io/post/clock-issue-with-dual-system/)。
 
 简要描述：从windows端解决这个问题，就是让windows认为硬件时钟是UTC时间

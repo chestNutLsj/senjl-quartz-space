@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 转置卷积
 :label:`sec_transposed_conv`
 

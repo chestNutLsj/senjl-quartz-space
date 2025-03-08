@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印源代码行
 
 ## 例子

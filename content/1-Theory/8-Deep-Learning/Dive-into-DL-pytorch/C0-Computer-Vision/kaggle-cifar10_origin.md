@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Image Classification (CIFAR-10) on Kaggle
 :label:`sec_kaggle_cifar10`
 

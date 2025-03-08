@@ -1,4 +1,5 @@
 ---
+image-auto-upload: true
 tags:
   - DeepSeek
   - Investigation
@@ -10,7 +11,7 @@ publish: "true"
 
 DeepEP 是一个专门为 MoE 和专家并行（EP）定制的通信库。它为 all-to-all 连接的 GPU 内核提供高吞吐量和低延迟（即所谓的 MoE 调度和组合）。该库还支持低精度操作，包括 FP8。
 
-为了与 DeepSeek-V3 论文中提出的 [[DeepSeek_V3_Report_Annotation#Efficient Implementation of Cross-Node All-to-All Communication|组限制门控算法]]（group-limited gating algorithm）保持一致，DeepEP 提供了一组针对**非对称域带宽转发**（asymmetric-domain bandwidth forwarding）进行优化的内核，例如将数据从 NVLink 域转发到 RDMA 域。这些内核提供了高吞吐量，使它们适合于训练和推理预填充任务。此外，它们支持 SM（Streaming Multiprocessor）编号控制。
+为了与 DeepSeek-V3 论文中提出的 [[DeepSeek_V3_Report：Annotation#Efficient Implementation of Cross-Node All-to-All Communication|组限制门控算法]]（group-limited gating algorithm）保持一致，DeepEP 提供了一组针对**非对称域带宽转发**（asymmetric-domain bandwidth forwarding）进行优化的内核，例如将数据从 NVLink 域转发到 RDMA 域。这些内核提供了高吞吐量，使它们适合于训练和推理预填充任务。此外，它们支持 SM（Streaming Multiprocessor）编号控制。
 
 对于延迟敏感的推理解码，DeepEP 包含了一组具有纯 RDMA 的低延迟内核，以最小化延迟。该库还引入了一种 hook-based 的 **通信-计算** 重叠 方法，该方法不占用任何 SM 资源。
 
@@ -152,7 +153,7 @@ def combine_backward(grad_combined_x: Union[torch.Tensor, Tuple[torch.Tensor, to
 ```
 
 更进一步，在 `dispatch` 函数中，可能不知道具体有多少个 token 会在当前 rank 中接收，因此会涉及到隐式的 CPU 等待 GPU 接收计数的信号，如下图所示：
-![[DeepEP-Investigation-dispatch-signal.png]]
+![DeepEP-Investigation-dispatch-signal](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepEP-Investigation-dispatch-signal.png)
 
 #### Example Usage in Inference Decoding
 
@@ -215,7 +216,7 @@ def low_latency_combine(hidden_states: torch.Tensor,
 
 对于两个 micro-batch 重叠，可以参考下图。通过接收挂钩接口，RDMA 网络流量在后台生成，而不会从计算部分消耗任何 GPU SM。但请注意，重叠部分可能会发生变化，即 `attention/dispatch/MoE/combine` 的 4 个部分可能没有完全相同的执行时间。使用者需要根据工作负载调整流水线阶段的设置。
 
-![[DeepEP-Investigation-overlapping-illstration.png]]
+![DeepEP-Investigation-overlapping-illstration](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepEP-Investigation-overlapping-illstration.png)
 
 ### Notice
 

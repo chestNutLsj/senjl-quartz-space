@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 保存历史命令
 
 ## 技巧

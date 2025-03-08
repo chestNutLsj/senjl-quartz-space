@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 1 线性容器
 
 ### `std::array`

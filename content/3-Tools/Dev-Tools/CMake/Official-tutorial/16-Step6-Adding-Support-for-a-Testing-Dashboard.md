@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Adding support for submitting our test results to a dashboard is simple. We already defined a number of tests for our project in [Testing Support](https://cmake.org/cmake/help/latest/guide/tutorial/Installing%20and%20Testing.html#tutorial-testing-support). Now we just have to run those tests and submit them to CDash.
 
 ## Exercise 1 - Send Results to a Testing Dashboard

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Peterson 算法实现
 ```cpp
 #include <iostream>

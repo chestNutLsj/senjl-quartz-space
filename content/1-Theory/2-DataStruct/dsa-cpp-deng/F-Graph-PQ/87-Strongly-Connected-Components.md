@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 简介
 
 在阅读下列内容之前，请务必了解 [图论相关概念](./concept.md) 中的基础部分。

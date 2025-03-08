@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_1_4_pytorch-basics-data-loader/
 title: 2.1.4 Data Loader - PyTorch Tutorial
 date: 2023-04-06 16:35:55

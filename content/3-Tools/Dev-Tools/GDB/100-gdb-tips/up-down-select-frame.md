@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 向上或向下切换函数堆栈帧
 ## 例子
 	#include <stdio.h>

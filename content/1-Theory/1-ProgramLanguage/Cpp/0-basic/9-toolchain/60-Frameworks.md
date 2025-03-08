@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Google Test (gtest)
 
 Google Test, also known as gtest or googletest, is a C++ testing framework developed by Google. It provides a user-friendly API for writing test cases and is designed for use in a range of applications, from simple unit tests to complex system-level tests.

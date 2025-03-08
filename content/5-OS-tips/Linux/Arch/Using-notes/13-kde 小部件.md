@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### 13-kde 小部件
 
 安装目录位于`~/.local/share/plasma/plasmamoids`。

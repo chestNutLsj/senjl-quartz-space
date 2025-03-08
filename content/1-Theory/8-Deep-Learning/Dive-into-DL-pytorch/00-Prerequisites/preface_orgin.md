@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 source: https://github.com/d2l-ai/d2l-en/blob/master/chapter_preface/index.md
 commit: 9e55a9c
 ---

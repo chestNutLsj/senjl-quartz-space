@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 publish: "true"
 tags:
   - 机器学习

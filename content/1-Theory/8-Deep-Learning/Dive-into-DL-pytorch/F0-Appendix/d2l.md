@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # `d2l` API 文档
 :label:`sec_d2l`
 

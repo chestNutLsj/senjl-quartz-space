@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 title: 如何利用 Obsidian+Quartz+GitHub Pages 构建个人知识管理库及博客分享站
 publish: "true"
 date: 2024-04-26

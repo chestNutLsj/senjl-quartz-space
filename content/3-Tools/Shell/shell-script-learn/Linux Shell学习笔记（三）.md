@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 本篇是学习Linux Shell的第三篇——系统、设备管理及Linux工具使用
 
 ## 1. 软件包管理

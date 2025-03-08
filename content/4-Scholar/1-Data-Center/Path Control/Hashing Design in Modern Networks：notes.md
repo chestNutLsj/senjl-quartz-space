@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 tags:
   - Network
   - Hashing

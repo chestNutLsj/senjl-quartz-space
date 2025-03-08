@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://www.bilibili.com/video/BV14h41187FZ/?vd_source=77e5fb53d88adf1084faadbdb466558d
 ---
 ## 知识点总结

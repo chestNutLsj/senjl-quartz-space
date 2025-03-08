@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter03_intermediate/3_2_2_cnn_resnet_cifar10/
 title: 3.2.2 ResNet_Cifar10 - PyTorch Tutorial
 date: 2023-04-10 17:44:13

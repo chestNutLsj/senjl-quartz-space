@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## General Testing Information
 
 你需要在你的主 CMakeLists.txt 文件中添加如下函数调用（而不是在子文件夹 CMakeLists.txt 中）：

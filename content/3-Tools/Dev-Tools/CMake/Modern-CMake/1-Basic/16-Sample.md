@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 这是一个简单、完整并且合理的 `CMakeLists.txt` 的例子。对于这个程序，我们有一个带有头文件与源文件的库文件（ MyLibExample ），以及一个带有源文件的应用程序（ MyExample ）。
 
 ```

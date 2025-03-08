@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_1_1_pytorch-basics-tensor/
 title: 2.1.1 Tensor - PyTorch Tutorial
 date: 2023-04-06 14:57:50

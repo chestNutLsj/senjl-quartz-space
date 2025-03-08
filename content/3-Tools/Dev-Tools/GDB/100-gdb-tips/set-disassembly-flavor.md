@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 设置汇编指令格式 
 
 ## 例子

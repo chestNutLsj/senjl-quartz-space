@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 The **Shortest Path Faster Algorithm (SPFA)** is an improved version of the Bellman–Ford algorithm that computes single-source shortest paths in a weighted directed graph. The algorithm works well on sparse random graphs, especially those that contain negative-weight edges. The worst-case complexity of SPFA is the same as that of Bellman–Ford, therefore Dijkstra's algorithm is preferred for graphs with nonnegative edge weights.
 
 > SPFA 是 Bellman-Ford 算法的改进版，在带权有向图中计算单源最短路径表现出色，并且非常适合稀疏图，尤其是在包含负权边的图中。

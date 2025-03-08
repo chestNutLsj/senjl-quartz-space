@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://zhuanlan.zhihu.com/p/291206708
 ---
 ## 什么是 Top k？

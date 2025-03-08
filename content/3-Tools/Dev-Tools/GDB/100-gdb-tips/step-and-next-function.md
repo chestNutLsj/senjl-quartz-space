@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 是否进入带调试信息的函数
 
 ## 例子

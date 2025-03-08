@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Start Kotlin
 
 看完下面Kotlin简洁高效的语法和实现，你一定会说：***So, java, fxxk you!*** 🖕:

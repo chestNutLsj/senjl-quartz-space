@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Anchor Boxes
 :label:`sec_anchor`
 

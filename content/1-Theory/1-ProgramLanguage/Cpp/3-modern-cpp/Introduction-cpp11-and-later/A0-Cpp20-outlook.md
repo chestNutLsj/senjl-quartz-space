@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [changkun.de](https://changkun.de/modern-cpp/zh-cn/10-cpp20/)
 
 > Modern C++ Tutorial | C++ 11/14/17/20 On the Fly | 现代 C++ 教程 | 高速上手 C++11/14/17/20

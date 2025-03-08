@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Hardware
 :label:`sec_hardware`
 

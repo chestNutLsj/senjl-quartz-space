@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 修改被调试程序的二进制文件
 
 ## 例子

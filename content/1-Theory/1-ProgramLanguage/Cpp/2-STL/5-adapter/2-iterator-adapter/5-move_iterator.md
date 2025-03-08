@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 C++ 11 还为 STL 标准库增添了一种迭代器适配器，即本节要讲的 move_iterator 移动迭代器适配器。
 

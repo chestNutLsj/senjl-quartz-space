@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 有时你想要在配置的时候下载数据或者是包，而不是在编译的时候下载。这种方法已经被第三方包重复“发明”了好几次。最终，这种方法在 CMake 3.11 中以 [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) 模块的形式出现。
 
 [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) 模块有出色的文档，我在此不会赘述。我会阐述这样几个步骤：

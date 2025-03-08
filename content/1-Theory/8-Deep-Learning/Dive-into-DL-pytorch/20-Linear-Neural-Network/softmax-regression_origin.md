@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Softmax Regression
 :label:`sec_softmax`
 

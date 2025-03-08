@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Use docker compose
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.

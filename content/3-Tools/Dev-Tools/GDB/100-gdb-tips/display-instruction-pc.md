@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示将要执行的汇编指令 
 
 ## 例子

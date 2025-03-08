@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 计算机视觉
 :label:`chap_cv`
 

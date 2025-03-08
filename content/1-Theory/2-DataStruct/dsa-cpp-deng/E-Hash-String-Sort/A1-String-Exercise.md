@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 11-3 练习构造各算法的查询表
 ```
 index:         0   1   2   3   4

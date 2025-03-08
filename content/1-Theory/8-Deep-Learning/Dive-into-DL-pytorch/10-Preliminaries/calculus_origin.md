@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Calculus
 :label:`sec_calculus`
 

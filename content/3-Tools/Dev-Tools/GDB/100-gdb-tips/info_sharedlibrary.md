@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示共享链接库信息
 ## 例子
 	#include <hiredis/hiredis.h>

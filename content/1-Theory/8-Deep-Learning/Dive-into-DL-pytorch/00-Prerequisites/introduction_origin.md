@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Introduction
 
 Until recently, nearly every computer program that we interact with daily

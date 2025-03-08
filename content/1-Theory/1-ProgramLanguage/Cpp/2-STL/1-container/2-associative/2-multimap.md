@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 在掌握 Cpp STL map 容器的基础上，本节再讲一个和 map 相似的关联式容器，即 multimap 容器。
 

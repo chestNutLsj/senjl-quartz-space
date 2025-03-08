@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 使用Amazon SageMaker
 :label:`sec_sagemaker`
 

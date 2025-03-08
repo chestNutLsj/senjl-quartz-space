@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### 20-开机输入密码时不需要手动 `numLock`
 
 查看`sddm.conf`：

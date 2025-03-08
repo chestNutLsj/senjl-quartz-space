@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 同时调试父进程和子进程 
 
 ## 例子

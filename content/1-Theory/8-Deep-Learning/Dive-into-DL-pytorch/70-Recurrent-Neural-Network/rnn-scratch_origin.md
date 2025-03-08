@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Implementation of Recurrent Neural Networks from Scratch
 :label:`sec_rnn_scratch`
 

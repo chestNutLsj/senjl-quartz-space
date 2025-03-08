@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 目标检测数据集
 :label:`sec_object-detection-dataset`
 

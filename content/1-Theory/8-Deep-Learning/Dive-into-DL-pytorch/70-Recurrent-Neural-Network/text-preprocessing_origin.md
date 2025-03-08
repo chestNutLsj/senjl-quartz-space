@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Text Preprocessing
 :label:`sec_text_preprocessing`
 

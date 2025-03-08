@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### 02. 安装并启用nvm管理nodejs
 虽然archlinuxcn中也有nvm可供安装，但直接安装那个版本却没有激活nvm的命令提示，导致虽然安装了却无法使用。而安装aur中的`nvm-git`版本则会有清晰的提示：
 ```shell

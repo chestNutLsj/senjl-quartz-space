@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 信号发生时是否打印信号信息
 ## 例子
 	#include <stdio.h>

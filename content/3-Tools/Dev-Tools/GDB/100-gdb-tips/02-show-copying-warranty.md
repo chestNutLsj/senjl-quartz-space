@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示gdb版权相关信息
 
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ### `value` 参数设置为 1 错误的原因
 
 当使用 `memset(data, 1, sizeof(data));` 进行内存初始化时，实际得到的结果是每个字节都被设置为 `0x01`，而不是整个 `int` 类型元素都被设置为 `0x00000001`。

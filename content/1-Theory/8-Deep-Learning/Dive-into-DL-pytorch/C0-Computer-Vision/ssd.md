@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 单发多框检测（SSD）
 :label:`sec_ssd`
 

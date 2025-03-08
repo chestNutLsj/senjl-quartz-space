@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 语义分割和数据集
 :label:`sec_semantic_segmentation`
 

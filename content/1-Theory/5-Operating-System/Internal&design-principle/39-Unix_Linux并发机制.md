@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 # Unix 并发机制
 ## 进程间传递数据

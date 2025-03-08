@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Minibatch Stochastic Gradient Descent
 :label:`sec_minibatch_sgd`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 全局向量的词嵌入（GloVe）
 :label:`sec_glove`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Padding and Stride
 :label:`sec_padding`
 

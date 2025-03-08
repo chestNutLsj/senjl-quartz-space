@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 定义
 
 字典树，英文名 trie。顾名思义，就是一个像字典一样的树。

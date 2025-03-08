@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 1 . Windows 下打开代理
 ----------------

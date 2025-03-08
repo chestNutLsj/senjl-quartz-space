@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter02_basics/2_1_3_pytorch-basics-nerual-network/
 title: 2.1.3 Nerual Network - PyTorch Tutorial
 date: 2023-04-06 16:35:28

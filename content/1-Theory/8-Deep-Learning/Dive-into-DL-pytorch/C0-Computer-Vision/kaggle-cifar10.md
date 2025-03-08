@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 实战 Kaggle 比赛：图像分类 (CIFAR-10)
 :label:`sec_kaggle_cifar10`
 

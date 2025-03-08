@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Concise Implementation of Recurrent Neural Networks
 :label:`sec_rnn-concise`
 

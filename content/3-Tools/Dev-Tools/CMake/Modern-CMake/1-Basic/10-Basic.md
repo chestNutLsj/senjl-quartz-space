@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 最低版本要求
 
 这是每个 `CMakeLists.txt` 都必须包含的第一行

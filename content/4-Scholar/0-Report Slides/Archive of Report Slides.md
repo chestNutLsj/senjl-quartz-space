@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 date: 2024-09-19
 tags:
   - report

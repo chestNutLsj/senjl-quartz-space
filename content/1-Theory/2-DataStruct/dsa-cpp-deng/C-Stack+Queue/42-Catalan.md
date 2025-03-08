@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://www.geeksforgeeks.org/applications-of-catalan-numbers/#
 title: Applications of Catalan Numbers - GeeksforGeeks
 date: 2023-09-14 19:45:19

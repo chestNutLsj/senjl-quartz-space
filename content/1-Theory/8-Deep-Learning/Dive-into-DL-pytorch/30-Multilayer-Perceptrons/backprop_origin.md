@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Forward Propagation, Backward Propagation, and Computational Graphs
 :label:`sec_backprop`
 

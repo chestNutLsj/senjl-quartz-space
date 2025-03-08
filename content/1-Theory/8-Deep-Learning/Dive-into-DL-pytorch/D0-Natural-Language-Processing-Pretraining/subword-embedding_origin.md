@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Subword Embedding
 :label:`sec_fasttext`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Fine-Tuning
 :label:`sec_fine_tuning`
 

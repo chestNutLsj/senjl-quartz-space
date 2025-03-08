@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 为exec调用设置catchpoint
 ## 例子
 	#include <unistd.h>

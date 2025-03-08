@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 附录：深度学习工具
 :label:`chap_appendix_tools`
 

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Where do I start with CMake? This step will provide an introduction to some of CMake's basic syntax, commands, and variables. As these concepts are introduced, we will work through three exercises and create a simple CMake project.
 
 Each exercise in this step will start with some background information. Then, a goal and list of helpful resources are provided. Each file in the `Files to Edit` section is in the `Step1` directory and contains one or more `TODO` comments. Each `TODO` represents a line or two of code to change or add. The `TODO` s are intended to be completed in numerical order, first complete `TODO 1` then `TODO 2`, etc. The `Getting Started` section will give some helpful hints and guide you through the exercise. Then the `Build and Run` section will walk step-by-step through how to build and test the exercise. Finally, at the end of each exercise the intended solution is discussed.

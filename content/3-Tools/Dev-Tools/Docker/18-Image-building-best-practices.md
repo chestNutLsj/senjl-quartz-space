@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## Image-building best practices
 ### Image layering
 

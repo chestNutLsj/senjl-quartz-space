@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 开始和停止
 - quit
 	- 退出GDB

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 显示寄存器窗口
 ## 例子
 	#include <stdio.h>

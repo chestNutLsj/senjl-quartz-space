@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 A build system is a collection of tools and utilities that automate the process of compiling, linking, and executing source code files in a project. The primary goal of build systems is to manage the complexity of the compilation process and produce a build (executable or binary files) in the end. In C++ (cpp), some common build systems are:
 
 - **GNU Make**: It is a popular build system that uses `Makefile` to define the build process. It checks the dependencies and timestamps of source files to determine which files need to be compiled and linked.

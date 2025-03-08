@@ -30,11 +30,12 @@
   "obsidian-copy-block-link",
   "omnisearch",
   "obsidian-style-settings",
-  "zotlit",
   "text-extractor",
   "note-refactor-obsidian",
   "latex-algorithms",
   "obsidian-paste-as-html",
   "copilot",
-  "obsidian-image-auto-upload-plugin"
+  "obsidian-image-auto-upload-plugin",
+  "image-captions",
+  "metaedit"
 ]

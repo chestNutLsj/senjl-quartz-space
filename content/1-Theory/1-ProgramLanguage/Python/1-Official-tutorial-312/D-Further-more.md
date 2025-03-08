@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # What Now?
 
 Reading this tutorial has probably reinforced your interest in using Python ---you should be eager to apply Python to solving your real-world problems. Where should you go to learn more?

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 读者优先
 ### impl in Cpp
 ```cpp

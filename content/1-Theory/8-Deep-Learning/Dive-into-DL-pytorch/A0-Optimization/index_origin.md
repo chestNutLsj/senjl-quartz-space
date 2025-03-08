@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Optimization Algorithms
 :label:`chap_optimization`
 

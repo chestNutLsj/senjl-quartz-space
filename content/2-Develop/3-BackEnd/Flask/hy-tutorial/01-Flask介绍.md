@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 参考书：《Flask Web 全栈开发实战》—— 黄勇
 
 ## 环境配置

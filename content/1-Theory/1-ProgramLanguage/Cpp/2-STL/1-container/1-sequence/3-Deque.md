@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 deque 是 double-ended queue 的缩写，又称双端队列容器。
 

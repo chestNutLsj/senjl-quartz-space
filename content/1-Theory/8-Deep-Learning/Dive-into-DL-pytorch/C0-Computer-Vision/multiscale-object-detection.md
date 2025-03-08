@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 多尺度目标检测
 :label:`sec_multiscale-object-detection`
 

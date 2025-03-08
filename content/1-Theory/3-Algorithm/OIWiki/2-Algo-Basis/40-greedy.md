@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 本页面将简要介绍贪心算法。
 
 ## 引入

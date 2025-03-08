@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Densely Connected Networks (DenseNet)
 
 ResNet significantly changed the view of how to parametrize the functions in deep networks. *DenseNet* (dense convolutional network) is to some extent the logical extension of this :cite:`Huang.Liu.Van-Der-Maaten.ea.2017`.

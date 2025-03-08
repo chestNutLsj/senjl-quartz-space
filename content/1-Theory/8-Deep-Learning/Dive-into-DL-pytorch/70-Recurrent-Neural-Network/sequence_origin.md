@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Sequence Models
 :label:`sec_sequence`
 

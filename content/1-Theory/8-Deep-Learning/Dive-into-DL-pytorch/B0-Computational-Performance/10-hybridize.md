@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 编译器和解释器
 
 目前为止，本书主要关注的是*命令式编程*（imperative programming）。命令式编程使用诸如 `print`、“`+`”和 `if` 之类的语句来更改程序的状态。考虑下面这段简单的命令式程序：

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Dog Breed Identification (ImageNet Dogs) on Kaggle
 
 In this section, we will practice

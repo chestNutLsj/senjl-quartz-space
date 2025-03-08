@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印大数组中的内容 
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## 冲突的种类
 

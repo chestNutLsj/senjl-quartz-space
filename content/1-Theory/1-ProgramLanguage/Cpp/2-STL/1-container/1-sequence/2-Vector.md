@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 banner: "![[vector.png]]"
 banner_x: 0.5
 ---

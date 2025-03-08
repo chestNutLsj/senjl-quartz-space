@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Gated Recurrent Units (GRU)
 :label:`sec_gru`
 

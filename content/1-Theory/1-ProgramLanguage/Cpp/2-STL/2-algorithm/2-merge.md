@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 有些场景中，我们需要将 2 个有序序列合并为 1 个有序序列，这时就可以借助 merge () 或者 inplace_merge () 函数实现。
 

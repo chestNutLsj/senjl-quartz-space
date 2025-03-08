@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Pretraining word2vec
 :label:`sec_word2vec_pretraining`
 

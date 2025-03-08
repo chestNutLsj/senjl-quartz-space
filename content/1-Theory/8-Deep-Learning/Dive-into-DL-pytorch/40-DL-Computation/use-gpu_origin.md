@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # GPUs
 :label:`sec_use_gpu`
 

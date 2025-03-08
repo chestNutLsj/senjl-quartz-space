@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 调试子进程 
 
 ## 例子

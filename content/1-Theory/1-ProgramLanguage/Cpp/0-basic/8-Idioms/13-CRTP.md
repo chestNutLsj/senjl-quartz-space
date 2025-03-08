@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 **Curiously Recurring Template Pattern (CRTP)**
 
 The Curiously Recurring Template Pattern (CRTP) is a C++ idiom that involves a class template being derived from its own specialization. This pattern allows for the creation of static polymorphism, which differs from regular runtime polymorphism that relies on virtual functions and inheritance.

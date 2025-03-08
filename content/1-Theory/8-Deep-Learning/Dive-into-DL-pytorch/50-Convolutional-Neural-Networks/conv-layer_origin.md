@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Convolutions for Images
 :label:`sec_conv_layer`
 

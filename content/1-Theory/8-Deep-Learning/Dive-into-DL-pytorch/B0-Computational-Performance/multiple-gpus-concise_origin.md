@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Concise Implementation for Multiple GPUs
 :label:`sec_multi_gpu_concise`
 

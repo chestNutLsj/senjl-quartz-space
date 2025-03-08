@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 微调
 :label:`sec_fine_tuning`
 

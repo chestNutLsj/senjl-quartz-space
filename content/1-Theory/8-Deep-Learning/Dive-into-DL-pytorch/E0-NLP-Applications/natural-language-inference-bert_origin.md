@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # Natural Language Inference: Fine-Tuning BERT
 :label:`sec_natural-language-inference-bert`
 

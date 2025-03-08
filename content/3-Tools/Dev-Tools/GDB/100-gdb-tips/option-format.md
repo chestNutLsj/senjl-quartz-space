@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 命令行选项的格式
 
 ## 技巧

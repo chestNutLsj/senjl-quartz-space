@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 宿主机代理软件：clash-for-windows 。其他软件同理，请自行查找对应文档，或找到对应功能进行设置。
 
 ## 原理

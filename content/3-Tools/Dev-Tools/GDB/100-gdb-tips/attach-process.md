@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 调试已经运行的进程
 
 ## 例子

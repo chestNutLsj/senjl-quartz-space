@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # RMSProp算法
 :label:`sec_rmsprop`
 

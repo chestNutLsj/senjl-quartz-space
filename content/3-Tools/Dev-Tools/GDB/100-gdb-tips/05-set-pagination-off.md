@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 输出信息多时不会暂停输出
 
 ## 技巧

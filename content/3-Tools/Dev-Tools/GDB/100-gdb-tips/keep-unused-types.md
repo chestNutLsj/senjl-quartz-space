@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 保留未使用的类型
 
 ## 例子

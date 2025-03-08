@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 In C++, you can work with dates and times using the `chrono` library, which is part of the Standard Library (STL). The `chrono` library provides various data types and functions to represent and manipulate time durations, time points, and clocks.
 
 ## Duration

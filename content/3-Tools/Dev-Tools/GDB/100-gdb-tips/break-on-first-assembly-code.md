@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 在函数的第一条汇编指令打断点 
 
 ## 例子

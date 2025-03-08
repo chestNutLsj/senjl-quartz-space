@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 接口电路的作用
 
 接口的基本功能

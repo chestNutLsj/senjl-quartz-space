@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
   
 > [! warning]
 >  CMake 3.15 中，导出的默认行为发生了变化。由于更改用户主目录中的文件是“令人惊讶的”（确实如此，这就是本章存在的原因），因此不再是默认行为。若将 CMake 的最小或最大版本设置为 3.15+，这种情况将不再发生，除非将 `CMAKE_EXPORT_PACKAGE_REGISTRY` 设置为 `ON`。

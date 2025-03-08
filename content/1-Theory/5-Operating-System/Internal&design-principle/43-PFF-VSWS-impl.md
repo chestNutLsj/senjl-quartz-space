@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 ## impl in C
 ```c

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 进入和退出图形化调试界面
 ## 例子
 	#include <stdio.h>

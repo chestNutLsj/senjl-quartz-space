@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 An array is a series of elements of the same type placed in contiguous memory locations that can be individually referenced by adding an index to a unique identifier. (数组要求元素是相同类型)
 
 That means that, for example, five values of type `int` can be declared as an array without having to declare 5 different variables (each with its own identifier). Instead, using an array, the five `int` values are stored in contiguous（连续的） memory locations, and all five can be accessed using the same identifier, with the proper index.（用不同的索引，通过相同的标识符，访问不同的数组元素）

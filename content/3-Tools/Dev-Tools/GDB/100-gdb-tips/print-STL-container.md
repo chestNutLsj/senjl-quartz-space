@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印STL容器中的内容 
 
 ## 例子

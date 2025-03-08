@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 ## 网络设置相关
 
 ### Cound not connect 'Ethernet0' to virtual network '/dev/vmnet0'

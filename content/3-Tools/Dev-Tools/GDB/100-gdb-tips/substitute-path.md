@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 替换查找源文件的目录
 ## 例子
 	#include <stdio.h>

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 情感分析：使用循环神经网络
 :label:`sec_sentiment_rnn`
 

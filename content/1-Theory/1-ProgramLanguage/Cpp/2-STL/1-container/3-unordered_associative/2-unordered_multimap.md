@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 
 C++ STL 标准库中，除了提供有 unordered_map 无序关联容器，还提供有和 unordered_map 容器非常相似的 unordered_multimap 无序关联容器。
 

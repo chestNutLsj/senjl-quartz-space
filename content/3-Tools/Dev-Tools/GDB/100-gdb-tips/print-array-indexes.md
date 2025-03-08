@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 # 打印数组的索引下标
 
 ## 例子

@@ -1,3 +1,6 @@
+---
+image-auto-upload: false
+---
 Exit codes, also known as “return codes” or “status codes”, are numeric values that a program returns to the calling environment (usually the operating system) when it finishes execution. These codes are used to indicate the success or failure of a program’s execution.
 
 0 is the standard exit code for a successful execution, while non-zero exit codes typically indicate errors or other exceptional situations. The actual meanings of non-zero exit codes can vary between different applications or systems.

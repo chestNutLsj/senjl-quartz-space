@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 date: 2023-07-07
 tags:
   - Cpp

@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://fengmuzi2003.gitbook.io/csapp3e/di-4-zhang-chu-li-qi-ti-xi-jie-gou
 title: 第 04 章：处理器体系结构 - CSAPP 重点解读
 date: 2023-09-14 23:16:47

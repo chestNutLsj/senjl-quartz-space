@@ -1,4 +1,5 @@
 ---
+image-auto-upload: false
 url: https://pytorch-tutorial.readthedocs.io/en/latest/tutorial/chapter04_advanced/4_1_fine-tuning/
 title: 4.1 Fine Tuning - PyTorch Tutorial
 date: 2023-04-12 17:22:45
