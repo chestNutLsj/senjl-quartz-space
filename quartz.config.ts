@@ -2,7 +2,7 @@
  * @Author: Lee Sen.J
  * @Date: 2025-02-16 23:53:29
  * @LastEditors: Senj Lee lisj24@mails.tsinghua.edu.cn
- * @LastEditTime: 2025-03-09 00:22:44
+ * @LastEditTime: 2025-03-09 21:50:44
  * @FilePath: \quartz\quartz.config.ts
  * @Description: 
  * 
@@ -23,7 +23,8 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
-    baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
+    // baseUrl: "chestNutLsj.github.io/senjl-quartz-space",
+    baseUrl: "senjlearning.space",
     ignorePatterns: [".trash",],
     defaultDateType: "created",
     // generateSocialImages: true,
@@ -90,7 +91,7 @@ const config: QuartzConfig = {
         enableYouTubeEmbed: true,
         enableVideoEmbed: true,
       }),
-      // Plugin.GitHubFlavoredMarkdown(),
+      Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),

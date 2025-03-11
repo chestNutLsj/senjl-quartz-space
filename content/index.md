@@ -17,6 +17,9 @@ image-auto-upload: true
 > 	- [[DeepSeek_V3_Report：Annotation]]
 > 	- [[Characterization of LLM Development in the Datacenter：Annotation]]
 > 	- [[Jupiter_Rising：Annotation]]
+> 	- [[Primus-a_centralized_routing：Annotation]]
+> - **我的方法论**：
+> 	- [[Paper-Reading-Methods]]
 
 ## Learn in 2024
 
@@ -145,3 +148,5 @@ image-auto-upload: true
 [^1]: 你也可以叫我的笔名“花间有酒醉今人”。
 
 [^2]: Powered by [giscus](https://giscus.app/zh-CN).
+
+[^3]: da 

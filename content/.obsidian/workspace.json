@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f3a0982a93aff4c3",
+        "id": "cce11a395e05c816",
         "type": "tabs",
         "children": [
           {
-            "id": "cc795c8d8004b7f7",
+            "id": "ce86fdc63e3bc782",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "SPF",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 626.5
+    "width": 257.5
   },
   "right": {
     "id": "1516a4ce828ea6b6",
@@ -188,7 +188,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 203.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -208,16 +208,30 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "cc795c8d8004b7f7",
+  "active": "ce86fdc63e3bc782",
   "lastOpenFiles": [
+    "4-Scholar/1-Data-Center/Routing Algorithm/Primus-a_centralized_routing：Annotation.md",
+    "index.md",
+    "4-Scholar/Paper-Reading-Methods.md",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig7-throughput.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig6-redundancy.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig5-job-completion-time.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig4-eval-routing-process.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig-eval-switch-process.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-table2-link-table.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-table1-path-table.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig2-primus-updating-scheme.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Primus-a_centralized_routingAnnotation-fig1-arch.png",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets",
     "4-Scholar/1-Data-Center/Routing Algorithm/Jupiter_Rising：Annotation.md",
+    "1-Theory/2-DataStruct/dsa-cpp-deng/F-Graph-PQ/86-SPT-OIwiki.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek/Day2-DeepEP.md",
+    "4-Scholar/Paper-Reading-Template.md",
     "4-Scholar/1-Data-Center/Routing Algorithm/Jupiter_Evolving：Conclusion.md",
     "4-Scholar/1-Data-Center/LLMTraining/Characterization of LLM Development in the Datacenter：Annotation.md",
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek/Day2-DeepEP.md",
     "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek/Day3-DeepGEMM.md",
     "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Understand MLA.md",
     "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_V3_Report：Annotation.md",
-    "index.md",
     "4-Scholar/1-Data-Center/Architecture/The features, hardware, and architectures of DCN：A survey.md",
     "4-Scholar/1-Data-Center/Architecture/What is Clos Network？.md",
     "4-Scholar/1-Data-Center/Architecture/Architecture of DCN.md",
@@ -233,21 +247,7 @@
     "1-Theory/1-ProgramLanguage/Assembly/Linux汇编开发指南.md",
     "1-Theory/computer-science.pdf",
     "3-Tools/Dev-Tools/GNU Make/Makefile Tutorial By Example.md",
-    "3-Tools/Dev-Tools/GDB/100-gdb-tips/add-copy-inferiors.md",
-    "3-Tools/Dev-Tools/CMake/Modern-CMake-By-Example.md",
-    "3-Tools/LaTeX/字体命令.md",
-    "3-Tools/Mermaid/20-Sequence-diagram.md",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig21-congestion-hotspots.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig20-fabric-chassis-upgrade.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig19-alert.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-table4-convergence-time.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig18-msg-transfer.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig17-firepath-components.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig16-two-stage-via-BGP.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig15-WCC.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig14-jupiter-middle-block.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/Jupiter_Rising_Annotation-fig13-jupiter1.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets",
     "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide/assets",
     "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide",
     "4-Scholar/1-Data-Center/Routing Algorithm",

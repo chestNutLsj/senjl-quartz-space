@@ -3,6 +3,7 @@ image-auto-upload: true
 tags:
   - RoutingAlgo
   - DataCenter
+  - Annotation
 date: 2025-03-04
 publish: "true"
 ---
@@ -395,6 +396,7 @@ Firepath 实现了**集中式拓扑状态分发**，但采用包含两个主要�
 #### Path Diversity and Convergence on Failures
 
 为了实现接口状态变化的快速收敛，**每个客户端在接收到 LSD 更新后独立计算新的路由解决方案并更新转发表**。由于客户端在收敛过程中不进行协调，网络在从旧状态过渡到新状态时可能会经历短暂的瞬态丢包。然而，假设扰动是暂时的，所有交换机最终都会基于网络状态的全局一致视图进行操作。表 4 展示了绕过组件故障的反应时间。
+
 ![Jupiter_Rising_Annotation-table4-convergence-time](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/Jupiter_Rising_Annotation-table4-convergence-time.png)
 
 由于路径多样性高，**大多数故障仅需要局部收敛，即故障相邻的元素通常具有多个其他可行的下一跳到达最终目的地**。交换机的嵌入式堆栈可以快速从包含受影响链路的 ECMP 组中剪除故障链路/下一跳。ToR-S2 链路故障需要非局部收敛，因此耗时更长。在这种情况下，所有 S3 机箱**必须避免使用**受影响 ToR 交换机的 IP 前缀的特定 S2 机箱，即使此时如果 ToR 具有多个到 S2 交换机的链路可以进行优化。
