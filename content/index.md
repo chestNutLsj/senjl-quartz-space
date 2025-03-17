@@ -6,7 +6,7 @@ tags:
   - Blog
 image-auto-upload: true
 ---
-欢迎来到我[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮：`lisj24 at mails.tsinghua.edu.cn`，或者在本博客页底的评论区 [^2] 中发起讨论。
+欢迎来到我[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮：`lisj24 at mails.tsinghua.edu.cn`，或者在本博客页底的评论区[^2] 中发起讨论。
 
 > [!tip] 🎵: Have a relax!
 > ![未闻花名1](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/%E6%9C%AA%E9%97%BB%E8%8A%B1%E5%90%8D1.png)
@@ -18,6 +18,8 @@ image-auto-upload: true
 > 	- [[Characterization of LLM Development in the Datacenter：Annotation]]
 > 	- [[Jupiter_Rising：Annotation]]
 > 	- [[Primus-a_centralized_routing：Annotation]]
+> 	- [[Jupiter_Evolving：Conclusion]]
+> 	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
 > - **我的方法论**：
 > 	- [[Paper-Reading-Methods]]
 
@@ -148,5 +150,3 @@ image-auto-upload: true
 [^1]: 你也可以叫我的笔名“花间有酒醉今人”。
 
 [^2]: Powered by [giscus](https://giscus.app/zh-CN).
-
-[^3]: da 
