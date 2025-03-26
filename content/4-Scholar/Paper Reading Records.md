@@ -52,5 +52,11 @@ author: SenjLee
 	- [[DeepSeek_V3_Report：Annotation]]
 	- [[DeepSeekMoE_notes]]
 
+### 3 月
+
 - 数据中心的路由计算：
 	- [[Jupiter_Rising：Annotation]]
+	- [[Jupiter_Evolving：Conclusion]]
+	- [[Primus-a_centralized_routing：Annotation]]
+	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
+	- [[TPUv4-Google-3Gen-ML-Accelerator：Conclusion]]

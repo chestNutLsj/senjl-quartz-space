@@ -27,12 +27,12 @@ image-auto-upload: true
 
 > [!success]+ 🎉我成功上岸啦!!!
 >
-> - 我的清华计算机考研复习经验： [[How-to-prepare-for-11912-effectively？|如何高效备考 11912？]]
+> - 我的清华计算机考研复习经验： [[How-to-prepare-for-11912-effectively|如何高效备考 11912？]]
 > - 我这十多年的学习经验与絮絮叨： [[从山西小镇做题家到北雷村再到五道口]]
 
 > [!Abstract]- 今年是懒狗的一年 😢
 >
-> - [X] 1 月 ~ 3 月：准备复试内容、参加机试与面试、撰写 [[How-to-prepare-for-11912-effectively？|上岸经验贴]] ；
+> - [X] 1 月 ~ 3 月：准备复试内容、参加机试与面试、撰写 [[How-to-prepare-for-11912-effectively|上岸经验贴]] ；
 > - [X] 4 月 ~ 8 月：开学前的准备
 >   - [X] [[如何科学、高效地减脂？|健身减肥计划]]
 >   - [X] 阅读《毛泽东选集》
