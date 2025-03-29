@@ -1,6 +1,6 @@
 ---
 image-auto-upload: false
-publish:
+publish: "true"
 ---
 ## ADT
 $\forall\ \ 0\le k\le U:$

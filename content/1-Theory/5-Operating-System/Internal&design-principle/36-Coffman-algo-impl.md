@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 代码框架  
 ```cpp

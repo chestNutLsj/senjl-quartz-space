@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 指令格式
 ![[20-RV32I-instruction-format.png]]

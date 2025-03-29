@@ -1,4 +1,5 @@
 ---
+publish: "true"
 image-auto-upload: false
 ---
 ## 本节导读

@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 拓扑排序
 

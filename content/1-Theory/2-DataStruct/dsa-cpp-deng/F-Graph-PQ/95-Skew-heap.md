@@ -2,6 +2,7 @@
 image-auto-upload: false
 url: https://www.geeksforgeeks.org/skew-heap/#
 url_wiki: https://en.wikipedia.org/wiki/Skew_heap
+publish: "true"
 ---
 ## Introduction
 >[! warning]

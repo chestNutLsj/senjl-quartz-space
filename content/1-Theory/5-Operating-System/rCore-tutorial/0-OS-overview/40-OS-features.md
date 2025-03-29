@@ -1,4 +1,5 @@
 ---
+publish: "true"
 image-auto-upload: false
 ---
 基于操作系统的四个抽象，我们可以看出，从总体上看，操作系统具有五个方面的特征：

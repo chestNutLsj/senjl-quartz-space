@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 In computer science, a priority search tree is a tree data structure for storing points in two dimensions. It was originally introduced by Edward M. McCreight.[^1] 
 

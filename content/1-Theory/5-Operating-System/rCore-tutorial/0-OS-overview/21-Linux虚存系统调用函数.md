@@ -1,4 +1,5 @@
 ---
+publish: "true"
 image-auto-upload: false
 url_mmap: https://zhuanlan.zhihu.com/p/477641987
 url_sbrk: https://www.modb.pro/db/227673

@@ -1,6 +1,7 @@
 ---
 image-auto-upload: false
 url: https://www.geeksforgeeks.org/comparison-between-height-balanced-tree-and-weight-balanced-tree/
+publish: "true"
 ---
 ## what is Height Balanced Tree?
 

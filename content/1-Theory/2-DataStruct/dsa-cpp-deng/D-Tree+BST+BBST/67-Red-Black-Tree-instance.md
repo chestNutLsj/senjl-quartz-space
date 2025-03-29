@@ -3,8 +3,8 @@ image-auto-upload: false
 url: https://www.programiz.com/dsa/insertion-in-a-red-black-tree
 title: Insertion in a Red-Black Tree
 date: 2023-10-25 15:57:50
-time: 1698220670413
-tags:
+tags: 
+publish: "true"
 ---
 ## Introduction
 

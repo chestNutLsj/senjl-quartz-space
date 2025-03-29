@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 11-3 练习构造各算法的查询表
 ```

@@ -1,6 +1,6 @@
 ---
 image-auto-upload: false
-publish: 
+publish: "true"
 date: 2023-09-13
 ---
 ## Introduction

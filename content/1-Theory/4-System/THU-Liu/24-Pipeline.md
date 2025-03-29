@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 流水线概述
 ### 流水线执行效率与特点

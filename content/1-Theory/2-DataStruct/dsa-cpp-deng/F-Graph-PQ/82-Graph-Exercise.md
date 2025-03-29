@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 6-1 关联矩阵
 **说明**：关联矩阵 Incidence Matrix ：对于含有 n 个顶点、e 条边的图，对应关联矩阵 `I[][]` 共有 n 行 e 列。在无向图中，对于任意的 0 <= i < n 和 0 <= j < e，若第 i 个顶点与第 j 条边彼此关联，则定义 `I[i][j] = 1`；否则，定义 `I[i][j] = 0`。

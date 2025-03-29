@@ -1,4 +1,5 @@
 ---
+publish: "true"
 image-auto-upload: false
 ---
 ## 站在一万米的代码空间维度看

@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 单周期 CPU 设计
 ### 要实现的指令集

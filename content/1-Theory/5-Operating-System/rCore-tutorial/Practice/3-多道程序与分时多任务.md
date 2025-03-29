@@ -1,4 +1,5 @@
 ---
+publish: "true"
 image-auto-upload: false
 ---
 ## 课后练习

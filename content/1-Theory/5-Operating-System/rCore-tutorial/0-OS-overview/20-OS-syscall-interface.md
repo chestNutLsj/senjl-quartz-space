@@ -1,4 +1,5 @@
 ---
+publish: "true"
 image-auto-upload: false
 ---
 ## API 与 ABI

@@ -1,6 +1,7 @@
 ---
 image-auto-upload: false
 url: https://en.wikipedia.org/wiki/Trie?useskin=vector
+publish: "true"
 ---
 ## Introduction
 ![[A2-Trie-Tree-fig1.png]]

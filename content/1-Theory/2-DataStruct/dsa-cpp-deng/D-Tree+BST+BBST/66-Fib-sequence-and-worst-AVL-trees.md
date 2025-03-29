@@ -1,6 +1,7 @@
 ---
 image-auto-upload: false
 url: http://www.geekyarticles.com/2017/04/fibonacci-sequence-and-worst-avl-trees.html
+publish: "true"
 ---
 ## Fibonocci numbers
 

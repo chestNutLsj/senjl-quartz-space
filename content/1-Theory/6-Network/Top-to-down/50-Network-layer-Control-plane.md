@@ -1,6 +1,6 @@
 ---
 image-auto-upload: false
-publish: ""
+publish: "true"
 tags:
   - Network
   - 计算机网络原理

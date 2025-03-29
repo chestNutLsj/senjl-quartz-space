@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "170d1144f046606d",
+        "id": "768ab7d5ded8858c",
         "type": "tabs",
         "children": [
           {
-            "id": "481331548c828375",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-Scholar/1-Data-Center/Routing Algorithm/TPUv4-Google-3Gen-ML-Accelerator：Conclusion.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "TPUv4-Google-3Gen-ML-Accelerator：Conclusion"
-            }
-          },
-          {
-            "id": "e6d27b33fadaf31c",
+            "id": "f7aa020eec8b914c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -33,20 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "How-to-prepare-for-11912-effectively"
-            }
-          },
-          {
-            "id": "e29236394403ed2b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-Scholar/Paper-Reading-Methods.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Paper-Reading-Methods"
             }
           }
         ]
@@ -121,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 319.49999618530273
   },
   "right": {
     "id": "1516a4ce828ea6b6",
@@ -204,13 +175,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "4-Scholar/1-Data-Center/Routing Algorithm/TPUv4-Google-3Gen-ML-Accelerator：Conclusion.md",
+                "file": "0-Assets/Experience/How-to-prepare-for-11912-effectively.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "TPUv4-Google-3Gen-ML-Accelerator：Conclusion 的大纲"
+              "title": "How-to-prepare-for-11912-effectively 的大纲"
             }
           }
         ]
@@ -237,18 +208,35 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "481331548c828375",
+  "active": "f7aa020eec8b914c",
   "lastOpenFiles": [
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/TPUv4-Google-3Gen-ML-AcceleratorConclusion-fig1-TPUv4-availability.png",
-    "4-Scholar/Paper-Reading-Methods.md",
-    "4-Scholar/1-Data-Center/Routing Algorithm/TPUv4-Google-3Gen-ML-Accelerator：Conclusion.md",
     "index.md",
-    "0-Assets/Experience/How-to-prepare-for-11912-effectively.md",
-    "4-Scholar/Paper Reading Records.md",
-    "4-Scholar/1-Data-Center/Routing Algorithm/Jupiter_Rising：Annotation.md",
-    "4-Scholar/1-Data-Center/Routing Algorithm/Jupiter_Evolving：Conclusion.md",
-    "4-Scholar/1-Data-Center/Routing Algorithm/Primus-a_centralized_routing：Annotation.md",
-    "4-Scholar/1-Data-Center/Routing Algorithm/RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion.md",
+    "1-Theory/6-Network/Top-to-down/Top2down-Summary.md",
+    "1-Theory/6-Network/Top-to-down/90-Physics-layer.md",
+    "1-Theory/6-Network/Top-to-down/80-Network-Security.md",
+    "1-Theory/6-Network/Top-to-down/70-Wireless-and-Mobile-Network.md",
+    "1-Theory/6-Network/Top-to-down/60-Link-layer-and-LAN.md",
+    "1-Theory/6-Network/Top-to-down/50-Network-layer-Control-plane.md",
+    "1-Theory/6-Network/Top-to-down/40-Network-layer-Data-plane.md",
+    "1-Theory/6-Network/Top-to-down/30-Transport-layer.md",
+    "1-Theory/6-Network/Top-to-down/20-Application-layer.md",
+    "1-Theory/6-Network/Top-to-down/10-Intro-of-Network.md",
+    "1-Theory/5-Operating-System/rCore-tutorial/Appendix/C-Deep-into-machine-mode.md",
+    "1-Theory/5-Operating-System/rCore-tutorial/Appendix/B-常见工具的使用方法.md",
+    "1-Theory/5-Operating-System/rCore-tutorial/9-IO-devices-management/00-IO-Overview.md",
+    "1-Theory/5-Operating-System/rCore-tutorial/3-Multiprog-and-time-sharing/00-Multiprog-Overview.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/11-宏内核结构的OS举例.md",
+    "1-Theory/5-Operating-System/rCore-tutorial/8-Concurrence/10-Usermode-thread-management.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/73-他山之石-文件系统总结.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/72-符号链接与硬链接.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/71-BTree.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/70-文件系统.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/62-SSD.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/61-SPOOLing.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/60-IO管理与磁盘.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/50-CPU调度.md",
+    "1-Theory/5-Operating-System/Internal&design-principle/42-加载和链接.md",
+    "4-Scholar/1-Data-Center/Routing Algorithm/assets/TPUv4-Google-3Gen-ML-AcceleratorConclusion-fig1-TPUv4-availability.png",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-fig11-Out-of-order-pkts.png",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-table3-traffic-admission.png",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-fig16-various-stage-performance.png",
@@ -258,24 +246,7 @@
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-fig8-QP-in-production.png",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-fig7-EECMP-QP.png",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-fig6-backend.png",
-    "4-Scholar/1-Data-Center/Routing Algorithm/assets/RDMA-over-Ethernet-for-Distributed-AI-TrainingConclusion-fig5-frontend-backend.png",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/F-Graph-PQ/86-SPT-OIwiki.md",
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek/Day2-DeepEP.md",
-    "4-Scholar/Paper-Reading-Template.md",
-    "4-Scholar/1-Data-Center/LLMTraining/Characterization of LLM Development in the Datacenter：Annotation.md",
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek/Day3-DeepGEMM.md",
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Understand MLA.md",
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_V3_Report：Annotation.md",
-    "4-Scholar/1-Data-Center/Architecture/The features, hardware, and architectures of DCN：A survey.md",
-    "4-Scholar/1-Data-Center/Architecture/What is Clos Network？.md",
-    "4-Scholar/1-Data-Center/Architecture/Architecture of DCN.md",
-    "4-Scholar/1-Data-Center/Architecture/How ARP works？.md",
-    "4-Scholar/1-Data-Center/Architecture/Spineless DCN：notes.md",
-    "4-Scholar/1-Data-Center/Federated Learning/Esync：Annotation.md",
-    "4-Scholar/1-Data-Center/LLMTraining/Alibaba HPN：notes.md",
-    "AllBooks.md",
-    "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide/CUDA-C++-Programming-Guide-notes.md",
     "1-Theory/computer-science.pdf",
     "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide/assets",
     "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide",

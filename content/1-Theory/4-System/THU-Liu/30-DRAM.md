@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 > 接下来的内容非常简单，和 OS 重合处也很多，赶时间就简单总结要点了。
 

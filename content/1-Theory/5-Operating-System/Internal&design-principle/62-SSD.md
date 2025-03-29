@@ -1,6 +1,7 @@
 ---
 image-auto-upload: false
 url: https://www.geeksforgeeks.org/introduction-to-solid-state-drive-ssd/#
+publish: "true"
 ---
 
 ## Introduction

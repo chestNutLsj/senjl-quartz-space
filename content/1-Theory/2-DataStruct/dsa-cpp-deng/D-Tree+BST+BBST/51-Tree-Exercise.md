@@ -1,5 +1,6 @@
 ---
 image-auto-upload: false
+publish: "true"
 ---
 ## 5-1 二叉树中节点深度、高度与全树高度关系
 1. ==试证明，对于二叉树 T 中任一节点 $v\in T$，总有 depth (v) + height (v) <= height (T)；==
