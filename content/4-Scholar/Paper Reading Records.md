@@ -60,3 +60,8 @@ author: SenjLee
 	- [[Primus-a_centralized_routing：Annotation]]
 	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
 	- [[TPUv4-Google-3Gen-ML-Accelerator：Conclusion]]
+
+### 4 月
+
+- 华为的新数据中心架构：
+	- 

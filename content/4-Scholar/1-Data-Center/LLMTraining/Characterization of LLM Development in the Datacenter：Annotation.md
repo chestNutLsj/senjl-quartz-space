@@ -4,7 +4,7 @@ date: 2024-09-21
 tags:
   - DataCenter
   - LLM
-  - architecture
+  - Architecture
   - paper-reading
   - Annotation
 author: SenjLee

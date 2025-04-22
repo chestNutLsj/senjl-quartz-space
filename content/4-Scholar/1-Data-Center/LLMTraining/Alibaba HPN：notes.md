@@ -4,7 +4,7 @@ publish: "true"
 tags:
   - DataCenter
   - LLM
-  - architecture
+  - Architecture
 date: 2024-09-14
 author: SenjLee
 ---
