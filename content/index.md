@@ -20,6 +20,7 @@ image-auto-upload: true
 > 	- [[Primus-a_centralized_routing：Annotation]]
 > 	- [[Jupiter_Evolving：Conclusion]]
 > 	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
+> 	- [[UB-Mesh-Annotation]]
 > - **我的方法论**：
 > 	- [[Paper-Reading-Methods]]
 
