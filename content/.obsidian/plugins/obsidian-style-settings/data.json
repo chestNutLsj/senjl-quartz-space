@@ -1,8 +1,8 @@
 {
-  "blue-topaz-theme@@color-scheme-options": "color-scheme-options-lillimon-topaz",
+  "blue-topaz-theme@@color-scheme-options": "color-scheme-options-chocolate-topaz",
   "blue-topaz-theme@@background-image-settings-switch": false,
   "blue-topaz-theme@@background-image-settings-command-palette-switch": true,
-  "blue-topaz-theme@@left-ribbon-style": "default-left-ribbon-style",
+  "blue-topaz-theme@@left-ribbon-style": "bt-bubble-ribbon",
   "blue-topaz-theme@@layout-style-options": "bt-bubble-layout",
   "blue-topaz-theme@@search-bar-style-option": "default-search-bar",
   "blue-topaz-theme@@bt-status-on": false,

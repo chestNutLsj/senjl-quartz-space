@@ -2,5 +2,6 @@
   "ocrLanguages": [
     "eng"
   ],
-  "rightClickMenu": true
+  "rightClickMenu": true,
+  "useSystemOCR": false
 }

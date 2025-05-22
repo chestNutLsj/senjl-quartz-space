@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d423c9db6e3125f0",
+        "id": "2b703e26b73477b7",
         "type": "tabs",
         "children": [
           {
-            "id": "f225b2f16bd7467c",
+            "id": "07fa79d510484d3c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "index"
             }
+          },
+          {
+            "id": "572d3e2633573811",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Insights-into-DeepSeek-V3-Annotation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Insights-into-DeepSeek-V3-Annotation"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,7 +108,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.49999618530273
+    "width": 240.49999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "1516a4ce828ea6b6",
@@ -129,12 +145,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/DeepSeek_v3_report.md",
+                "file": "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Insights-into-DeepSeek-V3-Annotation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "DeepSeek_v3_report 的出链列表"
+              "title": "Insights-into-DeepSeek-V3-Annotation 的出链列表"
             }
           },
           {
@@ -162,7 +178,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       },
       {
         "id": "2aabb86f31957f99",
@@ -175,13 +191,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Insights-into-DeepSeek-V3-Annotation.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "Insights-into-DeepSeek-V3-Annotation 的大纲"
             }
           }
         ]
@@ -208,53 +224,53 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "f225b2f16bd7467c",
+  "active": "572d3e2633573811",
   "lastOpenFiles": [
-    "4-Scholar/1-Data-Center/Architecture/UB-Mesh-Annotation.md",
-    "index.md",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-table6-MTBF.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig22-linearity.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig21-cost.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig20-interrack-bandwidth.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig19-interrack-performance.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig18-interrack.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig17-performance-intra-rack.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig16-baseline-intra-rack-arch.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-table5-benchmark-model.png",
-    "4-Scholar/1-Data-Center/Architecture/assets/UB-Mesh-Annotation-fig15-Topo-aware-parallelization.png",
     "4-Scholar/Paper Reading Records.md",
+    "index.md",
     "4-Scholar/Paper-Reading-Methods.md",
+    "4-Scholar/1-Data-Center/Storage/NVMe-SSD-Failures-Conclusion.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Insights-into-DeepSeek-V3-Annotation.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig8-RoCE-bandwidth.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-table5-latency.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-table4-V3-training-metric.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig7-EP-comm.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig6-latency.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig5-all2all.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-table3-cost-MPFT.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig4-ideal-MPN.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig3-multi-plane-fat-tree.png",
+    "4-Scholar/1-Data-Center/Architecture/UB-Mesh-Annotation.md",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets/Insights-into-DeepSeek-V3-Annotation-fig2-H800node.png",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/assets",
+    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/Fire-Flyer-AI-HPC-Annotation.md",
+    "4-Scholar/1-Data-Center/Storage/assets",
+    "4-Scholar/1-Data-Center/Storage",
+    "4-Scholar/1-Data-Center/Digital Twin Network/Scalable-Tail-Latency-Estimation-For-DCN-Annotation.md",
+    "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/50-dynamic-programming.md",
+    "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/30-graph.md",
+    "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/20-data-struct.md",
+    "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/10-algo-basis.md",
+    "1-Theory/3-Algorithm/OIWiki/4-DP/60-tree.md",
+    "1-Theory/1-ProgramLanguage/Cpp/2-STL/1-container/3-unordered_associative/0-Intro.md",
+    "1-Theory/1-ProgramLanguage/Cpp/2-STL/1-container/2-associative/0-Intro.md",
+    "1-Theory/3-Algorithm/Practice/AcWing/Algo-basis/AcWing基础篇.md",
+    "4-Scholar/1-Data-Center/Architecture/What is Clos Network？.md",
+    "4-Scholar/1-Data-Center/Architecture/The features, hardware, and architectures of DCN：A survey.md",
+    "4-Scholar/1-Data-Center/Architecture/Spineless DCN：notes.md",
+    "4-Scholar/1-Data-Center/Architecture/Architecture of DCN.md",
+    "4-Scholar/2-LLM/Principle/LLM-Survey.md",
+    "4-Scholar/2-LLM/理解RoPE.md",
+    "4-Scholar/0-Report Slides/Archive of Report Slides.md",
+    "4-Scholar/Paper-Reading-Template.md",
+    "4-Scholar/1-Data-Center/Digital Twin Network",
     "0-Assets/Experience/How-to-prepare-for-11912-effectively.md",
-    "4-Scholar/1-Data-Center/LLMTraining/Alibaba HPN：notes.md",
-    "0-Assets/Experience/从山西小镇做题家到北雷村再到五道口.md",
-    "4-Scholar/1-Data-Center/Federated Learning/Esync：Annotation.md",
-    "4-Scholar/1-Data-Center/Path Control/Hashing Design in Modern Networks：notes.md",
-    "1-Theory/3-Algorithm/OIWiki/0-Contest-Trick/50-problems.md",
-    "1-Theory/3-Algorithm/OIWiki/4-DP/10-knapsack.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/61-Balanced-BST.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/60-Binary_Search_Tree.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/51-Tree-Exercise.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/50-Tree.md",
-    "1-Theory/2-DataStruct/Practice/912-模拟题/2024-威卷III.md",
-    "1-Theory/2-DataStruct/Practice/912-模拟题/2024-威卷II.md",
-    "1-Theory/2-DataStruct/Practice/912-模拟题/2024-威卷I.md",
-    "1-Theory/2-DataStruct/Practice/排序算法.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/G-Practice/Mid-final-exam/2020_21-final.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/62-BST-Exercise.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/66-Fib-sequence-and-worst-AVL-trees.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/D-Tree+BST+BBST/64-Height-BBST-vs-Weight-BBST.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/G-Practice/Important-and-hard-problems⭐.md",
-    "1-Theory/2-DataStruct/dsa-cpp-deng/G-Practice/912真题复习笔记.md",
     "4-Scholar/1-Data-Center/Routing Algorithm/assets",
     "1-Theory/computer-science.pdf",
     "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide/assets",
     "1-Theory/B-GPU-Programming/CUDA/NVIDIA-Guide",
     "4-Scholar/1-Data-Center/Routing Algorithm",
     "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek",
-    "1-Theory/B-GPU-Programming/CUDA",
-    "1-Theory/B-GPU-Programming",
-    "0-Assets/Export/assets",
-    "4-Scholar/1-Data-Center/LLMTraining/DeepSeek/OpenSourceWeek/assets",
     "1-Theory/2-DataStruct/dsa-cpp-deng/G-Exam/未命名.canvas",
     "未命名.canvas",
     "MyHome.canvas",

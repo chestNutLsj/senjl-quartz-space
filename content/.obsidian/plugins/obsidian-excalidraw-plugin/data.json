@@ -1,4 +1,5 @@
 {
+  "disableDoubleClickTextEditing": false,
   "folder": "0-Assets/Excalidraw",
   "cropFolder": "",
   "annotateFolder": "",
@@ -87035,7 +87036,7 @@
     }
   },
   "defaultTrayMode": false,
-  "previousRelease": "2.8.3",
+  "previousRelease": "2.11.1",
   "showReleaseNotes": true,
   "showNewVersionNotification": true,
   "latexBoilerplate": "\\color{blue}",
@@ -87392,6 +87393,7 @@
   "markdownNodeOneClickEditing": false,
   "canvasImmersiveEmbed": true,
   "startupScriptPath": "",
+  "aiEnabled": true,
   "openAIAPIToken": "",
   "openAIDefaultTextModel": "gpt-3.5-turbo-1106",
   "openAIDefaultVisionModel": "gpt-4o",

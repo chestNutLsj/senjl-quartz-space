@@ -28,6 +28,2303 @@ var __toModule = (module2) => {
   return __exportStar(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? {get: () => module2.default, enumerable: true} : {value: module2, enumerable: true})), module2);
 };
 
+// node_modules/adm-zip/util/constants.js
+var require_constants = __commonJS((exports2, module2) => {
+  module2.exports = {
+    LOCHDR: 30,
+    LOCSIG: 67324752,
+    LOCVER: 4,
+    LOCFLG: 6,
+    LOCHOW: 8,
+    LOCTIM: 10,
+    LOCCRC: 14,
+    LOCSIZ: 18,
+    LOCLEN: 22,
+    LOCNAM: 26,
+    LOCEXT: 28,
+    EXTSIG: 134695760,
+    EXTHDR: 16,
+    EXTCRC: 4,
+    EXTSIZ: 8,
+    EXTLEN: 12,
+    CENHDR: 46,
+    CENSIG: 33639248,
+    CENVEM: 4,
+    CENVER: 6,
+    CENFLG: 8,
+    CENHOW: 10,
+    CENTIM: 12,
+    CENCRC: 16,
+    CENSIZ: 20,
+    CENLEN: 24,
+    CENNAM: 28,
+    CENEXT: 30,
+    CENCOM: 32,
+    CENDSK: 34,
+    CENATT: 36,
+    CENATX: 38,
+    CENOFF: 42,
+    ENDHDR: 22,
+    ENDSIG: 101010256,
+    ENDSUB: 8,
+    ENDTOT: 10,
+    ENDSIZ: 12,
+    ENDOFF: 16,
+    ENDCOM: 20,
+    END64HDR: 20,
+    END64SIG: 117853008,
+    END64START: 4,
+    END64OFF: 8,
+    END64NUMDISKS: 16,
+    ZIP64SIG: 101075792,
+    ZIP64HDR: 56,
+    ZIP64LEAD: 12,
+    ZIP64SIZE: 4,
+    ZIP64VEM: 12,
+    ZIP64VER: 14,
+    ZIP64DSK: 16,
+    ZIP64DSKDIR: 20,
+    ZIP64SUB: 24,
+    ZIP64TOT: 32,
+    ZIP64SIZB: 40,
+    ZIP64OFF: 48,
+    ZIP64EXTRA: 56,
+    STORED: 0,
+    SHRUNK: 1,
+    REDUCED1: 2,
+    REDUCED2: 3,
+    REDUCED3: 4,
+    REDUCED4: 5,
+    IMPLODED: 6,
+    DEFLATED: 8,
+    ENHANCED_DEFLATED: 9,
+    PKWARE: 10,
+    BZIP2: 12,
+    LZMA: 14,
+    IBM_TERSE: 18,
+    IBM_LZ77: 19,
+    AES_ENCRYPT: 99,
+    FLG_ENC: 1,
+    FLG_COMP1: 2,
+    FLG_COMP2: 4,
+    FLG_DESC: 8,
+    FLG_ENH: 16,
+    FLG_PATCH: 32,
+    FLG_STR: 64,
+    FLG_EFS: 2048,
+    FLG_MSK: 4096,
+    FILE: 2,
+    BUFFER: 1,
+    NONE: 0,
+    EF_ID: 0,
+    EF_SIZE: 2,
+    ID_ZIP64: 1,
+    ID_AVINFO: 7,
+    ID_PFS: 8,
+    ID_OS2: 9,
+    ID_NTFS: 10,
+    ID_OPENVMS: 12,
+    ID_UNIX: 13,
+    ID_FORK: 14,
+    ID_PATCH: 15,
+    ID_X509_PKCS7: 20,
+    ID_X509_CERTID_F: 21,
+    ID_X509_CERTID_C: 22,
+    ID_STRONGENC: 23,
+    ID_RECORD_MGT: 24,
+    ID_X509_PKCS7_RL: 25,
+    ID_IBM1: 101,
+    ID_IBM2: 102,
+    ID_POSZIP: 18064,
+    EF_ZIP64_OR_32: 4294967295,
+    EF_ZIP64_OR_16: 65535,
+    EF_ZIP64_SUNCOMP: 0,
+    EF_ZIP64_SCOMP: 8,
+    EF_ZIP64_RHO: 16,
+    EF_ZIP64_DSN: 24
+  };
+});
+
+// node_modules/adm-zip/util/errors.js
+var require_errors = __commonJS((exports2) => {
+  var errors = {
+    INVALID_LOC: "Invalid LOC header (bad signature)",
+    INVALID_CEN: "Invalid CEN header (bad signature)",
+    INVALID_END: "Invalid END header (bad signature)",
+    DESCRIPTOR_NOT_EXIST: "No descriptor present",
+    DESCRIPTOR_UNKNOWN: "Unknown descriptor format",
+    DESCRIPTOR_FAULTY: "Descriptor data is malformed",
+    NO_DATA: "Nothing to decompress",
+    BAD_CRC: "CRC32 checksum failed {0}",
+    FILE_IN_THE_WAY: "There is a file in the way: {0}",
+    UNKNOWN_METHOD: "Invalid/unsupported compression method",
+    AVAIL_DATA: "inflate::Available inflate data did not terminate",
+    INVALID_DISTANCE: "inflate::Invalid literal/length or distance code in fixed or dynamic block",
+    TO_MANY_CODES: "inflate::Dynamic block code description: too many length or distance codes",
+    INVALID_REPEAT_LEN: "inflate::Dynamic block code description: repeat more than specified lengths",
+    INVALID_REPEAT_FIRST: "inflate::Dynamic block code description: repeat lengths with no first length",
+    INCOMPLETE_CODES: "inflate::Dynamic block code description: code lengths codes incomplete",
+    INVALID_DYN_DISTANCE: "inflate::Dynamic block code description: invalid distance code lengths",
+    INVALID_CODES_LEN: "inflate::Dynamic block code description: invalid literal/length code lengths",
+    INVALID_STORE_BLOCK: "inflate::Stored block length did not match one's complement",
+    INVALID_BLOCK_TYPE: "inflate::Invalid block type (type == 3)",
+    CANT_EXTRACT_FILE: "Could not extract the file",
+    CANT_OVERRIDE: "Target file already exists",
+    DISK_ENTRY_TOO_LARGE: "Number of disk entries is too large",
+    NO_ZIP: "No zip file was loaded",
+    NO_ENTRY: "Entry doesn't exist",
+    DIRECTORY_CONTENT_ERROR: "A directory cannot have content",
+    FILE_NOT_FOUND: 'File not found: "{0}"',
+    NOT_IMPLEMENTED: "Not implemented",
+    INVALID_FILENAME: "Invalid filename",
+    INVALID_FORMAT: "Invalid or unsupported zip format. No END header found",
+    INVALID_PASS_PARAM: "Incompatible password parameter",
+    WRONG_PASSWORD: "Wrong Password",
+    COMMENT_TOO_LONG: "Comment is too long",
+    EXTRA_FIELD_PARSE_ERROR: "Extra field parsing error"
+  };
+  function E(message) {
+    return function(...args) {
+      if (args.length) {
+        message = message.replace(/\{(\d)\}/g, (_, n) => args[n] || "");
+      }
+      return new Error("ADM-ZIP: " + message);
+    };
+  }
+  for (const msg of Object.keys(errors)) {
+    exports2[msg] = E(errors[msg]);
+  }
+});
+
+// node_modules/adm-zip/util/utils.js
+var require_utils = __commonJS((exports2, module2) => {
+  var fsystem = require("fs");
+  var pth = require("path");
+  var Constants = require_constants();
+  var Errors = require_errors();
+  var isWin = typeof process === "object" && process.platform === "win32";
+  var is_Obj = (obj) => typeof obj === "object" && obj !== null;
+  var crcTable = new Uint32Array(256).map((t, c) => {
+    for (let k = 0; k < 8; k++) {
+      if ((c & 1) !== 0) {
+        c = 3988292384 ^ c >>> 1;
+      } else {
+        c >>>= 1;
+      }
+    }
+    return c >>> 0;
+  });
+  function Utils(opts) {
+    this.sep = pth.sep;
+    this.fs = fsystem;
+    if (is_Obj(opts)) {
+      if (is_Obj(opts.fs) && typeof opts.fs.statSync === "function") {
+        this.fs = opts.fs;
+      }
+    }
+  }
+  module2.exports = Utils;
+  Utils.prototype.makeDir = function(folder) {
+    const self = this;
+    function mkdirSync(fpath) {
+      let resolvedPath = fpath.split(self.sep)[0];
+      fpath.split(self.sep).forEach(function(name) {
+        if (!name || name.substr(-1, 1) === ":")
+          return;
+        resolvedPath += self.sep + name;
+        var stat;
+        try {
+          stat = self.fs.statSync(resolvedPath);
+        } catch (e) {
+          self.fs.mkdirSync(resolvedPath);
+        }
+        if (stat && stat.isFile())
+          throw Errors.FILE_IN_THE_WAY(`"${resolvedPath}"`);
+      });
+    }
+    mkdirSync(folder);
+  };
+  Utils.prototype.writeFileTo = function(path8, content3, overwrite, attr) {
+    const self = this;
+    if (self.fs.existsSync(path8)) {
+      if (!overwrite)
+        return false;
+      var stat = self.fs.statSync(path8);
+      if (stat.isDirectory()) {
+        return false;
+      }
+    }
+    var folder = pth.dirname(path8);
+    if (!self.fs.existsSync(folder)) {
+      self.makeDir(folder);
+    }
+    var fd;
+    try {
+      fd = self.fs.openSync(path8, "w", 438);
+    } catch (e) {
+      self.fs.chmodSync(path8, 438);
+      fd = self.fs.openSync(path8, "w", 438);
+    }
+    if (fd) {
+      try {
+        self.fs.writeSync(fd, content3, 0, content3.length, 0);
+      } finally {
+        self.fs.closeSync(fd);
+      }
+    }
+    self.fs.chmodSync(path8, attr || 438);
+    return true;
+  };
+  Utils.prototype.writeFileToAsync = function(path8, content3, overwrite, attr, callback) {
+    if (typeof attr === "function") {
+      callback = attr;
+      attr = void 0;
+    }
+    const self = this;
+    self.fs.exists(path8, function(exist) {
+      if (exist && !overwrite)
+        return callback(false);
+      self.fs.stat(path8, function(err, stat) {
+        if (exist && stat.isDirectory()) {
+          return callback(false);
+        }
+        var folder = pth.dirname(path8);
+        self.fs.exists(folder, function(exists) {
+          if (!exists)
+            self.makeDir(folder);
+          self.fs.open(path8, "w", 438, function(err2, fd) {
+            if (err2) {
+              self.fs.chmod(path8, 438, function() {
+                self.fs.open(path8, "w", 438, function(err3, fd2) {
+                  self.fs.write(fd2, content3, 0, content3.length, 0, function() {
+                    self.fs.close(fd2, function() {
+                      self.fs.chmod(path8, attr || 438, function() {
+                        callback(true);
+                      });
+                    });
+                  });
+                });
+              });
+            } else if (fd) {
+              self.fs.write(fd, content3, 0, content3.length, 0, function() {
+                self.fs.close(fd, function() {
+                  self.fs.chmod(path8, attr || 438, function() {
+                    callback(true);
+                  });
+                });
+              });
+            } else {
+              self.fs.chmod(path8, attr || 438, function() {
+                callback(true);
+              });
+            }
+          });
+        });
+      });
+    });
+  };
+  Utils.prototype.findFiles = function(path8) {
+    const self = this;
+    function findSync(dir, pattern, recursive) {
+      if (typeof pattern === "boolean") {
+        recursive = pattern;
+        pattern = void 0;
+      }
+      let files = [];
+      self.fs.readdirSync(dir).forEach(function(file) {
+        const path9 = pth.join(dir, file);
+        const stat = self.fs.statSync(path9);
+        if (!pattern || pattern.test(path9)) {
+          files.push(pth.normalize(path9) + (stat.isDirectory() ? self.sep : ""));
+        }
+        if (stat.isDirectory() && recursive)
+          files = files.concat(findSync(path9, pattern, recursive));
+      });
+      return files;
+    }
+    return findSync(path8, void 0, true);
+  };
+  Utils.prototype.findFilesAsync = function(dir, cb) {
+    const self = this;
+    let results = [];
+    self.fs.readdir(dir, function(err, list) {
+      if (err)
+        return cb(err);
+      let list_length = list.length;
+      if (!list_length)
+        return cb(null, results);
+      list.forEach(function(file) {
+        file = pth.join(dir, file);
+        self.fs.stat(file, function(err2, stat) {
+          if (err2)
+            return cb(err2);
+          if (stat) {
+            results.push(pth.normalize(file) + (stat.isDirectory() ? self.sep : ""));
+            if (stat.isDirectory()) {
+              self.findFilesAsync(file, function(err3, res) {
+                if (err3)
+                  return cb(err3);
+                results = results.concat(res);
+                if (!--list_length)
+                  cb(null, results);
+              });
+            } else {
+              if (!--list_length)
+                cb(null, results);
+            }
+          }
+        });
+      });
+    });
+  };
+  Utils.prototype.getAttributes = function() {
+  };
+  Utils.prototype.setAttributes = function() {
+  };
+  Utils.crc32update = function(crc, byte) {
+    return crcTable[(crc ^ byte) & 255] ^ crc >>> 8;
+  };
+  Utils.crc32 = function(buf) {
+    if (typeof buf === "string") {
+      buf = Buffer.from(buf, "utf8");
+    }
+    let len = buf.length;
+    let crc = ~0;
+    for (let off = 0; off < len; )
+      crc = Utils.crc32update(crc, buf[off++]);
+    return ~crc >>> 0;
+  };
+  Utils.methodToString = function(method) {
+    switch (method) {
+      case Constants.STORED:
+        return "STORED (" + method + ")";
+      case Constants.DEFLATED:
+        return "DEFLATED (" + method + ")";
+      default:
+        return "UNSUPPORTED (" + method + ")";
+    }
+  };
+  Utils.canonical = function(path8) {
+    if (!path8)
+      return "";
+    const safeSuffix = pth.posix.normalize("/" + path8.split("\\").join("/"));
+    return pth.join(".", safeSuffix);
+  };
+  Utils.zipnamefix = function(path8) {
+    if (!path8)
+      return "";
+    const safeSuffix = pth.posix.normalize("/" + path8.split("\\").join("/"));
+    return pth.posix.join(".", safeSuffix);
+  };
+  Utils.findLast = function(arr, callback) {
+    if (!Array.isArray(arr))
+      throw new TypeError("arr is not array");
+    const len = arr.length >>> 0;
+    for (let i = len - 1; i >= 0; i--) {
+      if (callback(arr[i], i, arr)) {
+        return arr[i];
+      }
+    }
+    return void 0;
+  };
+  Utils.sanitize = function(prefix, name) {
+    prefix = pth.resolve(pth.normalize(prefix));
+    var parts = name.split("/");
+    for (var i = 0, l = parts.length; i < l; i++) {
+      var path8 = pth.normalize(pth.join(prefix, parts.slice(i, l).join(pth.sep)));
+      if (path8.indexOf(prefix) === 0) {
+        return path8;
+      }
+    }
+    return pth.normalize(pth.join(prefix, pth.basename(name)));
+  };
+  Utils.toBuffer = function toBuffer(input, encoder) {
+    if (Buffer.isBuffer(input)) {
+      return input;
+    } else if (input instanceof Uint8Array) {
+      return Buffer.from(input);
+    } else {
+      return typeof input === "string" ? encoder(input) : Buffer.alloc(0);
+    }
+  };
+  Utils.readBigUInt64LE = function(buffer, index) {
+    var slice = Buffer.from(buffer.slice(index, index + 8));
+    slice.swap64();
+    return parseInt(`0x${slice.toString("hex")}`);
+  };
+  Utils.fromDOS2Date = function(val) {
+    return new Date((val >> 25 & 127) + 1980, Math.max((val >> 21 & 15) - 1, 0), Math.max(val >> 16 & 31, 1), val >> 11 & 31, val >> 5 & 63, (val & 31) << 1);
+  };
+  Utils.fromDate2DOS = function(val) {
+    let date = 0;
+    let time = 0;
+    if (val.getFullYear() > 1979) {
+      date = (val.getFullYear() - 1980 & 127) << 9 | val.getMonth() + 1 << 5 | val.getDate();
+      time = val.getHours() << 11 | val.getMinutes() << 5 | val.getSeconds() >> 1;
+    }
+    return date << 16 | time;
+  };
+  Utils.isWin = isWin;
+  Utils.crcTable = crcTable;
+});
+
+// node_modules/adm-zip/util/fattr.js
+var require_fattr = __commonJS((exports2, module2) => {
+  var pth = require("path");
+  module2.exports = function(path8, {fs}) {
+    var _path = path8 || "", _obj = newAttr(), _stat = null;
+    function newAttr() {
+      return {
+        directory: false,
+        readonly: false,
+        hidden: false,
+        executable: false,
+        mtime: 0,
+        atime: 0
+      };
+    }
+    if (_path && fs.existsSync(_path)) {
+      _stat = fs.statSync(_path);
+      _obj.directory = _stat.isDirectory();
+      _obj.mtime = _stat.mtime;
+      _obj.atime = _stat.atime;
+      _obj.executable = (73 & _stat.mode) !== 0;
+      _obj.readonly = (128 & _stat.mode) === 0;
+      _obj.hidden = pth.basename(_path)[0] === ".";
+    } else {
+      console.warn("Invalid path: " + _path);
+    }
+    return {
+      get directory() {
+        return _obj.directory;
+      },
+      get readOnly() {
+        return _obj.readonly;
+      },
+      get hidden() {
+        return _obj.hidden;
+      },
+      get mtime() {
+        return _obj.mtime;
+      },
+      get atime() {
+        return _obj.atime;
+      },
+      get executable() {
+        return _obj.executable;
+      },
+      decodeAttributes: function() {
+      },
+      encodeAttributes: function() {
+      },
+      toJSON: function() {
+        return {
+          path: _path,
+          isDirectory: _obj.directory,
+          isReadOnly: _obj.readonly,
+          isHidden: _obj.hidden,
+          isExecutable: _obj.executable,
+          mTime: _obj.mtime,
+          aTime: _obj.atime
+        };
+      },
+      toString: function() {
+        return JSON.stringify(this.toJSON(), null, "	");
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/util/decoder.js
+var require_decoder = __commonJS((exports2, module2) => {
+  module2.exports = {
+    efs: true,
+    encode: (data) => Buffer.from(data, "utf8"),
+    decode: (data) => data.toString("utf8")
+  };
+});
+
+// node_modules/adm-zip/util/index.js
+var require_util = __commonJS((exports2, module2) => {
+  module2.exports = require_utils();
+  module2.exports.Constants = require_constants();
+  module2.exports.Errors = require_errors();
+  module2.exports.FileAttr = require_fattr();
+  module2.exports.decoder = require_decoder();
+});
+
+// node_modules/adm-zip/headers/entryHeader.js
+var require_entryHeader = __commonJS((exports2, module2) => {
+  var Utils = require_util();
+  var Constants = Utils.Constants;
+  module2.exports = function() {
+    var _verMade = 20, _version = 10, _flags = 0, _method = 0, _time = 0, _crc = 0, _compressedSize = 0, _size = 0, _fnameLen = 0, _extraLen = 0, _comLen = 0, _diskStart = 0, _inattr = 0, _attr = 0, _offset = 0;
+    _verMade |= Utils.isWin ? 2560 : 768;
+    _flags |= Constants.FLG_EFS;
+    const _localHeader = {
+      extraLen: 0
+    };
+    const uint32 = (val) => Math.max(0, val) >>> 0;
+    const uint16 = (val) => Math.max(0, val) & 65535;
+    const uint8 = (val) => Math.max(0, val) & 255;
+    _time = Utils.fromDate2DOS(new Date());
+    return {
+      get made() {
+        return _verMade;
+      },
+      set made(val) {
+        _verMade = val;
+      },
+      get version() {
+        return _version;
+      },
+      set version(val) {
+        _version = val;
+      },
+      get flags() {
+        return _flags;
+      },
+      set flags(val) {
+        _flags = val;
+      },
+      get flags_efs() {
+        return (_flags & Constants.FLG_EFS) > 0;
+      },
+      set flags_efs(val) {
+        if (val) {
+          _flags |= Constants.FLG_EFS;
+        } else {
+          _flags &= ~Constants.FLG_EFS;
+        }
+      },
+      get flags_desc() {
+        return (_flags & Constants.FLG_DESC) > 0;
+      },
+      set flags_desc(val) {
+        if (val) {
+          _flags |= Constants.FLG_DESC;
+        } else {
+          _flags &= ~Constants.FLG_DESC;
+        }
+      },
+      get method() {
+        return _method;
+      },
+      set method(val) {
+        switch (val) {
+          case Constants.STORED:
+            this.version = 10;
+          case Constants.DEFLATED:
+          default:
+            this.version = 20;
+        }
+        _method = val;
+      },
+      get time() {
+        return Utils.fromDOS2Date(this.timeval);
+      },
+      set time(val) {
+        this.timeval = Utils.fromDate2DOS(val);
+      },
+      get timeval() {
+        return _time;
+      },
+      set timeval(val) {
+        _time = uint32(val);
+      },
+      get timeHighByte() {
+        return uint8(_time >>> 8);
+      },
+      get crc() {
+        return _crc;
+      },
+      set crc(val) {
+        _crc = uint32(val);
+      },
+      get compressedSize() {
+        return _compressedSize;
+      },
+      set compressedSize(val) {
+        _compressedSize = uint32(val);
+      },
+      get size() {
+        return _size;
+      },
+      set size(val) {
+        _size = uint32(val);
+      },
+      get fileNameLength() {
+        return _fnameLen;
+      },
+      set fileNameLength(val) {
+        _fnameLen = val;
+      },
+      get extraLength() {
+        return _extraLen;
+      },
+      set extraLength(val) {
+        _extraLen = val;
+      },
+      get extraLocalLength() {
+        return _localHeader.extraLen;
+      },
+      set extraLocalLength(val) {
+        _localHeader.extraLen = val;
+      },
+      get commentLength() {
+        return _comLen;
+      },
+      set commentLength(val) {
+        _comLen = val;
+      },
+      get diskNumStart() {
+        return _diskStart;
+      },
+      set diskNumStart(val) {
+        _diskStart = uint32(val);
+      },
+      get inAttr() {
+        return _inattr;
+      },
+      set inAttr(val) {
+        _inattr = uint32(val);
+      },
+      get attr() {
+        return _attr;
+      },
+      set attr(val) {
+        _attr = uint32(val);
+      },
+      get fileAttr() {
+        return (_attr || 0) >> 16 & 4095;
+      },
+      get offset() {
+        return _offset;
+      },
+      set offset(val) {
+        _offset = uint32(val);
+      },
+      get encrypted() {
+        return (_flags & Constants.FLG_ENC) === Constants.FLG_ENC;
+      },
+      get centralHeaderSize() {
+        return Constants.CENHDR + _fnameLen + _extraLen + _comLen;
+      },
+      get realDataOffset() {
+        return _offset + Constants.LOCHDR + _localHeader.fnameLen + _localHeader.extraLen;
+      },
+      get localHeader() {
+        return _localHeader;
+      },
+      loadLocalHeaderFromBinary: function(input) {
+        var data = input.slice(_offset, _offset + Constants.LOCHDR);
+        if (data.readUInt32LE(0) !== Constants.LOCSIG) {
+          throw Utils.Errors.INVALID_LOC();
+        }
+        _localHeader.version = data.readUInt16LE(Constants.LOCVER);
+        _localHeader.flags = data.readUInt16LE(Constants.LOCFLG);
+        _localHeader.method = data.readUInt16LE(Constants.LOCHOW);
+        _localHeader.time = data.readUInt32LE(Constants.LOCTIM);
+        _localHeader.crc = data.readUInt32LE(Constants.LOCCRC);
+        _localHeader.compressedSize = data.readUInt32LE(Constants.LOCSIZ);
+        _localHeader.size = data.readUInt32LE(Constants.LOCLEN);
+        _localHeader.fnameLen = data.readUInt16LE(Constants.LOCNAM);
+        _localHeader.extraLen = data.readUInt16LE(Constants.LOCEXT);
+        const extraStart = _offset + Constants.LOCHDR + _localHeader.fnameLen;
+        const extraEnd = extraStart + _localHeader.extraLen;
+        return input.slice(extraStart, extraEnd);
+      },
+      loadFromBinary: function(data) {
+        if (data.length !== Constants.CENHDR || data.readUInt32LE(0) !== Constants.CENSIG) {
+          throw Utils.Errors.INVALID_CEN();
+        }
+        _verMade = data.readUInt16LE(Constants.CENVEM);
+        _version = data.readUInt16LE(Constants.CENVER);
+        _flags = data.readUInt16LE(Constants.CENFLG);
+        _method = data.readUInt16LE(Constants.CENHOW);
+        _time = data.readUInt32LE(Constants.CENTIM);
+        _crc = data.readUInt32LE(Constants.CENCRC);
+        _compressedSize = data.readUInt32LE(Constants.CENSIZ);
+        _size = data.readUInt32LE(Constants.CENLEN);
+        _fnameLen = data.readUInt16LE(Constants.CENNAM);
+        _extraLen = data.readUInt16LE(Constants.CENEXT);
+        _comLen = data.readUInt16LE(Constants.CENCOM);
+        _diskStart = data.readUInt16LE(Constants.CENDSK);
+        _inattr = data.readUInt16LE(Constants.CENATT);
+        _attr = data.readUInt32LE(Constants.CENATX);
+        _offset = data.readUInt32LE(Constants.CENOFF);
+      },
+      localHeaderToBinary: function() {
+        var data = Buffer.alloc(Constants.LOCHDR);
+        data.writeUInt32LE(Constants.LOCSIG, 0);
+        data.writeUInt16LE(_version, Constants.LOCVER);
+        data.writeUInt16LE(_flags, Constants.LOCFLG);
+        data.writeUInt16LE(_method, Constants.LOCHOW);
+        data.writeUInt32LE(_time, Constants.LOCTIM);
+        data.writeUInt32LE(_crc, Constants.LOCCRC);
+        data.writeUInt32LE(_compressedSize, Constants.LOCSIZ);
+        data.writeUInt32LE(_size, Constants.LOCLEN);
+        data.writeUInt16LE(_fnameLen, Constants.LOCNAM);
+        data.writeUInt16LE(_localHeader.extraLen, Constants.LOCEXT);
+        return data;
+      },
+      centralHeaderToBinary: function() {
+        var data = Buffer.alloc(Constants.CENHDR + _fnameLen + _extraLen + _comLen);
+        data.writeUInt32LE(Constants.CENSIG, 0);
+        data.writeUInt16LE(_verMade, Constants.CENVEM);
+        data.writeUInt16LE(_version, Constants.CENVER);
+        data.writeUInt16LE(_flags, Constants.CENFLG);
+        data.writeUInt16LE(_method, Constants.CENHOW);
+        data.writeUInt32LE(_time, Constants.CENTIM);
+        data.writeUInt32LE(_crc, Constants.CENCRC);
+        data.writeUInt32LE(_compressedSize, Constants.CENSIZ);
+        data.writeUInt32LE(_size, Constants.CENLEN);
+        data.writeUInt16LE(_fnameLen, Constants.CENNAM);
+        data.writeUInt16LE(_extraLen, Constants.CENEXT);
+        data.writeUInt16LE(_comLen, Constants.CENCOM);
+        data.writeUInt16LE(_diskStart, Constants.CENDSK);
+        data.writeUInt16LE(_inattr, Constants.CENATT);
+        data.writeUInt32LE(_attr, Constants.CENATX);
+        data.writeUInt32LE(_offset, Constants.CENOFF);
+        return data;
+      },
+      toJSON: function() {
+        const bytes = function(nr) {
+          return nr + " bytes";
+        };
+        return {
+          made: _verMade,
+          version: _version,
+          flags: _flags,
+          method: Utils.methodToString(_method),
+          time: this.time,
+          crc: "0x" + _crc.toString(16).toUpperCase(),
+          compressedSize: bytes(_compressedSize),
+          size: bytes(_size),
+          fileNameLength: bytes(_fnameLen),
+          extraLength: bytes(_extraLen),
+          commentLength: bytes(_comLen),
+          diskNumStart: _diskStart,
+          inAttr: _inattr,
+          attr: _attr,
+          offset: _offset,
+          centralHeaderSize: bytes(Constants.CENHDR + _fnameLen + _extraLen + _comLen)
+        };
+      },
+      toString: function() {
+        return JSON.stringify(this.toJSON(), null, "	");
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/headers/mainHeader.js
+var require_mainHeader = __commonJS((exports2, module2) => {
+  var Utils = require_util();
+  var Constants = Utils.Constants;
+  module2.exports = function() {
+    var _volumeEntries = 0, _totalEntries = 0, _size = 0, _offset = 0, _commentLength = 0;
+    return {
+      get diskEntries() {
+        return _volumeEntries;
+      },
+      set diskEntries(val) {
+        _volumeEntries = _totalEntries = val;
+      },
+      get totalEntries() {
+        return _totalEntries;
+      },
+      set totalEntries(val) {
+        _totalEntries = _volumeEntries = val;
+      },
+      get size() {
+        return _size;
+      },
+      set size(val) {
+        _size = val;
+      },
+      get offset() {
+        return _offset;
+      },
+      set offset(val) {
+        _offset = val;
+      },
+      get commentLength() {
+        return _commentLength;
+      },
+      set commentLength(val) {
+        _commentLength = val;
+      },
+      get mainHeaderSize() {
+        return Constants.ENDHDR + _commentLength;
+      },
+      loadFromBinary: function(data) {
+        if ((data.length !== Constants.ENDHDR || data.readUInt32LE(0) !== Constants.ENDSIG) && (data.length < Constants.ZIP64HDR || data.readUInt32LE(0) !== Constants.ZIP64SIG)) {
+          throw Utils.Errors.INVALID_END();
+        }
+        if (data.readUInt32LE(0) === Constants.ENDSIG) {
+          _volumeEntries = data.readUInt16LE(Constants.ENDSUB);
+          _totalEntries = data.readUInt16LE(Constants.ENDTOT);
+          _size = data.readUInt32LE(Constants.ENDSIZ);
+          _offset = data.readUInt32LE(Constants.ENDOFF);
+          _commentLength = data.readUInt16LE(Constants.ENDCOM);
+        } else {
+          _volumeEntries = Utils.readBigUInt64LE(data, Constants.ZIP64SUB);
+          _totalEntries = Utils.readBigUInt64LE(data, Constants.ZIP64TOT);
+          _size = Utils.readBigUInt64LE(data, Constants.ZIP64SIZE);
+          _offset = Utils.readBigUInt64LE(data, Constants.ZIP64OFF);
+          _commentLength = 0;
+        }
+      },
+      toBinary: function() {
+        var b = Buffer.alloc(Constants.ENDHDR + _commentLength);
+        b.writeUInt32LE(Constants.ENDSIG, 0);
+        b.writeUInt32LE(0, 4);
+        b.writeUInt16LE(_volumeEntries, Constants.ENDSUB);
+        b.writeUInt16LE(_totalEntries, Constants.ENDTOT);
+        b.writeUInt32LE(_size, Constants.ENDSIZ);
+        b.writeUInt32LE(_offset, Constants.ENDOFF);
+        b.writeUInt16LE(_commentLength, Constants.ENDCOM);
+        b.fill(" ", Constants.ENDHDR);
+        return b;
+      },
+      toJSON: function() {
+        const offset = function(nr, len) {
+          let offs = nr.toString(16).toUpperCase();
+          while (offs.length < len)
+            offs = "0" + offs;
+          return "0x" + offs;
+        };
+        return {
+          diskEntries: _volumeEntries,
+          totalEntries: _totalEntries,
+          size: _size + " bytes",
+          offset: offset(_offset, 4),
+          commentLength: _commentLength
+        };
+      },
+      toString: function() {
+        return JSON.stringify(this.toJSON(), null, "	");
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/headers/index.js
+var require_headers = __commonJS((exports2) => {
+  exports2.EntryHeader = require_entryHeader();
+  exports2.MainHeader = require_mainHeader();
+});
+
+// node_modules/adm-zip/methods/deflater.js
+var require_deflater = __commonJS((exports2, module2) => {
+  module2.exports = function(inbuf) {
+    var zlib = require("zlib");
+    var opts = {chunkSize: (parseInt(inbuf.length / 1024) + 1) * 1024};
+    return {
+      deflate: function() {
+        return zlib.deflateRawSync(inbuf, opts);
+      },
+      deflateAsync: function(callback) {
+        var tmp = zlib.createDeflateRaw(opts), parts = [], total = 0;
+        tmp.on("data", function(data) {
+          parts.push(data);
+          total += data.length;
+        });
+        tmp.on("end", function() {
+          var buf = Buffer.alloc(total), written = 0;
+          buf.fill(0);
+          for (var i = 0; i < parts.length; i++) {
+            var part = parts[i];
+            part.copy(buf, written);
+            written += part.length;
+          }
+          callback && callback(buf);
+        });
+        tmp.end(inbuf);
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/methods/inflater.js
+var require_inflater = __commonJS((exports2, module2) => {
+  var version = +(process.versions ? process.versions.node : "").split(".")[0] || 0;
+  module2.exports = function(inbuf, expectedLength) {
+    var zlib = require("zlib");
+    const option = version >= 15 && expectedLength > 0 ? {maxOutputLength: expectedLength} : {};
+    return {
+      inflate: function() {
+        return zlib.inflateRawSync(inbuf, option);
+      },
+      inflateAsync: function(callback) {
+        var tmp = zlib.createInflateRaw(option), parts = [], total = 0;
+        tmp.on("data", function(data) {
+          parts.push(data);
+          total += data.length;
+        });
+        tmp.on("end", function() {
+          var buf = Buffer.alloc(total), written = 0;
+          buf.fill(0);
+          for (var i = 0; i < parts.length; i++) {
+            var part = parts[i];
+            part.copy(buf, written);
+            written += part.length;
+          }
+          callback && callback(buf);
+        });
+        tmp.end(inbuf);
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/methods/zipcrypto.js
+var require_zipcrypto = __commonJS((exports2, module2) => {
+  "use strict";
+  var {randomFillSync} = require("crypto");
+  var Errors = require_errors();
+  var crctable = new Uint32Array(256).map((t, crc) => {
+    for (let j = 0; j < 8; j++) {
+      if ((crc & 1) !== 0) {
+        crc = crc >>> 1 ^ 3988292384;
+      } else {
+        crc >>>= 1;
+      }
+    }
+    return crc >>> 0;
+  });
+  var uMul = (a, b) => Math.imul(a, b) >>> 0;
+  var crc32update = (pCrc32, bval) => {
+    return crctable[(pCrc32 ^ bval) & 255] ^ pCrc32 >>> 8;
+  };
+  var genSalt = () => {
+    if (typeof randomFillSync === "function") {
+      return randomFillSync(Buffer.alloc(12));
+    } else {
+      return genSalt.node();
+    }
+  };
+  genSalt.node = () => {
+    const salt = Buffer.alloc(12);
+    const len = salt.length;
+    for (let i = 0; i < len; i++)
+      salt[i] = Math.random() * 256 & 255;
+    return salt;
+  };
+  var config = {
+    genSalt
+  };
+  function Initkeys(pw) {
+    const pass = Buffer.isBuffer(pw) ? pw : Buffer.from(pw);
+    this.keys = new Uint32Array([305419896, 591751049, 878082192]);
+    for (let i = 0; i < pass.length; i++) {
+      this.updateKeys(pass[i]);
+    }
+  }
+  Initkeys.prototype.updateKeys = function(byteValue) {
+    const keys = this.keys;
+    keys[0] = crc32update(keys[0], byteValue);
+    keys[1] += keys[0] & 255;
+    keys[1] = uMul(keys[1], 134775813) + 1;
+    keys[2] = crc32update(keys[2], keys[1] >>> 24);
+    return byteValue;
+  };
+  Initkeys.prototype.next = function() {
+    const k = (this.keys[2] | 2) >>> 0;
+    return uMul(k, k ^ 1) >> 8 & 255;
+  };
+  function make_decrypter(pwd) {
+    const keys = new Initkeys(pwd);
+    return function(data) {
+      const result = Buffer.alloc(data.length);
+      let pos = 0;
+      for (let c of data) {
+        result[pos++] = keys.updateKeys(c ^ keys.next());
+      }
+      return result;
+    };
+  }
+  function make_encrypter(pwd) {
+    const keys = new Initkeys(pwd);
+    return function(data, result, pos = 0) {
+      if (!result)
+        result = Buffer.alloc(data.length);
+      for (let c of data) {
+        const k = keys.next();
+        result[pos++] = c ^ k;
+        keys.updateKeys(c);
+      }
+      return result;
+    };
+  }
+  function decrypt(data, header, pwd) {
+    if (!data || !Buffer.isBuffer(data) || data.length < 12) {
+      return Buffer.alloc(0);
+    }
+    const decrypter = make_decrypter(pwd);
+    const salt = decrypter(data.slice(0, 12));
+    const verifyByte = (header.flags & 8) === 8 ? header.timeHighByte : header.crc >>> 24;
+    if (salt[11] !== verifyByte) {
+      throw Errors.WRONG_PASSWORD();
+    }
+    return decrypter(data.slice(12));
+  }
+  function _salter(data) {
+    if (Buffer.isBuffer(data) && data.length >= 12) {
+      config.genSalt = function() {
+        return data.slice(0, 12);
+      };
+    } else if (data === "node") {
+      config.genSalt = genSalt.node;
+    } else {
+      config.genSalt = genSalt;
+    }
+  }
+  function encrypt(data, header, pwd, oldlike = false) {
+    if (data == null)
+      data = Buffer.alloc(0);
+    if (!Buffer.isBuffer(data))
+      data = Buffer.from(data.toString());
+    const encrypter = make_encrypter(pwd);
+    const salt = config.genSalt();
+    salt[11] = header.crc >>> 24 & 255;
+    if (oldlike)
+      salt[10] = header.crc >>> 16 & 255;
+    const result = Buffer.alloc(data.length + 12);
+    encrypter(salt, result);
+    return encrypter(data, result, 12);
+  }
+  module2.exports = {decrypt, encrypt, _salter};
+});
+
+// node_modules/adm-zip/methods/index.js
+var require_methods = __commonJS((exports2) => {
+  exports2.Deflater = require_deflater();
+  exports2.Inflater = require_inflater();
+  exports2.ZipCrypto = require_zipcrypto();
+});
+
+// node_modules/adm-zip/zipEntry.js
+var require_zipEntry = __commonJS((exports2, module2) => {
+  var Utils = require_util();
+  var Headers = require_headers();
+  var Constants = Utils.Constants;
+  var Methods = require_methods();
+  module2.exports = function(options, input) {
+    var _centralHeader = new Headers.EntryHeader(), _entryName = Buffer.alloc(0), _comment = Buffer.alloc(0), _isDirectory = false, uncompressedData = null, _extra = Buffer.alloc(0), _extralocal = Buffer.alloc(0), _efs = true;
+    const opts = options;
+    const decoder = typeof opts.decoder === "object" ? opts.decoder : Utils.decoder;
+    _efs = decoder.hasOwnProperty("efs") ? decoder.efs : false;
+    function getCompressedDataFromZip() {
+      if (!input || !(input instanceof Uint8Array)) {
+        return Buffer.alloc(0);
+      }
+      _extralocal = _centralHeader.loadLocalHeaderFromBinary(input);
+      return input.slice(_centralHeader.realDataOffset, _centralHeader.realDataOffset + _centralHeader.compressedSize);
+    }
+    function crc32OK(data) {
+      if (!_centralHeader.flags_desc) {
+        if (Utils.crc32(data) !== _centralHeader.localHeader.crc) {
+          return false;
+        }
+      } else {
+        const descriptor = {};
+        const dataEndOffset = _centralHeader.realDataOffset + _centralHeader.compressedSize;
+        if (input.readUInt32LE(dataEndOffset) == Constants.LOCSIG || input.readUInt32LE(dataEndOffset) == Constants.CENSIG) {
+          throw Utils.Errors.DESCRIPTOR_NOT_EXIST();
+        }
+        if (input.readUInt32LE(dataEndOffset) == Constants.EXTSIG) {
+          descriptor.crc = input.readUInt32LE(dataEndOffset + Constants.EXTCRC);
+          descriptor.compressedSize = input.readUInt32LE(dataEndOffset + Constants.EXTSIZ);
+          descriptor.size = input.readUInt32LE(dataEndOffset + Constants.EXTLEN);
+        } else if (input.readUInt16LE(dataEndOffset + 12) === 19280) {
+          descriptor.crc = input.readUInt32LE(dataEndOffset + Constants.EXTCRC - 4);
+          descriptor.compressedSize = input.readUInt32LE(dataEndOffset + Constants.EXTSIZ - 4);
+          descriptor.size = input.readUInt32LE(dataEndOffset + Constants.EXTLEN - 4);
+        } else {
+          throw Utils.Errors.DESCRIPTOR_UNKNOWN();
+        }
+        if (descriptor.compressedSize !== _centralHeader.compressedSize || descriptor.size !== _centralHeader.size || descriptor.crc !== _centralHeader.crc) {
+          throw Utils.Errors.DESCRIPTOR_FAULTY();
+        }
+        if (Utils.crc32(data) !== descriptor.crc) {
+          return false;
+        }
+      }
+      return true;
+    }
+    function decompress(async, callback, pass) {
+      if (typeof callback === "undefined" && typeof async === "string") {
+        pass = async;
+        async = void 0;
+      }
+      if (_isDirectory) {
+        if (async && callback) {
+          callback(Buffer.alloc(0), Utils.Errors.DIRECTORY_CONTENT_ERROR());
+        }
+        return Buffer.alloc(0);
+      }
+      var compressedData = getCompressedDataFromZip();
+      if (compressedData.length === 0) {
+        if (async && callback)
+          callback(compressedData);
+        return compressedData;
+      }
+      if (_centralHeader.encrypted) {
+        if (typeof pass !== "string" && !Buffer.isBuffer(pass)) {
+          throw Utils.Errors.INVALID_PASS_PARAM();
+        }
+        compressedData = Methods.ZipCrypto.decrypt(compressedData, _centralHeader, pass);
+      }
+      var data = Buffer.alloc(_centralHeader.size);
+      switch (_centralHeader.method) {
+        case Utils.Constants.STORED:
+          compressedData.copy(data);
+          if (!crc32OK(data)) {
+            if (async && callback)
+              callback(data, Utils.Errors.BAD_CRC());
+            throw Utils.Errors.BAD_CRC();
+          } else {
+            if (async && callback)
+              callback(data);
+            return data;
+          }
+        case Utils.Constants.DEFLATED:
+          var inflater = new Methods.Inflater(compressedData, _centralHeader.size);
+          if (!async) {
+            const result = inflater.inflate(data);
+            result.copy(data, 0);
+            if (!crc32OK(data)) {
+              throw Utils.Errors.BAD_CRC(`"${decoder.decode(_entryName)}"`);
+            }
+            return data;
+          } else {
+            inflater.inflateAsync(function(result) {
+              result.copy(result, 0);
+              if (callback) {
+                if (!crc32OK(result)) {
+                  callback(result, Utils.Errors.BAD_CRC());
+                } else {
+                  callback(result);
+                }
+              }
+            });
+          }
+          break;
+        default:
+          if (async && callback)
+            callback(Buffer.alloc(0), Utils.Errors.UNKNOWN_METHOD());
+          throw Utils.Errors.UNKNOWN_METHOD();
+      }
+    }
+    function compress(async, callback) {
+      if ((!uncompressedData || !uncompressedData.length) && Buffer.isBuffer(input)) {
+        if (async && callback)
+          callback(getCompressedDataFromZip());
+        return getCompressedDataFromZip();
+      }
+      if (uncompressedData.length && !_isDirectory) {
+        var compressedData;
+        switch (_centralHeader.method) {
+          case Utils.Constants.STORED:
+            _centralHeader.compressedSize = _centralHeader.size;
+            compressedData = Buffer.alloc(uncompressedData.length);
+            uncompressedData.copy(compressedData);
+            if (async && callback)
+              callback(compressedData);
+            return compressedData;
+          default:
+          case Utils.Constants.DEFLATED:
+            var deflater = new Methods.Deflater(uncompressedData);
+            if (!async) {
+              var deflated = deflater.deflate();
+              _centralHeader.compressedSize = deflated.length;
+              return deflated;
+            } else {
+              deflater.deflateAsync(function(data) {
+                compressedData = Buffer.alloc(data.length);
+                _centralHeader.compressedSize = data.length;
+                data.copy(compressedData);
+                callback && callback(compressedData);
+              });
+            }
+            deflater = null;
+            break;
+        }
+      } else if (async && callback) {
+        callback(Buffer.alloc(0));
+      } else {
+        return Buffer.alloc(0);
+      }
+    }
+    function readUInt64LE(buffer, offset) {
+      return (buffer.readUInt32LE(offset + 4) << 4) + buffer.readUInt32LE(offset);
+    }
+    function parseExtra(data) {
+      try {
+        var offset = 0;
+        var signature, size, part;
+        while (offset + 4 < data.length) {
+          signature = data.readUInt16LE(offset);
+          offset += 2;
+          size = data.readUInt16LE(offset);
+          offset += 2;
+          part = data.slice(offset, offset + size);
+          offset += size;
+          if (Constants.ID_ZIP64 === signature) {
+            parseZip64ExtendedInformation(part);
+          }
+        }
+      } catch (error) {
+        throw Utils.Errors.EXTRA_FIELD_PARSE_ERROR();
+      }
+    }
+    function parseZip64ExtendedInformation(data) {
+      var size, compressedSize, offset, diskNumStart;
+      if (data.length >= Constants.EF_ZIP64_SCOMP) {
+        size = readUInt64LE(data, Constants.EF_ZIP64_SUNCOMP);
+        if (_centralHeader.size === Constants.EF_ZIP64_OR_32) {
+          _centralHeader.size = size;
+        }
+      }
+      if (data.length >= Constants.EF_ZIP64_RHO) {
+        compressedSize = readUInt64LE(data, Constants.EF_ZIP64_SCOMP);
+        if (_centralHeader.compressedSize === Constants.EF_ZIP64_OR_32) {
+          _centralHeader.compressedSize = compressedSize;
+        }
+      }
+      if (data.length >= Constants.EF_ZIP64_DSN) {
+        offset = readUInt64LE(data, Constants.EF_ZIP64_RHO);
+        if (_centralHeader.offset === Constants.EF_ZIP64_OR_32) {
+          _centralHeader.offset = offset;
+        }
+      }
+      if (data.length >= Constants.EF_ZIP64_DSN + 4) {
+        diskNumStart = data.readUInt32LE(Constants.EF_ZIP64_DSN);
+        if (_centralHeader.diskNumStart === Constants.EF_ZIP64_OR_16) {
+          _centralHeader.diskNumStart = diskNumStart;
+        }
+      }
+    }
+    return {
+      get entryName() {
+        return decoder.decode(_entryName);
+      },
+      get rawEntryName() {
+        return _entryName;
+      },
+      set entryName(val) {
+        _entryName = Utils.toBuffer(val, decoder.encode);
+        var lastChar = _entryName[_entryName.length - 1];
+        _isDirectory = lastChar === 47 || lastChar === 92;
+        _centralHeader.fileNameLength = _entryName.length;
+      },
+      get efs() {
+        if (typeof _efs === "function") {
+          return _efs(this.entryName);
+        } else {
+          return _efs;
+        }
+      },
+      get extra() {
+        return _extra;
+      },
+      set extra(val) {
+        _extra = val;
+        _centralHeader.extraLength = val.length;
+        parseExtra(val);
+      },
+      get comment() {
+        return decoder.decode(_comment);
+      },
+      set comment(val) {
+        _comment = Utils.toBuffer(val, decoder.encode);
+        _centralHeader.commentLength = _comment.length;
+        if (_comment.length > 65535)
+          throw Utils.Errors.COMMENT_TOO_LONG();
+      },
+      get name() {
+        var n = decoder.decode(_entryName);
+        return _isDirectory ? n.substr(n.length - 1).split("/").pop() : n.split("/").pop();
+      },
+      get isDirectory() {
+        return _isDirectory;
+      },
+      getCompressedData: function() {
+        return compress(false, null);
+      },
+      getCompressedDataAsync: function(callback) {
+        compress(true, callback);
+      },
+      setData: function(value) {
+        uncompressedData = Utils.toBuffer(value, Utils.decoder.encode);
+        if (!_isDirectory && uncompressedData.length) {
+          _centralHeader.size = uncompressedData.length;
+          _centralHeader.method = Utils.Constants.DEFLATED;
+          _centralHeader.crc = Utils.crc32(value);
+          _centralHeader.changed = true;
+        } else {
+          _centralHeader.method = Utils.Constants.STORED;
+        }
+      },
+      getData: function(pass) {
+        if (_centralHeader.changed) {
+          return uncompressedData;
+        } else {
+          return decompress(false, null, pass);
+        }
+      },
+      getDataAsync: function(callback, pass) {
+        if (_centralHeader.changed) {
+          callback(uncompressedData);
+        } else {
+          decompress(true, callback, pass);
+        }
+      },
+      set attr(attr) {
+        _centralHeader.attr = attr;
+      },
+      get attr() {
+        return _centralHeader.attr;
+      },
+      set header(data) {
+        _centralHeader.loadFromBinary(data);
+      },
+      get header() {
+        return _centralHeader;
+      },
+      packCentralHeader: function() {
+        _centralHeader.flags_efs = this.efs;
+        _centralHeader.extraLength = _extra.length;
+        var header = _centralHeader.centralHeaderToBinary();
+        var addpos = Utils.Constants.CENHDR;
+        _entryName.copy(header, addpos);
+        addpos += _entryName.length;
+        _extra.copy(header, addpos);
+        addpos += _centralHeader.extraLength;
+        _comment.copy(header, addpos);
+        return header;
+      },
+      packLocalHeader: function() {
+        let addpos = 0;
+        _centralHeader.flags_efs = this.efs;
+        _centralHeader.extraLocalLength = _extralocal.length;
+        const localHeaderBuf = _centralHeader.localHeaderToBinary();
+        const localHeader = Buffer.alloc(localHeaderBuf.length + _entryName.length + _centralHeader.extraLocalLength);
+        localHeaderBuf.copy(localHeader, addpos);
+        addpos += localHeaderBuf.length;
+        _entryName.copy(localHeader, addpos);
+        addpos += _entryName.length;
+        _extralocal.copy(localHeader, addpos);
+        addpos += _extralocal.length;
+        return localHeader;
+      },
+      toJSON: function() {
+        const bytes = function(nr) {
+          return "<" + (nr && nr.length + " bytes buffer" || "null") + ">";
+        };
+        return {
+          entryName: this.entryName,
+          name: this.name,
+          comment: this.comment,
+          isDirectory: this.isDirectory,
+          header: _centralHeader.toJSON(),
+          compressedData: bytes(input),
+          data: bytes(uncompressedData)
+        };
+      },
+      toString: function() {
+        return JSON.stringify(this.toJSON(), null, "	");
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/zipFile.js
+var require_zipFile = __commonJS((exports2, module2) => {
+  var ZipEntry = require_zipEntry();
+  var Headers = require_headers();
+  var Utils = require_util();
+  module2.exports = function(inBuffer, options) {
+    var entryList = [], entryTable = {}, _comment = Buffer.alloc(0), mainHeader = new Headers.MainHeader(), loadedEntries = false;
+    var password = null;
+    const temporary = new Set();
+    const opts = options;
+    const {noSort, decoder} = opts;
+    if (inBuffer) {
+      readMainHeader(opts.readEntries);
+    } else {
+      loadedEntries = true;
+    }
+    function makeTemporaryFolders() {
+      const foldersList = new Set();
+      for (const elem of Object.keys(entryTable)) {
+        const elements = elem.split("/");
+        elements.pop();
+        if (!elements.length)
+          continue;
+        for (let i = 0; i < elements.length; i++) {
+          const sub = elements.slice(0, i + 1).join("/") + "/";
+          foldersList.add(sub);
+        }
+      }
+      for (const elem of foldersList) {
+        if (!(elem in entryTable)) {
+          const tempfolder = new ZipEntry(opts);
+          tempfolder.entryName = elem;
+          tempfolder.attr = 16;
+          tempfolder.temporary = true;
+          entryList.push(tempfolder);
+          entryTable[tempfolder.entryName] = tempfolder;
+          temporary.add(tempfolder);
+        }
+      }
+    }
+    function readEntries() {
+      loadedEntries = true;
+      entryTable = {};
+      if (mainHeader.diskEntries > (inBuffer.length - mainHeader.offset) / Utils.Constants.CENHDR) {
+        throw Utils.Errors.DISK_ENTRY_TOO_LARGE();
+      }
+      entryList = new Array(mainHeader.diskEntries);
+      var index = mainHeader.offset;
+      for (var i = 0; i < entryList.length; i++) {
+        var tmp = index, entry = new ZipEntry(opts, inBuffer);
+        entry.header = inBuffer.slice(tmp, tmp += Utils.Constants.CENHDR);
+        entry.entryName = inBuffer.slice(tmp, tmp += entry.header.fileNameLength);
+        if (entry.header.extraLength) {
+          entry.extra = inBuffer.slice(tmp, tmp += entry.header.extraLength);
+        }
+        if (entry.header.commentLength)
+          entry.comment = inBuffer.slice(tmp, tmp + entry.header.commentLength);
+        index += entry.header.centralHeaderSize;
+        entryList[i] = entry;
+        entryTable[entry.entryName] = entry;
+      }
+      temporary.clear();
+      makeTemporaryFolders();
+    }
+    function readMainHeader(readNow) {
+      var i = inBuffer.length - Utils.Constants.ENDHDR, max = Math.max(0, i - 65535), n = max, endStart = inBuffer.length, endOffset = -1, commentEnd = 0;
+      const trailingSpace = typeof opts.trailingSpace === "boolean" ? opts.trailingSpace : false;
+      if (trailingSpace)
+        max = 0;
+      for (i; i >= n; i--) {
+        if (inBuffer[i] !== 80)
+          continue;
+        if (inBuffer.readUInt32LE(i) === Utils.Constants.ENDSIG) {
+          endOffset = i;
+          commentEnd = i;
+          endStart = i + Utils.Constants.ENDHDR;
+          n = i - Utils.Constants.END64HDR;
+          continue;
+        }
+        if (inBuffer.readUInt32LE(i) === Utils.Constants.END64SIG) {
+          n = max;
+          continue;
+        }
+        if (inBuffer.readUInt32LE(i) === Utils.Constants.ZIP64SIG) {
+          endOffset = i;
+          endStart = i + Utils.readBigUInt64LE(inBuffer, i + Utils.Constants.ZIP64SIZE) + Utils.Constants.ZIP64LEAD;
+          break;
+        }
+      }
+      if (endOffset == -1)
+        throw Utils.Errors.INVALID_FORMAT();
+      mainHeader.loadFromBinary(inBuffer.slice(endOffset, endStart));
+      if (mainHeader.commentLength) {
+        _comment = inBuffer.slice(commentEnd + Utils.Constants.ENDHDR);
+      }
+      if (readNow)
+        readEntries();
+    }
+    function sortEntries() {
+      if (entryList.length > 1 && !noSort) {
+        entryList.sort((a, b) => a.entryName.toLowerCase().localeCompare(b.entryName.toLowerCase()));
+      }
+    }
+    return {
+      get entries() {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        return entryList.filter((e) => !temporary.has(e));
+      },
+      get comment() {
+        return decoder.decode(_comment);
+      },
+      set comment(val) {
+        _comment = Utils.toBuffer(val, decoder.encode);
+        mainHeader.commentLength = _comment.length;
+      },
+      getEntryCount: function() {
+        if (!loadedEntries) {
+          return mainHeader.diskEntries;
+        }
+        return entryList.length;
+      },
+      forEach: function(callback) {
+        this.entries.forEach(callback);
+      },
+      getEntry: function(entryName) {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        return entryTable[entryName] || null;
+      },
+      setEntry: function(entry) {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        entryList.push(entry);
+        entryTable[entry.entryName] = entry;
+        mainHeader.totalEntries = entryList.length;
+      },
+      deleteFile: function(entryName, withsubfolders = true) {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        const entry = entryTable[entryName];
+        const list = this.getEntryChildren(entry, withsubfolders).map((child) => child.entryName);
+        list.forEach(this.deleteEntry);
+      },
+      deleteEntry: function(entryName) {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        const entry = entryTable[entryName];
+        const index = entryList.indexOf(entry);
+        if (index >= 0) {
+          entryList.splice(index, 1);
+          delete entryTable[entryName];
+          mainHeader.totalEntries = entryList.length;
+        }
+      },
+      getEntryChildren: function(entry, subfolders = true) {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        if (typeof entry === "object") {
+          if (entry.isDirectory && subfolders) {
+            const list = [];
+            const name = entry.entryName;
+            for (const zipEntry of entryList) {
+              if (zipEntry.entryName.startsWith(name)) {
+                list.push(zipEntry);
+              }
+            }
+            return list;
+          } else {
+            return [entry];
+          }
+        }
+        return [];
+      },
+      getChildCount: function(entry) {
+        if (entry && entry.isDirectory) {
+          const list = this.getEntryChildren(entry);
+          return list.includes(entry) ? list.length - 1 : list.length;
+        }
+        return 0;
+      },
+      compressToBuffer: function() {
+        if (!loadedEntries) {
+          readEntries();
+        }
+        sortEntries();
+        const dataBlock = [];
+        const headerBlocks = [];
+        let totalSize = 0;
+        let dindex = 0;
+        mainHeader.size = 0;
+        mainHeader.offset = 0;
+        let totalEntries = 0;
+        for (const entry of this.entries) {
+          const compressedData = entry.getCompressedData();
+          entry.header.offset = dindex;
+          const localHeader = entry.packLocalHeader();
+          const dataLength = localHeader.length + compressedData.length;
+          dindex += dataLength;
+          dataBlock.push(localHeader);
+          dataBlock.push(compressedData);
+          const centralHeader = entry.packCentralHeader();
+          headerBlocks.push(centralHeader);
+          mainHeader.size += centralHeader.length;
+          totalSize += dataLength + centralHeader.length;
+          totalEntries++;
+        }
+        totalSize += mainHeader.mainHeaderSize;
+        mainHeader.offset = dindex;
+        mainHeader.totalEntries = totalEntries;
+        dindex = 0;
+        const outBuffer = Buffer.alloc(totalSize);
+        for (const content3 of dataBlock) {
+          content3.copy(outBuffer, dindex);
+          dindex += content3.length;
+        }
+        for (const content3 of headerBlocks) {
+          content3.copy(outBuffer, dindex);
+          dindex += content3.length;
+        }
+        const mh = mainHeader.toBinary();
+        if (_comment) {
+          _comment.copy(mh, Utils.Constants.ENDHDR);
+        }
+        mh.copy(outBuffer, dindex);
+        inBuffer = outBuffer;
+        loadedEntries = false;
+        return outBuffer;
+      },
+      toAsyncBuffer: function(onSuccess, onFail, onItemStart, onItemEnd) {
+        try {
+          if (!loadedEntries) {
+            readEntries();
+          }
+          sortEntries();
+          const dataBlock = [];
+          const centralHeaders = [];
+          let totalSize = 0;
+          let dindex = 0;
+          let totalEntries = 0;
+          mainHeader.size = 0;
+          mainHeader.offset = 0;
+          const compress2Buffer = function(entryLists) {
+            if (entryLists.length > 0) {
+              const entry = entryLists.shift();
+              const name = entry.entryName + entry.extra.toString();
+              if (onItemStart)
+                onItemStart(name);
+              entry.getCompressedDataAsync(function(compressedData) {
+                if (onItemEnd)
+                  onItemEnd(name);
+                entry.header.offset = dindex;
+                const localHeader = entry.packLocalHeader();
+                const dataLength = localHeader.length + compressedData.length;
+                dindex += dataLength;
+                dataBlock.push(localHeader);
+                dataBlock.push(compressedData);
+                const centalHeader = entry.packCentralHeader();
+                centralHeaders.push(centalHeader);
+                mainHeader.size += centalHeader.length;
+                totalSize += dataLength + centalHeader.length;
+                totalEntries++;
+                compress2Buffer(entryLists);
+              });
+            } else {
+              totalSize += mainHeader.mainHeaderSize;
+              mainHeader.offset = dindex;
+              mainHeader.totalEntries = totalEntries;
+              dindex = 0;
+              const outBuffer = Buffer.alloc(totalSize);
+              dataBlock.forEach(function(content3) {
+                content3.copy(outBuffer, dindex);
+                dindex += content3.length;
+              });
+              centralHeaders.forEach(function(content3) {
+                content3.copy(outBuffer, dindex);
+                dindex += content3.length;
+              });
+              const mh = mainHeader.toBinary();
+              if (_comment) {
+                _comment.copy(mh, Utils.Constants.ENDHDR);
+              }
+              mh.copy(outBuffer, dindex);
+              inBuffer = outBuffer;
+              loadedEntries = false;
+              onSuccess(outBuffer);
+            }
+          };
+          compress2Buffer(Array.from(this.entries));
+        } catch (e) {
+          onFail(e);
+        }
+      }
+    };
+  };
+});
+
+// node_modules/adm-zip/adm-zip.js
+var require_adm_zip = __commonJS((exports2, module2) => {
+  var Utils = require_util();
+  var pth = require("path");
+  var ZipEntry = require_zipEntry();
+  var ZipFile = require_zipFile();
+  var get_Bool = (...val) => Utils.findLast(val, (c) => typeof c === "boolean");
+  var get_Str = (...val) => Utils.findLast(val, (c) => typeof c === "string");
+  var get_Fun = (...val) => Utils.findLast(val, (c) => typeof c === "function");
+  var defaultOptions = {
+    noSort: false,
+    readEntries: false,
+    method: Utils.Constants.NONE,
+    fs: null
+  };
+  module2.exports = function(input, options) {
+    let inBuffer = null;
+    const opts = Object.assign(Object.create(null), defaultOptions);
+    if (input && typeof input === "object") {
+      if (!(input instanceof Uint8Array)) {
+        Object.assign(opts, input);
+        input = opts.input ? opts.input : void 0;
+        if (opts.input)
+          delete opts.input;
+      }
+      if (Buffer.isBuffer(input)) {
+        inBuffer = input;
+        opts.method = Utils.Constants.BUFFER;
+        input = void 0;
+      }
+    }
+    Object.assign(opts, options);
+    const filetools = new Utils(opts);
+    if (typeof opts.decoder !== "object" || typeof opts.decoder.encode !== "function" || typeof opts.decoder.decode !== "function") {
+      opts.decoder = Utils.decoder;
+    }
+    if (input && typeof input === "string") {
+      if (filetools.fs.existsSync(input)) {
+        opts.method = Utils.Constants.FILE;
+        opts.filename = input;
+        inBuffer = filetools.fs.readFileSync(input);
+      } else {
+        throw Utils.Errors.INVALID_FILENAME();
+      }
+    }
+    const _zip = new ZipFile(inBuffer, opts);
+    const {canonical, sanitize, zipnamefix} = Utils;
+    function getEntry(entry) {
+      if (entry && _zip) {
+        var item;
+        if (typeof entry === "string")
+          item = _zip.getEntry(pth.posix.normalize(entry));
+        if (typeof entry === "object" && typeof entry.entryName !== "undefined" && typeof entry.header !== "undefined")
+          item = _zip.getEntry(entry.entryName);
+        if (item) {
+          return item;
+        }
+      }
+      return null;
+    }
+    function fixPath(zipPath) {
+      const {join, normalize: normalize2, sep} = pth.posix;
+      return join(".", normalize2(sep + zipPath.split("\\").join(sep) + sep));
+    }
+    function filenameFilter(filterfn) {
+      if (filterfn instanceof RegExp) {
+        return function(rx) {
+          return function(filename) {
+            return rx.test(filename);
+          };
+        }(filterfn);
+      } else if (typeof filterfn !== "function") {
+        return () => true;
+      }
+      return filterfn;
+    }
+    const relativePath = (local, entry) => {
+      let lastChar = entry.slice(-1);
+      lastChar = lastChar === filetools.sep ? filetools.sep : "";
+      return pth.relative(local, entry) + lastChar;
+    };
+    return {
+      readFile: function(entry, pass) {
+        var item = getEntry(entry);
+        return item && item.getData(pass) || null;
+      },
+      childCount: function(entry) {
+        const item = getEntry(entry);
+        if (item) {
+          return _zip.getChildCount(item);
+        }
+      },
+      readFileAsync: function(entry, callback) {
+        var item = getEntry(entry);
+        if (item) {
+          item.getDataAsync(callback);
+        } else {
+          callback(null, "getEntry failed for:" + entry);
+        }
+      },
+      readAsText: function(entry, encoding) {
+        var item = getEntry(entry);
+        if (item) {
+          var data = item.getData();
+          if (data && data.length) {
+            return data.toString(encoding || "utf8");
+          }
+        }
+        return "";
+      },
+      readAsTextAsync: function(entry, callback, encoding) {
+        var item = getEntry(entry);
+        if (item) {
+          item.getDataAsync(function(data, err) {
+            if (err) {
+              callback(data, err);
+              return;
+            }
+            if (data && data.length) {
+              callback(data.toString(encoding || "utf8"));
+            } else {
+              callback("");
+            }
+          });
+        } else {
+          callback("");
+        }
+      },
+      deleteFile: function(entry, withsubfolders = true) {
+        var item = getEntry(entry);
+        if (item) {
+          _zip.deleteFile(item.entryName, withsubfolders);
+        }
+      },
+      deleteEntry: function(entry) {
+        var item = getEntry(entry);
+        if (item) {
+          _zip.deleteEntry(item.entryName);
+        }
+      },
+      addZipComment: function(comment) {
+        _zip.comment = comment;
+      },
+      getZipComment: function() {
+        return _zip.comment || "";
+      },
+      addZipEntryComment: function(entry, comment) {
+        var item = getEntry(entry);
+        if (item) {
+          item.comment = comment;
+        }
+      },
+      getZipEntryComment: function(entry) {
+        var item = getEntry(entry);
+        if (item) {
+          return item.comment || "";
+        }
+        return "";
+      },
+      updateFile: function(entry, content3) {
+        var item = getEntry(entry);
+        if (item) {
+          item.setData(content3);
+        }
+      },
+      addLocalFile: function(localPath2, zipPath, zipName, comment) {
+        if (filetools.fs.existsSync(localPath2)) {
+          zipPath = zipPath ? fixPath(zipPath) : "";
+          const p = pth.win32.basename(pth.win32.normalize(localPath2));
+          zipPath += zipName ? zipName : p;
+          const _attr = filetools.fs.statSync(localPath2);
+          const data = _attr.isFile() ? filetools.fs.readFileSync(localPath2) : Buffer.alloc(0);
+          if (_attr.isDirectory())
+            zipPath += filetools.sep;
+          this.addFile(zipPath, data, comment, _attr);
+        } else {
+          throw Utils.Errors.FILE_NOT_FOUND(localPath2);
+        }
+      },
+      addLocalFileAsync: function(options2, callback) {
+        options2 = typeof options2 === "object" ? options2 : {localPath: options2};
+        const localPath2 = pth.resolve(options2.localPath);
+        const {comment} = options2;
+        let {zipPath, zipName} = options2;
+        const self = this;
+        filetools.fs.stat(localPath2, function(err, stats) {
+          if (err)
+            return callback(err, false);
+          zipPath = zipPath ? fixPath(zipPath) : "";
+          const p = pth.win32.basename(pth.win32.normalize(localPath2));
+          zipPath += zipName ? zipName : p;
+          if (stats.isFile()) {
+            filetools.fs.readFile(localPath2, function(err2, data) {
+              if (err2)
+                return callback(err2, false);
+              self.addFile(zipPath, data, comment, stats);
+              return setImmediate(callback, void 0, true);
+            });
+          } else if (stats.isDirectory()) {
+            zipPath += filetools.sep;
+            self.addFile(zipPath, Buffer.alloc(0), comment, stats);
+            return setImmediate(callback, void 0, true);
+          }
+        });
+      },
+      addLocalFolder: function(localPath2, zipPath, filter) {
+        filter = filenameFilter(filter);
+        zipPath = zipPath ? fixPath(zipPath) : "";
+        localPath2 = pth.normalize(localPath2);
+        if (filetools.fs.existsSync(localPath2)) {
+          const items = filetools.findFiles(localPath2);
+          const self = this;
+          if (items.length) {
+            for (const filepath of items) {
+              const p = pth.join(zipPath, relativePath(localPath2, filepath));
+              if (filter(p)) {
+                self.addLocalFile(filepath, pth.dirname(p));
+              }
+            }
+          }
+        } else {
+          throw Utils.Errors.FILE_NOT_FOUND(localPath2);
+        }
+      },
+      addLocalFolderAsync: function(localPath2, callback, zipPath, filter) {
+        filter = filenameFilter(filter);
+        zipPath = zipPath ? fixPath(zipPath) : "";
+        localPath2 = pth.normalize(localPath2);
+        var self = this;
+        filetools.fs.open(localPath2, "r", function(err) {
+          if (err && err.code === "ENOENT") {
+            callback(void 0, Utils.Errors.FILE_NOT_FOUND(localPath2));
+          } else if (err) {
+            callback(void 0, err);
+          } else {
+            var items = filetools.findFiles(localPath2);
+            var i = -1;
+            var next = function() {
+              i += 1;
+              if (i < items.length) {
+                var filepath = items[i];
+                var p = relativePath(localPath2, filepath).split("\\").join("/");
+                p = p.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\x20-\x7E]/g, "");
+                if (filter(p)) {
+                  filetools.fs.stat(filepath, function(er0, stats) {
+                    if (er0)
+                      callback(void 0, er0);
+                    if (stats.isFile()) {
+                      filetools.fs.readFile(filepath, function(er1, data) {
+                        if (er1) {
+                          callback(void 0, er1);
+                        } else {
+                          self.addFile(zipPath + p, data, "", stats);
+                          next();
+                        }
+                      });
+                    } else {
+                      self.addFile(zipPath + p + "/", Buffer.alloc(0), "", stats);
+                      next();
+                    }
+                  });
+                } else {
+                  process.nextTick(() => {
+                    next();
+                  });
+                }
+              } else {
+                callback(true, void 0);
+              }
+            };
+            next();
+          }
+        });
+      },
+      addLocalFolderAsync2: function(options2, callback) {
+        const self = this;
+        options2 = typeof options2 === "object" ? options2 : {localPath: options2};
+        localPath = pth.resolve(fixPath(options2.localPath));
+        let {zipPath, filter, namefix} = options2;
+        if (filter instanceof RegExp) {
+          filter = function(rx) {
+            return function(filename) {
+              return rx.test(filename);
+            };
+          }(filter);
+        } else if (typeof filter !== "function") {
+          filter = function() {
+            return true;
+          };
+        }
+        zipPath = zipPath ? fixPath(zipPath) : "";
+        if (namefix == "latin1") {
+          namefix = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\x20-\x7E]/g, "");
+        }
+        if (typeof namefix !== "function")
+          namefix = (str) => str;
+        const relPathFix = (entry) => pth.join(zipPath, namefix(relativePath(localPath, entry)));
+        const fileNameFix = (entry) => pth.win32.basename(pth.win32.normalize(namefix(entry)));
+        filetools.fs.open(localPath, "r", function(err) {
+          if (err && err.code === "ENOENT") {
+            callback(void 0, Utils.Errors.FILE_NOT_FOUND(localPath));
+          } else if (err) {
+            callback(void 0, err);
+          } else {
+            filetools.findFilesAsync(localPath, function(err2, fileEntries) {
+              if (err2)
+                return callback(err2);
+              fileEntries = fileEntries.filter((dir) => filter(relPathFix(dir)));
+              if (!fileEntries.length)
+                callback(void 0, false);
+              setImmediate(fileEntries.reverse().reduce(function(next, entry) {
+                return function(err3, done) {
+                  if (err3 || done === false)
+                    return setImmediate(next, err3, false);
+                  self.addLocalFileAsync({
+                    localPath: entry,
+                    zipPath: pth.dirname(relPathFix(entry)),
+                    zipName: fileNameFix(entry)
+                  }, next);
+                };
+              }, callback));
+            });
+          }
+        });
+      },
+      addLocalFolderPromise: function(localPath2, props) {
+        return new Promise((resolve, reject) => {
+          this.addLocalFolderAsync2(Object.assign({localPath: localPath2}, props), (err, done) => {
+            if (err)
+              reject(err);
+            if (done)
+              resolve(this);
+          });
+        });
+      },
+      addFile: function(entryName, content3, comment, attr) {
+        entryName = zipnamefix(entryName);
+        let entry = getEntry(entryName);
+        const update = entry != null;
+        if (!update) {
+          entry = new ZipEntry(opts);
+          entry.entryName = entryName;
+        }
+        entry.comment = comment || "";
+        const isStat = typeof attr === "object" && attr instanceof filetools.fs.Stats;
+        if (isStat) {
+          entry.header.time = attr.mtime;
+        }
+        var fileattr = entry.isDirectory ? 16 : 0;
+        let unix = entry.isDirectory ? 16384 : 32768;
+        if (isStat) {
+          unix |= 4095 & attr.mode;
+        } else if (typeof attr === "number") {
+          unix |= 4095 & attr;
+        } else {
+          unix |= entry.isDirectory ? 493 : 420;
+        }
+        fileattr = (fileattr | unix << 16) >>> 0;
+        entry.attr = fileattr;
+        entry.setData(content3);
+        if (!update)
+          _zip.setEntry(entry);
+        return entry;
+      },
+      getEntries: function(password) {
+        _zip.password = password;
+        return _zip ? _zip.entries : [];
+      },
+      getEntry: function(name) {
+        return getEntry(name);
+      },
+      getEntryCount: function() {
+        return _zip.getEntryCount();
+      },
+      forEach: function(callback) {
+        return _zip.forEach(callback);
+      },
+      extractEntryTo: function(entry, targetPath, maintainEntryPath, overwrite, keepOriginalPermission, outFileName) {
+        overwrite = get_Bool(false, overwrite);
+        keepOriginalPermission = get_Bool(false, keepOriginalPermission);
+        maintainEntryPath = get_Bool(true, maintainEntryPath);
+        outFileName = get_Str(keepOriginalPermission, outFileName);
+        var item = getEntry(entry);
+        if (!item) {
+          throw Utils.Errors.NO_ENTRY();
+        }
+        var entryName = canonical(item.entryName);
+        var target = sanitize(targetPath, outFileName && !item.isDirectory ? outFileName : maintainEntryPath ? entryName : pth.basename(entryName));
+        if (item.isDirectory) {
+          var children2 = _zip.getEntryChildren(item);
+          children2.forEach(function(child) {
+            if (child.isDirectory)
+              return;
+            var content4 = child.getData();
+            if (!content4) {
+              throw Utils.Errors.CANT_EXTRACT_FILE();
+            }
+            var name = canonical(child.entryName);
+            var childName = sanitize(targetPath, maintainEntryPath ? name : pth.basename(name));
+            const fileAttr2 = keepOriginalPermission ? child.header.fileAttr : void 0;
+            filetools.writeFileTo(childName, content4, overwrite, fileAttr2);
+          });
+          return true;
+        }
+        var content3 = item.getData(_zip.password);
+        if (!content3)
+          throw Utils.Errors.CANT_EXTRACT_FILE();
+        if (filetools.fs.existsSync(target) && !overwrite) {
+          throw Utils.Errors.CANT_OVERRIDE();
+        }
+        const fileAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
+        filetools.writeFileTo(target, content3, overwrite, fileAttr);
+        return true;
+      },
+      test: function(pass) {
+        if (!_zip) {
+          return false;
+        }
+        for (var entry in _zip.entries) {
+          try {
+            if (entry.isDirectory) {
+              continue;
+            }
+            var content3 = _zip.entries[entry].getData(pass);
+            if (!content3) {
+              return false;
+            }
+          } catch (err) {
+            return false;
+          }
+        }
+        return true;
+      },
+      extractAllTo: function(targetPath, overwrite, keepOriginalPermission, pass) {
+        keepOriginalPermission = get_Bool(false, keepOriginalPermission);
+        pass = get_Str(keepOriginalPermission, pass);
+        overwrite = get_Bool(false, overwrite);
+        if (!_zip)
+          throw Utils.Errors.NO_ZIP();
+        _zip.entries.forEach(function(entry) {
+          var entryName = sanitize(targetPath, canonical(entry.entryName));
+          if (entry.isDirectory) {
+            filetools.makeDir(entryName);
+            return;
+          }
+          var content3 = entry.getData(pass);
+          if (!content3) {
+            throw Utils.Errors.CANT_EXTRACT_FILE();
+          }
+          const fileAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
+          filetools.writeFileTo(entryName, content3, overwrite, fileAttr);
+          try {
+            filetools.fs.utimesSync(entryName, entry.header.time, entry.header.time);
+          } catch (err) {
+            throw Utils.Errors.CANT_EXTRACT_FILE();
+          }
+        });
+      },
+      extractAllToAsync: function(targetPath, overwrite, keepOriginalPermission, callback) {
+        callback = get_Fun(overwrite, keepOriginalPermission, callback);
+        keepOriginalPermission = get_Bool(false, keepOriginalPermission);
+        overwrite = get_Bool(false, overwrite);
+        if (!callback) {
+          return new Promise((resolve, reject) => {
+            this.extractAllToAsync(targetPath, overwrite, keepOriginalPermission, function(err) {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(this);
+              }
+            });
+          });
+        }
+        if (!_zip) {
+          callback(Utils.Errors.NO_ZIP());
+          return;
+        }
+        targetPath = pth.resolve(targetPath);
+        const getPath = (entry) => sanitize(targetPath, pth.normalize(canonical(entry.entryName)));
+        const getError = (msg, file) => new Error(msg + ': "' + file + '"');
+        const dirEntries = [];
+        const fileEntries = [];
+        _zip.entries.forEach((e) => {
+          if (e.isDirectory) {
+            dirEntries.push(e);
+          } else {
+            fileEntries.push(e);
+          }
+        });
+        for (const entry of dirEntries) {
+          const dirPath = getPath(entry);
+          const dirAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
+          try {
+            filetools.makeDir(dirPath);
+            if (dirAttr)
+              filetools.fs.chmodSync(dirPath, dirAttr);
+            filetools.fs.utimesSync(dirPath, entry.header.time, entry.header.time);
+          } catch (er) {
+            callback(getError("Unable to create folder", dirPath));
+          }
+        }
+        fileEntries.reverse().reduce(function(next, entry) {
+          return function(err) {
+            if (err) {
+              next(err);
+            } else {
+              const entryName = pth.normalize(canonical(entry.entryName));
+              const filePath = sanitize(targetPath, entryName);
+              entry.getDataAsync(function(content3, err_1) {
+                if (err_1) {
+                  next(err_1);
+                } else if (!content3) {
+                  next(Utils.Errors.CANT_EXTRACT_FILE());
+                } else {
+                  const fileAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
+                  filetools.writeFileToAsync(filePath, content3, overwrite, fileAttr, function(succ) {
+                    if (!succ) {
+                      next(getError("Unable to write file", filePath));
+                    }
+                    filetools.fs.utimes(filePath, entry.header.time, entry.header.time, function(err_2) {
+                      if (err_2) {
+                        next(getError("Unable to set times", filePath));
+                      } else {
+                        next();
+                      }
+                    });
+                  });
+                }
+              });
+            }
+          };
+        }, callback)();
+      },
+      writeZip: function(targetFileName, callback) {
+        if (arguments.length === 1) {
+          if (typeof targetFileName === "function") {
+            callback = targetFileName;
+            targetFileName = "";
+          }
+        }
+        if (!targetFileName && opts.filename) {
+          targetFileName = opts.filename;
+        }
+        if (!targetFileName)
+          return;
+        var zipData = _zip.compressToBuffer();
+        if (zipData) {
+          var ok = filetools.writeFileTo(targetFileName, zipData, true);
+          if (typeof callback === "function")
+            callback(!ok ? new Error("failed") : null, "");
+        }
+      },
+      writeZipPromise: function(targetFileName, props) {
+        const {overwrite, perm} = Object.assign({overwrite: true}, props);
+        return new Promise((resolve, reject) => {
+          if (!targetFileName && opts.filename)
+            targetFileName = opts.filename;
+          if (!targetFileName)
+            reject("ADM-ZIP: ZIP File Name Missing");
+          this.toBufferPromise().then((zipData) => {
+            const ret = (done) => done ? resolve(done) : reject("ADM-ZIP: Wasn't able to write zip file");
+            filetools.writeFileToAsync(targetFileName, zipData, overwrite, perm, ret);
+          }, reject);
+        });
+      },
+      toBufferPromise: function() {
+        return new Promise((resolve, reject) => {
+          _zip.toAsyncBuffer(resolve, reject);
+        });
+      },
+      toBuffer: function(onSuccess, onFail, onItemStart, onItemEnd) {
+        if (typeof onSuccess === "function") {
+          _zip.toAsyncBuffer(onSuccess, onFail, onItemStart, onItemEnd);
+          return null;
+        }
+        return _zip.compressToBuffer();
+      }
+    };
+  };
+});
+
 // node_modules/fs-jetpack/lib/utils/promisify.js
 var require_promisify = __commonJS((exports2, module2) => {
   "use strict";
@@ -6223,2303 +8520,6 @@ var require_i18next = __commonJS((exports2, module2) => {
   var instance = I18n.createInstance();
   instance.createInstance = I18n.createInstance;
   module2.exports = instance;
-});
-
-// node_modules/adm-zip/util/constants.js
-var require_constants = __commonJS((exports2, module2) => {
-  module2.exports = {
-    LOCHDR: 30,
-    LOCSIG: 67324752,
-    LOCVER: 4,
-    LOCFLG: 6,
-    LOCHOW: 8,
-    LOCTIM: 10,
-    LOCCRC: 14,
-    LOCSIZ: 18,
-    LOCLEN: 22,
-    LOCNAM: 26,
-    LOCEXT: 28,
-    EXTSIG: 134695760,
-    EXTHDR: 16,
-    EXTCRC: 4,
-    EXTSIZ: 8,
-    EXTLEN: 12,
-    CENHDR: 46,
-    CENSIG: 33639248,
-    CENVEM: 4,
-    CENVER: 6,
-    CENFLG: 8,
-    CENHOW: 10,
-    CENTIM: 12,
-    CENCRC: 16,
-    CENSIZ: 20,
-    CENLEN: 24,
-    CENNAM: 28,
-    CENEXT: 30,
-    CENCOM: 32,
-    CENDSK: 34,
-    CENATT: 36,
-    CENATX: 38,
-    CENOFF: 42,
-    ENDHDR: 22,
-    ENDSIG: 101010256,
-    ENDSUB: 8,
-    ENDTOT: 10,
-    ENDSIZ: 12,
-    ENDOFF: 16,
-    ENDCOM: 20,
-    END64HDR: 20,
-    END64SIG: 117853008,
-    END64START: 4,
-    END64OFF: 8,
-    END64NUMDISKS: 16,
-    ZIP64SIG: 101075792,
-    ZIP64HDR: 56,
-    ZIP64LEAD: 12,
-    ZIP64SIZE: 4,
-    ZIP64VEM: 12,
-    ZIP64VER: 14,
-    ZIP64DSK: 16,
-    ZIP64DSKDIR: 20,
-    ZIP64SUB: 24,
-    ZIP64TOT: 32,
-    ZIP64SIZB: 40,
-    ZIP64OFF: 48,
-    ZIP64EXTRA: 56,
-    STORED: 0,
-    SHRUNK: 1,
-    REDUCED1: 2,
-    REDUCED2: 3,
-    REDUCED3: 4,
-    REDUCED4: 5,
-    IMPLODED: 6,
-    DEFLATED: 8,
-    ENHANCED_DEFLATED: 9,
-    PKWARE: 10,
-    BZIP2: 12,
-    LZMA: 14,
-    IBM_TERSE: 18,
-    IBM_LZ77: 19,
-    AES_ENCRYPT: 99,
-    FLG_ENC: 1,
-    FLG_COMP1: 2,
-    FLG_COMP2: 4,
-    FLG_DESC: 8,
-    FLG_ENH: 16,
-    FLG_PATCH: 32,
-    FLG_STR: 64,
-    FLG_EFS: 2048,
-    FLG_MSK: 4096,
-    FILE: 2,
-    BUFFER: 1,
-    NONE: 0,
-    EF_ID: 0,
-    EF_SIZE: 2,
-    ID_ZIP64: 1,
-    ID_AVINFO: 7,
-    ID_PFS: 8,
-    ID_OS2: 9,
-    ID_NTFS: 10,
-    ID_OPENVMS: 12,
-    ID_UNIX: 13,
-    ID_FORK: 14,
-    ID_PATCH: 15,
-    ID_X509_PKCS7: 20,
-    ID_X509_CERTID_F: 21,
-    ID_X509_CERTID_C: 22,
-    ID_STRONGENC: 23,
-    ID_RECORD_MGT: 24,
-    ID_X509_PKCS7_RL: 25,
-    ID_IBM1: 101,
-    ID_IBM2: 102,
-    ID_POSZIP: 18064,
-    EF_ZIP64_OR_32: 4294967295,
-    EF_ZIP64_OR_16: 65535,
-    EF_ZIP64_SUNCOMP: 0,
-    EF_ZIP64_SCOMP: 8,
-    EF_ZIP64_RHO: 16,
-    EF_ZIP64_DSN: 24
-  };
-});
-
-// node_modules/adm-zip/util/errors.js
-var require_errors = __commonJS((exports2) => {
-  var errors = {
-    INVALID_LOC: "Invalid LOC header (bad signature)",
-    INVALID_CEN: "Invalid CEN header (bad signature)",
-    INVALID_END: "Invalid END header (bad signature)",
-    DESCRIPTOR_NOT_EXIST: "No descriptor present",
-    DESCRIPTOR_UNKNOWN: "Unknown descriptor format",
-    DESCRIPTOR_FAULTY: "Descriptor data is malformed",
-    NO_DATA: "Nothing to decompress",
-    BAD_CRC: "CRC32 checksum failed {0}",
-    FILE_IN_THE_WAY: "There is a file in the way: {0}",
-    UNKNOWN_METHOD: "Invalid/unsupported compression method",
-    AVAIL_DATA: "inflate::Available inflate data did not terminate",
-    INVALID_DISTANCE: "inflate::Invalid literal/length or distance code in fixed or dynamic block",
-    TO_MANY_CODES: "inflate::Dynamic block code description: too many length or distance codes",
-    INVALID_REPEAT_LEN: "inflate::Dynamic block code description: repeat more than specified lengths",
-    INVALID_REPEAT_FIRST: "inflate::Dynamic block code description: repeat lengths with no first length",
-    INCOMPLETE_CODES: "inflate::Dynamic block code description: code lengths codes incomplete",
-    INVALID_DYN_DISTANCE: "inflate::Dynamic block code description: invalid distance code lengths",
-    INVALID_CODES_LEN: "inflate::Dynamic block code description: invalid literal/length code lengths",
-    INVALID_STORE_BLOCK: "inflate::Stored block length did not match one's complement",
-    INVALID_BLOCK_TYPE: "inflate::Invalid block type (type == 3)",
-    CANT_EXTRACT_FILE: "Could not extract the file",
-    CANT_OVERRIDE: "Target file already exists",
-    DISK_ENTRY_TOO_LARGE: "Number of disk entries is too large",
-    NO_ZIP: "No zip file was loaded",
-    NO_ENTRY: "Entry doesn't exist",
-    DIRECTORY_CONTENT_ERROR: "A directory cannot have content",
-    FILE_NOT_FOUND: 'File not found: "{0}"',
-    NOT_IMPLEMENTED: "Not implemented",
-    INVALID_FILENAME: "Invalid filename",
-    INVALID_FORMAT: "Invalid or unsupported zip format. No END header found",
-    INVALID_PASS_PARAM: "Incompatible password parameter",
-    WRONG_PASSWORD: "Wrong Password",
-    COMMENT_TOO_LONG: "Comment is too long",
-    EXTRA_FIELD_PARSE_ERROR: "Extra field parsing error"
-  };
-  function E(message) {
-    return function(...args) {
-      if (args.length) {
-        message = message.replace(/\{(\d)\}/g, (_, n) => args[n] || "");
-      }
-      return new Error("ADM-ZIP: " + message);
-    };
-  }
-  for (const msg of Object.keys(errors)) {
-    exports2[msg] = E(errors[msg]);
-  }
-});
-
-// node_modules/adm-zip/util/utils.js
-var require_utils = __commonJS((exports2, module2) => {
-  var fsystem = require("fs");
-  var pth = require("path");
-  var Constants = require_constants();
-  var Errors = require_errors();
-  var isWin = typeof process === "object" && process.platform === "win32";
-  var is_Obj = (obj) => typeof obj === "object" && obj !== null;
-  var crcTable = new Uint32Array(256).map((t, c) => {
-    for (let k = 0; k < 8; k++) {
-      if ((c & 1) !== 0) {
-        c = 3988292384 ^ c >>> 1;
-      } else {
-        c >>>= 1;
-      }
-    }
-    return c >>> 0;
-  });
-  function Utils(opts) {
-    this.sep = pth.sep;
-    this.fs = fsystem;
-    if (is_Obj(opts)) {
-      if (is_Obj(opts.fs) && typeof opts.fs.statSync === "function") {
-        this.fs = opts.fs;
-      }
-    }
-  }
-  module2.exports = Utils;
-  Utils.prototype.makeDir = function(folder) {
-    const self = this;
-    function mkdirSync(fpath) {
-      let resolvedPath = fpath.split(self.sep)[0];
-      fpath.split(self.sep).forEach(function(name) {
-        if (!name || name.substr(-1, 1) === ":")
-          return;
-        resolvedPath += self.sep + name;
-        var stat;
-        try {
-          stat = self.fs.statSync(resolvedPath);
-        } catch (e) {
-          self.fs.mkdirSync(resolvedPath);
-        }
-        if (stat && stat.isFile())
-          throw Errors.FILE_IN_THE_WAY(`"${resolvedPath}"`);
-      });
-    }
-    mkdirSync(folder);
-  };
-  Utils.prototype.writeFileTo = function(path8, content3, overwrite, attr) {
-    const self = this;
-    if (self.fs.existsSync(path8)) {
-      if (!overwrite)
-        return false;
-      var stat = self.fs.statSync(path8);
-      if (stat.isDirectory()) {
-        return false;
-      }
-    }
-    var folder = pth.dirname(path8);
-    if (!self.fs.existsSync(folder)) {
-      self.makeDir(folder);
-    }
-    var fd;
-    try {
-      fd = self.fs.openSync(path8, "w", 438);
-    } catch (e) {
-      self.fs.chmodSync(path8, 438);
-      fd = self.fs.openSync(path8, "w", 438);
-    }
-    if (fd) {
-      try {
-        self.fs.writeSync(fd, content3, 0, content3.length, 0);
-      } finally {
-        self.fs.closeSync(fd);
-      }
-    }
-    self.fs.chmodSync(path8, attr || 438);
-    return true;
-  };
-  Utils.prototype.writeFileToAsync = function(path8, content3, overwrite, attr, callback) {
-    if (typeof attr === "function") {
-      callback = attr;
-      attr = void 0;
-    }
-    const self = this;
-    self.fs.exists(path8, function(exist) {
-      if (exist && !overwrite)
-        return callback(false);
-      self.fs.stat(path8, function(err, stat) {
-        if (exist && stat.isDirectory()) {
-          return callback(false);
-        }
-        var folder = pth.dirname(path8);
-        self.fs.exists(folder, function(exists) {
-          if (!exists)
-            self.makeDir(folder);
-          self.fs.open(path8, "w", 438, function(err2, fd) {
-            if (err2) {
-              self.fs.chmod(path8, 438, function() {
-                self.fs.open(path8, "w", 438, function(err3, fd2) {
-                  self.fs.write(fd2, content3, 0, content3.length, 0, function() {
-                    self.fs.close(fd2, function() {
-                      self.fs.chmod(path8, attr || 438, function() {
-                        callback(true);
-                      });
-                    });
-                  });
-                });
-              });
-            } else if (fd) {
-              self.fs.write(fd, content3, 0, content3.length, 0, function() {
-                self.fs.close(fd, function() {
-                  self.fs.chmod(path8, attr || 438, function() {
-                    callback(true);
-                  });
-                });
-              });
-            } else {
-              self.fs.chmod(path8, attr || 438, function() {
-                callback(true);
-              });
-            }
-          });
-        });
-      });
-    });
-  };
-  Utils.prototype.findFiles = function(path8) {
-    const self = this;
-    function findSync(dir, pattern, recursive) {
-      if (typeof pattern === "boolean") {
-        recursive = pattern;
-        pattern = void 0;
-      }
-      let files = [];
-      self.fs.readdirSync(dir).forEach(function(file) {
-        const path9 = pth.join(dir, file);
-        const stat = self.fs.statSync(path9);
-        if (!pattern || pattern.test(path9)) {
-          files.push(pth.normalize(path9) + (stat.isDirectory() ? self.sep : ""));
-        }
-        if (stat.isDirectory() && recursive)
-          files = files.concat(findSync(path9, pattern, recursive));
-      });
-      return files;
-    }
-    return findSync(path8, void 0, true);
-  };
-  Utils.prototype.findFilesAsync = function(dir, cb) {
-    const self = this;
-    let results = [];
-    self.fs.readdir(dir, function(err, list) {
-      if (err)
-        return cb(err);
-      let list_length = list.length;
-      if (!list_length)
-        return cb(null, results);
-      list.forEach(function(file) {
-        file = pth.join(dir, file);
-        self.fs.stat(file, function(err2, stat) {
-          if (err2)
-            return cb(err2);
-          if (stat) {
-            results.push(pth.normalize(file) + (stat.isDirectory() ? self.sep : ""));
-            if (stat.isDirectory()) {
-              self.findFilesAsync(file, function(err3, res) {
-                if (err3)
-                  return cb(err3);
-                results = results.concat(res);
-                if (!--list_length)
-                  cb(null, results);
-              });
-            } else {
-              if (!--list_length)
-                cb(null, results);
-            }
-          }
-        });
-      });
-    });
-  };
-  Utils.prototype.getAttributes = function() {
-  };
-  Utils.prototype.setAttributes = function() {
-  };
-  Utils.crc32update = function(crc, byte) {
-    return crcTable[(crc ^ byte) & 255] ^ crc >>> 8;
-  };
-  Utils.crc32 = function(buf) {
-    if (typeof buf === "string") {
-      buf = Buffer.from(buf, "utf8");
-    }
-    let len = buf.length;
-    let crc = ~0;
-    for (let off = 0; off < len; )
-      crc = Utils.crc32update(crc, buf[off++]);
-    return ~crc >>> 0;
-  };
-  Utils.methodToString = function(method) {
-    switch (method) {
-      case Constants.STORED:
-        return "STORED (" + method + ")";
-      case Constants.DEFLATED:
-        return "DEFLATED (" + method + ")";
-      default:
-        return "UNSUPPORTED (" + method + ")";
-    }
-  };
-  Utils.canonical = function(path8) {
-    if (!path8)
-      return "";
-    const safeSuffix = pth.posix.normalize("/" + path8.split("\\").join("/"));
-    return pth.join(".", safeSuffix);
-  };
-  Utils.zipnamefix = function(path8) {
-    if (!path8)
-      return "";
-    const safeSuffix = pth.posix.normalize("/" + path8.split("\\").join("/"));
-    return pth.posix.join(".", safeSuffix);
-  };
-  Utils.findLast = function(arr, callback) {
-    if (!Array.isArray(arr))
-      throw new TypeError("arr is not array");
-    const len = arr.length >>> 0;
-    for (let i = len - 1; i >= 0; i--) {
-      if (callback(arr[i], i, arr)) {
-        return arr[i];
-      }
-    }
-    return void 0;
-  };
-  Utils.sanitize = function(prefix, name) {
-    prefix = pth.resolve(pth.normalize(prefix));
-    var parts = name.split("/");
-    for (var i = 0, l = parts.length; i < l; i++) {
-      var path8 = pth.normalize(pth.join(prefix, parts.slice(i, l).join(pth.sep)));
-      if (path8.indexOf(prefix) === 0) {
-        return path8;
-      }
-    }
-    return pth.normalize(pth.join(prefix, pth.basename(name)));
-  };
-  Utils.toBuffer = function toBuffer(input, encoder) {
-    if (Buffer.isBuffer(input)) {
-      return input;
-    } else if (input instanceof Uint8Array) {
-      return Buffer.from(input);
-    } else {
-      return typeof input === "string" ? encoder(input) : Buffer.alloc(0);
-    }
-  };
-  Utils.readBigUInt64LE = function(buffer, index) {
-    var slice = Buffer.from(buffer.slice(index, index + 8));
-    slice.swap64();
-    return parseInt(`0x${slice.toString("hex")}`);
-  };
-  Utils.fromDOS2Date = function(val) {
-    return new Date((val >> 25 & 127) + 1980, Math.max((val >> 21 & 15) - 1, 0), Math.max(val >> 16 & 31, 1), val >> 11 & 31, val >> 5 & 63, (val & 31) << 1);
-  };
-  Utils.fromDate2DOS = function(val) {
-    let date = 0;
-    let time = 0;
-    if (val.getFullYear() > 1979) {
-      date = (val.getFullYear() - 1980 & 127) << 9 | val.getMonth() + 1 << 5 | val.getDate();
-      time = val.getHours() << 11 | val.getMinutes() << 5 | val.getSeconds() >> 1;
-    }
-    return date << 16 | time;
-  };
-  Utils.isWin = isWin;
-  Utils.crcTable = crcTable;
-});
-
-// node_modules/adm-zip/util/fattr.js
-var require_fattr = __commonJS((exports2, module2) => {
-  var pth = require("path");
-  module2.exports = function(path8, {fs}) {
-    var _path = path8 || "", _obj = newAttr(), _stat = null;
-    function newAttr() {
-      return {
-        directory: false,
-        readonly: false,
-        hidden: false,
-        executable: false,
-        mtime: 0,
-        atime: 0
-      };
-    }
-    if (_path && fs.existsSync(_path)) {
-      _stat = fs.statSync(_path);
-      _obj.directory = _stat.isDirectory();
-      _obj.mtime = _stat.mtime;
-      _obj.atime = _stat.atime;
-      _obj.executable = (73 & _stat.mode) !== 0;
-      _obj.readonly = (128 & _stat.mode) === 0;
-      _obj.hidden = pth.basename(_path)[0] === ".";
-    } else {
-      console.warn("Invalid path: " + _path);
-    }
-    return {
-      get directory() {
-        return _obj.directory;
-      },
-      get readOnly() {
-        return _obj.readonly;
-      },
-      get hidden() {
-        return _obj.hidden;
-      },
-      get mtime() {
-        return _obj.mtime;
-      },
-      get atime() {
-        return _obj.atime;
-      },
-      get executable() {
-        return _obj.executable;
-      },
-      decodeAttributes: function() {
-      },
-      encodeAttributes: function() {
-      },
-      toJSON: function() {
-        return {
-          path: _path,
-          isDirectory: _obj.directory,
-          isReadOnly: _obj.readonly,
-          isHidden: _obj.hidden,
-          isExecutable: _obj.executable,
-          mTime: _obj.mtime,
-          aTime: _obj.atime
-        };
-      },
-      toString: function() {
-        return JSON.stringify(this.toJSON(), null, "	");
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/util/decoder.js
-var require_decoder = __commonJS((exports2, module2) => {
-  module2.exports = {
-    efs: true,
-    encode: (data) => Buffer.from(data, "utf8"),
-    decode: (data) => data.toString("utf8")
-  };
-});
-
-// node_modules/adm-zip/util/index.js
-var require_util = __commonJS((exports2, module2) => {
-  module2.exports = require_utils();
-  module2.exports.Constants = require_constants();
-  module2.exports.Errors = require_errors();
-  module2.exports.FileAttr = require_fattr();
-  module2.exports.decoder = require_decoder();
-});
-
-// node_modules/adm-zip/headers/entryHeader.js
-var require_entryHeader = __commonJS((exports2, module2) => {
-  var Utils = require_util();
-  var Constants = Utils.Constants;
-  module2.exports = function() {
-    var _verMade = 20, _version = 10, _flags = 0, _method = 0, _time = 0, _crc = 0, _compressedSize = 0, _size = 0, _fnameLen = 0, _extraLen = 0, _comLen = 0, _diskStart = 0, _inattr = 0, _attr = 0, _offset = 0;
-    _verMade |= Utils.isWin ? 2560 : 768;
-    _flags |= Constants.FLG_EFS;
-    const _localHeader = {
-      extraLen: 0
-    };
-    const uint32 = (val) => Math.max(0, val) >>> 0;
-    const uint16 = (val) => Math.max(0, val) & 65535;
-    const uint8 = (val) => Math.max(0, val) & 255;
-    _time = Utils.fromDate2DOS(new Date());
-    return {
-      get made() {
-        return _verMade;
-      },
-      set made(val) {
-        _verMade = val;
-      },
-      get version() {
-        return _version;
-      },
-      set version(val) {
-        _version = val;
-      },
-      get flags() {
-        return _flags;
-      },
-      set flags(val) {
-        _flags = val;
-      },
-      get flags_efs() {
-        return (_flags & Constants.FLG_EFS) > 0;
-      },
-      set flags_efs(val) {
-        if (val) {
-          _flags |= Constants.FLG_EFS;
-        } else {
-          _flags &= ~Constants.FLG_EFS;
-        }
-      },
-      get flags_desc() {
-        return (_flags & Constants.FLG_DESC) > 0;
-      },
-      set flags_desc(val) {
-        if (val) {
-          _flags |= Constants.FLG_DESC;
-        } else {
-          _flags &= ~Constants.FLG_DESC;
-        }
-      },
-      get method() {
-        return _method;
-      },
-      set method(val) {
-        switch (val) {
-          case Constants.STORED:
-            this.version = 10;
-          case Constants.DEFLATED:
-          default:
-            this.version = 20;
-        }
-        _method = val;
-      },
-      get time() {
-        return Utils.fromDOS2Date(this.timeval);
-      },
-      set time(val) {
-        this.timeval = Utils.fromDate2DOS(val);
-      },
-      get timeval() {
-        return _time;
-      },
-      set timeval(val) {
-        _time = uint32(val);
-      },
-      get timeHighByte() {
-        return uint8(_time >>> 8);
-      },
-      get crc() {
-        return _crc;
-      },
-      set crc(val) {
-        _crc = uint32(val);
-      },
-      get compressedSize() {
-        return _compressedSize;
-      },
-      set compressedSize(val) {
-        _compressedSize = uint32(val);
-      },
-      get size() {
-        return _size;
-      },
-      set size(val) {
-        _size = uint32(val);
-      },
-      get fileNameLength() {
-        return _fnameLen;
-      },
-      set fileNameLength(val) {
-        _fnameLen = val;
-      },
-      get extraLength() {
-        return _extraLen;
-      },
-      set extraLength(val) {
-        _extraLen = val;
-      },
-      get extraLocalLength() {
-        return _localHeader.extraLen;
-      },
-      set extraLocalLength(val) {
-        _localHeader.extraLen = val;
-      },
-      get commentLength() {
-        return _comLen;
-      },
-      set commentLength(val) {
-        _comLen = val;
-      },
-      get diskNumStart() {
-        return _diskStart;
-      },
-      set diskNumStart(val) {
-        _diskStart = uint32(val);
-      },
-      get inAttr() {
-        return _inattr;
-      },
-      set inAttr(val) {
-        _inattr = uint32(val);
-      },
-      get attr() {
-        return _attr;
-      },
-      set attr(val) {
-        _attr = uint32(val);
-      },
-      get fileAttr() {
-        return (_attr || 0) >> 16 & 4095;
-      },
-      get offset() {
-        return _offset;
-      },
-      set offset(val) {
-        _offset = uint32(val);
-      },
-      get encrypted() {
-        return (_flags & Constants.FLG_ENC) === Constants.FLG_ENC;
-      },
-      get centralHeaderSize() {
-        return Constants.CENHDR + _fnameLen + _extraLen + _comLen;
-      },
-      get realDataOffset() {
-        return _offset + Constants.LOCHDR + _localHeader.fnameLen + _localHeader.extraLen;
-      },
-      get localHeader() {
-        return _localHeader;
-      },
-      loadLocalHeaderFromBinary: function(input) {
-        var data = input.slice(_offset, _offset + Constants.LOCHDR);
-        if (data.readUInt32LE(0) !== Constants.LOCSIG) {
-          throw Utils.Errors.INVALID_LOC();
-        }
-        _localHeader.version = data.readUInt16LE(Constants.LOCVER);
-        _localHeader.flags = data.readUInt16LE(Constants.LOCFLG);
-        _localHeader.method = data.readUInt16LE(Constants.LOCHOW);
-        _localHeader.time = data.readUInt32LE(Constants.LOCTIM);
-        _localHeader.crc = data.readUInt32LE(Constants.LOCCRC);
-        _localHeader.compressedSize = data.readUInt32LE(Constants.LOCSIZ);
-        _localHeader.size = data.readUInt32LE(Constants.LOCLEN);
-        _localHeader.fnameLen = data.readUInt16LE(Constants.LOCNAM);
-        _localHeader.extraLen = data.readUInt16LE(Constants.LOCEXT);
-        const extraStart = _offset + Constants.LOCHDR + _localHeader.fnameLen;
-        const extraEnd = extraStart + _localHeader.extraLen;
-        return input.slice(extraStart, extraEnd);
-      },
-      loadFromBinary: function(data) {
-        if (data.length !== Constants.CENHDR || data.readUInt32LE(0) !== Constants.CENSIG) {
-          throw Utils.Errors.INVALID_CEN();
-        }
-        _verMade = data.readUInt16LE(Constants.CENVEM);
-        _version = data.readUInt16LE(Constants.CENVER);
-        _flags = data.readUInt16LE(Constants.CENFLG);
-        _method = data.readUInt16LE(Constants.CENHOW);
-        _time = data.readUInt32LE(Constants.CENTIM);
-        _crc = data.readUInt32LE(Constants.CENCRC);
-        _compressedSize = data.readUInt32LE(Constants.CENSIZ);
-        _size = data.readUInt32LE(Constants.CENLEN);
-        _fnameLen = data.readUInt16LE(Constants.CENNAM);
-        _extraLen = data.readUInt16LE(Constants.CENEXT);
-        _comLen = data.readUInt16LE(Constants.CENCOM);
-        _diskStart = data.readUInt16LE(Constants.CENDSK);
-        _inattr = data.readUInt16LE(Constants.CENATT);
-        _attr = data.readUInt32LE(Constants.CENATX);
-        _offset = data.readUInt32LE(Constants.CENOFF);
-      },
-      localHeaderToBinary: function() {
-        var data = Buffer.alloc(Constants.LOCHDR);
-        data.writeUInt32LE(Constants.LOCSIG, 0);
-        data.writeUInt16LE(_version, Constants.LOCVER);
-        data.writeUInt16LE(_flags, Constants.LOCFLG);
-        data.writeUInt16LE(_method, Constants.LOCHOW);
-        data.writeUInt32LE(_time, Constants.LOCTIM);
-        data.writeUInt32LE(_crc, Constants.LOCCRC);
-        data.writeUInt32LE(_compressedSize, Constants.LOCSIZ);
-        data.writeUInt32LE(_size, Constants.LOCLEN);
-        data.writeUInt16LE(_fnameLen, Constants.LOCNAM);
-        data.writeUInt16LE(_localHeader.extraLen, Constants.LOCEXT);
-        return data;
-      },
-      centralHeaderToBinary: function() {
-        var data = Buffer.alloc(Constants.CENHDR + _fnameLen + _extraLen + _comLen);
-        data.writeUInt32LE(Constants.CENSIG, 0);
-        data.writeUInt16LE(_verMade, Constants.CENVEM);
-        data.writeUInt16LE(_version, Constants.CENVER);
-        data.writeUInt16LE(_flags, Constants.CENFLG);
-        data.writeUInt16LE(_method, Constants.CENHOW);
-        data.writeUInt32LE(_time, Constants.CENTIM);
-        data.writeUInt32LE(_crc, Constants.CENCRC);
-        data.writeUInt32LE(_compressedSize, Constants.CENSIZ);
-        data.writeUInt32LE(_size, Constants.CENLEN);
-        data.writeUInt16LE(_fnameLen, Constants.CENNAM);
-        data.writeUInt16LE(_extraLen, Constants.CENEXT);
-        data.writeUInt16LE(_comLen, Constants.CENCOM);
-        data.writeUInt16LE(_diskStart, Constants.CENDSK);
-        data.writeUInt16LE(_inattr, Constants.CENATT);
-        data.writeUInt32LE(_attr, Constants.CENATX);
-        data.writeUInt32LE(_offset, Constants.CENOFF);
-        return data;
-      },
-      toJSON: function() {
-        const bytes = function(nr) {
-          return nr + " bytes";
-        };
-        return {
-          made: _verMade,
-          version: _version,
-          flags: _flags,
-          method: Utils.methodToString(_method),
-          time: this.time,
-          crc: "0x" + _crc.toString(16).toUpperCase(),
-          compressedSize: bytes(_compressedSize),
-          size: bytes(_size),
-          fileNameLength: bytes(_fnameLen),
-          extraLength: bytes(_extraLen),
-          commentLength: bytes(_comLen),
-          diskNumStart: _diskStart,
-          inAttr: _inattr,
-          attr: _attr,
-          offset: _offset,
-          centralHeaderSize: bytes(Constants.CENHDR + _fnameLen + _extraLen + _comLen)
-        };
-      },
-      toString: function() {
-        return JSON.stringify(this.toJSON(), null, "	");
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/headers/mainHeader.js
-var require_mainHeader = __commonJS((exports2, module2) => {
-  var Utils = require_util();
-  var Constants = Utils.Constants;
-  module2.exports = function() {
-    var _volumeEntries = 0, _totalEntries = 0, _size = 0, _offset = 0, _commentLength = 0;
-    return {
-      get diskEntries() {
-        return _volumeEntries;
-      },
-      set diskEntries(val) {
-        _volumeEntries = _totalEntries = val;
-      },
-      get totalEntries() {
-        return _totalEntries;
-      },
-      set totalEntries(val) {
-        _totalEntries = _volumeEntries = val;
-      },
-      get size() {
-        return _size;
-      },
-      set size(val) {
-        _size = val;
-      },
-      get offset() {
-        return _offset;
-      },
-      set offset(val) {
-        _offset = val;
-      },
-      get commentLength() {
-        return _commentLength;
-      },
-      set commentLength(val) {
-        _commentLength = val;
-      },
-      get mainHeaderSize() {
-        return Constants.ENDHDR + _commentLength;
-      },
-      loadFromBinary: function(data) {
-        if ((data.length !== Constants.ENDHDR || data.readUInt32LE(0) !== Constants.ENDSIG) && (data.length < Constants.ZIP64HDR || data.readUInt32LE(0) !== Constants.ZIP64SIG)) {
-          throw Utils.Errors.INVALID_END();
-        }
-        if (data.readUInt32LE(0) === Constants.ENDSIG) {
-          _volumeEntries = data.readUInt16LE(Constants.ENDSUB);
-          _totalEntries = data.readUInt16LE(Constants.ENDTOT);
-          _size = data.readUInt32LE(Constants.ENDSIZ);
-          _offset = data.readUInt32LE(Constants.ENDOFF);
-          _commentLength = data.readUInt16LE(Constants.ENDCOM);
-        } else {
-          _volumeEntries = Utils.readBigUInt64LE(data, Constants.ZIP64SUB);
-          _totalEntries = Utils.readBigUInt64LE(data, Constants.ZIP64TOT);
-          _size = Utils.readBigUInt64LE(data, Constants.ZIP64SIZE);
-          _offset = Utils.readBigUInt64LE(data, Constants.ZIP64OFF);
-          _commentLength = 0;
-        }
-      },
-      toBinary: function() {
-        var b = Buffer.alloc(Constants.ENDHDR + _commentLength);
-        b.writeUInt32LE(Constants.ENDSIG, 0);
-        b.writeUInt32LE(0, 4);
-        b.writeUInt16LE(_volumeEntries, Constants.ENDSUB);
-        b.writeUInt16LE(_totalEntries, Constants.ENDTOT);
-        b.writeUInt32LE(_size, Constants.ENDSIZ);
-        b.writeUInt32LE(_offset, Constants.ENDOFF);
-        b.writeUInt16LE(_commentLength, Constants.ENDCOM);
-        b.fill(" ", Constants.ENDHDR);
-        return b;
-      },
-      toJSON: function() {
-        const offset = function(nr, len) {
-          let offs = nr.toString(16).toUpperCase();
-          while (offs.length < len)
-            offs = "0" + offs;
-          return "0x" + offs;
-        };
-        return {
-          diskEntries: _volumeEntries,
-          totalEntries: _totalEntries,
-          size: _size + " bytes",
-          offset: offset(_offset, 4),
-          commentLength: _commentLength
-        };
-      },
-      toString: function() {
-        return JSON.stringify(this.toJSON(), null, "	");
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/headers/index.js
-var require_headers = __commonJS((exports2) => {
-  exports2.EntryHeader = require_entryHeader();
-  exports2.MainHeader = require_mainHeader();
-});
-
-// node_modules/adm-zip/methods/deflater.js
-var require_deflater = __commonJS((exports2, module2) => {
-  module2.exports = function(inbuf) {
-    var zlib = require("zlib");
-    var opts = {chunkSize: (parseInt(inbuf.length / 1024) + 1) * 1024};
-    return {
-      deflate: function() {
-        return zlib.deflateRawSync(inbuf, opts);
-      },
-      deflateAsync: function(callback) {
-        var tmp = zlib.createDeflateRaw(opts), parts = [], total = 0;
-        tmp.on("data", function(data) {
-          parts.push(data);
-          total += data.length;
-        });
-        tmp.on("end", function() {
-          var buf = Buffer.alloc(total), written = 0;
-          buf.fill(0);
-          for (var i = 0; i < parts.length; i++) {
-            var part = parts[i];
-            part.copy(buf, written);
-            written += part.length;
-          }
-          callback && callback(buf);
-        });
-        tmp.end(inbuf);
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/methods/inflater.js
-var require_inflater = __commonJS((exports2, module2) => {
-  var version = +(process.versions ? process.versions.node : "").split(".")[0] || 0;
-  module2.exports = function(inbuf, expectedLength) {
-    var zlib = require("zlib");
-    const option = version >= 15 && expectedLength > 0 ? {maxOutputLength: expectedLength} : {};
-    return {
-      inflate: function() {
-        return zlib.inflateRawSync(inbuf, option);
-      },
-      inflateAsync: function(callback) {
-        var tmp = zlib.createInflateRaw(option), parts = [], total = 0;
-        tmp.on("data", function(data) {
-          parts.push(data);
-          total += data.length;
-        });
-        tmp.on("end", function() {
-          var buf = Buffer.alloc(total), written = 0;
-          buf.fill(0);
-          for (var i = 0; i < parts.length; i++) {
-            var part = parts[i];
-            part.copy(buf, written);
-            written += part.length;
-          }
-          callback && callback(buf);
-        });
-        tmp.end(inbuf);
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/methods/zipcrypto.js
-var require_zipcrypto = __commonJS((exports2, module2) => {
-  "use strict";
-  var {randomFillSync} = require("crypto");
-  var Errors = require_errors();
-  var crctable = new Uint32Array(256).map((t, crc) => {
-    for (let j = 0; j < 8; j++) {
-      if ((crc & 1) !== 0) {
-        crc = crc >>> 1 ^ 3988292384;
-      } else {
-        crc >>>= 1;
-      }
-    }
-    return crc >>> 0;
-  });
-  var uMul = (a, b) => Math.imul(a, b) >>> 0;
-  var crc32update = (pCrc32, bval) => {
-    return crctable[(pCrc32 ^ bval) & 255] ^ pCrc32 >>> 8;
-  };
-  var genSalt = () => {
-    if (typeof randomFillSync === "function") {
-      return randomFillSync(Buffer.alloc(12));
-    } else {
-      return genSalt.node();
-    }
-  };
-  genSalt.node = () => {
-    const salt = Buffer.alloc(12);
-    const len = salt.length;
-    for (let i = 0; i < len; i++)
-      salt[i] = Math.random() * 256 & 255;
-    return salt;
-  };
-  var config = {
-    genSalt
-  };
-  function Initkeys(pw) {
-    const pass = Buffer.isBuffer(pw) ? pw : Buffer.from(pw);
-    this.keys = new Uint32Array([305419896, 591751049, 878082192]);
-    for (let i = 0; i < pass.length; i++) {
-      this.updateKeys(pass[i]);
-    }
-  }
-  Initkeys.prototype.updateKeys = function(byteValue) {
-    const keys = this.keys;
-    keys[0] = crc32update(keys[0], byteValue);
-    keys[1] += keys[0] & 255;
-    keys[1] = uMul(keys[1], 134775813) + 1;
-    keys[2] = crc32update(keys[2], keys[1] >>> 24);
-    return byteValue;
-  };
-  Initkeys.prototype.next = function() {
-    const k = (this.keys[2] | 2) >>> 0;
-    return uMul(k, k ^ 1) >> 8 & 255;
-  };
-  function make_decrypter(pwd) {
-    const keys = new Initkeys(pwd);
-    return function(data) {
-      const result = Buffer.alloc(data.length);
-      let pos = 0;
-      for (let c of data) {
-        result[pos++] = keys.updateKeys(c ^ keys.next());
-      }
-      return result;
-    };
-  }
-  function make_encrypter(pwd) {
-    const keys = new Initkeys(pwd);
-    return function(data, result, pos = 0) {
-      if (!result)
-        result = Buffer.alloc(data.length);
-      for (let c of data) {
-        const k = keys.next();
-        result[pos++] = c ^ k;
-        keys.updateKeys(c);
-      }
-      return result;
-    };
-  }
-  function decrypt(data, header, pwd) {
-    if (!data || !Buffer.isBuffer(data) || data.length < 12) {
-      return Buffer.alloc(0);
-    }
-    const decrypter = make_decrypter(pwd);
-    const salt = decrypter(data.slice(0, 12));
-    const verifyByte = (header.flags & 8) === 8 ? header.timeHighByte : header.crc >>> 24;
-    if (salt[11] !== verifyByte) {
-      throw Errors.WRONG_PASSWORD();
-    }
-    return decrypter(data.slice(12));
-  }
-  function _salter(data) {
-    if (Buffer.isBuffer(data) && data.length >= 12) {
-      config.genSalt = function() {
-        return data.slice(0, 12);
-      };
-    } else if (data === "node") {
-      config.genSalt = genSalt.node;
-    } else {
-      config.genSalt = genSalt;
-    }
-  }
-  function encrypt(data, header, pwd, oldlike = false) {
-    if (data == null)
-      data = Buffer.alloc(0);
-    if (!Buffer.isBuffer(data))
-      data = Buffer.from(data.toString());
-    const encrypter = make_encrypter(pwd);
-    const salt = config.genSalt();
-    salt[11] = header.crc >>> 24 & 255;
-    if (oldlike)
-      salt[10] = header.crc >>> 16 & 255;
-    const result = Buffer.alloc(data.length + 12);
-    encrypter(salt, result);
-    return encrypter(data, result, 12);
-  }
-  module2.exports = {decrypt, encrypt, _salter};
-});
-
-// node_modules/adm-zip/methods/index.js
-var require_methods = __commonJS((exports2) => {
-  exports2.Deflater = require_deflater();
-  exports2.Inflater = require_inflater();
-  exports2.ZipCrypto = require_zipcrypto();
-});
-
-// node_modules/adm-zip/zipEntry.js
-var require_zipEntry = __commonJS((exports2, module2) => {
-  var Utils = require_util();
-  var Headers = require_headers();
-  var Constants = Utils.Constants;
-  var Methods = require_methods();
-  module2.exports = function(options, input) {
-    var _centralHeader = new Headers.EntryHeader(), _entryName = Buffer.alloc(0), _comment = Buffer.alloc(0), _isDirectory = false, uncompressedData = null, _extra = Buffer.alloc(0), _extralocal = Buffer.alloc(0), _efs = true;
-    const opts = options;
-    const decoder = typeof opts.decoder === "object" ? opts.decoder : Utils.decoder;
-    _efs = decoder.hasOwnProperty("efs") ? decoder.efs : false;
-    function getCompressedDataFromZip() {
-      if (!input || !(input instanceof Uint8Array)) {
-        return Buffer.alloc(0);
-      }
-      _extralocal = _centralHeader.loadLocalHeaderFromBinary(input);
-      return input.slice(_centralHeader.realDataOffset, _centralHeader.realDataOffset + _centralHeader.compressedSize);
-    }
-    function crc32OK(data) {
-      if (!_centralHeader.flags_desc) {
-        if (Utils.crc32(data) !== _centralHeader.localHeader.crc) {
-          return false;
-        }
-      } else {
-        const descriptor = {};
-        const dataEndOffset = _centralHeader.realDataOffset + _centralHeader.compressedSize;
-        if (input.readUInt32LE(dataEndOffset) == Constants.LOCSIG || input.readUInt32LE(dataEndOffset) == Constants.CENSIG) {
-          throw Utils.Errors.DESCRIPTOR_NOT_EXIST();
-        }
-        if (input.readUInt32LE(dataEndOffset) == Constants.EXTSIG) {
-          descriptor.crc = input.readUInt32LE(dataEndOffset + Constants.EXTCRC);
-          descriptor.compressedSize = input.readUInt32LE(dataEndOffset + Constants.EXTSIZ);
-          descriptor.size = input.readUInt32LE(dataEndOffset + Constants.EXTLEN);
-        } else if (input.readUInt16LE(dataEndOffset + 12) === 19280) {
-          descriptor.crc = input.readUInt32LE(dataEndOffset + Constants.EXTCRC - 4);
-          descriptor.compressedSize = input.readUInt32LE(dataEndOffset + Constants.EXTSIZ - 4);
-          descriptor.size = input.readUInt32LE(dataEndOffset + Constants.EXTLEN - 4);
-        } else {
-          throw Utils.Errors.DESCRIPTOR_UNKNOWN();
-        }
-        if (descriptor.compressedSize !== _centralHeader.compressedSize || descriptor.size !== _centralHeader.size || descriptor.crc !== _centralHeader.crc) {
-          throw Utils.Errors.DESCRIPTOR_FAULTY();
-        }
-        if (Utils.crc32(data) !== descriptor.crc) {
-          return false;
-        }
-      }
-      return true;
-    }
-    function decompress(async, callback, pass) {
-      if (typeof callback === "undefined" && typeof async === "string") {
-        pass = async;
-        async = void 0;
-      }
-      if (_isDirectory) {
-        if (async && callback) {
-          callback(Buffer.alloc(0), Utils.Errors.DIRECTORY_CONTENT_ERROR());
-        }
-        return Buffer.alloc(0);
-      }
-      var compressedData = getCompressedDataFromZip();
-      if (compressedData.length === 0) {
-        if (async && callback)
-          callback(compressedData);
-        return compressedData;
-      }
-      if (_centralHeader.encrypted) {
-        if (typeof pass !== "string" && !Buffer.isBuffer(pass)) {
-          throw Utils.Errors.INVALID_PASS_PARAM();
-        }
-        compressedData = Methods.ZipCrypto.decrypt(compressedData, _centralHeader, pass);
-      }
-      var data = Buffer.alloc(_centralHeader.size);
-      switch (_centralHeader.method) {
-        case Utils.Constants.STORED:
-          compressedData.copy(data);
-          if (!crc32OK(data)) {
-            if (async && callback)
-              callback(data, Utils.Errors.BAD_CRC());
-            throw Utils.Errors.BAD_CRC();
-          } else {
-            if (async && callback)
-              callback(data);
-            return data;
-          }
-        case Utils.Constants.DEFLATED:
-          var inflater = new Methods.Inflater(compressedData, _centralHeader.size);
-          if (!async) {
-            const result = inflater.inflate(data);
-            result.copy(data, 0);
-            if (!crc32OK(data)) {
-              throw Utils.Errors.BAD_CRC(`"${decoder.decode(_entryName)}"`);
-            }
-            return data;
-          } else {
-            inflater.inflateAsync(function(result) {
-              result.copy(result, 0);
-              if (callback) {
-                if (!crc32OK(result)) {
-                  callback(result, Utils.Errors.BAD_CRC());
-                } else {
-                  callback(result);
-                }
-              }
-            });
-          }
-          break;
-        default:
-          if (async && callback)
-            callback(Buffer.alloc(0), Utils.Errors.UNKNOWN_METHOD());
-          throw Utils.Errors.UNKNOWN_METHOD();
-      }
-    }
-    function compress(async, callback) {
-      if ((!uncompressedData || !uncompressedData.length) && Buffer.isBuffer(input)) {
-        if (async && callback)
-          callback(getCompressedDataFromZip());
-        return getCompressedDataFromZip();
-      }
-      if (uncompressedData.length && !_isDirectory) {
-        var compressedData;
-        switch (_centralHeader.method) {
-          case Utils.Constants.STORED:
-            _centralHeader.compressedSize = _centralHeader.size;
-            compressedData = Buffer.alloc(uncompressedData.length);
-            uncompressedData.copy(compressedData);
-            if (async && callback)
-              callback(compressedData);
-            return compressedData;
-          default:
-          case Utils.Constants.DEFLATED:
-            var deflater = new Methods.Deflater(uncompressedData);
-            if (!async) {
-              var deflated = deflater.deflate();
-              _centralHeader.compressedSize = deflated.length;
-              return deflated;
-            } else {
-              deflater.deflateAsync(function(data) {
-                compressedData = Buffer.alloc(data.length);
-                _centralHeader.compressedSize = data.length;
-                data.copy(compressedData);
-                callback && callback(compressedData);
-              });
-            }
-            deflater = null;
-            break;
-        }
-      } else if (async && callback) {
-        callback(Buffer.alloc(0));
-      } else {
-        return Buffer.alloc(0);
-      }
-    }
-    function readUInt64LE(buffer, offset) {
-      return (buffer.readUInt32LE(offset + 4) << 4) + buffer.readUInt32LE(offset);
-    }
-    function parseExtra(data) {
-      try {
-        var offset = 0;
-        var signature, size, part;
-        while (offset + 4 < data.length) {
-          signature = data.readUInt16LE(offset);
-          offset += 2;
-          size = data.readUInt16LE(offset);
-          offset += 2;
-          part = data.slice(offset, offset + size);
-          offset += size;
-          if (Constants.ID_ZIP64 === signature) {
-            parseZip64ExtendedInformation(part);
-          }
-        }
-      } catch (error) {
-        throw Utils.Errors.EXTRA_FIELD_PARSE_ERROR();
-      }
-    }
-    function parseZip64ExtendedInformation(data) {
-      var size, compressedSize, offset, diskNumStart;
-      if (data.length >= Constants.EF_ZIP64_SCOMP) {
-        size = readUInt64LE(data, Constants.EF_ZIP64_SUNCOMP);
-        if (_centralHeader.size === Constants.EF_ZIP64_OR_32) {
-          _centralHeader.size = size;
-        }
-      }
-      if (data.length >= Constants.EF_ZIP64_RHO) {
-        compressedSize = readUInt64LE(data, Constants.EF_ZIP64_SCOMP);
-        if (_centralHeader.compressedSize === Constants.EF_ZIP64_OR_32) {
-          _centralHeader.compressedSize = compressedSize;
-        }
-      }
-      if (data.length >= Constants.EF_ZIP64_DSN) {
-        offset = readUInt64LE(data, Constants.EF_ZIP64_RHO);
-        if (_centralHeader.offset === Constants.EF_ZIP64_OR_32) {
-          _centralHeader.offset = offset;
-        }
-      }
-      if (data.length >= Constants.EF_ZIP64_DSN + 4) {
-        diskNumStart = data.readUInt32LE(Constants.EF_ZIP64_DSN);
-        if (_centralHeader.diskNumStart === Constants.EF_ZIP64_OR_16) {
-          _centralHeader.diskNumStart = diskNumStart;
-        }
-      }
-    }
-    return {
-      get entryName() {
-        return decoder.decode(_entryName);
-      },
-      get rawEntryName() {
-        return _entryName;
-      },
-      set entryName(val) {
-        _entryName = Utils.toBuffer(val, decoder.encode);
-        var lastChar = _entryName[_entryName.length - 1];
-        _isDirectory = lastChar === 47 || lastChar === 92;
-        _centralHeader.fileNameLength = _entryName.length;
-      },
-      get efs() {
-        if (typeof _efs === "function") {
-          return _efs(this.entryName);
-        } else {
-          return _efs;
-        }
-      },
-      get extra() {
-        return _extra;
-      },
-      set extra(val) {
-        _extra = val;
-        _centralHeader.extraLength = val.length;
-        parseExtra(val);
-      },
-      get comment() {
-        return decoder.decode(_comment);
-      },
-      set comment(val) {
-        _comment = Utils.toBuffer(val, decoder.encode);
-        _centralHeader.commentLength = _comment.length;
-        if (_comment.length > 65535)
-          throw Utils.Errors.COMMENT_TOO_LONG();
-      },
-      get name() {
-        var n = decoder.decode(_entryName);
-        return _isDirectory ? n.substr(n.length - 1).split("/").pop() : n.split("/").pop();
-      },
-      get isDirectory() {
-        return _isDirectory;
-      },
-      getCompressedData: function() {
-        return compress(false, null);
-      },
-      getCompressedDataAsync: function(callback) {
-        compress(true, callback);
-      },
-      setData: function(value) {
-        uncompressedData = Utils.toBuffer(value, Utils.decoder.encode);
-        if (!_isDirectory && uncompressedData.length) {
-          _centralHeader.size = uncompressedData.length;
-          _centralHeader.method = Utils.Constants.DEFLATED;
-          _centralHeader.crc = Utils.crc32(value);
-          _centralHeader.changed = true;
-        } else {
-          _centralHeader.method = Utils.Constants.STORED;
-        }
-      },
-      getData: function(pass) {
-        if (_centralHeader.changed) {
-          return uncompressedData;
-        } else {
-          return decompress(false, null, pass);
-        }
-      },
-      getDataAsync: function(callback, pass) {
-        if (_centralHeader.changed) {
-          callback(uncompressedData);
-        } else {
-          decompress(true, callback, pass);
-        }
-      },
-      set attr(attr) {
-        _centralHeader.attr = attr;
-      },
-      get attr() {
-        return _centralHeader.attr;
-      },
-      set header(data) {
-        _centralHeader.loadFromBinary(data);
-      },
-      get header() {
-        return _centralHeader;
-      },
-      packCentralHeader: function() {
-        _centralHeader.flags_efs = this.efs;
-        _centralHeader.extraLength = _extra.length;
-        var header = _centralHeader.centralHeaderToBinary();
-        var addpos = Utils.Constants.CENHDR;
-        _entryName.copy(header, addpos);
-        addpos += _entryName.length;
-        _extra.copy(header, addpos);
-        addpos += _centralHeader.extraLength;
-        _comment.copy(header, addpos);
-        return header;
-      },
-      packLocalHeader: function() {
-        let addpos = 0;
-        _centralHeader.flags_efs = this.efs;
-        _centralHeader.extraLocalLength = _extralocal.length;
-        const localHeaderBuf = _centralHeader.localHeaderToBinary();
-        const localHeader = Buffer.alloc(localHeaderBuf.length + _entryName.length + _centralHeader.extraLocalLength);
-        localHeaderBuf.copy(localHeader, addpos);
-        addpos += localHeaderBuf.length;
-        _entryName.copy(localHeader, addpos);
-        addpos += _entryName.length;
-        _extralocal.copy(localHeader, addpos);
-        addpos += _extralocal.length;
-        return localHeader;
-      },
-      toJSON: function() {
-        const bytes = function(nr) {
-          return "<" + (nr && nr.length + " bytes buffer" || "null") + ">";
-        };
-        return {
-          entryName: this.entryName,
-          name: this.name,
-          comment: this.comment,
-          isDirectory: this.isDirectory,
-          header: _centralHeader.toJSON(),
-          compressedData: bytes(input),
-          data: bytes(uncompressedData)
-        };
-      },
-      toString: function() {
-        return JSON.stringify(this.toJSON(), null, "	");
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/zipFile.js
-var require_zipFile = __commonJS((exports2, module2) => {
-  var ZipEntry = require_zipEntry();
-  var Headers = require_headers();
-  var Utils = require_util();
-  module2.exports = function(inBuffer, options) {
-    var entryList = [], entryTable = {}, _comment = Buffer.alloc(0), mainHeader = new Headers.MainHeader(), loadedEntries = false;
-    var password = null;
-    const temporary = new Set();
-    const opts = options;
-    const {noSort, decoder} = opts;
-    if (inBuffer) {
-      readMainHeader(opts.readEntries);
-    } else {
-      loadedEntries = true;
-    }
-    function makeTemporaryFolders() {
-      const foldersList = new Set();
-      for (const elem of Object.keys(entryTable)) {
-        const elements = elem.split("/");
-        elements.pop();
-        if (!elements.length)
-          continue;
-        for (let i = 0; i < elements.length; i++) {
-          const sub = elements.slice(0, i + 1).join("/") + "/";
-          foldersList.add(sub);
-        }
-      }
-      for (const elem of foldersList) {
-        if (!(elem in entryTable)) {
-          const tempfolder = new ZipEntry(opts);
-          tempfolder.entryName = elem;
-          tempfolder.attr = 16;
-          tempfolder.temporary = true;
-          entryList.push(tempfolder);
-          entryTable[tempfolder.entryName] = tempfolder;
-          temporary.add(tempfolder);
-        }
-      }
-    }
-    function readEntries() {
-      loadedEntries = true;
-      entryTable = {};
-      if (mainHeader.diskEntries > (inBuffer.length - mainHeader.offset) / Utils.Constants.CENHDR) {
-        throw Utils.Errors.DISK_ENTRY_TOO_LARGE();
-      }
-      entryList = new Array(mainHeader.diskEntries);
-      var index = mainHeader.offset;
-      for (var i = 0; i < entryList.length; i++) {
-        var tmp = index, entry = new ZipEntry(opts, inBuffer);
-        entry.header = inBuffer.slice(tmp, tmp += Utils.Constants.CENHDR);
-        entry.entryName = inBuffer.slice(tmp, tmp += entry.header.fileNameLength);
-        if (entry.header.extraLength) {
-          entry.extra = inBuffer.slice(tmp, tmp += entry.header.extraLength);
-        }
-        if (entry.header.commentLength)
-          entry.comment = inBuffer.slice(tmp, tmp + entry.header.commentLength);
-        index += entry.header.centralHeaderSize;
-        entryList[i] = entry;
-        entryTable[entry.entryName] = entry;
-      }
-      temporary.clear();
-      makeTemporaryFolders();
-    }
-    function readMainHeader(readNow) {
-      var i = inBuffer.length - Utils.Constants.ENDHDR, max = Math.max(0, i - 65535), n = max, endStart = inBuffer.length, endOffset = -1, commentEnd = 0;
-      const trailingSpace = typeof opts.trailingSpace === "boolean" ? opts.trailingSpace : false;
-      if (trailingSpace)
-        max = 0;
-      for (i; i >= n; i--) {
-        if (inBuffer[i] !== 80)
-          continue;
-        if (inBuffer.readUInt32LE(i) === Utils.Constants.ENDSIG) {
-          endOffset = i;
-          commentEnd = i;
-          endStart = i + Utils.Constants.ENDHDR;
-          n = i - Utils.Constants.END64HDR;
-          continue;
-        }
-        if (inBuffer.readUInt32LE(i) === Utils.Constants.END64SIG) {
-          n = max;
-          continue;
-        }
-        if (inBuffer.readUInt32LE(i) === Utils.Constants.ZIP64SIG) {
-          endOffset = i;
-          endStart = i + Utils.readBigUInt64LE(inBuffer, i + Utils.Constants.ZIP64SIZE) + Utils.Constants.ZIP64LEAD;
-          break;
-        }
-      }
-      if (endOffset == -1)
-        throw Utils.Errors.INVALID_FORMAT();
-      mainHeader.loadFromBinary(inBuffer.slice(endOffset, endStart));
-      if (mainHeader.commentLength) {
-        _comment = inBuffer.slice(commentEnd + Utils.Constants.ENDHDR);
-      }
-      if (readNow)
-        readEntries();
-    }
-    function sortEntries() {
-      if (entryList.length > 1 && !noSort) {
-        entryList.sort((a, b) => a.entryName.toLowerCase().localeCompare(b.entryName.toLowerCase()));
-      }
-    }
-    return {
-      get entries() {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        return entryList.filter((e) => !temporary.has(e));
-      },
-      get comment() {
-        return decoder.decode(_comment);
-      },
-      set comment(val) {
-        _comment = Utils.toBuffer(val, decoder.encode);
-        mainHeader.commentLength = _comment.length;
-      },
-      getEntryCount: function() {
-        if (!loadedEntries) {
-          return mainHeader.diskEntries;
-        }
-        return entryList.length;
-      },
-      forEach: function(callback) {
-        this.entries.forEach(callback);
-      },
-      getEntry: function(entryName) {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        return entryTable[entryName] || null;
-      },
-      setEntry: function(entry) {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        entryList.push(entry);
-        entryTable[entry.entryName] = entry;
-        mainHeader.totalEntries = entryList.length;
-      },
-      deleteFile: function(entryName, withsubfolders = true) {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        const entry = entryTable[entryName];
-        const list = this.getEntryChildren(entry, withsubfolders).map((child) => child.entryName);
-        list.forEach(this.deleteEntry);
-      },
-      deleteEntry: function(entryName) {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        const entry = entryTable[entryName];
-        const index = entryList.indexOf(entry);
-        if (index >= 0) {
-          entryList.splice(index, 1);
-          delete entryTable[entryName];
-          mainHeader.totalEntries = entryList.length;
-        }
-      },
-      getEntryChildren: function(entry, subfolders = true) {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        if (typeof entry === "object") {
-          if (entry.isDirectory && subfolders) {
-            const list = [];
-            const name = entry.entryName;
-            for (const zipEntry of entryList) {
-              if (zipEntry.entryName.startsWith(name)) {
-                list.push(zipEntry);
-              }
-            }
-            return list;
-          } else {
-            return [entry];
-          }
-        }
-        return [];
-      },
-      getChildCount: function(entry) {
-        if (entry && entry.isDirectory) {
-          const list = this.getEntryChildren(entry);
-          return list.includes(entry) ? list.length - 1 : list.length;
-        }
-        return 0;
-      },
-      compressToBuffer: function() {
-        if (!loadedEntries) {
-          readEntries();
-        }
-        sortEntries();
-        const dataBlock = [];
-        const headerBlocks = [];
-        let totalSize = 0;
-        let dindex = 0;
-        mainHeader.size = 0;
-        mainHeader.offset = 0;
-        let totalEntries = 0;
-        for (const entry of this.entries) {
-          const compressedData = entry.getCompressedData();
-          entry.header.offset = dindex;
-          const localHeader = entry.packLocalHeader();
-          const dataLength = localHeader.length + compressedData.length;
-          dindex += dataLength;
-          dataBlock.push(localHeader);
-          dataBlock.push(compressedData);
-          const centralHeader = entry.packCentralHeader();
-          headerBlocks.push(centralHeader);
-          mainHeader.size += centralHeader.length;
-          totalSize += dataLength + centralHeader.length;
-          totalEntries++;
-        }
-        totalSize += mainHeader.mainHeaderSize;
-        mainHeader.offset = dindex;
-        mainHeader.totalEntries = totalEntries;
-        dindex = 0;
-        const outBuffer = Buffer.alloc(totalSize);
-        for (const content3 of dataBlock) {
-          content3.copy(outBuffer, dindex);
-          dindex += content3.length;
-        }
-        for (const content3 of headerBlocks) {
-          content3.copy(outBuffer, dindex);
-          dindex += content3.length;
-        }
-        const mh = mainHeader.toBinary();
-        if (_comment) {
-          _comment.copy(mh, Utils.Constants.ENDHDR);
-        }
-        mh.copy(outBuffer, dindex);
-        inBuffer = outBuffer;
-        loadedEntries = false;
-        return outBuffer;
-      },
-      toAsyncBuffer: function(onSuccess, onFail, onItemStart, onItemEnd) {
-        try {
-          if (!loadedEntries) {
-            readEntries();
-          }
-          sortEntries();
-          const dataBlock = [];
-          const centralHeaders = [];
-          let totalSize = 0;
-          let dindex = 0;
-          let totalEntries = 0;
-          mainHeader.size = 0;
-          mainHeader.offset = 0;
-          const compress2Buffer = function(entryLists) {
-            if (entryLists.length > 0) {
-              const entry = entryLists.shift();
-              const name = entry.entryName + entry.extra.toString();
-              if (onItemStart)
-                onItemStart(name);
-              entry.getCompressedDataAsync(function(compressedData) {
-                if (onItemEnd)
-                  onItemEnd(name);
-                entry.header.offset = dindex;
-                const localHeader = entry.packLocalHeader();
-                const dataLength = localHeader.length + compressedData.length;
-                dindex += dataLength;
-                dataBlock.push(localHeader);
-                dataBlock.push(compressedData);
-                const centalHeader = entry.packCentralHeader();
-                centralHeaders.push(centalHeader);
-                mainHeader.size += centalHeader.length;
-                totalSize += dataLength + centalHeader.length;
-                totalEntries++;
-                compress2Buffer(entryLists);
-              });
-            } else {
-              totalSize += mainHeader.mainHeaderSize;
-              mainHeader.offset = dindex;
-              mainHeader.totalEntries = totalEntries;
-              dindex = 0;
-              const outBuffer = Buffer.alloc(totalSize);
-              dataBlock.forEach(function(content3) {
-                content3.copy(outBuffer, dindex);
-                dindex += content3.length;
-              });
-              centralHeaders.forEach(function(content3) {
-                content3.copy(outBuffer, dindex);
-                dindex += content3.length;
-              });
-              const mh = mainHeader.toBinary();
-              if (_comment) {
-                _comment.copy(mh, Utils.Constants.ENDHDR);
-              }
-              mh.copy(outBuffer, dindex);
-              inBuffer = outBuffer;
-              loadedEntries = false;
-              onSuccess(outBuffer);
-            }
-          };
-          compress2Buffer(Array.from(this.entries));
-        } catch (e) {
-          onFail(e);
-        }
-      }
-    };
-  };
-});
-
-// node_modules/adm-zip/adm-zip.js
-var require_adm_zip = __commonJS((exports2, module2) => {
-  var Utils = require_util();
-  var pth = require("path");
-  var ZipEntry = require_zipEntry();
-  var ZipFile = require_zipFile();
-  var get_Bool = (...val) => Utils.findLast(val, (c) => typeof c === "boolean");
-  var get_Str = (...val) => Utils.findLast(val, (c) => typeof c === "string");
-  var get_Fun = (...val) => Utils.findLast(val, (c) => typeof c === "function");
-  var defaultOptions = {
-    noSort: false,
-    readEntries: false,
-    method: Utils.Constants.NONE,
-    fs: null
-  };
-  module2.exports = function(input, options) {
-    let inBuffer = null;
-    const opts = Object.assign(Object.create(null), defaultOptions);
-    if (input && typeof input === "object") {
-      if (!(input instanceof Uint8Array)) {
-        Object.assign(opts, input);
-        input = opts.input ? opts.input : void 0;
-        if (opts.input)
-          delete opts.input;
-      }
-      if (Buffer.isBuffer(input)) {
-        inBuffer = input;
-        opts.method = Utils.Constants.BUFFER;
-        input = void 0;
-      }
-    }
-    Object.assign(opts, options);
-    const filetools = new Utils(opts);
-    if (typeof opts.decoder !== "object" || typeof opts.decoder.encode !== "function" || typeof opts.decoder.decode !== "function") {
-      opts.decoder = Utils.decoder;
-    }
-    if (input && typeof input === "string") {
-      if (filetools.fs.existsSync(input)) {
-        opts.method = Utils.Constants.FILE;
-        opts.filename = input;
-        inBuffer = filetools.fs.readFileSync(input);
-      } else {
-        throw Utils.Errors.INVALID_FILENAME();
-      }
-    }
-    const _zip = new ZipFile(inBuffer, opts);
-    const {canonical, sanitize, zipnamefix} = Utils;
-    function getEntry(entry) {
-      if (entry && _zip) {
-        var item;
-        if (typeof entry === "string")
-          item = _zip.getEntry(pth.posix.normalize(entry));
-        if (typeof entry === "object" && typeof entry.entryName !== "undefined" && typeof entry.header !== "undefined")
-          item = _zip.getEntry(entry.entryName);
-        if (item) {
-          return item;
-        }
-      }
-      return null;
-    }
-    function fixPath(zipPath) {
-      const {join, normalize: normalize2, sep} = pth.posix;
-      return join(".", normalize2(sep + zipPath.split("\\").join(sep) + sep));
-    }
-    function filenameFilter(filterfn) {
-      if (filterfn instanceof RegExp) {
-        return function(rx) {
-          return function(filename) {
-            return rx.test(filename);
-          };
-        }(filterfn);
-      } else if (typeof filterfn !== "function") {
-        return () => true;
-      }
-      return filterfn;
-    }
-    const relativePath = (local, entry) => {
-      let lastChar = entry.slice(-1);
-      lastChar = lastChar === filetools.sep ? filetools.sep : "";
-      return pth.relative(local, entry) + lastChar;
-    };
-    return {
-      readFile: function(entry, pass) {
-        var item = getEntry(entry);
-        return item && item.getData(pass) || null;
-      },
-      childCount: function(entry) {
-        const item = getEntry(entry);
-        if (item) {
-          return _zip.getChildCount(item);
-        }
-      },
-      readFileAsync: function(entry, callback) {
-        var item = getEntry(entry);
-        if (item) {
-          item.getDataAsync(callback);
-        } else {
-          callback(null, "getEntry failed for:" + entry);
-        }
-      },
-      readAsText: function(entry, encoding) {
-        var item = getEntry(entry);
-        if (item) {
-          var data = item.getData();
-          if (data && data.length) {
-            return data.toString(encoding || "utf8");
-          }
-        }
-        return "";
-      },
-      readAsTextAsync: function(entry, callback, encoding) {
-        var item = getEntry(entry);
-        if (item) {
-          item.getDataAsync(function(data, err) {
-            if (err) {
-              callback(data, err);
-              return;
-            }
-            if (data && data.length) {
-              callback(data.toString(encoding || "utf8"));
-            } else {
-              callback("");
-            }
-          });
-        } else {
-          callback("");
-        }
-      },
-      deleteFile: function(entry, withsubfolders = true) {
-        var item = getEntry(entry);
-        if (item) {
-          _zip.deleteFile(item.entryName, withsubfolders);
-        }
-      },
-      deleteEntry: function(entry) {
-        var item = getEntry(entry);
-        if (item) {
-          _zip.deleteEntry(item.entryName);
-        }
-      },
-      addZipComment: function(comment) {
-        _zip.comment = comment;
-      },
-      getZipComment: function() {
-        return _zip.comment || "";
-      },
-      addZipEntryComment: function(entry, comment) {
-        var item = getEntry(entry);
-        if (item) {
-          item.comment = comment;
-        }
-      },
-      getZipEntryComment: function(entry) {
-        var item = getEntry(entry);
-        if (item) {
-          return item.comment || "";
-        }
-        return "";
-      },
-      updateFile: function(entry, content3) {
-        var item = getEntry(entry);
-        if (item) {
-          item.setData(content3);
-        }
-      },
-      addLocalFile: function(localPath2, zipPath, zipName, comment) {
-        if (filetools.fs.existsSync(localPath2)) {
-          zipPath = zipPath ? fixPath(zipPath) : "";
-          const p = pth.win32.basename(pth.win32.normalize(localPath2));
-          zipPath += zipName ? zipName : p;
-          const _attr = filetools.fs.statSync(localPath2);
-          const data = _attr.isFile() ? filetools.fs.readFileSync(localPath2) : Buffer.alloc(0);
-          if (_attr.isDirectory())
-            zipPath += filetools.sep;
-          this.addFile(zipPath, data, comment, _attr);
-        } else {
-          throw Utils.Errors.FILE_NOT_FOUND(localPath2);
-        }
-      },
-      addLocalFileAsync: function(options2, callback) {
-        options2 = typeof options2 === "object" ? options2 : {localPath: options2};
-        const localPath2 = pth.resolve(options2.localPath);
-        const {comment} = options2;
-        let {zipPath, zipName} = options2;
-        const self = this;
-        filetools.fs.stat(localPath2, function(err, stats) {
-          if (err)
-            return callback(err, false);
-          zipPath = zipPath ? fixPath(zipPath) : "";
-          const p = pth.win32.basename(pth.win32.normalize(localPath2));
-          zipPath += zipName ? zipName : p;
-          if (stats.isFile()) {
-            filetools.fs.readFile(localPath2, function(err2, data) {
-              if (err2)
-                return callback(err2, false);
-              self.addFile(zipPath, data, comment, stats);
-              return setImmediate(callback, void 0, true);
-            });
-          } else if (stats.isDirectory()) {
-            zipPath += filetools.sep;
-            self.addFile(zipPath, Buffer.alloc(0), comment, stats);
-            return setImmediate(callback, void 0, true);
-          }
-        });
-      },
-      addLocalFolder: function(localPath2, zipPath, filter) {
-        filter = filenameFilter(filter);
-        zipPath = zipPath ? fixPath(zipPath) : "";
-        localPath2 = pth.normalize(localPath2);
-        if (filetools.fs.existsSync(localPath2)) {
-          const items = filetools.findFiles(localPath2);
-          const self = this;
-          if (items.length) {
-            for (const filepath of items) {
-              const p = pth.join(zipPath, relativePath(localPath2, filepath));
-              if (filter(p)) {
-                self.addLocalFile(filepath, pth.dirname(p));
-              }
-            }
-          }
-        } else {
-          throw Utils.Errors.FILE_NOT_FOUND(localPath2);
-        }
-      },
-      addLocalFolderAsync: function(localPath2, callback, zipPath, filter) {
-        filter = filenameFilter(filter);
-        zipPath = zipPath ? fixPath(zipPath) : "";
-        localPath2 = pth.normalize(localPath2);
-        var self = this;
-        filetools.fs.open(localPath2, "r", function(err) {
-          if (err && err.code === "ENOENT") {
-            callback(void 0, Utils.Errors.FILE_NOT_FOUND(localPath2));
-          } else if (err) {
-            callback(void 0, err);
-          } else {
-            var items = filetools.findFiles(localPath2);
-            var i = -1;
-            var next = function() {
-              i += 1;
-              if (i < items.length) {
-                var filepath = items[i];
-                var p = relativePath(localPath2, filepath).split("\\").join("/");
-                p = p.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\x20-\x7E]/g, "");
-                if (filter(p)) {
-                  filetools.fs.stat(filepath, function(er0, stats) {
-                    if (er0)
-                      callback(void 0, er0);
-                    if (stats.isFile()) {
-                      filetools.fs.readFile(filepath, function(er1, data) {
-                        if (er1) {
-                          callback(void 0, er1);
-                        } else {
-                          self.addFile(zipPath + p, data, "", stats);
-                          next();
-                        }
-                      });
-                    } else {
-                      self.addFile(zipPath + p + "/", Buffer.alloc(0), "", stats);
-                      next();
-                    }
-                  });
-                } else {
-                  process.nextTick(() => {
-                    next();
-                  });
-                }
-              } else {
-                callback(true, void 0);
-              }
-            };
-            next();
-          }
-        });
-      },
-      addLocalFolderAsync2: function(options2, callback) {
-        const self = this;
-        options2 = typeof options2 === "object" ? options2 : {localPath: options2};
-        localPath = pth.resolve(fixPath(options2.localPath));
-        let {zipPath, filter, namefix} = options2;
-        if (filter instanceof RegExp) {
-          filter = function(rx) {
-            return function(filename) {
-              return rx.test(filename);
-            };
-          }(filter);
-        } else if (typeof filter !== "function") {
-          filter = function() {
-            return true;
-          };
-        }
-        zipPath = zipPath ? fixPath(zipPath) : "";
-        if (namefix == "latin1") {
-          namefix = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\x20-\x7E]/g, "");
-        }
-        if (typeof namefix !== "function")
-          namefix = (str) => str;
-        const relPathFix = (entry) => pth.join(zipPath, namefix(relativePath(localPath, entry)));
-        const fileNameFix = (entry) => pth.win32.basename(pth.win32.normalize(namefix(entry)));
-        filetools.fs.open(localPath, "r", function(err) {
-          if (err && err.code === "ENOENT") {
-            callback(void 0, Utils.Errors.FILE_NOT_FOUND(localPath));
-          } else if (err) {
-            callback(void 0, err);
-          } else {
-            filetools.findFilesAsync(localPath, function(err2, fileEntries) {
-              if (err2)
-                return callback(err2);
-              fileEntries = fileEntries.filter((dir) => filter(relPathFix(dir)));
-              if (!fileEntries.length)
-                callback(void 0, false);
-              setImmediate(fileEntries.reverse().reduce(function(next, entry) {
-                return function(err3, done) {
-                  if (err3 || done === false)
-                    return setImmediate(next, err3, false);
-                  self.addLocalFileAsync({
-                    localPath: entry,
-                    zipPath: pth.dirname(relPathFix(entry)),
-                    zipName: fileNameFix(entry)
-                  }, next);
-                };
-              }, callback));
-            });
-          }
-        });
-      },
-      addLocalFolderPromise: function(localPath2, props) {
-        return new Promise((resolve, reject) => {
-          this.addLocalFolderAsync2(Object.assign({localPath: localPath2}, props), (err, done) => {
-            if (err)
-              reject(err);
-            if (done)
-              resolve(this);
-          });
-        });
-      },
-      addFile: function(entryName, content3, comment, attr) {
-        entryName = zipnamefix(entryName);
-        let entry = getEntry(entryName);
-        const update = entry != null;
-        if (!update) {
-          entry = new ZipEntry(opts);
-          entry.entryName = entryName;
-        }
-        entry.comment = comment || "";
-        const isStat = typeof attr === "object" && attr instanceof filetools.fs.Stats;
-        if (isStat) {
-          entry.header.time = attr.mtime;
-        }
-        var fileattr = entry.isDirectory ? 16 : 0;
-        let unix = entry.isDirectory ? 16384 : 32768;
-        if (isStat) {
-          unix |= 4095 & attr.mode;
-        } else if (typeof attr === "number") {
-          unix |= 4095 & attr;
-        } else {
-          unix |= entry.isDirectory ? 493 : 420;
-        }
-        fileattr = (fileattr | unix << 16) >>> 0;
-        entry.attr = fileattr;
-        entry.setData(content3);
-        if (!update)
-          _zip.setEntry(entry);
-        return entry;
-      },
-      getEntries: function(password) {
-        _zip.password = password;
-        return _zip ? _zip.entries : [];
-      },
-      getEntry: function(name) {
-        return getEntry(name);
-      },
-      getEntryCount: function() {
-        return _zip.getEntryCount();
-      },
-      forEach: function(callback) {
-        return _zip.forEach(callback);
-      },
-      extractEntryTo: function(entry, targetPath, maintainEntryPath, overwrite, keepOriginalPermission, outFileName) {
-        overwrite = get_Bool(false, overwrite);
-        keepOriginalPermission = get_Bool(false, keepOriginalPermission);
-        maintainEntryPath = get_Bool(true, maintainEntryPath);
-        outFileName = get_Str(keepOriginalPermission, outFileName);
-        var item = getEntry(entry);
-        if (!item) {
-          throw Utils.Errors.NO_ENTRY();
-        }
-        var entryName = canonical(item.entryName);
-        var target = sanitize(targetPath, outFileName && !item.isDirectory ? outFileName : maintainEntryPath ? entryName : pth.basename(entryName));
-        if (item.isDirectory) {
-          var children2 = _zip.getEntryChildren(item);
-          children2.forEach(function(child) {
-            if (child.isDirectory)
-              return;
-            var content4 = child.getData();
-            if (!content4) {
-              throw Utils.Errors.CANT_EXTRACT_FILE();
-            }
-            var name = canonical(child.entryName);
-            var childName = sanitize(targetPath, maintainEntryPath ? name : pth.basename(name));
-            const fileAttr2 = keepOriginalPermission ? child.header.fileAttr : void 0;
-            filetools.writeFileTo(childName, content4, overwrite, fileAttr2);
-          });
-          return true;
-        }
-        var content3 = item.getData(_zip.password);
-        if (!content3)
-          throw Utils.Errors.CANT_EXTRACT_FILE();
-        if (filetools.fs.existsSync(target) && !overwrite) {
-          throw Utils.Errors.CANT_OVERRIDE();
-        }
-        const fileAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
-        filetools.writeFileTo(target, content3, overwrite, fileAttr);
-        return true;
-      },
-      test: function(pass) {
-        if (!_zip) {
-          return false;
-        }
-        for (var entry in _zip.entries) {
-          try {
-            if (entry.isDirectory) {
-              continue;
-            }
-            var content3 = _zip.entries[entry].getData(pass);
-            if (!content3) {
-              return false;
-            }
-          } catch (err) {
-            return false;
-          }
-        }
-        return true;
-      },
-      extractAllTo: function(targetPath, overwrite, keepOriginalPermission, pass) {
-        keepOriginalPermission = get_Bool(false, keepOriginalPermission);
-        pass = get_Str(keepOriginalPermission, pass);
-        overwrite = get_Bool(false, overwrite);
-        if (!_zip)
-          throw Utils.Errors.NO_ZIP();
-        _zip.entries.forEach(function(entry) {
-          var entryName = sanitize(targetPath, canonical(entry.entryName));
-          if (entry.isDirectory) {
-            filetools.makeDir(entryName);
-            return;
-          }
-          var content3 = entry.getData(pass);
-          if (!content3) {
-            throw Utils.Errors.CANT_EXTRACT_FILE();
-          }
-          const fileAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
-          filetools.writeFileTo(entryName, content3, overwrite, fileAttr);
-          try {
-            filetools.fs.utimesSync(entryName, entry.header.time, entry.header.time);
-          } catch (err) {
-            throw Utils.Errors.CANT_EXTRACT_FILE();
-          }
-        });
-      },
-      extractAllToAsync: function(targetPath, overwrite, keepOriginalPermission, callback) {
-        callback = get_Fun(overwrite, keepOriginalPermission, callback);
-        keepOriginalPermission = get_Bool(false, keepOriginalPermission);
-        overwrite = get_Bool(false, overwrite);
-        if (!callback) {
-          return new Promise((resolve, reject) => {
-            this.extractAllToAsync(targetPath, overwrite, keepOriginalPermission, function(err) {
-              if (err) {
-                reject(err);
-              } else {
-                resolve(this);
-              }
-            });
-          });
-        }
-        if (!_zip) {
-          callback(Utils.Errors.NO_ZIP());
-          return;
-        }
-        targetPath = pth.resolve(targetPath);
-        const getPath = (entry) => sanitize(targetPath, pth.normalize(canonical(entry.entryName)));
-        const getError = (msg, file) => new Error(msg + ': "' + file + '"');
-        const dirEntries = [];
-        const fileEntries = [];
-        _zip.entries.forEach((e) => {
-          if (e.isDirectory) {
-            dirEntries.push(e);
-          } else {
-            fileEntries.push(e);
-          }
-        });
-        for (const entry of dirEntries) {
-          const dirPath = getPath(entry);
-          const dirAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
-          try {
-            filetools.makeDir(dirPath);
-            if (dirAttr)
-              filetools.fs.chmodSync(dirPath, dirAttr);
-            filetools.fs.utimesSync(dirPath, entry.header.time, entry.header.time);
-          } catch (er) {
-            callback(getError("Unable to create folder", dirPath));
-          }
-        }
-        fileEntries.reverse().reduce(function(next, entry) {
-          return function(err) {
-            if (err) {
-              next(err);
-            } else {
-              const entryName = pth.normalize(canonical(entry.entryName));
-              const filePath = sanitize(targetPath, entryName);
-              entry.getDataAsync(function(content3, err_1) {
-                if (err_1) {
-                  next(err_1);
-                } else if (!content3) {
-                  next(Utils.Errors.CANT_EXTRACT_FILE());
-                } else {
-                  const fileAttr = keepOriginalPermission ? entry.header.fileAttr : void 0;
-                  filetools.writeFileToAsync(filePath, content3, overwrite, fileAttr, function(succ) {
-                    if (!succ) {
-                      next(getError("Unable to write file", filePath));
-                    }
-                    filetools.fs.utimes(filePath, entry.header.time, entry.header.time, function(err_2) {
-                      if (err_2) {
-                        next(getError("Unable to set times", filePath));
-                      } else {
-                        next();
-                      }
-                    });
-                  });
-                }
-              });
-            }
-          };
-        }, callback)();
-      },
-      writeZip: function(targetFileName, callback) {
-        if (arguments.length === 1) {
-          if (typeof targetFileName === "function") {
-            callback = targetFileName;
-            targetFileName = "";
-          }
-        }
-        if (!targetFileName && opts.filename) {
-          targetFileName = opts.filename;
-        }
-        if (!targetFileName)
-          return;
-        var zipData = _zip.compressToBuffer();
-        if (zipData) {
-          var ok = filetools.writeFileTo(targetFileName, zipData, true);
-          if (typeof callback === "function")
-            callback(!ok ? new Error("failed") : null, "");
-        }
-      },
-      writeZipPromise: function(targetFileName, props) {
-        const {overwrite, perm} = Object.assign({overwrite: true}, props);
-        return new Promise((resolve, reject) => {
-          if (!targetFileName && opts.filename)
-            targetFileName = opts.filename;
-          if (!targetFileName)
-            reject("ADM-ZIP: ZIP File Name Missing");
-          this.toBufferPromise().then((zipData) => {
-            const ret = (done) => done ? resolve(done) : reject("ADM-ZIP: Wasn't able to write zip file");
-            filetools.writeFileToAsync(targetFileName, zipData, overwrite, perm, ret);
-          }, reject);
-        });
-      },
-      toBufferPromise: function() {
-        return new Promise((resolve, reject) => {
-          _zip.toAsyncBuffer(resolve, reject);
-        });
-      },
-      toBuffer: function(onSuccess, onFail, onItemStart, onItemEnd) {
-        if (typeof onSuccess === "function") {
-          _zip.toAsyncBuffer(onSuccess, onFail, onItemStart, onItemEnd);
-          return null;
-        }
-        return _zip.compressToBuffer();
-      }
-    };
-  };
 });
 
 // node_modules/ms/index.js
@@ -37591,14 +37591,896 @@ __markAsModule(exports);
 __export(exports, {
   default: () => main_default
 });
-var import_obsidian6 = __toModule(require("obsidian"));
+var import_adm_zip = __toModule(require_adm_zip());
+var import_fs_jetpack7 = __toModule(require_main());
+var import_i18next2 = __toModule(require_i18next());
+var import_obsidian8 = __toModule(require("obsidian"));
+var path7 = __toModule(require("path"));
+
+// src/core/parser/EpubParser.ts
+var import_extract_zip = __toModule(require_extract_zip());
+var import_fs_jetpack3 = __toModule(require_main());
+var path4 = __toModule(require("path"));
+var xml2js = __toModule(require_xml2js());
+
+// src/core/parser/types.ts
+var Section = class {
+  constructor(name, url) {
+    this.name = name;
+    this.url = url;
+    const [urlPath, urlHref] = url.split("#");
+    this.urlPath = urlPath;
+    this.urlHref = urlHref ?? "";
+    this.html = "";
+  }
+};
+var Chapter = class {
+  constructor(name, url, subItems = new Array(), level = 0, parent = null) {
+    this.level = 0;
+    this.parent = null;
+    this.sections = [new Section(name, url)];
+    this.subItems = subItems;
+    this.level = level;
+    this.parent = parent;
+  }
+  get name() {
+    return this.sections[0].name ?? "";
+  }
+};
+
+// src/core/parser/OPFParser.ts
+var path = __toModule(require("path"));
+
+// src/core/parser/utils.ts
+var findProperty = (obj, propertyNames) => {
+  const names = [propertyNames].flat();
+  const search = (value) => {
+    if (!value || typeof value !== "object")
+      return null;
+    for (const [key, val] of Object.entries(value)) {
+      if (names.includes(key) || names.some((name) => key.split(":")[1] === name)) {
+        if (val)
+          return val;
+      }
+    }
+    return Object.values(value).map((item) => search(item)).find((result) => result !== null) ?? null;
+  };
+  return search(obj);
+};
+
+// src/core/parser/OPFParser.ts
+var OPFParser = class {
+  constructor(filePath, content3) {
+    this.filePath = filePath;
+    this.content = content3;
+    this.getBasePath = (href) => path.posix.join(path.dirname(this.filePath), href);
+  }
+  getHtmlFiles() {
+    const items = findProperty(this.content, "manifest")?.[0]?.item ?? [];
+    return items.filter((item) => /\.(htm|html|xhtml)$/i.test(item.$.href)).map((item) => this.getBasePath(item.$.href));
+  }
+  getCoverPath() {
+    const items = findProperty(this.content, "manifest")?.[0]?.item ?? [];
+    const cover = items.find((item) => /cover/i.test(item.$.id) && /\.(png|jpe?g)$/i.test(item.$.href));
+    return cover ? this.getBasePath(cover.$.href) : null;
+  }
+  getMeta() {
+    const meta = findProperty(this.content, "metadata")?.[0] ?? {};
+    const wrapQuotes = (value) => value ? `"${value}"` : "";
+    return {
+      title: wrapQuotes(meta["dc:title"]?.[0]),
+      publisher: wrapQuotes(meta["dc:publisher"]?.[0]),
+      language: wrapQuotes(meta["dc:language"]?.[0]),
+      author: wrapQuotes(meta["dc:creator"]?.[0]?.["_"] ?? "")
+    };
+  }
+};
+
+// src/core/parser/NCXParser.ts
+var path2 = __toModule(require("path"));
+var import_fs_jetpack = __toModule(require_main());
+var NCXParser = class {
+  constructor(filePath, content3) {
+    this.filePath = filePath;
+    this.content = content3;
+  }
+  getToc() {
+    const navPoints = findProperty(this.content, ["navPoint", "navpoint"]);
+    return navPoints.map((pt) => this.parseNavPoint(pt, 0)).filter(Boolean);
+  }
+  parseNavPoint(navPoint, level) {
+    const title = this.getTitle(navPoint);
+    if (!title)
+      return null;
+    const filePath = this.resolveFilePath(navPoint);
+    const subItems = (navPoint.navPoint || []).map((pt) => this.parseNavPoint(pt, level + 1)).filter(Boolean);
+    const chapter = new Chapter(title, filePath, subItems, level);
+    subItems.forEach((sub) => sub.parent = chapter);
+    return chapter;
+  }
+  getTitle(navPoint) {
+    return navPoint.navLabel?.[0]?.text?.[0] || (() => {
+      const filePath = this.resolveFilePath(navPoint);
+      const html = import_fs_jetpack.default.read(filePath);
+      return new DOMParser().parseFromString(html, "text/html").title || path2.basename(filePath, path2.extname(filePath)) || "";
+    })();
+  }
+  resolveFilePath(navPoint) {
+    const src = findProperty(navPoint, "content")[0].$["src"].replace(/%20/g, " ");
+    return path2.posix.join(path2.dirname(this.filePath), src);
+  }
+};
+
+// src/core/parser/ContentSplitter.ts
+var import_fs_jetpack2 = __toModule(require_main());
+var path3 = __toModule(require("path"));
+var ContentSplitter = class {
+  constructor(sections) {
+    this.sections = sections;
+  }
+  async extractSectionContent() {
+    const uniqueUrls = [...new Set(this.sections.map((s) => s.urlPath))];
+    await Promise.all(uniqueUrls.map(async (url) => {
+      const file = await this.readHtmlFile(url);
+      return file.hrefs.length <= 1 ? this.assignHtml(file.url, file.html) : this.splitContentByAnchors(file);
+    }));
+  }
+  async readHtmlFile(url) {
+    const file = this.buildFileMetadata(url);
+    try {
+      return {...file, html: await import_fs_jetpack2.default.readAsync(url) ?? ""};
+    } catch (error) {
+      this.logFileReadError(url);
+      return file;
+    }
+  }
+  buildFileMetadata(url) {
+    const relevantSections = this.sections.filter((s) => s.urlPath === url);
+    return {
+      url,
+      names: relevantSections.map((s) => s.name && path3.basename(s.name)),
+      hrefs: relevantSections.map((s) => s.urlHref),
+      html: ""
+    };
+  }
+  logFileReadError(url) {
+    console.warn(`Error reading file at ${url}
+This might be due to invalid paths or minor epub navigation issues. Such errors typically don't affect the book's content.`);
+  }
+  splitContentByAnchors(file) {
+    const doc = new DOMParser().parseFromString(file.html, "text/html");
+    const htmls = this.splitHtmlByAnchors(doc.body.childNodes, file.hrefs);
+    this.distributeHtml(file, htmls);
+  }
+  splitHtmlByAnchors(nodes, hrefs) {
+    const htmls = [];
+    let currentHtml = "";
+    nodes.forEach((node) => {
+      if (this.isAnchorNode(node, hrefs) && currentHtml) {
+        htmls.push(currentHtml);
+        currentHtml = this.serializeNode(node);
+      } else {
+        currentHtml += this.serializeNode(node);
+      }
+    });
+    if (currentHtml)
+      htmls.push(currentHtml);
+    return htmls;
+  }
+  isAnchorNode(node, hrefs) {
+    return node.nodeType === Node.ELEMENT_NODE && Boolean(hrefs.includes(node.getAttribute("id")));
+  }
+  serializeNode(node) {
+    return node.nodeType === Node.TEXT_NODE ? node.textContent || "" : node.nodeType === Node.ELEMENT_NODE ? `<${node.nodeName.toLowerCase()}${this.getAttributes(node)}>${Array.from(node.childNodes).map((n) => this.serializeNode(n)).join("")}</${node.nodeName.toLowerCase()}>` : "";
+  }
+  getAttributes(el) {
+    return Array.from(el.attributes).map((attr) => ` ${attr.name}="${attr.value}"`).join("");
+  }
+  distributeHtml(file, htmls) {
+    const hrefs = file.hrefs.map((h) => h ? `#${h}` : "");
+    htmls.forEach((html, i) => {
+      const section = this.sections.find((s) => s.url === file.url + hrefs[i]);
+      if (section)
+        section.html = html;
+      else
+        console.warn(`No section found for ${file.url}${hrefs[i]}`);
+    });
+    if (htmls.length !== file.hrefs.length) {
+      file.hrefs.forEach((href, i) => htmls[i] || console.warn(`Anchor ${href} (index ${i}) not found`));
+    }
+  }
+  assignHtml(url, html) {
+    const section = this.sections.find((s) => s.urlPath === url);
+    if (section)
+      section.html = html;
+  }
+};
+
+// src/core/parser/EpubParser.ts
+var EpubParser = class {
+  constructor(epubPath, moreLog = false) {
+    this.epubPath = epubPath;
+    this.moreLog = moreLog;
+    this.tmpPath = import_fs_jetpack3.default.tmpDir().path();
+    this.parser = new xml2js.Parser();
+    this.toc = [];
+    this.chapters = [];
+    this.sections = [];
+    this.meta = {};
+    this.coverPath = "";
+    this.existingTitles = new Set();
+    this.log("Initializing with path:", epubPath);
+  }
+  async init() {
+    return this.tryCatch(async () => {
+      this.log("Starting parsing...");
+      await this.extractEpub();
+      await this.parseFiles();
+      await this.parseContent();
+      this.log("Parsing completed");
+    }, "Failed to parse .epub file");
+  }
+  async extractEpub() {
+    this.log("Extracting to:", this.tmpPath);
+    const isZip = path4.extname(this.epubPath) !== "";
+    await (isZip ? (0, import_extract_zip.default)(this.epubPath, {dir: this.tmpPath}) : import_fs_jetpack3.default.copyAsync(this.epubPath, this.tmpPath, {overwrite: true}));
+  }
+  async parseFiles() {
+    this.log("Parsing OPF and NCX...");
+    const [opfFile] = import_fs_jetpack3.default.find(this.tmpPath, {matching: "**/*.opf"});
+    const opfContent = await this.parseXml(import_fs_jetpack3.default.read(opfFile));
+    this.opfParser = new OPFParser(opfFile, opfContent);
+    try {
+      const [ncxFile] = import_fs_jetpack3.default.find(this.tmpPath, {matching: "**/*.ncx"});
+      const ncxContent = await this.parseXml(import_fs_jetpack3.default.read(ncxFile));
+      this.toc = new NCXParser(ncxFile, ncxContent).getToc();
+    } catch {
+      this.log("No NCX found, using OPF only");
+    }
+  }
+  async parseContent() {
+    this.log("Parsing content...");
+    await Promise.all([
+      this.parseToc(),
+      this.coverPath = this.opfParser.getCoverPath(),
+      this.meta = {...this.opfParser.getMeta(), bookName: path4.basename(this.epubPath, path4.extname(this.epubPath))}
+    ]);
+  }
+  async parseToc() {
+    this.log("Parsing TOC...");
+    this.updateChapters();
+    const hrefs = this.opfParser.getHtmlFiles();
+    this.processUnmappedFiles(hrefs);
+    this.updateChapters();
+    this.sections = this.chapters.flatMap((ch) => ch.sections);
+    await new ContentSplitter(this.sections).extractSectionContent();
+  }
+  updateChapters() {
+    this.chapters = [];
+    const collectChapters = (chapter) => {
+      this.chapters.push(chapter);
+      chapter.subItems.forEach(collectChapters);
+    };
+    this.toc.forEach(collectChapters);
+  }
+  processUnmappedFiles(hrefs) {
+    const mappedIndexes = this.chapters.map((ch) => hrefs.indexOf(ch.sections[0].urlPath));
+    hrefs.forEach((href, i) => {
+      if (!mappedIndexes.includes(i)) {
+        const parentIdx = mappedIndexes.findLastIndex((idx) => idx < i);
+        parentIdx >= 0 ? this.chapters[parentIdx].sections.push(new Section(null, href)) : this.toc.push(this.createChapter(href));
+      }
+    });
+  }
+  createChapter(href) {
+    const html = import_fs_jetpack3.default.read(href);
+    let title = new DOMParser().parseFromString(html, "text/html").title || path4.basename(href, path4.extname(href));
+    title = this.ensureUniqueTitle(title);
+    this.existingTitles.add(title);
+    return new Chapter(title, href);
+  }
+  ensureUniqueTitle(title) {
+    let newTitle = title;
+    let suffix = 1;
+    while (this.existingTitles.has(newTitle)) {
+      newTitle = `${title} (${suffix++})`;
+    }
+    return newTitle;
+  }
+  async parseXml(data) {
+    return this.parser.parseStringPromise(data);
+  }
+  log(...args) {
+    this.moreLog && console.log(...args);
+  }
+  async tryCatch(fn, errorMsg) {
+    try {
+      return await fn();
+    } catch (e) {
+      console.log(e);
+      throw new Error(errorMsg);
+    }
+  }
+};
+
+// src/core/parser/index.ts
+var parser_default = EpubParser;
+
+// src/core/EpubProcessor.ts
+var import_obsidian2 = __toModule(require("obsidian"));
+var import_fs_jetpack4 = __toModule(require_main());
+var import_js_beautify = __toModule(require_js());
+
+// src/core/TurndownService.ts
+var import_turndown = __toModule(require_turndown_cjs());
+var path5 = __toModule(require("path"));
+var create = (assetsPath, imageFormat3) => {
+  const turndown = new import_turndown.default({headingStyle: "atx"}).remove("title");
+  const rules = {
+    img: {
+      filter: "img",
+      replacement: (_, node) => {
+        const alt = node.alt || "";
+        const src = node.getAttribute("src") || "";
+        if (!src.match(/^https?:\/\//)) {
+          const fileName = path5.basename(src);
+          const newPath = path5.posix.join(assetsPath, fileName).replaceAll(" ", "%20");
+          return imageFormat3 === "![](imagePath)" ? `![${alt}](${newPath})` : `![[${newPath}]]`;
+        }
+        return "";
+      }
+    },
+    footnoteLinks: {
+      filter: (node) => node.nodeName === "A" && /^\[?\[?\d+\]?\]?$/.test(node.textContent),
+      replacement: (_, node) => `[^${node.textContent.replace(/[[\]]/g, "")}]`
+    },
+    footnoteReferences: {
+      filter: (node) => node.nodeName === "P" && node.getElementsByTagName("a")[0]?.textContent.match(/^\[\d+\]/),
+      replacement: (content3, node) => content3.replace(/^(\[\^\d+\])(.*?)$/gm, "$1: $2\n")
+    },
+    internalLinks: {
+      filter: (node) => node.nodeName === "A" && !node.getAttribute("href")?.startsWith("http") && !/^\[?\[?\d+\]?\]?$/.test(node.textContent),
+      replacement: (_, node) => {
+        const href = node.getAttribute("href");
+        return `[[${href}${href === node.textContent ? "" : `|${node.textContent}`}]]`;
+      }
+    },
+    httpLinks: {
+      filter: (node) => node.nodeName === "A" && node.getAttribute("href")?.startsWith("http"),
+      replacement: (_, node) => `[${node.textContent}](${node.getAttribute("href")})`
+    }
+  };
+  Object.entries(rules).forEach(([key, rule]) => turndown.addRule(key, rule));
+  return turndown;
+};
+
+// src/core/EpubProcessor.ts
+var path6 = __toModule(require("path"));
+
+// src/utils/utils.ts
+function normalize(filename) {
+  const invalidChars = /[<>:"\\/\\|?*]+/g;
+  return filename.replace(invalidChars, "_");
+}
+
+// src/utils/obsidianUtils.ts
+var import_obsidian = __toModule(require("obsidian"));
+function getNotesWithTag(app, tag) {
+  const files = app.vault.getMarkdownFiles();
+  const files_with_tag = [];
+  files.forEach((file) => {
+    const tags = app.metadataCache.getFileCache(file)?.frontmatter?.tags;
+    if (!tags)
+      return;
+    if (tags.includes(tag)) {
+      files_with_tag.push(file);
+    }
+  });
+  return files_with_tag;
+}
+function tFrontmatter(propertys) {
+  return "---\n" + (0, import_obsidian.stringifyYaml)(propertys) + "\n---";
+}
+function templateWithVariables(template, variables) {
+  return Object.keys(variables).reduce((template2, key) => template2.replaceAll(`{{${key}}}`, variables[key]), template);
+}
+
+// src/core/EpubProcessor.ts
+var EpubProcessor = class {
+  constructor(app, settings, vaultPath) {
+    this.app = app;
+    this.settings = settings;
+    this.vaultPath = vaultPath;
+    this.properties = {};
+  }
+  async importEpub(epubPath) {
+    this.bookNote = "";
+    this.assetsPath = "";
+    const epubName = normalize(path6.basename(epubPath, path6.extname(epubPath)));
+    const folderPath = await this.initImport(epubPath, epubName);
+    if (!folderPath)
+      return;
+    this.copyImages(folderPath);
+    await this.processNotes(epubName, folderPath);
+    import_fs_jetpack4.default.remove(this.parser.tmpPath);
+    this.showSuccessNotice(epubName);
+  }
+  async initImport(epubPath, epubName) {
+    const folderPath = this.resolveFolderPath(epubName);
+    if (!folderPath)
+      return null;
+    await this.app.vault.createFolder(folderPath);
+    this.parser = new parser_default(epubPath, this.settings.moreLog);
+    await this.parser.init();
+    this.properties = this.parseProperties(epubName);
+    if (this.settings.moreLog)
+      console.log("toc:", this.parser.toc);
+    return folderPath;
+  }
+  async processNotes(epubName, folderPath) {
+    this.mergeChapters(this.settings.granularity);
+    const chapters = this.parser.chapters.filter((c) => c.level <= this.settings.granularity);
+    this.settings.granularity === 0 ? await this.createFile(`${folderPath}/${epubName}.md`, this.generateContent(chapters)) : await this.processChapters(epubName, folderPath, chapters);
+  }
+  async processChapters(epubName, folderPath, chapters) {
+    for (const [i, chapter] of chapters.entries()) {
+      const notePath = await this.createChapterNote(chapter, folderPath, i, chapters);
+      this.bookNote += `${"	".repeat(chapter.level)}- [[${notePath}|${chapter.name}]]
+`;
+    }
+    await this.createFile(`${folderPath}/${templateWithVariables(this.settings.mocName, {bookName: epubName})}.md`, this.bookNote);
+  }
+  async createChapterNote(chapter, folderPath, index, chapters) {
+    const notePath = path6.posix.join(folderPath, ...this.getChapterPaths(chapter));
+    await this.ensureFolder(path6.dirname(notePath));
+    let content3 = this.settings.noteTemplate ? templateWithVariables(this.settings.noteTemplate, this.getChapterMetadata(chapter, index, chapters)) : this.generateContent([chapter]);
+    content3 = this.processObsidianLinks(content3, chapters);
+    await this.app.vault.create(`${notePath}.md`, content3);
+    return notePath;
+  }
+  processObsidianLinks(content3, chapters) {
+    const linkPattern = /\[\[(.*?)\]\]/g;
+    return content3.replace(linkPattern, (match, linkText) => {
+      const [linkPart, displayText] = linkText.split("|");
+      const [baseLink, href] = linkPart.split("#");
+      if (!baseLink.includes(".html") && !baseLink.includes(".xhtml") || !href) {
+        return match;
+      }
+      const targetChapter = this.findChapterByHref(chapters, href);
+      if (targetChapter) {
+        const display3 = displayText || targetChapter.name;
+        return `[[${normalize(targetChapter.name)}|${display3}]]`;
+      }
+      return match;
+    });
+  }
+  findChapterByHref(chapters, href) {
+    for (const chapter of chapters) {
+      for (const section of chapter.sections) {
+        if (section.urlHref === href && (section.urlPath.endsWith(".html") || section.urlPath.endsWith(".xhtml"))) {
+          return chapter;
+        }
+      }
+      for (const section of chapter.sections) {
+        if (this.hasHtmlElementWithId(section.html, href)) {
+          return chapter;
+        }
+      }
+      if (chapter.subItems.length > 0) {
+        const found = this.findChapterByHref(chapter.subItems, href);
+        if (found)
+          return found;
+      }
+    }
+    return null;
+  }
+  hasHtmlElementWithId(html, id) {
+    const idPattern = new RegExp(`id=["']${id}["']`, "i");
+    return idPattern.test(html);
+  }
+  async createFile(filePath, content3) {
+    await this.app.vault.create(filePath, `${tFrontmatter(this.properties)}
+${content3}`).catch((error) => console.warn(`Failed to create ${filePath}: ${error}`));
+  }
+  generateContent(chapters) {
+    return chapters.flatMap((c) => c.sections.map((s) => this.htmlToMD(s.html))).join("\n\n");
+  }
+  mergeChapters(maxLevel = 0) {
+    this.parser.chapters.filter((c) => c.level > maxLevel).sort((a, b) => b.level - a.level).forEach((c) => c.parent?.sections.push(...c.sections));
+  }
+  getChapterPaths(chapter) {
+    const paths = this.buildPathArray(chapter);
+    return chapter.level < this.settings.granularity && chapter.subItems.length ? [...paths, normalize(chapter.name)] : paths;
+  }
+  buildPathArray(chapter) {
+    const paths = [];
+    let current = chapter;
+    while (current) {
+      paths.unshift(normalize(current.name));
+      current = current.parent;
+    }
+    return paths;
+  }
+  getChapterMetadata(chapter, index, chapters) {
+    const content3 = this.generateContent([chapter]);
+    return {
+      created_time: Date.now().toString(),
+      content: content3,
+      prev: index > 0 ? chapters[index - 1].name : "",
+      next: index < chapters.length - 1 ? chapters[index + 1].name : "",
+      chapter_name: chapter.name,
+      chapter_level: chapter.level.toString(),
+      chapter_index: (index + 1).toString(),
+      ...this.parser.meta,
+      total_chars: content3.length.toString()
+    };
+  }
+  parseProperties(epubName) {
+    const props = (0, import_obsidian2.parseYaml)(templateWithVariables(this.settings.mocPropertysTemplate, this.parser.meta));
+    props.tags = [...props.tags ?? [], this.settings.tag];
+    return props;
+  }
+  copyImages(folderPath) {
+    this.assetsPath = templateWithVariables(this.settings.assetsPath, {
+      bookName: path6.basename(folderPath),
+      savePath: this.settings.savePath
+    });
+    import_fs_jetpack4.default.find(this.parser.tmpPath, {matching: ["*.{jpg,jpeg,png}"]}).forEach((file) => import_fs_jetpack4.default.copy(file, path6.posix.join(this.vaultPath, this.assetsPath, path6.basename(file)), {overwrite: true}));
+    if (this.parser.coverPath) {
+      this.properties.cover = path6.posix.join(this.assetsPath, path6.basename(this.parser.coverPath));
+    }
+  }
+  htmlToMD(html) {
+    if (this.settings.reformatting)
+      html = import_js_beautify.default.html(html, {indent_size: 0});
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    doc.querySelectorAll("table:empty").forEach((table) => table.remove());
+    return this.normalizeHeadings(create(this.assetsPath, this.settings.imageFormat).turndown(html) || html.replace(/<[^>]+>/g, ""));
+  }
+  normalizeHeadings(markdown) {
+    if (!/^# /m.test(markdown) && /^(#{1,6}) /m.test(markdown)) {
+      const levelDiff = markdown.match(/^(#{1,6}) /m)[1].length - 1;
+      return markdown.replace(/^(#{1,6}) /gm, (_, h) => "#".repeat(Math.max(1, h.length - levelDiff)) + " ");
+    }
+    return markdown;
+  }
+  resolveFolderPath(epubName) {
+    const folderPath = path6.posix.join(this.settings.savePath, epubName);
+    const fullPath = path6.posix.join(this.vaultPath, folderPath);
+    return import_fs_jetpack4.default.exists(fullPath) ? this.settings.removeDuplicateFolders ? (import_fs_jetpack4.default.remove(fullPath), folderPath) : (new import_obsidian2.Notice("Duplicate folder exists"), null) : folderPath;
+  }
+  async ensureFolder(folderPath) {
+    await this.app.vault.createFolder(folderPath).catch(() => {
+    });
+  }
+  showSuccessNotice(epubName) {
+    const message = `Successfully imported ${epubName}`;
+    console.log(message);
+    new import_obsidian2.Notice(message);
+  }
+};
+var EpubProcessor_default = EpubProcessor;
+
+// src/i18n/i18next.ts
+var import_obsidian3 = __toModule(require("obsidian"));
+
+// src/i18n/locales/en.json
+var en_exports = {};
+__export(en_exports, {
+  Assets_path: () => Assets_path,
+  Assets_path_o: () => Assets_path_o,
+  Auto_open_right_panel: () => Auto_open_right_panel,
+  Auto_open_right_panel_o: () => Auto_open_right_panel_o,
+  Enable_Read_Progress_Manager: () => Enable_Read_Progress_Manager,
+  Enable_Read_Progress_Manager_o: () => Enable_Read_Progress_Manager_o,
+  Hierarchy_depth: () => Hierarchy_depth,
+  Hierarchy_depth_o: () => Hierarchy_depth_o,
+  Library: () => Library,
+  Library_o: () => Library_o,
+  Moc_fileName: () => Moc_fileName,
+  Moc_fileName_o: () => Moc_fileName_o,
+  Propertys_template: () => Propertys_template,
+  Propertys_template_o: () => Propertys_template_o,
+  Remove_duplicate_folders: () => Remove_duplicate_folders,
+  Remove_duplicate_folders_o: () => Remove_duplicate_folders_o,
+  Save_path: () => Save_path,
+  Save_path_o: () => Save_path_o,
+  Tag: () => Tag,
+  Tag_o: () => Tag_o,
+  add_regex: () => add_regex,
+  add_regex_o: () => add_regex_o,
+  backup_directory_Path: () => backup_directory_Path,
+  backup_directory_Path_o: () => backup_directory_Path_o,
+  byDrag: () => byDrag,
+  byDrag_o: () => byDrag_o,
+  content: () => content,
+  default: () => en_default,
+  developing: () => developing,
+  display: () => display,
+  "export-zip": () => export_zip,
+  helper: () => helper,
+  imageFormat: () => imageFormat,
+  imageFormat_o: () => imageFormat_o,
+  import: () => import2,
+  "import-epub": () => import_epub,
+  "import-zip": () => import_zip,
+  more_log: () => more_log,
+  more_log_o: () => more_log_o,
+  "no book in libraries": () => no_book_in_libraries,
+  "no libraries": () => no_libraries,
+  noteTemplate: () => noteTemplate,
+  noteTemplate_o: () => noteTemplate_o,
+  "open-book": () => open_book,
+  reformatting: () => reformatting,
+  reformatting_o: () => reformatting_o,
+  storage: () => storage,
+  "sync-libraries": () => sync_libraries,
+  "sync-libraries_r": () => sync_libraries_r
+});
+var import_epub = "Import epub to your vault";
+var sync_libraries = "Import all epub from libraries to your vault";
+var no_libraries = "You have not added any library to the settings page";
+var no_book_in_libraries = "There is no epub in the libraries";
+var sync_libraries_r = "Successfully imported ${n} books";
+var Tag_o = "Tag";
+var Tag = "The tag is used to identify book objects";
+var import2 = "Import";
+var Library_o = "Library";
+var Library = "The plugin will search for .epub files from these paths (absolute path).";
+var byDrag_o = "Import by drag";
+var byDrag = "Import .epub file by drag it to obsidian vault. The .epub  file will be deleted after importing.";
+var storage = "Storage";
+var Save_path_o = "Save_path";
+var Save_path = "The plugin will save the imported book to this path (relative path).";
+var Assets_path_o = "Assets_path";
+var Assets_path = "The plugin will save the assets of the imported book to this path (relative path).";
+var display = "Display/Indexing";
+var Hierarchy_depth_o = "Hierarchy_depth";
+var Hierarchy_depth = "Determine the Hierarchy depth of generated markdown notes (if 0, a single note is generated).";
+var Moc_fileName_o = "Moc_fileName";
+var Moc_fileName = "FileName for moc file.";
+var noteTemplate_o = "NoteTemplate";
+var noteTemplate = "A template with variables for each page.";
+var Propertys_template_o = "Propertys_template";
+var Propertys_template = "The plugin will add these propertys to the imported book.";
+var content = "Content/Format";
+var imageFormat_o = "imageFormat";
+var imageFormat = "The type of imageFormat. caption only for chinese now.";
+var reformatting_o = "reformatting";
+var reformatting = "Reformat the content. This may destroy the original formatting of the book.";
+var add_regex_o = "Add regex";
+var add_regex = "Add a user-defined regular expression.";
+var helper = "Helper";
+var Auto_open_right_panel_o = "Auto_open_right_panel";
+var Auto_open_right_panel = "The plugin will open the book note on right panel when you open a book.";
+var developing = "Developing";
+var Remove_duplicate_folders_o = "Remove_duplicate_folders";
+var Remove_duplicate_folders = "Remove duplicate folders(risky, for users who understand the usefulness of this option, or developers).";
+var more_log_o = "More log";
+var more_log = "Output more logs to the console for easier debugging.";
+var backup_directory_Path_o = "Backup directory path";
+var backup_directory_Path = "The plugin will use this directory to back up books in .zip format(absolute path).";
+var Enable_Read_Progress_Manager_o = "Enable_Read_Progress_Manager";
+var Enable_Read_Progress_Manager = "Enable the read progress manager to track your reading progress.";
+var open_book = "Open a book";
+var export_zip = "Export a book to the backup directory in .zip format";
+var import_zip = "Import a .zip book from the backup directory into the vault in .zip format";
+var en_default = {
+  "import-epub": import_epub,
+  "sync-libraries": sync_libraries,
+  "no libraries": no_libraries,
+  "no book in libraries": no_book_in_libraries,
+  "sync-libraries_r": sync_libraries_r,
+  Tag_o,
+  Tag,
+  import: import2,
+  Library_o,
+  Library,
+  byDrag_o,
+  byDrag,
+  storage,
+  Save_path_o,
+  Save_path,
+  Assets_path_o,
+  Assets_path,
+  display,
+  Hierarchy_depth_o,
+  Hierarchy_depth,
+  Moc_fileName_o,
+  Moc_fileName,
+  noteTemplate_o,
+  noteTemplate,
+  Propertys_template_o,
+  Propertys_template,
+  content,
+  imageFormat_o,
+  imageFormat,
+  reformatting_o,
+  reformatting,
+  add_regex_o,
+  add_regex,
+  helper,
+  Auto_open_right_panel_o,
+  Auto_open_right_panel,
+  developing,
+  Remove_duplicate_folders_o,
+  Remove_duplicate_folders,
+  more_log_o,
+  more_log,
+  backup_directory_Path_o,
+  backup_directory_Path,
+  Enable_Read_Progress_Manager_o,
+  Enable_Read_Progress_Manager,
+  "open-book": open_book,
+  "export-zip": export_zip,
+  "import-zip": import_zip
+};
+
+// src/i18n/locales/zh-cn.json
+var zh_cn_exports = {};
+__export(zh_cn_exports, {
+  Assets_path: () => Assets_path2,
+  Assets_path_o: () => Assets_path_o2,
+  Auto_open_right_panel: () => Auto_open_right_panel2,
+  Auto_open_right_panel_o: () => Auto_open_right_panel_o2,
+  Enable_Read_Progress_Manager: () => Enable_Read_Progress_Manager2,
+  Enable_Read_Progress_Manager_o: () => Enable_Read_Progress_Manager_o2,
+  Hierarchy_depth: () => Hierarchy_depth2,
+  Hierarchy_depth_o: () => Hierarchy_depth_o2,
+  Library: () => Library2,
+  Library_o: () => Library_o2,
+  Moc_fileName: () => Moc_fileName2,
+  Moc_fileName_o: () => Moc_fileName_o2,
+  Propertys_template: () => Propertys_template2,
+  Propertys_template_o: () => Propertys_template_o2,
+  Remove_duplicate_folders: () => Remove_duplicate_folders2,
+  Remove_duplicate_folders_o: () => Remove_duplicate_folders_o2,
+  Save_path: () => Save_path2,
+  Save_path_o: () => Save_path_o2,
+  Tag: () => Tag2,
+  Tag_o: () => Tag_o2,
+  add_regex: () => add_regex2,
+  add_regex_o: () => add_regex_o2,
+  backup_directory_Path: () => backup_directory_Path2,
+  backup_directory_Path_o: () => backup_directory_Path_o2,
+  byDrag: () => byDrag2,
+  byDrag_o: () => byDrag_o2,
+  content: () => content2,
+  default: () => zh_cn_default,
+  developing: () => developing2,
+  display: () => display2,
+  "export-zip": () => export_zip2,
+  helper: () => helper2,
+  imageFormat: () => imageFormat2,
+  imageFormat_o: () => imageFormat_o2,
+  import: () => import3,
+  "import-epub": () => import_epub2,
+  "import-zip": () => import_zip2,
+  more_log: () => more_log2,
+  more_log_o: () => more_log_o2,
+  "no book in libraries": () => no_book_in_libraries2,
+  "no libraries": () => no_libraries2,
+  noteTemplate: () => noteTemplate2,
+  noteTemplate_o: () => noteTemplate_o2,
+  "open-book": () => open_book2,
+  reformatting: () => reformatting2,
+  reformatting_o: () => reformatting_o2,
+  storage: () => storage2,
+  "sync-libraries": () => sync_libraries2,
+  "sync-libraries_r": () => sync_libraries_r2
+});
+var import_epub2 = "\u5BFC\u5165epub\u5230\u5E93\u4E2D";
+var sync_libraries2 = "\u5C06\u6240\u6709\u4E66\u5E93\u4E2D\u7684epub\u5BFC\u5165\u5230\u5E93\u4E2D";
+var no_libraries2 = "\u4F60\u6CA1\u6709\u5728\u8BBE\u7F6E\u9875\u4E2D\u6DFB\u52A0\u4EFB\u4F55\u4E66\u5E93";
+var no_book_in_libraries2 = "\u4E66\u5E93\u91CC\u6CA1\u6709\u4EFB\u4F55epub";
+var sync_libraries_r2 = "\u6210\u529F\u5BFC\u5165\u4E86 ${n} \u672C\u4E66";
+var Tag_o2 = "\u6807\u7B7E";
+var Tag2 = "\u8FD9\u4E2A\u6807\u7B7E\u7528\u4E8E\u8BC6\u522B\u4E66\u7C4D\u5BF9\u8C61";
+var import3 = "\u5BFC\u5165";
+var Library_o2 = "\u4E66\u5E93";
+var Library2 = "\u8BE5\u63D2\u4EF6\u5C06\u4ECE\u8FD9\u4E9B\u8DEF\u5F84\u4E2D\u641C\u7D22 .epub \u6587\u4EF6(\u7EDD\u5BF9\u8DEF\u5F84)\u3002";
+var byDrag_o2 = "\u901A\u8FC7\u62D6\u62FD\u5BFC\u5165";
+var byDrag2 = "\u5C06.epub\u6587\u4EF6\u62D6\u62FD\u5230obsidian\u5E93\u4E2D\u6765\u5BFC\u5165\u5B83\u3002\u5BFC\u5165\u540E\u5C06\u5220\u9664\u8BE5.epub\u6587\u4EF6\u3002";
+var storage2 = "\u5B58\u50A8";
+var Save_path_o2 = "\u4FDD\u5B58\u8DEF\u5F84";
+var Save_path2 = "\u5BFC\u5165\u7684epub\u5C06\u4F1A\u88AB\u4FDD\u5B58\u5230\u8BE5\u8DEF\u5F84(\u76F8\u5BF9\u8DEF\u5F84)\u3002";
+var Assets_path_o2 = "\u9644\u4EF6\u8DEF\u5F84";
+var Assets_path2 = "\u9644\u4EF6\u5C06\u4F1A\u88AB\u4FDD\u5B58\u5230\u8BE5\u8DEF\u5F84\u3002(\u76F8\u5BF9\u8DEF\u5F84)";
+var display2 = "\u663E\u793A/\u7D22\u5F15";
+var Hierarchy_depth_o2 = "\u5C42\u7EA7\u6DF1\u5EA6";
+var Hierarchy_depth2 = "\u51B3\u5B9A\u751F\u6210\u7684 Markdown \u7B14\u8BB0\u7684\u5C42\u7EA7\u7ED3\u6784\u6DF1\u5EA6(\u82E5\u4E3A 0\uFF0C\u5219\u751F\u6210\u5355\u4E2A\u7B14\u8BB0)\u3002";
+var Moc_fileName_o2 = "Moc \u6587\u4EF6\u540D";
+var Moc_fileName2 = "Moc \u6587\u4EF6\u7684\u6587\u4EF6\u540D\u3002";
+var noteTemplate_o2 = "\u9875\u9762\u6A21\u677F";
+var noteTemplate2 = "\u6BCF\u4E00\u4E2A\u9875\u9762\u7684\u6A21\u677F\u3002";
+var Propertys_template_o2 = "\u5C5E\u6027\u6A21\u677F";
+var Propertys_template2 = "\u5C5E\u6027\u5C06\u4F1A\u88AB\u6DFB\u52A0\u5230\u751F\u6210\u7684 MOC \u6587\u4EF6\u4E2D\u3002";
+var content2 = "\u5185\u5BB9/\u683C\u5F0F";
+var imageFormat_o2 = "\u56FE\u7247\u683C\u5F0F";
+var imageFormat2 = "\u56FE\u7247\u7684\u683C\u5F0F\uFF0C\u6807\u6CE8\u73B0\u5728\u4EC5\u652F\u6301\u4E2D\u6587\u3002";
+var reformatting_o2 = "\u518D\u683C\u5F0F\u5316";
+var reformatting2 = "\u5BF9\u5185\u5BB9\u91CD\u65B0\u6392\u7248. \u8FD9\u53EF\u80FD\u4F1A\u7834\u574F\u56FE\u4E66\u539F\u672C\u7684\u6392\u7248\u3002";
+var add_regex_o2 = "\u589E\u6DFB\u6B63\u5219\u8868\u8FBE\u5F0F";
+var add_regex2 = "\u589E\u6DFB\u4E00\u4E2A\u7528\u6237\u5B9A\u4E49\u6B63\u5219\u8868\u8FBE\u5F0F\u3002";
+var helper2 = "\u8F85\u52A9";
+var Auto_open_right_panel_o2 = "\u81EA\u52A8\u6253\u5F00\u53F3\u680F";
+var Auto_open_right_panel2 = "\u4E8E\u4E00\u672C\u4E66\u7C4D\u5185\u6D4F\u89C8\u65F6\uFF0C\u5728\u53F3\u680F\u6253\u5F00MOC\u6587\u4EF6\uFF0C\u4EE5\u4F9B\u5BFC\u822A\u3002";
+var developing2 = "\u5F00\u53D1";
+var Remove_duplicate_folders_o2 = "\u5220\u9664\u91CD\u590D\u6587\u4EF6\u5939";
+var Remove_duplicate_folders2 = "\u5220\u9664\u91CD\u590D\u7684\u6587\u4EF6\u5939\uFF08\u6709\u98CE\u9669\uFF0C\u4EC5\u9002\u7528\u4E8E\u4E86\u89E3\u6B64\u9009\u9879\u6709\u7528\u7684\u7528\u6237\u6216\u5F00\u53D1\u4EBA\u5458\uFF09\u3002";
+var more_log_o2 = "\u66F4\u591A\u65E5\u5FD7";
+var more_log2 = "\u5728\u63A7\u5236\u53F0\u8F93\u51FA\u66F4\u591A\u65E5\u5FD7\uFF0C\u4EE5\u4FBF\u4E8E\u8C03\u8BD5\u3002";
+var backup_directory_Path_o2 = "\u5907\u4EFD\u76EE\u5F55\u8DEF\u5F84";
+var backup_directory_Path2 = "\u63D2\u4EF6\u5C06\u4F7F\u7528\u6B64\u76EE\u5F55\u4EE5.zip\u683C\u5F0F\u5907\u4EFD\u4E66\u7C4D\uFF08\u7EDD\u5BF9\u8DEF\u5F84\uFF09\u3002";
+var Enable_Read_Progress_Manager_o2 = "\u542F\u7528\u9605\u8BFB\u8FDB\u5EA6\u7BA1\u7406\u5668";
+var Enable_Read_Progress_Manager2 = "\u542F\u7528\u9605\u8BFB\u8FDB\u5EA6\u7BA1\u7406\u5668\u4EE5\u8FFD\u8E2A\u60A8\u7684\u9605\u8BFB\u8FDB\u5EA6\u3002";
+var open_book2 = "\u6253\u5F00\u4E00\u672C\u4E66";
+var export_zip2 = "\u5C06\u4E00\u672C\u4E66\u4EE5.zip\u683C\u5F0F\u5BFC\u51FA\u5230\u5907\u4EFD\u76EE\u5F55";
+var import_zip2 = "\u4ECE\u5907\u4EFD\u76EE\u5F55\u5BFC\u5165\u4E00\u672C.zip\u683C\u5F0F\u7684\u4E66\u5230\u5E93\u4E2D";
+var zh_cn_default = {
+  "import-epub": import_epub2,
+  "sync-libraries": sync_libraries2,
+  "no libraries": no_libraries2,
+  "no book in libraries": no_book_in_libraries2,
+  "sync-libraries_r": sync_libraries_r2,
+  Tag_o: Tag_o2,
+  Tag: Tag2,
+  import: import3,
+  Library_o: Library_o2,
+  Library: Library2,
+  byDrag_o: byDrag_o2,
+  byDrag: byDrag2,
+  storage: storage2,
+  Save_path_o: Save_path_o2,
+  Save_path: Save_path2,
+  Assets_path_o: Assets_path_o2,
+  Assets_path: Assets_path2,
+  display: display2,
+  Hierarchy_depth_o: Hierarchy_depth_o2,
+  Hierarchy_depth: Hierarchy_depth2,
+  Moc_fileName_o: Moc_fileName_o2,
+  Moc_fileName: Moc_fileName2,
+  noteTemplate_o: noteTemplate_o2,
+  noteTemplate: noteTemplate2,
+  Propertys_template_o: Propertys_template_o2,
+  Propertys_template: Propertys_template2,
+  content: content2,
+  imageFormat_o: imageFormat_o2,
+  imageFormat: imageFormat2,
+  reformatting_o: reformatting_o2,
+  reformatting: reformatting2,
+  add_regex_o: add_regex_o2,
+  add_regex: add_regex2,
+  helper: helper2,
+  Auto_open_right_panel_o: Auto_open_right_panel_o2,
+  Auto_open_right_panel: Auto_open_right_panel2,
+  developing: developing2,
+  Remove_duplicate_folders_o: Remove_duplicate_folders_o2,
+  Remove_duplicate_folders: Remove_duplicate_folders2,
+  more_log_o: more_log_o2,
+  more_log: more_log2,
+  backup_directory_Path_o: backup_directory_Path_o2,
+  backup_directory_Path: backup_directory_Path2,
+  Enable_Read_Progress_Manager_o: Enable_Read_Progress_Manager_o2,
+  Enable_Read_Progress_Manager: Enable_Read_Progress_Manager2,
+  "open-book": open_book2,
+  "export-zip": export_zip2,
+  "import-zip": import_zip2
+};
+
+// src/i18n/i18next.ts
+var resources = {
+  en: {translation: en_exports},
+  zh_cn: {translation: zh_cn_exports}
+};
+var translationLanguage = Object.keys(resources).find((i) => i == import_obsidian3.moment.locale().replace("-", "_")) ? import_obsidian3.moment.locale().replace("-", "_") : "en";
 
 // src/modals/EpubImporterModal.ts
-var import_fs_jetpack = __toModule(require_main());
+var import_fs_jetpack5 = __toModule(require_main());
 
 // src/utils/BaseInputModal.ts
-var import_obsidian = __toModule(require("obsidian"));
-var BaseInputModal = class extends import_obsidian.SuggestModal {
+var import_obsidian4 = __toModule(require("obsidian"));
+var BaseInputModal = class extends import_obsidian4.SuggestModal {
   constructor(app, onSubmit, enablePaste = false) {
     super(app);
     this.onSubmit = onSubmit;
@@ -37628,7 +38510,7 @@ var BaseInputModal = class extends import_obsidian.SuggestModal {
       this.onSubmit(value);
       this.close();
     } else {
-      new import_obsidian.Notice("Invalid value.");
+      new import_obsidian4.Notice("Invalid value.");
     }
   }
 };
@@ -37641,13 +38523,13 @@ var EpubImporterModal = class extends BaseInputModal {
     this.listenForEnter(this.validatePath);
   }
   validatePath(path8) {
-    return import_fs_jetpack.default.exists(path8) === "file" && path8.endsWith(".epub");
+    return import_fs_jetpack5.default.exists(path8) === "file" && path8.endsWith(".epub");
   }
   getSuggestions(query) {
     const result = [];
     this.libraries.forEach((lib) => {
-      import_fs_jetpack.default.find(lib, {matching: "**/*.epub"}).forEach((path8) => {
-        result.push(import_fs_jetpack.default.path(path8));
+      import_fs_jetpack5.default.find(lib, {matching: "**/*.epub"}).forEach((path8) => {
+        result.push(import_fs_jetpack5.default.path(path8));
       });
     });
     return result.filter((path8) => path8.includes(query));
@@ -37659,28 +38541,6 @@ var EpubImporterModal = class extends BaseInputModal {
     this.trySubmit(item, this.validatePath);
   }
 };
-
-// src/utils/obsidianUtils.ts
-var import_obsidian2 = __toModule(require("obsidian"));
-function getNotesWithTag(app, tag) {
-  const files = app.vault.getMarkdownFiles();
-  const files_with_tag = [];
-  files.forEach((file) => {
-    const tags = app.metadataCache.getFileCache(file)?.frontmatter?.tags;
-    if (!tags)
-      return;
-    if (tags.includes(tag)) {
-      files_with_tag.push(file);
-    }
-  });
-  return files_with_tag;
-}
-function tFrontmatter(propertys) {
-  return "---\n" + (0, import_obsidian2.stringifyYaml)(propertys) + "\n---";
-}
-function templateWithVariables(template, variables) {
-  return Object.keys(variables).reduce((template2, key) => template2.replaceAll(`{{${key}}}`, variables[key]), template);
-}
 
 // src/modals/ZipExporterModal.ts
 var ZipExporterModal = class extends BaseInputModal {
@@ -37704,7 +38564,7 @@ var ZipExporterModal = class extends BaseInputModal {
 };
 
 // src/modals/ZipImporterModal.ts
-var import_fs_jetpack2 = __toModule(require_main());
+var import_fs_jetpack6 = __toModule(require_main());
 var ZipImporterModal = class extends BaseInputModal {
   constructor(app, backupPath, onSubmit) {
     super(app, onSubmit, true);
@@ -37712,10 +38572,10 @@ var ZipImporterModal = class extends BaseInputModal {
     this.listenForEnter(this.validatePath);
   }
   validatePath(path8) {
-    return import_fs_jetpack2.default.exists(path8) === "file" && path8.endsWith(".zip");
+    return import_fs_jetpack6.default.exists(path8) === "file" && path8.endsWith(".zip");
   }
   getSuggestions(query) {
-    const result = import_fs_jetpack2.default.find(this.backupPath, {matching: "**/*.zip"});
+    const result = import_fs_jetpack6.default.find(this.backupPath, {matching: "**/*.zip"});
     return result.filter((path8) => path8.includes(query));
   }
   renderSuggestion(value, el) {
@@ -37743,13 +38603,14 @@ var DEFAULT_SETTINGS = {
   autoOpenRightPanel: false,
   removeDuplicateFolders: false,
   moreLog: false,
-  leafID: ""
+  leafID: "",
+  enableReadProgressManager: false
 };
 
 // src/settings/settingsTab.ts
-var import_obsidian3 = __toModule(require("obsidian"));
+var import_obsidian5 = __toModule(require("obsidian"));
 var import_i18next = __toModule(require_i18next());
-var EpubImporterSettingsTab = class extends import_obsidian3.PluginSettingTab {
+var EpubImporterSettingsTab = class extends import_obsidian5.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -37757,1243 +38618,397 @@ var EpubImporterSettingsTab = class extends import_obsidian3.PluginSettingTab {
   display() {
     const {containerEl} = this;
     containerEl.empty();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Tag_o")).setDesc(import_i18next.default.t("Tag")).addText((text) => text.setPlaceholder("book").setValue(this.plugin.settings.tag).onChange(async (value) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Tag_o")).setDesc(import_i18next.default.t("translation:Tag")).addText((text) => text.setPlaceholder("book").setValue(this.plugin.settings.tag).onChange(async (value) => {
       this.plugin.settings.tag = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("import")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Library_o")).setDesc(import_i18next.default.t("Library")).addTextArea((text) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:import")).setHeading();
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Library_o")).setDesc(import_i18next.default.t("translation:Library")).addTextArea((text) => {
       text.setValue(this.plugin.settings.libraries.join("\n")).onChange(async (value) => {
         this.plugin.settings.libraries = value.split("\n").map((lib) => lib.trim());
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("byDrag_o")).setDesc(import_i18next.default.t("byDrag")).addToggle((toggle) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:byDrag_o")).setDesc(import_i18next.default.t("translation:byDrag")).addToggle((toggle) => {
       toggle.setValue(this.plugin.settings.byDrag).onChange(async (value) => {
         this.plugin.settings.byDrag = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("storage")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Save path_o")).setDesc(import_i18next.default.t("Save path")).addText((text) => text.setValue(this.plugin.settings.savePath).onChange(async (value) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:storage")).setHeading();
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Save_path_o")).setDesc(import_i18next.default.t("translation:Save_path")).addText((text) => text.setValue(this.plugin.settings.savePath).onChange(async (value) => {
       this.plugin.settings.savePath = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Assets path_o")).setDesc(import_i18next.default.t("Assets path")).addText((text) => text.setValue(this.plugin.settings.assetsPath).onChange(async (value) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Assets_path_o")).setDesc(import_i18next.default.t("translation:Assets_path")).addText((text) => text.setValue(this.plugin.settings.assetsPath).onChange(async (value) => {
       this.plugin.settings.assetsPath = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian3.Setting(containerEl).setName("backup directory Path").setDesc("The plugin will use this directory to back up books in .zip format.").addText((text) => text.setValue(this.plugin.settings.backupPath).onChange(async (value) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:backup_directory_Path_o")).setDesc(import_i18next.default.t("translation:backup_directory_Path")).addText((text) => text.setValue(this.plugin.settings.backupPath).onChange(async (value) => {
       this.plugin.settings.backupPath = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("display")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Hierarchy depth_o")).setDesc(import_i18next.default.t("Hierarchy depth")).addSlider((slider) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:display")).setHeading();
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Hierarchy_depth_o")).setDesc(import_i18next.default.t("translation:Hierarchy_depth")).addSlider((slider) => {
       slider.setLimits(0, 5, 1).setDynamicTooltip().setValue(this.plugin.settings.granularity).onChange(async (value) => {
         this.plugin.settings.granularity = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Moc fileName_o")).setDesc(import_i18next.default.t("Moc fileName")).addText((text) => text.setValue(this.plugin.settings.mocName).onChange(async (value) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Moc_fileName_o")).setDesc(import_i18next.default.t("translation:Moc_fileName")).addText((text) => text.setValue(this.plugin.settings.mocName).onChange(async (value) => {
       this.plugin.settings.mocName = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("noteTemplate_o")).setDesc(import_i18next.default.t("noteTemplate")).addTextArea((text) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:noteTemplate_o")).setDesc(import_i18next.default.t("translation:noteTemplate")).addTextArea((text) => {
       text.setValue(this.plugin.settings.noteTemplate).onChange(async (value) => {
         this.plugin.settings.noteTemplate = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Propertys template_o")).setDesc(import_i18next.default.t("Propertys template")).addTextArea((text) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Propertys_template_o")).setDesc(import_i18next.default.t("translation:Propertys_template")).addTextArea((text) => {
       text.setValue(this.plugin.settings.mocPropertysTemplate).onChange(async (value) => {
         this.plugin.settings.mocPropertysTemplate = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("content")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("imageFormat_o")).setDesc(import_i18next.default.t("imageFormat")).addDropdown((text) => text.addOptions({
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:content")).setHeading();
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:imageFormat_o")).setDesc(import_i18next.default.t("translation:imageFormat")).addDropdown((text) => text.addOptions({
       "![](imagePath)": "![](imagePath)",
       "![[imagePath]]": "![[imagePath]]"
     }).setValue(this.plugin.settings.imageFormat).onChange(async (value) => {
       this.plugin.settings.imageFormat = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("reformatting_o")).setDesc(import_i18next.default.t("reformatting")).addToggle((toggle) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:reformatting_o")).setDesc(import_i18next.default.t("translation:reformatting")).addToggle((toggle) => {
       toggle.setValue(this.plugin.settings.reformatting).onChange(async (value) => {
         this.plugin.settings.reformatting = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("helper")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Auto open right panel_o")).setDesc(import_i18next.default.t("Auto open right panel")).addToggle((toggle) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:helper")).setHeading();
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Auto_open_right_panel_o")).setDesc(import_i18next.default.t("translation:Auto_open_right_panel")).addToggle((toggle) => {
       toggle.setValue(this.plugin.settings.autoOpenRightPanel).onChange(async (value) => {
         this.plugin.settings.autoOpenRightPanel = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("developing")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("Remove duplicate folders_o")).setDesc(import_i18next.default.t("Remove duplicate folders")).addToggle((toggle) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:developing")).setHeading();
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Remove_duplicate_folders_o")).setDesc(import_i18next.default.t("translation:Remove_duplicate_folders")).addToggle((toggle) => {
       toggle.setValue(this.plugin.settings.removeDuplicateFolders).onChange(async (value) => {
         this.plugin.settings.removeDuplicateFolders = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian3.Setting(containerEl).setName(import_i18next.default.t("more log_o")).setDesc(import_i18next.default.t("more log")).addToggle((toggle) => {
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:more_log_o")).setDesc(import_i18next.default.t("translation:more_log")).addToggle((toggle) => {
       toggle.setValue(this.plugin.settings.moreLog).onChange(async (value) => {
         this.plugin.settings.moreLog = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian5.Setting(containerEl).setName(import_i18next.default.t("translation:Enable_Read_Progress_Manager_o")).setDesc(import_i18next.default.t("translation:Enable_Read_Progress_Manager")).addToggle((toggle) => {
+      toggle.setValue(this.plugin.settings.enableReadProgressManager).onChange(async (value) => {
+        this.plugin.settings.enableReadProgressManager = value;
         await this.plugin.saveSettings();
       });
     });
   }
 };
 
-// src/main.ts
-var import_adm_zip = __toModule(require_adm_zip());
-var import_fs_jetpack7 = __toModule(require_main());
-var import_i18next2 = __toModule(require_i18next());
-
-// src/lib/EpubParser/EpubParser.ts
-var import_extract_zip = __toModule(require_extract_zip());
-var import_fs_jetpack5 = __toModule(require_main());
-var path4 = __toModule(require("path"));
-var xml2js = __toModule(require_xml2js());
-
-// src/lib/EpubParser/types.ts
-var Section = class {
-  constructor(name, url) {
-    this.name = name;
-    this.url = url;
-    const [urlPath, urlHref] = url.split("#");
-    this.urlPath = urlPath;
-    this.urlHref = urlHref ?? "";
-    this.html = "";
+// src/modals/OpenBookModal.ts
+var import_obsidian6 = __toModule(require("obsidian"));
+var OpenBookModal = class extends import_obsidian6.SuggestModal {
+  constructor(app, books, onSubmit) {
+    super(app);
+    this.books = books;
+    this.onSubmit = onSubmit;
   }
-};
-var Chapter = class {
-  constructor(name, url, subItems = new Array(), level = 0, parent = null) {
-    this.level = 0;
-    this.parent = null;
-    this.sections = [new Section(name, url)];
-    this.subItems = subItems;
-    this.level = level;
-    this.parent = parent;
+  getSuggestions(query) {
+    return this.books.filter((book) => book.name.includes(query));
   }
-  get name() {
-    return this.sections[0].name ?? "";
+  onChooseSuggestion(item) {
+    this.onSubmit(item);
+  }
+  renderSuggestion(value, el) {
+    const title = this.app.metadataCache.getFileCache(value)?.frontmatter?.title;
+    el.createEl("div", {text: title});
   }
 };
 
-// src/lib/EpubParser/OPFParser.ts
-var path = __toModule(require("path"));
-
-// src/lib/EpubParser/utils.ts
-var findProperty = (obj, propertyNames) => {
-  const names = Array.isArray(propertyNames) ? propertyNames : [propertyNames];
-  for (const name of names) {
-    if (obj[name])
-      return obj[name];
-    for (const key in obj) {
-      const parts = key.split(":");
-      if (parts.length === 2 && parts[1] === name && obj[key]) {
-        return obj[key];
-      }
-    }
-  }
-  if (Array.isArray(obj)) {
-    for (const item of obj) {
-      if (typeof item === "object" && item !== null) {
-        const result = findProperty(item, propertyNames);
-        if (result)
-          return result;
-      }
-    }
-  }
-  for (const key in obj) {
-    if (typeof obj[key] === "object" && obj[key] !== null) {
-      const result = findProperty(obj[key], propertyNames);
-      if (result)
-        return result;
-    }
-  }
-  return null;
-};
-
-// src/lib/EpubParser/OPFParser.ts
-var OPFParser = class {
-  constructor(filePath, content3) {
-    this.filePath = filePath;
-    this.content = content3;
-  }
-  getHtmlFiles() {
-    const manifest = findProperty(this.content, "manifest")[0];
-    return manifest.item.map((item) => item.$.href).filter((href) => [".htm", ".html", ".xhtml"].some((sx) => href.includes(sx))).map((href) => path.posix.join(path.dirname(this.filePath), href));
-  }
-  getCoverPath() {
-    const manifest = findProperty(this.content, "manifest")[0].item;
-    const coverItem = manifest.find((item) => ["cover", "Cover"].some((sx) => item.$.id.includes(sx)) && ["png", "jpg", "jpeg"].includes(path.extname(item.$.href).slice(1)));
-    return coverItem ? path.posix.join(path.dirname(this.filePath), coverItem.$.href) : null;
-  }
-  getMeta() {
-    const meta = findProperty(this.content, "metadata")?.[0] ?? {};
-    const defaultMeta = {
-      title: "",
-      publisher: "",
-      language: "",
-      author: ""
-    };
-    try {
-      const getValue = (key) => meta[key]?.[0] ? `"${meta[key][0]}"` : "";
-      return {
-        title: getValue("dc:title"),
-        publisher: getValue("dc:publisher"),
-        language: getValue("dc:language"),
-        author: meta["dc:creator"]?.[0]?.["_"] ? `"${meta["dc:creator"][0]["_"]}"` : ""
-      };
-    } catch {
-      return defaultMeta;
-    }
-  }
-};
-
-// src/lib/EpubParser/NCXParser.ts
-var path2 = __toModule(require("path"));
-var import_fs_jetpack3 = __toModule(require_main());
-var NCXParser = class {
-  constructor(filePath, content3) {
-    this.filePath = filePath;
-    this.content = content3;
-  }
-  getToc() {
-    console.log(this.content);
-    const navPoints = findProperty(this.content, ["navPoint", "navpoint"]);
-    const getToc = (navPoint, level) => {
-      const title = navPoint.navLabel?.[0]?.text?.[0] || (() => {
-        const filePath2 = path2.posix.join(path2.dirname(this.filePath), findProperty(navPoint, "content")[0].$["src"].replace(/%20/g, " "));
-        const html = import_fs_jetpack3.default.read(filePath2);
-        return new DOMParser().parseFromString(html, "text/html").title || path2.basename(filePath2, path2.extname(filePath2)) || "";
-      })();
-      if (!title)
-        return null;
-      const filePath = path2.posix.join(path2.dirname(this.filePath), findProperty(navPoint, "content")[0].$["src"].replace(/%20/g, " "));
-      const subItems = navPoint["navPoint"]?.map((pt) => getToc(pt, level + 1)) || [];
-      const chapter = new Chapter(title, filePath, subItems, level);
-      subItems.forEach((sub) => sub.parent = chapter);
-      return chapter;
-    };
-    return navPoints.map((pt) => getToc(pt, 0)).filter(Boolean);
-  }
-};
-
-// src/lib/EpubParser/ContentSplitter.ts
-var import_fs_jetpack4 = __toModule(require_main());
-var path3 = __toModule(require("path"));
-var ContentSplitter = class {
-  constructor(sections) {
-    this.sections = sections;
-  }
-  async extractSectionContent() {
-    const urls = [...new Set(this.sections.map((st) => st.urlPath))];
-    const files = await this.readHtmlFiles(urls);
-    files.forEach((file) => {
-      if (!file.hrefs.length || file.hrefs.length === 1) {
-        this.sections.find((st) => st.urlPath == file.url).html = file.html;
-      } else {
-        this.splitContentByAnchors(file);
-      }
-    });
-  }
-  async readHtmlFiles(urls) {
-    const files = [];
-    urls.forEach((url) => {
-      const file = this.buildFileMetadata(url);
-      try {
-        const html = import_fs_jetpack4.default.read(url);
-        if (html) {
-          file.html = html;
-        }
-        files.push(file);
-      } catch (error) {
-        this.logFileReadError(url);
-      }
-    });
-    return files;
-  }
-  buildFileMetadata(url) {
-    const file = {
-      url,
-      names: [],
-      hrefs: [],
-      html: ""
-    };
-    this.sections.filter((st) => st.urlPath == url).forEach((st) => {
-      file.names.push(st.name ? path3.basename(st.name) : null);
-      file.hrefs.push(st.urlHref);
-    });
-    return file;
-  }
-  logFileReadError(url) {
-    console.warn(`Error reading file at ${url}`);
-    console.warn("The failure to read the file might be due to an invalid file path. If such errors are few in this parsing process, it could be because the epub contains some meaningless navPoints, or even advertisements. If this is the case, it will not cause any damage to the content of the book.");
-  }
-  splitContentByAnchors(file) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(file.html, "text/html");
-    const htmls = [];
-    let currentHtml = "";
-    let currentAnchorIndex = -1;
-    const processNode = (node) => {
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        const element = node;
-        const id = element.getAttribute("id");
-        if (id && file.hrefs.includes(id)) {
-          if (currentHtml && currentAnchorIndex >= 0) {
-            htmls.push(currentHtml);
-          }
-          currentHtml = "";
-          currentAnchorIndex = file.hrefs.indexOf(id);
-        }
-        currentHtml += `<${element.tagName.toLowerCase()}${getAttributes(element)}>`;
-        if (node.hasChildNodes()) {
-          node.childNodes.forEach((child) => {
-            processNode(child);
-          });
-        }
-        currentHtml += `</${element.tagName.toLowerCase()}>`;
-      } else if (node.nodeType === Node.TEXT_NODE) {
-        currentHtml += node.textContent;
-      }
-    };
-    const getAttributes = (element) => {
-      const attributes = element.attributes;
-      let result = "";
-      for (let i = 0; i < attributes.length; i++) {
-        const attr = attributes[i];
-        result += ` ${attr.name}="${attr.value}"`;
-      }
-      return result;
-    };
-    processNode(doc.body);
-    if (currentHtml) {
-      htmls.push(currentHtml);
-    }
-    const hrefs = file.hrefs.map((href) => href ? "#" + href : "");
-    if (htmls.length !== file.hrefs.length) {
-      file.hrefs.forEach((href, index) => {
-        const element = doc.getElementById(href);
-        if (!element) {
-          console.warn(`\u951A\u70B9 ${href} (\u7D22\u5F15 ${index}) \u672A\u627E\u5230`);
-        }
-      });
-    }
-    this.distributeHtmlToSections(file, htmls, hrefs);
-  }
-  distributeHtmlToSections(file, htmls, hrefs) {
-    htmls.forEach((html, i) => {
-      try {
-        this.sections.find((c) => c.url == file.url + hrefs[i]).html = html;
-      } catch (e) {
-        console.warn("Error splitting HTML file into sections");
-      }
-    });
-  }
-};
-
-// src/lib/EpubParser/EpubParser.ts
-var EpubParser = class {
-  constructor(path8, moreLog) {
-    this.toc = [];
-    this.chapters = [];
-    this.existingTitles = new Set();
-    this.epubPath = path8;
-    this.moreLog = moreLog;
-    if (this.moreLog)
-      console.log("Initializing EpubParser with path:", path8);
-  }
-  async init() {
-    try {
-      if (this.moreLog)
-        console.log("Starting epub parsing process...");
-      await this.extractEpub();
-      await this.parseOPFandNCX();
-      await this.parseContent();
-      if (this.moreLog)
-        console.log("Epub parsing completed successfully");
-    } catch (e) {
-      console.log(e);
-      throw new Error("failed to parse the .epub file");
-    }
-  }
-  async extractEpub() {
-    this.tmpPath = import_fs_jetpack5.default.tmpDir().path();
-    if (this.moreLog) {
-      console.log("Creating temporary directory at:", this.tmpPath);
-      console.log("Starting epub extraction...");
-    }
-    if (path4.extname(this.epubPath) != "") {
-      if (this.moreLog)
-        console.log("Extracting epub file to temporary directory");
-      await (0, import_extract_zip.default)(this.epubPath, {dir: this.tmpPath});
-    } else {
-      if (this.moreLog)
-        console.log("Copying unzipped epub folder to temporary directory");
-      import_fs_jetpack5.default.copy(this.epubPath, this.tmpPath, {overwrite: true});
-    }
-    if (this.moreLog)
-      console.log("Epub extraction completed");
-  }
-  async parseOPFandNCX() {
-    if (this.moreLog)
-      console.log("Starting OPF and NCX parsing...");
-    const parser = new xml2js.Parser();
-    const opfFile = import_fs_jetpack5.default.find(this.tmpPath, {matching: "**/*.opf"})[0];
-    if (this.moreLog)
-      console.log("Found OPF file at:", opfFile);
-    const opfData = import_fs_jetpack5.default.read(opfFile);
-    const opfContent = await parser.parseStringPromise(opfData);
-    this.opfFilePath = opfFile;
-    this.opfParser = new OPFParser(opfFile, opfContent);
-    if (this.moreLog)
-      console.log("OPF parsing completed");
-    try {
-      const ncxFile = import_fs_jetpack5.default.find(this.tmpPath, {matching: "**/*.ncx"})[0];
-      if (this.moreLog)
-        console.log("Found NCX file at:", ncxFile);
-      const ncxData = import_fs_jetpack5.default.read(ncxFile);
-      const ncxContent = await parser.parseStringPromise(ncxData);
-      this.ncxFilePath = ncxFile;
-      this.ncxParser = new NCXParser(ncxFile, ncxContent);
-      if (this.moreLog)
-        console.log("NCX parsing completed");
-    } catch (error) {
-      if (this.moreLog)
-        console.log("No NCX file found, will use OPF for content structure");
-      console.log("This epub does not have a .ncx file, parsing will be based on the .opf file content.");
-    }
-  }
-  async parseContent() {
-    if (this.moreLog)
-      console.log("Starting content parsing...");
-    await this.parseToc();
-    await this.parseCover();
-    await this.parseMeta();
-    if (this.moreLog)
-      console.log("Content parsing completed");
-  }
-  async parseToc() {
-    if (this.moreLog)
-      console.log("Initializing table of contents...");
-    this.initializeToc();
-    const urls = [...new Set(this.sections.map((st) => st.urlPath))];
-    if (this.moreLog)
-      console.log("Found unique section URLs:", urls);
-    const contentSplitter = new ContentSplitter(this.sections);
-    await contentSplitter.extractSectionContent();
-    if (this.moreLog)
-      console.log("Table of contents parsing completed");
-  }
-  initializeToc() {
-    if (this.ncxParser) {
-      if (this.moreLog)
-        console.log("Getting TOC from NCX parser");
-      this.toc = this.ncxParser.getToc();
-      if (this.moreLog)
-        console.log("TOC from NCX parser:", this.toc);
-      this.updateChaptersByToc();
-    }
-    const hrefs = this.opfParser.getHtmlFiles();
-    if (this.moreLog)
-      console.log("Processing unmapped files from OPF:", hrefs);
-    this.processUnmappedFiles(hrefs);
-    this.updateChaptersByToc();
-    this.sections = this.chapters.flatMap((cpt) => cpt.sections);
-    if (this.moreLog)
-      console.log("Total sections found:", this.sections.length);
-  }
-  updateChaptersByToc() {
-    if (this.moreLog)
-      console.log("Updating chapters from TOC");
-    this.chapters = [];
-    const getChapters = (chapter) => {
-      this.chapters.push(chapter);
-      chapter.subItems.forEach(getChapters, chapter);
-    };
-    this.toc.forEach(getChapters);
-    if (this.moreLog)
-      console.log("Total chapters found:", this.chapters.length);
-  }
-  getMappedFileIndexs(hrefs) {
-    const indexs = [];
-    this.chapters.forEach((cpt) => {
-      indexs.push(hrefs.indexOf(cpt.sections[0].urlPath));
-    });
-    if (this.moreLog)
-      console.log("Mapped file indexes:", indexs);
-    return indexs;
-  }
-  processUnmappedFiles(hrefs) {
-    if (this.moreLog)
-      console.log("Processing unmapped files...");
-    const indexs = this.getMappedFileIndexs(hrefs);
-    let k = 0;
-    hrefs.forEach((href, hrefIndex) => {
-      if (!indexs.includes(hrefIndex)) {
-        if (this.moreLog)
-          console.log("Processing unmapped file:", href);
-        this.processOneUnmappedFile(href, indexs, k++);
-      }
-    });
-  }
-  processOneUnmappedFile(href, indexs, k) {
-    const hrefs = this.opfParser.getHtmlFiles();
-    const hrefIndex = hrefs.indexOf(href);
-    console.log("indexs:", indexs);
-    const parentIndex = indexs.findLastIndex((idx) => idx < hrefIndex);
-    if (parentIndex >= 0) {
-      if (this.moreLog)
-        console.log("Adding unmapped file to existing chapter:", this.chapters[parentIndex].sections[0].urlPath);
-      this.chapters[parentIndex].sections.push(new Section(null, href));
-    } else {
-      if (this.moreLog)
-        console.log("Creating new chapter for unmapped file:", href);
-      const html = import_fs_jetpack5.default.read(href);
-      let title = new DOMParser().parseFromString(html, "text/html").title || path4.basename(href, path4.extname(href));
-      let suffix = 1;
-      let originalTitle = title;
-      while (this.existingTitles.has(title)) {
-        title = `${originalTitle} (${suffix})`;
-        suffix++;
-      }
-      this.existingTitles.add(title);
-      this.toc.splice(k, 0, new Chapter(title, href));
-    }
-  }
-  async parseCover() {
-    if (this.moreLog)
-      console.log("Parsing cover...");
-    this.coverPath = this.opfParser.getCoverPath();
-    if (this.moreLog)
-      console.log("Cover path:", this.coverPath);
-  }
-  async parseMeta() {
-    if (this.moreLog)
-      console.log("Parsing metadata...");
-    this.meta = {
-      ...this.opfParser.getMeta(),
-      bookName: path4.basename(this.epubPath, path4.extname(this.epubPath))
-    };
-    if (this.moreLog)
-      console.log("Metadata:", this.meta);
-  }
-};
-
-// src/lib/EpubParser/index.ts
-var EpubParser_default = EpubParser;
-
-// src/lib/EpubProcessor.ts
-var path6 = __toModule(require("path"));
-
-// src/utils/utils.ts
-function normalize(filename) {
-  const invalidChars = /[<>:"\\/\\|?*]+/g;
-  return filename.replace(invalidChars, "_");
-}
-
-// src/lib/EpubProcessor.ts
-var import_obsidian4 = __toModule(require("obsidian"));
-var import_fs_jetpack6 = __toModule(require_main());
-var import_js_beautify = __toModule(require_js());
-
-// src/lib/TurndownService.ts
-var import_turndown = __toModule(require_turndown_cjs());
-var path5 = __toModule(require("path"));
-function create(assetsPath, imageFormat3) {
-  const turndownService = new import_turndown.default({
-    headingStyle: "atx"
-  });
-  turndownService.remove("title");
-  turndownService.addRule("img", {
-    filter: "img",
-    replacement: function(content3, node) {
-      const alt = node.alt || "";
-      const src = node.getAttribute("src") || "";
-      if (!src.startsWith("http://") && !src.startsWith("https://")) {
-        const fileName = path5.basename(src);
-        const newPath = path5.posix.join(assetsPath, fileName);
-        if (imageFormat3 === "![](imagePath)") {
-          return `![${alt}](${newPath.replaceAll(" ", "%20")})`;
-        } else if (imageFormat3 === "![[imagePath]]") {
-          return `![[${newPath}]]`;
-        }
-      }
-      return content3;
-    }
-  });
-  turndownService.addRule("footnoteLinks", {
-    filter: (node) => {
-      if (node.nodeName === "A") {
-        const text = node.textContent;
-        return /^\[?\[?\d+\]?\]?$/.test(text);
-      }
-      return false;
-    },
-    replacement: (content3, node) => {
-      const number = node.textContent.replace(/[[\]]/g, "");
-      return `[^${number}]`;
-    }
-  });
-  turndownService.addRule("footnoteReferences", {
-    filter: (node) => {
-      if (node.nodeName === "P") {
-        const aElements = node.getElementsByTagName("a");
-        if (aElements.length > 0) {
-          const text = aElements[0].textContent;
-          return /^\[\d+\]/.test(text);
-        }
-      }
-      return false;
-    },
-    replacement: (content3, node) => {
-      return content3.replace(/^(\[\^\d+\])(.*?)$/gm, "$1: $2\n");
-    }
-  });
-  turndownService.addRule("internalLinks", {
-    filter: (node, options) => {
-      return node.nodeName === "A" && !node.getAttribute("href")?.startsWith("http") && !/^\[?\[?\d+\]?\]?$/.test(node.textContent);
-    },
-    replacement: (content3, node) => {
-      const href = node.getAttribute("href");
-      const text = node.textContent;
-      if (href === text) {
-        return `[[${href}]]`;
-      }
-      return `[[${href}|${text}]]`;
-    }
-  });
-  turndownService.addRule("httpLinks", {
-    filter: (node, options) => {
-      return node.nodeName === "A" && node.getAttribute("href")?.startsWith("http");
-    },
-    replacement: (content3, node) => {
-      const href = node.getAttribute("href");
-      const text = node.textContent;
-      return `[${text}](${href})`;
-    }
-  });
-  return turndownService;
-}
-
-// src/lib/EpubProcessor.ts
-var EpubProcessor = class {
-  constructor(app, settings, vaultPath) {
-    this.BookNote = "";
+// src/modules/ReadProgressManager.ts
+var import_obsidian7 = __toModule(require("obsidian"));
+var ReadProgressManager = class {
+  constructor(app) {
+    this.db = {};
+    this.dbFileName = ".obsidian/plugins/epub-importer/progress.json";
+    this.delayAfterFileOpening = 30;
+    this.lastSavedDb = {};
     this.app = app;
-    this.settings = settings;
-    this.vaultPath = vaultPath;
   }
-  async importEpub(epubPath) {
-    const epubName = normalize(path6.basename(epubPath, path6.extname(epubPath)).trim());
-    const folderPath = this.setupFolderPath(epubName);
-    if (!folderPath)
+  async initialize() {
+    await this.loadDatabase();
+  }
+  getCurrentState() {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian7.MarkdownView);
+    if (!view)
+      return null;
+    const state = {};
+    const scroll = view.currentMode?.getScroll();
+    if (typeof scroll === "number" && !isNaN(scroll)) {
+      state.scroll = Number(scroll.toFixed(4));
+    }
+    return state;
+  }
+  getNoteState(filePath) {
+    return this.db[filePath] || null;
+  }
+  setState(filePath, state) {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian7.MarkdownView);
+    if (!view || view.file?.path !== filePath)
       return;
-    await this.initializeParser(epubPath, epubName);
-    await this.createBookFolder(folderPath);
-    this.copyImages();
-    if (this.settings.granularity === 0) {
-      await this.createSingleNote(epubName, folderPath);
-    } else {
-      await this.createChapterNotes(folderPath, epubName);
+    if (state.scroll) {
+      view.setEphemeralState(state);
     }
-    import_fs_jetpack6.default.remove(this.parser.tmpPath);
-    this.showSuccessNotice(epubName);
   }
-  setupFolderPath(epubName) {
-    const folderPath = path6.posix.join(this.settings.savePath, normalize(epubName));
-    if (import_fs_jetpack6.default.exists(path6.posix.join(this.vaultPath, folderPath))) {
-      if (this.settings.removeDuplicateFolders) {
-        import_fs_jetpack6.default.remove(path6.posix.join(this.vaultPath, folderPath));
-      } else {
-        new import_obsidian4.Notice("Duplicate folder already exists.");
-        return null;
-      }
+  saveState(filePath, state) {
+    state.timestamp = Date.now();
+    this.db[filePath] = state;
+  }
+  async restoreState(filePath) {
+    const state = this.db[filePath];
+    if (!state)
+      return;
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian7.MarkdownView);
+    if (!view || view.file?.path !== filePath)
+      return;
+    await this.delay(this.delayAfterFileOpening);
+    this.setState(filePath, state);
+  }
+  renameFile(oldPath, newPath) {
+    if (this.db[oldPath]) {
+      this.db[newPath] = this.db[oldPath];
+      delete this.db[oldPath];
     }
-    return folderPath;
   }
-  async createBookFolder(folderPath) {
-    await this.app.vault.createFolder(folderPath);
+  deleteFile(filePath) {
+    delete this.db[filePath];
   }
-  async initializeParser(epubPath, epubName) {
-    this.assetsPath = templateWithVariables(this.settings.assetsPath, {
-      bookName: epubName,
-      savePath: this.settings.savePath
-    });
-    this.parser = new EpubParser_default(epubPath, this.settings.moreLog);
-    await this.parser.init();
-    if (this.settings.moreLog)
-      console.log("toc is: ", this.parser.toc);
-    this.properties = (0, import_obsidian4.parseYaml)(templateWithVariables(this.settings.mocPropertysTemplate, this.parser.meta));
-    this.properties.tags = (this.properties.tags ?? []).concat([this.settings.tag]);
-    this.BookNote = "";
-  }
-  async createSingleNote(epubName, folderPath) {
-    this.mergeChapters();
-    const content3 = this.generateSingleNoteContent();
-    const notePath = path6.posix.join(folderPath, epubName);
-    await this.app.vault.create(notePath + ".md", tFrontmatter(this.properties) + "\n" + content3);
-  }
-  mergeChapters() {
-    [...this.parser.chapters].filter((cpt) => cpt.level != 0).sort((a, b) => b.level - a.level).forEach((cpt) => cpt.parent.sections.push(...cpt.sections));
-  }
-  generateSingleNoteContent() {
-    return this.parser.chapters.filter((cpt) => cpt.level == 0).map((cpt) => cpt.sections.map((st) => this.htmlToMD(st.html)).join("\n\n")).join("\n\n");
-  }
-  async createChapterNotes(folderPath, epubName) {
-    this.mergeChaptersByGranularity();
-    const filteredChapters = this.parser.chapters.filter((cpt) => cpt.level <= this.settings.granularity);
-    for (const [index, chapter] of filteredChapters.entries()) {
-      const notePath = await this.createChapterNote(chapter, folderPath, index, filteredChapters);
-      this.BookNote += `${"	".repeat(chapter.level)}- [[${notePath}|${chapter.name}]]
-`;
-    }
-    await this.createMocFile(folderPath, epubName);
-  }
-  mergeChaptersByGranularity() {
-    [...this.parser.chapters].filter((cpt) => cpt.level > this.settings.granularity).sort((a, b) => b.level - a.level).forEach((cpt) => cpt.parent.sections.push(...cpt.sections));
-  }
-  async createChapterNote(chapter, folderPath, index, allChapters) {
-    if (chapter.name.startsWith("... ")) {
-      chapter.sections[0].name = chapter.name.replace("... ", "");
-    }
-    const paths = this.getChapterPaths(chapter);
-    const notePath = path6.posix.join(folderPath, ...paths.map(normalize));
-    await this.app.vault.createFolder(path6.dirname(notePath)).catch(() => {
-    });
-    const content3 = this.generateChapterContent(chapter, index, allChapters);
+  async loadDatabase() {
     try {
-      await this.app.vault.create(notePath + ".md", content3);
-    } catch (error) {
-      console.warn(`Failed to create file at ${notePath}.md: ${error}`);
-      console.warn("If such errors are few in this parsing process, it could be because the epub contains some repeated or wrong navPoints. If this is the case, it will not cause any damage to the content of the book.");
-    }
-    return notePath;
-  }
-  getChapterPaths(chapter) {
-    const paths = [chapter.name];
-    const getPaths = (cpt) => {
-      if (cpt.parent) {
-        paths.unshift(cpt.parent.name);
-        getPaths(cpt.parent);
+      if (await this.app.vault.adapter.exists(this.dbFileName)) {
+        const data = await this.app.vault.adapter.read(this.dbFileName);
+        this.db = JSON.parse(data);
+        this.lastSavedDb = JSON.parse(data);
       }
-    };
-    getPaths(chapter);
-    if (chapter.level < this.settings.granularity && chapter.subItems.length != 0) {
-      paths.push(normalize(chapter.name));
-    }
-    return paths;
-  }
-  generateChapterContent(chapter, index, allChapters) {
-    let content3 = "";
-    if (this.settings.noteTemplate) {
-      const chapterContent = chapter.sections.map((st) => this.htmlToMD(st.html)).join("\n\n");
-      content3 = templateWithVariables(this.settings.noteTemplate, {
-        created_time: Date.now().toString(),
-        content: chapterContent,
-        prev: index > 0 ? allChapters[index - 1].name : "",
-        next: index < allChapters.length - 1 ? allChapters[index + 1].name : "",
-        chapter_name: chapter.name,
-        chapter_level: chapter.level.toString(),
-        chapter_index: (index + 1).toString(),
-        book_name: this.parser.meta["title"] || "",
-        book_author: this.parser.meta["author"] || "",
-        book_publisher: this.parser.meta["publisher"] || "",
-        book_language: this.parser.meta["language"] || "",
-        book_rights: this.parser.meta["rights"] || "",
-        book_description: this.parser.meta["description"] || "",
-        total_chars: chapterContent.length.toString()
-      });
-    }
-    return content3;
-  }
-  async createMocFile(folderPath, epubName) {
-    const mocPath = path6.posix.join(folderPath, templateWithVariables(this.settings.mocName, {bookName: epubName})) + ".md";
-    await this.app.vault.create(mocPath, tFrontmatter(this.properties) + "\n" + this.BookNote);
-  }
-  showSuccessNotice(epubName) {
-    console.log(`Successfully imported ${epubName}`);
-    new import_obsidian4.Notice(`Successfully imported ${epubName}`);
-  }
-  copyImages() {
-    const imagesPath = path6.posix.join(this.vaultPath, this.assetsPath);
-    const imageFiles = import_fs_jetpack6.default.find(this.parser.tmpPath, {
-      matching: ["*.jpg", "*.jpeg", "*.png"]
-    });
-    imageFiles.forEach((file) => {
-      const destPath = path6.posix.join(imagesPath, path6.basename(file));
-      import_fs_jetpack6.default.copy(file, destPath, {overwrite: true});
-    });
-    if (this.parser.coverPath) {
-      this.properties.cover = path6.posix.join(this.assetsPath, path6.basename(this.parser.coverPath));
+    } catch (e) {
+      console.error("Failed to load read progress database:", e);
+      this.db = {};
+      this.lastSavedDb = {};
     }
   }
-  htmlToMD(htmlString) {
-    if (this.settings.reformatting) {
-      htmlString = import_js_beautify.default.html(htmlString, {indent_size: 0});
-    }
-    const doc = new DOMParser().parseFromString(htmlString, "text/html");
-    doc.querySelectorAll("table").forEach((table) => {
-      const isEmpty = !Array.from(table.children).some((child) => child.childElementCount > 0);
-      if (isEmpty)
-        table.remove();
-    });
-    const turndownService = create(this.assetsPath, this.settings.imageFormat);
-    let markdown = turndownService.turndown(htmlString) || htmlString.replace(/<[^>]+>/g, "");
-    const hasH1 = /^# [^\n]+/m.test(markdown);
-    if (!hasH1) {
-      const headingMatch = markdown.match(/^(#{1,6}) [^\n]+/m);
-      if (headingMatch) {
-        const levelDiff = headingMatch[1].length - 1;
-        markdown = markdown.replace(/^(#{1,6}) /gm, (_, hashes) => "#".repeat(Math.max(1, hashes.length - levelDiff)) + " ");
+  async saveDatabase() {
+    try {
+      const parentFolder = this.dbFileName.substring(0, this.dbFileName.lastIndexOf("/"));
+      if (!await this.app.vault.adapter.exists(parentFolder)) {
+        await this.app.vault.adapter.mkdir(parentFolder);
       }
+      if (JSON.stringify(this.db) !== JSON.stringify(this.lastSavedDb)) {
+        await this.app.vault.adapter.write(this.dbFileName, JSON.stringify(this.db));
+        this.lastSavedDb = {...this.db};
+      }
+    } catch (e) {
+      console.error("Failed to save read progress database:", e);
     }
-    return markdown;
+  }
+  delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 };
-var EpubProcessor_default = EpubProcessor;
 
 // src/main.ts
-var path7 = __toModule(require("path"));
-
-// src/i18n/i18next.ts
-var import_obsidian5 = __toModule(require("obsidian"));
-
-// src/i18n/locales/en.json
-var en_exports = {};
-__export(en_exports, {
-  "Assets path": () => Assets_path,
-  "Assets path_o": () => Assets_path_o,
-  "Auto open right panel": () => Auto_open_right_panel,
-  "Auto open right panel_o": () => Auto_open_right_panel_o,
-  "Hierarchy depth": () => Hierarchy_depth,
-  "Hierarchy depth_o": () => Hierarchy_depth_o,
-  Library: () => Library,
-  Library_o: () => Library_o,
-  "Moc fileName": () => Moc_fileName,
-  "Moc fileName_o": () => Moc_fileName_o,
-  "Propertys template": () => Propertys_template,
-  "Propertys template_o": () => Propertys_template_o,
-  "Remove duplicate folders": () => Remove_duplicate_folders,
-  "Remove duplicate folders_o": () => Remove_duplicate_folders_o,
-  "Save path": () => Save_path,
-  "Save path_o": () => Save_path_o,
-  Tag: () => Tag,
-  Tag_o: () => Tag_o,
-  add_regex: () => add_regex,
-  add_regex_o: () => add_regex_o,
-  byDrag: () => byDrag,
-  byDrag_o: () => byDrag_o,
-  content: () => content,
-  default: () => en_default,
-  developing: () => developing,
-  display: () => display,
-  helper: () => helper,
-  imageFormat: () => imageFormat,
-  imageFormat_o: () => imageFormat_o,
-  import: () => import2,
-  "import-epub": () => import_epub,
-  "more log": () => more_log,
-  "more log_o": () => more_log_o,
-  "no book in libraries": () => no_book_in_libraries,
-  "no libraries": () => no_libraries,
-  noteTemplate: () => noteTemplate,
-  noteTemplate_o: () => noteTemplate_o,
-  reformatting: () => reformatting,
-  reformatting_o: () => reformatting_o,
-  storage: () => storage,
-  "sync-libraries": () => sync_libraries,
-  "sync-libraries_r": () => sync_libraries_r
-});
-var import_epub = "Import epub to your vault";
-var sync_libraries = "Import all epub from libraries to your vault";
-var no_libraries = "You have not added any library to the settings page";
-var no_book_in_libraries = "There is no epub in the libraries";
-var sync_libraries_r = "Successfully imported ${n} books";
-var Tag_o = "Tag";
-var Tag = "The tag is used to identify book objects";
-var import2 = "Import";
-var Library_o = "Library";
-var Library = "The plugin will search for .epub files from these paths. Please enter an absolute path, not a relative path in obsidan vault.";
-var byDrag_o = "Import by drag";
-var byDrag = "Import .epub file by drag it to obsidian vault. The .epub  file will be deleted after importing.";
-var storage = "Storage";
-var Save_path_o = "Save path";
-var Save_path = "The plugin will save the imported book to this path.";
-var Assets_path_o = "Assets path";
-var Assets_path = "The plugin will save the assets of the imported book to this path.";
-var display = "Display/Indexing";
-var Hierarchy_depth_o = "Hierarchy depth";
-var Hierarchy_depth = "Determine the Hierarchy depth of generated markdown notes.";
-var Moc_fileName_o = "Moc fileName";
-var Moc_fileName = "FileName for moc file.";
-var noteTemplate_o = "NoteTemplate";
-var noteTemplate = "A template with variables for each page.";
-var Propertys_template_o = "Propertys template";
-var Propertys_template = "The plugin will add these propertys to the imported book.";
-var content = "Content/Format";
-var imageFormat_o = "imageFormat";
-var imageFormat = "The type of imageFormat. caption only for chinese now.";
-var reformatting_o = "reformatting";
-var reformatting = "Reformat the content. This may destroy the original formatting of the book.";
-var add_regex_o = "Add regex";
-var add_regex = "Add a user-defined regular expression.";
-var helper = "Helper";
-var Auto_open_right_panel_o = "Auto open right panel";
-var Auto_open_right_panel = "The plugin will open the book note on right panel when you open a book.";
-var developing = "Developing";
-var Remove_duplicate_folders_o = "Remove duplicate folders";
-var Remove_duplicate_folders = "Remove duplicate folders(risky, for users who understand the usefulness of this option, or developers).";
-var more_log_o = "More log";
-var more_log = "Output more logs to the console for easier debugging.";
-var en_default = {
-  "import-epub": import_epub,
-  "sync-libraries": sync_libraries,
-  "no libraries": no_libraries,
-  "no book in libraries": no_book_in_libraries,
-  "sync-libraries_r": sync_libraries_r,
-  Tag_o,
-  Tag,
-  import: import2,
-  Library_o,
-  Library,
-  byDrag_o,
-  byDrag,
-  storage,
-  "Save path_o": Save_path_o,
-  "Save path": Save_path,
-  "Assets path_o": Assets_path_o,
-  "Assets path": Assets_path,
-  display,
-  "Hierarchy depth_o": Hierarchy_depth_o,
-  "Hierarchy depth": Hierarchy_depth,
-  "Moc fileName_o": Moc_fileName_o,
-  "Moc fileName": Moc_fileName,
-  noteTemplate_o,
-  noteTemplate,
-  "Propertys template_o": Propertys_template_o,
-  "Propertys template": Propertys_template,
-  content,
-  imageFormat_o,
-  imageFormat,
-  reformatting_o,
-  reformatting,
-  add_regex_o,
-  add_regex,
-  helper,
-  "Auto open right panel_o": Auto_open_right_panel_o,
-  "Auto open right panel": Auto_open_right_panel,
-  developing,
-  "Remove duplicate folders_o": Remove_duplicate_folders_o,
-  "Remove duplicate folders": Remove_duplicate_folders,
-  "more log_o": more_log_o,
-  "more log": more_log
-};
-
-// src/i18n/locales/zh-cn.json
-var zh_cn_exports = {};
-__export(zh_cn_exports, {
-  "Assets path": () => Assets_path2,
-  "Assets path_o": () => Assets_path_o2,
-  "Auto open right panel": () => Auto_open_right_panel2,
-  "Auto open right panel_o": () => Auto_open_right_panel_o2,
-  "Hierarchy depth": () => Hierarchy_depth2,
-  "Hierarchy depth_o": () => Hierarchy_depth_o2,
-  Library: () => Library2,
-  Library_o: () => Library_o2,
-  "Moc fileName": () => Moc_fileName2,
-  "Moc fileName_o": () => Moc_fileName_o2,
-  "Propertys template": () => Propertys_template2,
-  "Propertys template_o": () => Propertys_template_o2,
-  "Remove duplicate folders": () => Remove_duplicate_folders2,
-  "Remove duplicate folders_o": () => Remove_duplicate_folders_o2,
-  "Save path": () => Save_path2,
-  "Save path_o": () => Save_path_o2,
-  Tag: () => Tag2,
-  Tag_o: () => Tag_o2,
-  add_regex: () => add_regex2,
-  add_regex_o: () => add_regex_o2,
-  byDrag: () => byDrag2,
-  byDrag_o: () => byDrag_o2,
-  content: () => content2,
-  default: () => zh_cn_default,
-  developing: () => developing2,
-  display: () => display2,
-  helper: () => helper2,
-  imageFormat: () => imageFormat2,
-  imageFormat_o: () => imageFormat_o2,
-  import: () => import3,
-  "import-epub": () => import_epub2,
-  "more log": () => more_log2,
-  "more log_o": () => more_log_o2,
-  "no book in libraries": () => no_book_in_libraries2,
-  "no libraries": () => no_libraries2,
-  noteTemplate: () => noteTemplate2,
-  noteTemplate_o: () => noteTemplate_o2,
-  reformatting: () => reformatting2,
-  reformatting_o: () => reformatting_o2,
-  storage: () => storage2,
-  "sync-libraries": () => sync_libraries2,
-  "sync-libraries_r": () => sync_libraries_r2
-});
-var import_epub2 = "\u5BFC\u5165epub\u5230\u5E93\u4E2D";
-var sync_libraries2 = "\u5C06\u6240\u6709\u4E66\u5E93\u4E2D\u7684epub\u5BFC\u5165\u5230\u5E93\u4E2D";
-var no_libraries2 = "\u4F60\u6CA1\u6709\u5728\u8BBE\u7F6E\u9875\u4E2D\u6DFB\u52A0\u4EFB\u4F55\u4E66\u5E93";
-var no_book_in_libraries2 = "\u4E66\u5E93\u91CC\u6CA1\u6709\u4EFB\u4F55epub";
-var sync_libraries_r2 = "\u6210\u529F\u5BFC\u5165\u4E86 ${n} \u672C\u4E66";
-var Tag_o2 = "\u6807\u7B7E";
-var Tag2 = "\u8FD9\u4E2A\u6807\u7B7E\u7528\u4E8E\u8BC6\u522B\u4E66\u7C4D\u5BF9\u8C61";
-var import3 = "\u5BFC\u5165";
-var Library_o2 = "\u4E66\u5E93";
-var Library2 = "\u8BE5\u63D2\u4EF6\u5C06\u4ECE\u8FD9\u4E9B\u8DEF\u5F84\u4E2D\u641C\u7D22 .epub \u6587\u4EF6\u3002 \u8BF7\u8F93\u5165\u7EDD\u5BF9\u8DEF\u5F84\uFF0C\u800C\u4E0D\u662Fobsidian vault\u4E2D\u7684\u76F8\u5BF9\u8DEF\u5F84\u3002";
-var byDrag_o2 = "\u901A\u8FC7\u62D6\u62FD\u5BFC\u5165";
-var byDrag2 = "\u5C06.epub\u6587\u4EF6\u62D6\u62FD\u5230obsidian\u5E93\u4E2D\u6765\u5BFC\u5165\u5B83\u3002\u5BFC\u5165\u540E\u5C06\u5220\u9664\u8BE5.epub\u6587\u4EF6\u3002";
-var storage2 = "\u5B58\u50A8";
-var Save_path_o2 = "\u4FDD\u5B58\u8DEF\u5F84";
-var Save_path2 = "\u5BFC\u5165\u7684epub\u5C06\u4F1A\u88AB\u4FDD\u5B58\u5230\u8BE5\u8DEF\u5F84\u3002";
-var Assets_path_o2 = "\u9644\u4EF6\u8DEF\u5F84";
-var Assets_path2 = "\u9644\u4EF6\u5C06\u4F1A\u88AB\u4FDD\u5B58\u5230\u8BE5\u8DEF\u5F84\u3002";
-var display2 = "\u663E\u793A/\u7D22\u5F15";
-var Hierarchy_depth_o2 = "\u5C42\u7EA7\u6DF1\u5EA6";
-var Hierarchy_depth2 = "\u51B3\u5B9A\u751F\u6210\u7684 Markdown \u7B14\u8BB0\u7684\u5C42\u7EA7\u7ED3\u6784\u6DF1\u5EA6\u3002";
-var Moc_fileName_o2 = "Moc \u6587\u4EF6\u540D";
-var Moc_fileName2 = "Moc \u6587\u4EF6\u7684\u6587\u4EF6\u540D\u3002";
-var noteTemplate_o2 = "\u9875\u9762\u6A21\u677F";
-var noteTemplate2 = "\u6BCF\u4E00\u4E2A\u9875\u9762\u7684\u6A21\u677F\u3002";
-var Propertys_template_o2 = "\u5C5E\u6027\u6A21\u677F";
-var Propertys_template2 = "\u5C5E\u6027\u5C06\u4F1A\u88AB\u6DFB\u52A0\u5230\u751F\u6210\u7684 MOC \u6587\u4EF6\u4E2D\u3002";
-var content2 = "\u5185\u5BB9/\u683C\u5F0F";
-var imageFormat_o2 = "\u56FE\u7247\u683C\u5F0F";
-var imageFormat2 = "\u56FE\u7247\u7684\u683C\u5F0F\uFF0C\u6807\u6CE8\u73B0\u5728\u4EC5\u652F\u6301\u4E2D\u6587\u3002";
-var reformatting_o2 = "\u518D\u683C\u5F0F\u5316";
-var reformatting2 = "\u5BF9\u5185\u5BB9\u91CD\u65B0\u6392\u7248. \u8FD9\u53EF\u80FD\u4F1A\u7834\u574F\u56FE\u4E66\u539F\u672C\u7684\u6392\u7248\u3002";
-var add_regex_o2 = "\u589E\u6DFB\u6B63\u5219\u8868\u8FBE\u5F0F";
-var add_regex2 = "\u589E\u6DFB\u4E00\u4E2A\u7528\u6237\u5B9A\u4E49\u6B63\u5219\u8868\u8FBE\u5F0F\u3002";
-var helper2 = "\u8F85\u52A9";
-var Auto_open_right_panel_o2 = "\u81EA\u52A8\u6253\u5F00\u53F3\u680F";
-var Auto_open_right_panel2 = "\u4E8E\u4E00\u672C\u4E66\u7C4D\u5185\u6D4F\u89C8\u65F6\uFF0C\u5728\u53F3\u680F\u6253\u5F00MOC\u6587\u4EF6\uFF0C\u4EE5\u4F9B\u5BFC\u822A\u3002";
-var developing2 = "\u5F00\u53D1";
-var Remove_duplicate_folders_o2 = "\u5220\u9664\u91CD\u590D\u6587\u4EF6\u5939";
-var Remove_duplicate_folders2 = "\u5220\u9664\u91CD\u590D\u7684\u6587\u4EF6\u5939\uFF08\u6709\u98CE\u9669\uFF0C\u4EC5\u9002\u7528\u4E8E\u4E86\u89E3\u6B64\u9009\u9879\u6709\u7528\u7684\u7528\u6237\u6216\u5F00\u53D1\u4EBA\u5458\uFF09\u3002";
-var more_log_o2 = "\u66F4\u591A\u65E5\u5FD7";
-var more_log2 = "\u5728\u63A7\u5236\u53F0\u8F93\u51FA\u66F4\u591A\u65E5\u5FD7\uFF0C\u4EE5\u4FBF\u4E8E\u8C03\u8BD5\u3002";
-var zh_cn_default = {
-  "import-epub": import_epub2,
-  "sync-libraries": sync_libraries2,
-  "no libraries": no_libraries2,
-  "no book in libraries": no_book_in_libraries2,
-  "sync-libraries_r": sync_libraries_r2,
-  Tag_o: Tag_o2,
-  Tag: Tag2,
-  import: import3,
-  Library_o: Library_o2,
-  Library: Library2,
-  byDrag_o: byDrag_o2,
-  byDrag: byDrag2,
-  storage: storage2,
-  "Save path_o": Save_path_o2,
-  "Save path": Save_path2,
-  "Assets path_o": Assets_path_o2,
-  "Assets path": Assets_path2,
-  display: display2,
-  "Hierarchy depth_o": Hierarchy_depth_o2,
-  "Hierarchy depth": Hierarchy_depth2,
-  "Moc fileName_o": Moc_fileName_o2,
-  "Moc fileName": Moc_fileName2,
-  noteTemplate_o: noteTemplate_o2,
-  noteTemplate: noteTemplate2,
-  "Propertys template_o": Propertys_template_o2,
-  "Propertys template": Propertys_template2,
-  content: content2,
-  imageFormat_o: imageFormat_o2,
-  imageFormat: imageFormat2,
-  reformatting_o: reformatting_o2,
-  reformatting: reformatting2,
-  add_regex_o: add_regex_o2,
-  add_regex: add_regex2,
-  helper: helper2,
-  "Auto open right panel_o": Auto_open_right_panel_o2,
-  "Auto open right panel": Auto_open_right_panel2,
-  developing: developing2,
-  "Remove duplicate folders_o": Remove_duplicate_folders_o2,
-  "Remove duplicate folders": Remove_duplicate_folders2,
-  "more log_o": more_log_o2,
-  "more log": more_log2
-};
-
-// src/i18n/i18next.ts
-var resources = {
-  en: {translation: en_exports},
-  zh_cn: {translation: zh_cn_exports}
-};
-var translationLanguage = Object.keys(resources).find((i) => i == import_obsidian5.moment.locale().replace("-", "_")) ? import_obsidian5.moment.locale().replace("-", "_") : "en";
-
-// src/main.ts
-var EpubImporterPlugin = class extends import_obsidian6.Plugin {
+var EpubImporterPlugin = class extends import_obsidian8.Plugin {
   constructor() {
     super(...arguments);
+    this.settings = DEFAULT_SETTINGS;
+    this.vaultPath = this.app.vault.adapter.basePath;
+    this.activeBook = "";
     this.detachLeaf = false;
+    this.loadSettings = async () => Object.assign(this.settings, await this.loadData());
+    this.saveSettings = () => this.saveData(this.settings);
+    this.handleDragAndDrop = async (e) => {
+      if (!this.settings.byDrag || !this.isDropTarget(e))
+        return;
+      const file = e.dataTransfer?.files[0];
+      if (file && path7.extname(file.name) === ".epub") {
+        await this.epubProcessor.importEpub(file.path);
+        this.cleanEpubFiles();
+      }
+    };
+    this.handleFileOpen = async (file) => {
+      if (!file || !this.shouldHandleFileOpen())
+        return;
+      const mocPath = this.getMocPath(file);
+      if (!mocPath && file.basename !== "highlights") {
+        this.activeBook = "";
+        return this.activeLeaf?.detach();
+      }
+      const bookName = this.app.vault.getAbstractFileByPath(mocPath)?.parent.name;
+      if (bookName && bookName !== this.activeBook) {
+        await this.updateActiveLeaf(mocPath, bookName);
+      }
+    };
   }
   async onload() {
-    import_i18next2.default.init({
+    await this.loadSettings();
+    await Promise.all([
+      this.initI18n(),
+      this.loadSettings().then(() => {
+        this.epubProcessor = new EpubProcessor_default(this.app, this.settings, this.vaultPath);
+      }),
+      this.setupReadProgressManager()
+    ]);
+    this.addSettingTab(new EpubImporterSettingsTab(this.app, this));
+    this.registerCommands(this.getCommands());
+    this.registerEventHandlers();
+  }
+  async setupReadProgressManager() {
+    if (!this.settings.enableReadProgressManager)
+      return;
+    this.progressManager = new ReadProgressManager(this.app);
+    await this.progressManager.initialize();
+    this.registerEvent(this.app.vault.on("rename", (file, oldPath) => this.progressManager.renameFile(oldPath, file.path)));
+    this.registerEvent(this.app.workspace.on("file-open", (file) => this.progressManager.restoreState(file.path)));
+    this.registerEvent(this.app.vault.on("delete", (file) => this.progressManager.deleteFile(file.path)));
+    this.registerInterval(window.setInterval(() => {
+      const file = this.app.workspace.getActiveFile();
+      if (file) {
+        const state = this.progressManager.getCurrentState();
+        if (state) {
+          this.progressManager.saveState(file.path, state);
+        }
+      }
+    }, 100));
+    this.registerInterval(window.setInterval(() => this.progressManager.saveDatabase(), 500));
+    this.registerEvent(this.app.workspace.on("quit", () => this.progressManager.saveDatabase()));
+  }
+  async initI18n() {
+    await import_i18next2.default.init({
       lng: translationLanguage,
       fallbackLng: "en",
       resources,
       returnNull: false
     });
-    this.vaultPath = this.app.vault.adapter.basePath;
-    await this.loadSettings();
-    this.addSettingTab(new EpubImporterSettingsTab(this.app, this));
-    this.epubProcessor = new EpubProcessor_default(this.app, this.settings, this.vaultPath);
-    this.registerCommands();
-    this.registerEventHandlers();
   }
-  async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+  getCommands() {
+    return [
+      {
+        id: "import-epub",
+        name: import_i18next2.default.t("translation:import-epub"),
+        callback: () => this.createModal(EpubImporterModal, this.settings.libraries, (result) => this.epubProcessor.importEpub(result))
+      },
+      {
+        id: "sync-libraries",
+        name: import_i18next2.default.t("translation:sync-libraries"),
+        callback: () => this.syncLibraries()
+      },
+      {
+        id: "open-book",
+        name: import_i18next2.default.t("translation:open-book"),
+        callback: () => this.createModal(OpenBookModal, getNotesWithTag(this.app, this.settings.tag), this.continueBook.bind(this))
+      },
+      {
+        id: "export-zip",
+        name: import_i18next2.default.t("translation:export-zip"),
+        callback: () => this.createModal(ZipExporterModal, this.settings.tag, (bookName) => this.exportBookToZip(bookName))
+      },
+      {
+        id: "import-zip",
+        name: import_i18next2.default.t("translation:import-zip"),
+        callback: () => this.createModal(ZipImporterModal, this.settings.backupPath, (zipPath) => this.importBookFromZip(zipPath))
+      }
+    ];
   }
-  async saveSettings() {
-    await this.saveData(this.settings);
+  async continueBook(result) {
+    const links = this.app.metadataCache.getCache(result.path)?.links || [];
+    const notes = links.map((link) => this.app.vault.getAbstractFileByPath(link.link + ".md")).filter((file) => file instanceof import_obsidian8.TFile);
+    const latestNoteByTimestamp = notes.reduce((prev, current) => {
+      const prevState = this.progressManager.getNoteState(prev.path)?.timestamp || 0;
+      const currentState = this.progressManager.getNoteState(current.path)?.timestamp || 0;
+      return prevState >= currentState ? prev : current;
+    });
+    await this.app.workspace.openLinkText(latestNoteByTimestamp.path, "");
   }
-  registerCommands() {
-    this.addCommand({
-      id: "import-epub",
-      name: import_i18next2.default.t("import-epub"),
-      callback: () => {
-        new EpubImporterModal(this.app, this.settings.libraries, async (result) => {
-          await this.epubProcessor.importEpub(result);
-        }).open();
-      }
-    });
-    this.addCommand({
-      id: "sync-libraries",
-      name: import_i18next2.default.t("sync-libraries"),
-      callback: async () => {
-        await this.syncLibraries();
-      }
-    });
-    this.addCommand({
-      id: "export-zip",
-      name: "Export a book to the backup directory in .zip format",
-      callback: () => {
-        new ZipExporterModal(this.app, this.settings.tag, (bookName) => {
-          this.exportBookToZip(bookName);
-        }).open();
-      }
-    });
-    this.addCommand({
-      id: "import-zip",
-      name: "Import a .zip book from the backup directory into the vault in .zip format",
-      callback: () => {
-        new ZipImporterModal(this.app, this.settings.backupPath, (zipPath) => {
-          this.importBookFromZip(zipPath);
-        }).open();
-      }
-    });
+  registerCommands(commands) {
+    commands.forEach((cmd) => this.addCommand(cmd));
   }
   registerEventHandlers() {
-    this.registerDomEvent(document, "drop", async (e) => {
-      await this.handleDragAndDrop(e);
-    });
-    this.registerEvent(this.app.workspace.on("file-open", async (file) => {
-      await this.handleFileOpen(file);
-    }));
+    this.registerDomEvent(document, "drop", this.handleDragAndDrop);
+    this.registerEvent(this.app.workspace.on("file-open", this.handleFileOpen));
+  }
+  createModal(ModalClass, param, callback) {
+    new ModalClass(this.app, param, callback).open();
   }
   async syncLibraries() {
     const {libraries} = this.settings;
-    if (!libraries.length) {
-      new import_obsidian6.Notice(import_i18next2.default.t("no libraries"));
-      return;
-    }
-    const results = libraries.map((library) => import_fs_jetpack7.default.find(library, {matching: "**/**.epub"})).flat();
-    const bookCount = results.length;
-    for (const result of results) {
-      await this.epubProcessor.importEpub(import_fs_jetpack7.default.path(result));
-    }
-    if (bookCount === 0) {
-      new import_obsidian6.Notice(import_i18next2.default.t("no book in libraries"));
-      console.log(import_i18next2.default.t("no book in libraries"));
-    } else {
-      const message = import_i18next2.default.t("translation:sync-libraries_r").replace("${n}", bookCount.toString());
-      new import_obsidian6.Notice(message);
-      console.log(message);
-    }
+    if (!libraries.length)
+      return this.showNotice(import_i18next2.default.t("translation:no libraries"));
+    const epubs = libraries.flatMap((lib) => import_fs_jetpack7.default.find(lib, {matching: "**/**.epub"}));
+    await Promise.all(epubs.map((epub) => this.epubProcessor.importEpub(import_fs_jetpack7.default.path(epub))));
+    this.showSyncResult(epubs.length);
+  }
+  showSyncResult(count) {
+    const message = count === 0 ? import_i18next2.default.t("translation:no book in libraries") : import_i18next2.default.t("translation:sync-libraries_r", {n: count.toString()});
+    new import_obsidian8.Notice(message);
+    console.log(message);
   }
   exportBookToZip(bookName) {
-    const bookPath = path7.posix.join(this.vaultPath, this.settings.savePath, bookName);
+    const bookPath = this.getPath(this.settings.savePath, bookName);
     const zip = new import_adm_zip.default();
     zip.addLocalFolder(bookPath);
-    const exportPath = path7.posix.join(this.settings.backupPath, bookName + ".zip");
-    zip.writeZip(exportPath);
+    zip.writeZip(this.getPath(this.settings.backupPath, `${bookName}.zip`));
   }
   importBookFromZip(zipPath) {
-    const bookPath = path7.posix.join(this.vaultPath, this.settings.savePath, path7.basename(zipPath).split(".zip")[0]);
-    const zip = new import_adm_zip.default(zipPath);
-    zip.extractAllTo(bookPath);
+    const bookName = path7.basename(zipPath, ".zip");
+    new import_adm_zip.default(zipPath).extractAllTo(this.getPath(this.settings.savePath, bookName));
   }
-  async handleDragAndDrop(e) {
-    if (this.settings.byDrag && e.toElement.className == "nav-files-container node-insert-event") {
-      const files = e.dataTransfer.files;
-      if (files.length == 1 && path7.extname(files[0].name) == ".epub") {
-        await this.epubProcessor.importEpub(files[0].path);
-        import_fs_jetpack7.default.find(this.vaultPath, {
-          matching: "**/**.epub"
-        }).forEach(import_fs_jetpack7.default.remove);
-      }
-    }
+  getPath(...segments) {
+    return path7.posix.join(this.vaultPath, ...segments);
   }
-  async handleFileOpen(file) {
+  isDropTarget(e) {
+    return e.target?.className === "nav-files-container node-insert-event";
+  }
+  shouldHandleFileOpen() {
     if (this.settings.leafID && !this.detachLeaf) {
       this.detachLeaf = true;
       this.activeLeaf = this.app.workspace.getLeafById(this.settings.leafID);
-      return;
+      return false;
     }
-    if (!this.settings.autoOpenRightPanel)
-      return;
-    if (!this.app.workspace.getActiveFile())
-      return;
-    const mocPath = this.getMocPath(file);
-    if (!mocPath && file.basename != "highlights") {
-      this.activeBook = "";
-      return this.activeLeaf.detach();
-    }
-    const bookName = this.app.vault.getAbstractFileByPath(mocPath).parent.name;
-    if (this.activeBook == bookName)
-      return;
-    await this.updateActiveLeaf(mocPath, bookName);
+    return this.settings.autoOpenRightPanel;
+  }
+  cleanEpubFiles() {
+    import_fs_jetpack7.default.find(this.vaultPath, {matching: "**/**.epub"}).forEach(import_fs_jetpack7.default.remove);
   }
   async updateActiveLeaf(mocPath, bookName) {
-    if (this.activeLeaf)
-      this.activeLeaf.detach();
+    this.activeLeaf?.detach();
     this.activeBook = bookName;
     this.activeLeaf = this.app.workspace.getRightLeaf(false);
     this.settings.leafID = this.activeLeaf.id;
     await this.saveSettings();
-    this.activeLeaf.setViewState({
+    await this.activeLeaf.setViewState({
       type: "markdown",
-      state: {
-        file: mocPath,
-        mode: "preview",
-        backlinks: false,
-        source: false
-      }
+      state: {file: mocPath, mode: "preview"}
     });
     this.activeLeaf.setPinned(true);
     this.app.workspace.revealLeaf(this.activeLeaf);
   }
   getMocPath(note) {
     const mocFiles = getNotesWithTag(this.app, this.settings.tag);
-    if (mocFiles.includes(note))
-      return note.path;
-    else
-      return mocFiles.find((n) => {
-        return this.app.metadataCache.getCache(n.path).links.some((link) => link.link + ".md" == note.path);
-      })?.path;
+    return mocFiles.includes(note) ? note.path : mocFiles.find((n) => this.hasLinkTo(note, n))?.path;
+  }
+  hasLinkTo(note, moc) {
+    return this.app.metadataCache.getCache(moc.path)?.links.some((link) => link.link + ".md" === note.path) ?? false;
+  }
+  showNotice(message) {
+    new import_obsidian8.Notice(message);
   }
 };
 var main_default = EpubImporterPlugin;

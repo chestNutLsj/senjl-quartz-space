@@ -14,14 +14,17 @@ image-auto-upload: true
 
 > [!example] 帖子精选
 > - **论文注解**：
-> 	- [[DeepSeek_V3_Report：Annotation]]
-> 	- [[Characterization of LLM Development in the Datacenter：Annotation]]
-> 	- [[Jupiter_Rising：Annotation]]
-> 	- [[Primus-a_centralized_routing：Annotation]]
-> 	- [[Jupiter_Evolving：Conclusion]]
-> 	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
-> 	- [[UB-Mesh-Annotation]]
-> - **我的方法论**：
+> 	- Data Center Network：
+> 		- [[Jupiter_Rising：Annotation]]
+> 	 	- [[Primus-a_centralized_routing：Annotation]]
+> 	 	- [[Jupiter_Evolving：Conclusion]]
+> 	 	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
+> 	 	- [[UB-Mesh-Annotation]]
+> 	- LLM-related：
+> 		- [[DeepSeek_V3_Report：Annotation]]
+> 		- [[Insights-into-DeepSeek-V3-Annotation]]
+> 		- [[Characterization of LLM Development in the Datacenter：Annotation]]
+> - **论文阅读的方法论**：
 > 	- [[Paper-Reading-Methods]]
 
 ## Learn in 2024
