@@ -122,7 +122,7 @@ Table1 是基于 2T 参数的 MoE 模型测量而得，可以看到通信密集�
 
 **具体实现**：
 1. **Implementing 2D-FullMesh in Racks**. 如 Fig 7-(b) 所示，每个机架内都配置了 2D-FullMesh 拓扑
-	- 机架的核心是 8 个 NPU 板（板间直连形成 XY 全连接），每个板上有 8 个 NPU，这 64 个互联的 NPU 构成了 2D-FullMesh 的网络，保障 NPU2NPU 的高带宽。UB IO 控制器也有路由功能，因此 NPU 也提供间接路由功能。
+	- 机架的核心是 8 个 NPU 板（板间直连形成 XY 全连接），每个板上有 8 个 NPU，这 64 个互联的 NPU 构成了 2D-FullMesh 的网络，保障 NPU-to-NPU 的高带宽。UB IO 控制器也有路由功能，因此 NPU 也提供间接路由功能。
 	- 与传统 CPU 和 NPU 在同一主板上不同，这里 CPU 是独立存在的，通过交换机与 NPU 连接，从而实现灵活的 CPU/NPU 配比以及 CPU/NPU/DDR 资源的池化。
 	- 机架配备多块背板交换机，用于管理机架内与机架间的连接。这些交换机采用低基数设计（称为 LRS），在确保设备间无阻塞通信的同时降低成本。这些背板交换机集合输出四组 UB 256 个 IO 接口。
 	- ![UB-Mesh-Annotation-fig8-hardware-impl](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/UB-Mesh-Annotation-fig8-hardware-impl.png)

@@ -37603,6 +37603,12 @@ var import_fs_jetpack3 = __toModule(require_main());
 var path4 = __toModule(require("path"));
 var xml2js = __toModule(require_xml2js());
 
+// src/utils/utils.ts
+function normalize(filename) {
+  const invalidChars = /[<>:"\\/\\|?*]+/g;
+  return filename.replace(invalidChars, "_");
+}
+
 // src/core/parser/types.ts
 var Section = class {
   constructor(name, url) {
@@ -37623,8 +37629,11 @@ var Chapter = class {
     this.level = level;
     this.parent = parent;
   }
-  get name() {
+  get originalName() {
     return this.sections[0].name ?? "";
+  }
+  get name() {
+    return normalize(this.originalName);
   }
 };
 
@@ -37666,12 +37675,11 @@ var OPFParser = class {
   }
   getMeta() {
     const meta = findProperty(this.content, "metadata")?.[0] ?? {};
-    const wrapQuotes = (value) => value ? `"${value}"` : "";
     return {
-      title: wrapQuotes(meta["dc:title"]?.[0]),
-      publisher: wrapQuotes(meta["dc:publisher"]?.[0]),
-      language: wrapQuotes(meta["dc:language"]?.[0]),
-      author: wrapQuotes(meta["dc:creator"]?.[0]?.["_"] ?? "")
+      title: meta["dc:title"]?.[0] ?? "",
+      publisher: meta["dc:publisher"]?.[0] ?? "",
+      language: meta["dc:language"]?.[0] ?? "",
+      author: meta["dc:creator"]?.[0]?.["_"] ?? ""
     };
   }
 };
@@ -37957,12 +37965,6 @@ var create = (assetsPath, imageFormat3) => {
 // src/core/EpubProcessor.ts
 var path6 = __toModule(require("path"));
 
-// src/utils/utils.ts
-function normalize(filename) {
-  const invalidChars = /[<>:"\\/\\|?*]+/g;
-  return filename.replace(invalidChars, "_");
-}
-
 // src/utils/obsidianUtils.ts
 var import_obsidian = __toModule(require("obsidian"));
 function getNotesWithTag(app, tag) {
@@ -38025,7 +38027,7 @@ var EpubProcessor = class {
   async processChapters(epubName, folderPath, chapters) {
     for (const [i, chapter] of chapters.entries()) {
       const notePath = await this.createChapterNote(chapter, folderPath, i, chapters);
-      this.bookNote += `${"	".repeat(chapter.level)}- [[${notePath}|${chapter.name}]]
+      this.bookNote += `${"	".repeat(chapter.level)}- [[${notePath}|${chapter.originalName}]]
 `;
     }
     await this.createFile(`${folderPath}/${templateWithVariables(this.settings.mocName, {bookName: epubName})}.md`, this.bookNote);
@@ -38048,8 +38050,8 @@ var EpubProcessor = class {
       }
       const targetChapter = this.findChapterByHref(chapters, href);
       if (targetChapter) {
-        const display3 = displayText || targetChapter.name;
-        return `[[${normalize(targetChapter.name)}|${display3}]]`;
+        const display3 = displayText || targetChapter.originalName;
+        return `[[${targetChapter.name}|${display3}]]`;
       }
       return match;
     });
@@ -38090,13 +38092,13 @@ ${content3}`).catch((error) => console.warn(`Failed to create ${filePath}: ${err
   }
   getChapterPaths(chapter) {
     const paths = this.buildPathArray(chapter);
-    return chapter.level < this.settings.granularity && chapter.subItems.length ? [...paths, normalize(chapter.name)] : paths;
+    return chapter.level < this.settings.granularity && chapter.subItems.length ? [...paths, chapter.name] : paths;
   }
   buildPathArray(chapter) {
     const paths = [];
     let current = chapter;
     while (current) {
-      paths.unshift(normalize(current.name));
+      paths.unshift(current.name);
       current = current.parent;
     }
     return paths;
@@ -38108,7 +38110,7 @@ ${content3}`).catch((error) => console.warn(`Failed to create ${filePath}: ${err
       content: content3,
       prev: index > 0 ? chapters[index - 1].name : "",
       next: index < chapters.length - 1 ? chapters[index + 1].name : "",
-      chapter_name: chapter.name,
+      chapter_name: chapter.originalName,
       chapter_level: chapter.level.toString(),
       chapter_index: (index + 1).toString(),
       ...this.parser.meta,

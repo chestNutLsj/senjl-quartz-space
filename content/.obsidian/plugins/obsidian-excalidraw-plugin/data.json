@@ -1,6 +1,6 @@
 {
   "disableDoubleClickTextEditing": false,
-  "folder": "0-Assets/Excalidraw",
+  "folder": "00-Assets/Excalidraw",
   "cropFolder": "",
   "annotateFolder": "",
   "embedUseExcalidrawFolder": false,
@@ -22,7 +22,9 @@
   "drawingFilnameEmbedPostfix": " ",
   "drawingFilenameDateTime": "YYYY-MM-DD HH.mm.ss",
   "useExcalidrawExtension": true,
+  "cropSuffix": "",
   "cropPrefix": "cropped_",
+  "annotateSuffix": "",
   "annotatePrefix": "annotated_",
   "annotatePreserveSize": false,
   "displaySVGInPreview": true,
@@ -37,6 +39,8 @@
   "overrideObsidianFontSize": false,
   "dynamicStyling": "colorful",
   "isLeftHanded": false,
+  "desktopUIMode": "tray",
+  "tabletUIMode": "compact",
   "iframeMatchExcalidrawTheme": true,
   "matchTheme": true,
   "matchThemeAlways": true,
@@ -46,6 +50,7 @@
   "penModeDoubleTapEraser": true,
   "penModeSingleFingerPanning": true,
   "penModeCrosshairVisible": false,
+  "panWithRightMouseButton": false,
   "renderImageInMarkdownReadingMode": false,
   "renderImageInHoverPreviewForMDNotes": false,
   "renderImageInMarkdownToPDF": false,
@@ -54,6 +59,9 @@
   "zoomToFitOnOpen": true,
   "zoomToFitOnResize": true,
   "zoomToFitMaxLevel": 2,
+  "zoomStep": 0.05,
+  "zoomMin": 0.1,
+  "zoomMax": 30,
   "linkPrefix": "📍",
   "urlPrefix": "🌐",
   "parseTODO": false,
@@ -102,7 +110,7 @@
   "library2": {
     "type": "excalidrawlib",
     "version": 2,
-    "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.8.3",
+    "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.11.1",
     "libraryItems": [
       {
         "status": "published",
@@ -87035,9 +87043,9 @@
       "Remember last opacity?": false
     }
   },
-  "defaultTrayMode": false,
-  "previousRelease": "2.11.1",
+  "previousRelease": "2.17.2",
   "showReleaseNotes": true,
+  "compareManifestToPluginVersion": true,
   "showNewVersionNotification": true,
   "latexBoilerplate": "\\color{blue}",
   "latexPreambleLocation": "preamble.sty",
@@ -87396,6 +87404,7 @@
   "aiEnabled": true,
   "openAIAPIToken": "",
   "openAIDefaultTextModel": "gpt-3.5-turbo-1106",
+  "openAIDefaultTextModelMaxTokens": 4096,
   "openAIDefaultVisionModel": "gpt-4o",
   "openAIDefaultImageGenerationModel": "dall-e-3",
   "openAIURL": "https://api.openai.com/v1/chat/completions",
@@ -87723,6 +87732,8 @@
     "alignment": "center",
     "margin": "normal"
   },
+  "disableContextMenu": false,
+  "defaultTrayMode": false,
   "autosaveInterval": 15000,
   "mathjaxSourceURL": "https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-svg.js"
 }

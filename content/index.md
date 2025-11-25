@@ -4,7 +4,6 @@ publish: "true"
 tags:
   - quartz
   - Blog
-image-auto-upload: true
 ---
 欢迎来到我[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮：`lisj24 at mails.tsinghua.edu.cn`，或者在本博客页底的评论区[^2] 中发起讨论。
 
@@ -59,6 +58,11 @@ image-auto-upload: true
 - [ ] 3 月 ~ 5 月：初步开展科研工作
 	- [ ] 学习 CUDA 编程
 	- [ ] 保持对 DeepSeek、Kimi、Minimax 等前沿公司的技术的追更
+	- [x] 寻找数据中心内路由系统和容错系统的 idea
+- [ ] 6 月 ~ 9 月：
+	- [ ] 每周了解一个 LLM/LLM Infra 相关的新知识： [[LLM-Weekly]]
+	- [ ] 开发 HCCLang： [[xCCL Learning Roadmap]]
+	- [ ] 搭建路由系统
 
 ## My CS Career
 
@@ -96,7 +100,10 @@ image-auto-upload: true
 7. 软件工程
 	- 清华大学软件学院刘强老师： [[Software-Construction-notes|软件工程]]
 
-8. GPU 编程
+8. 异构/GPU 编程
+	- [[OpenCL-Learning|OpenCL 编程]]
+	- HIP 编程
+	- Triton 编程
 	- [[Learning CUDA Programming|CUDA 编程]]
 
 ### 人工智能

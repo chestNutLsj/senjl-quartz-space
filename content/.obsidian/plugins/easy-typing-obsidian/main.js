@@ -1175,9 +1175,7 @@ function splitTextWithLinkAndUserDefined(text, regExps) {
         let regTemp = new RegExp(regItem, "g");
       } catch (error) {
         isValidReg = false;
-        if (this.settings.debug) {
-          new import_obsidian.Notice("EasuTyping: Bad RegExp:\n" + regItem);
-        }
+        console.error("EasyTyping: Invalid RegExp:", regItem, error);
       }
       if (isValidReg) {
         regExpList.push(new RegExp(regItem, "g"));
@@ -2026,7 +2024,7 @@ var locale4 = {
       name: "\u53E5\u9996\u5B57\u6BCD\u5927\u5BEB",
       desc: "\u82F1\u6587\u6BCF\u500B\u53E5\u9996\u5B57\u6BCD\u5927\u5BEB\uFF0C\u53EF\u53D6\u6D88"
     },
-    smartInsertSpace: {
+    textPunctuationSpace: {
       name: "\u6587\u672C\u548C\u6A19\u9EDE\u9593\u7A7A\u683C",
       desc: "\u5728\u6587\u672C\u548C\u6A19\u9EDE\u4E4B\u9593\u667A\u80FD\u63D2\u5165\u7A7A\u683C"
     },
@@ -3011,7 +3009,7 @@ function getMarkerDecoration(from, to) {
   if (from == to) {
     return import_view2.Decoration.widget({
       widget: new CursorWidget(),
-      side: 1
+      side: 0
     }).range(from);
   }
   return import_view2.Decoration.mark({
@@ -3109,7 +3107,7 @@ var CursorWidget = class extends import_view2.WidgetType {
   toDOM(view) {
     const cursorEl = document.createElement("span");
     cursorEl.className = `${CURSOR_WIDGET_CLASS}`;
-    cursorEl.textContent = "|";
+    cursorEl.textContent = "";
     return cursorEl;
   }
 };
@@ -3131,11 +3129,11 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
       let selected = tr.startState.selection.asSingle().main.anchor != tr.startState.selection.asSingle().main.head;
       let changeTypeStr = getTypeStrOfTransac(tr);
       tr.changes.iterChanges((fromA, toA, fromB, toB, inserted) => {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         let changedStr = tr.startState.sliceDoc(fromA, toA);
         let changestr_ = changedStr.replace(/\s/g, "0");
         let insertedStr = inserted.sliceString(0);
-        if (this.settings.debug) {
+        if ((_a = this.settings) == null ? void 0 : _a.debug) {
           console.log("[TransactionFilter] type, fromA, toA, changed, fromB, toB, inserted");
           console.log(changeTypeStr, fromA, toA, changedStr, fromB, toB, insertedStr);
         }
@@ -3144,8 +3142,8 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
         if (this.settings.SelectionEnhance) {
           if ((changeTypeStr == "input.type" || changeTypeStr == "input.type.compose") && fromA != toA && (fromB + 1 === toB || insertedStr == "\u2014\u2014" || insertedStr == "\u2026\u2026")) {
             if (this.SelectionReplaceMap.has(insertedStr)) {
-              changes.push({ changes: { from: fromA, insert: (_a = this.SelectionReplaceMap.get(insertedStr)) == null ? void 0 : _a.left }, userEvent: "EasyTyping.change" });
-              changes.push({ changes: { from: toA, insert: (_b = this.SelectionReplaceMap.get(insertedStr)) == null ? void 0 : _b.right }, userEvent: "EasyTyping.change" });
+              changes.push({ changes: { from: fromA, insert: (_b = this.SelectionReplaceMap.get(insertedStr)) == null ? void 0 : _b.left }, userEvent: "EasyTyping.change" });
+              changes.push({ changes: { from: toA, insert: (_c = this.SelectionReplaceMap.get(insertedStr)) == null ? void 0 : _c.right }, userEvent: "EasyTyping.change" });
               tr = tr.startState.update(...changes);
               return tr;
             }
@@ -3154,7 +3152,7 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
         if (this.settings.BetterCodeEdit && changeTypeStr.contains("paste") && fromA == fromB && isCodeBlockInPos(tr.startState, fromA)) {
           print("\u68C0\u6D4B\u5230\u5728\u4EE3\u7801\u5757\u4E2D\u7C98\u8D34");
           let line = tr.startState.doc.lineAt(fromB).text;
-          let base_indent_num = (_c = getCodeBlockInfoInPos(tr.startState, fromA)) == null ? void 0 : _c.indent;
+          let base_indent_num = (_d = getCodeBlockInfoInPos(tr.startState, fromA)) == null ? void 0 : _d.indent;
           let base_indent = base_indent_num == 0 ? "" : " ".repeat(base_indent_num);
           let inserted_lines = insertedStr.split("\n");
           if (inserted_lines.length > 1) {
@@ -3531,9 +3529,10 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
       let tr = update.transactions[0];
       let changeType = getTypeStrOfTransac(tr);
       tr.changes.iterChanges((fromA, toA, fromB, toB, inserted) => {
+        var _a;
         let insertedStr = inserted.sliceString(0);
         let changedStr = tr.startState.doc.sliceString(fromA, toA);
-        if (this.settings.debug) {
+        if ((_a = this.settings) == null ? void 0 : _a.debug) {
           console.log("[ViewUpdate] type, fromA, toA, changed, fromB, toB, inserted");
           console.log(changeType, fromA, toA, changedStr, fromB, toB, insertedStr);
           console.log("==>[Composing]", update.view.composing);
@@ -3939,7 +3938,8 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
       return selectCodeBlockInPos(view, mainSelection);
     };
     this.onKeyup = (event, view) => {
-      if (this.settings.debug) {
+      var _a;
+      if ((_a = this.settings) == null ? void 0 : _a.debug) {
         console.log("Keyup:", event.key);
       }
       this.handleEndComposeTypeKey(event, view);
@@ -4129,7 +4129,8 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
       return [newLine, newCh];
     };
     this.deleteBlankLines = (editor) => {
-      if (this.settings.debug) {
+      var _a;
+      if ((_a = this.settings) == null ? void 0 : _a.debug) {
         console.log("config.strictLineBreaks", this.app.vault.getConfig("strictLineBreaks"));
       }
       let strictLineBreaks = this.app.vault.config.strictLineBreaks || false;
@@ -4325,6 +4326,10 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
     this.compose_need_handle = false;
     this.Formater = new LineFormater();
     this.onFormatArticle = false;
+    if (!this.settings) {
+      console.error("EasyTyping: Settings not loaded properly, using defaults");
+      this.settings = Object.assign({}, DEFAULT_SETTINGS);
+    }
     setDebug(this.settings.debug);
     this.registerEditorExtension([
       import_state3.EditorState.transactionFilter.of(this.transactionFilterPlugin),
@@ -4461,11 +4466,12 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
     });
     this.addSettingTab(new EasyTypingSettingTab(this.app, this));
     this.registerEvent(this.app.workspace.on("active-leaf-change", (leaf) => {
+      var _a;
       if (leaf.view.getViewType() == "markdown") {
         let file = this.app.workspace.getActiveFile();
         if (file != null && this.CurActiveMarkdown != file.path) {
           this.CurActiveMarkdown = file.path;
-          if (this.settings.debug)
+          if ((_a = this.settings) == null ? void 0 : _a.debug)
             new import_obsidian3.Notice("new md-file open: " + file.path);
         }
       }
@@ -4487,10 +4493,11 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
     console.log("Easy Typing Plugin unloaded.");
   }
   async normalPaste(editor) {
+    var _a;
     let clipboardText = await navigator.clipboard.readText();
     if (clipboardText === null || clipboardText === "")
       return;
-    if (this.settings.debug)
+    if ((_a = this.settings) == null ? void 0 : _a.debug)
       console.log("Normal Paste!!");
     const editorView = editor.cm;
     let mainSelection = editorView.state.selection.asSingle().main;
@@ -4910,7 +4917,8 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
     new import_obsidian3.Notice("EasyTyping: Autoformat is " + status + "!");
   }
   convert2CodeBlock(editor) {
-    if (this.settings.debug)
+    var _a;
+    if ((_a = this.settings) == null ? void 0 : _a.debug)
       console.log("----- EasyTyping: insert code block-----");
     if (editor.somethingSelected && editor.getSelection() != "") {
       let selected = editor.getSelection();
@@ -5076,7 +5084,13 @@ var EasyTypingPlugin = class extends import_obsidian3.Plugin {
     this.refreshUserConvertRule();
   }
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    try {
+      const userData = await this.loadData();
+      this.settings = Object.assign({}, DEFAULT_SETTINGS, userData || {});
+    } catch (error) {
+      console.error("EasyTyping: Failed to load settings, using defaults:", error);
+      this.settings = Object.assign({}, DEFAULT_SETTINGS);
+    }
   }
   async saveSettings() {
     await this.saveData(this.settings);

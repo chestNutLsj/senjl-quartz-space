@@ -68,12 +68,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.RecentNotes({
-      title: "Recent writing",
-      limit: 3,
-      showTags: false,
-      // linkToMore: ""
-    }),
+    // Component.RecentNotes({
+    //   title: "Recent writing",
+    //   limit: 3,
+    //   showTags: false,
+    //   // linkToMore: ""
+    // }),
     Component.Explorer(),
   ],
   right: [

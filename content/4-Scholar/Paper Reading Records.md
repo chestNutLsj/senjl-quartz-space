@@ -83,3 +83,5 @@ author: SenjLee
 	- 容错：
 - DeepSeek 新作：
 	- [[Insights-into-DeepSeek-V3-Annotation]]
+- 自适应路由机制：
+	- 

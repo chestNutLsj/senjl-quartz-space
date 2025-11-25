@@ -40,7 +40,6 @@
   "blue-topaz-theme@@resizable-mermaid": true,
   "blue-topaz-theme@@nowrap-outline": true,
   "minimal-style@@callouts-style": "callouts-outlined",
-  "minimal-advanced@@styled-scrollbars": true,
   "minimal-advanced@@cursor": "default",
   "minimal-style@@blockquote-font-style": "italic",
   "minimal-style@@sidebar-tabs-style": "sidebar-tabs-underline",

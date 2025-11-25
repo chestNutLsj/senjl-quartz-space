@@ -277,7 +277,8 @@ var path3 = __toESM(require("path"));
 // src/config.ts
 var ATTACHMENT_URL_REGEXP = /!\[\[((.*?)\.(\w+))(?:\s*\|\s*(?<width>\d+)\s*(?:[*|x]\s*(?<height>\d+))?)?\]\]/g;
 var MARKDOWN_ATTACHMENT_URL_REGEXP = /!\[(.*?)\]\(((.*?)\.(\w+))\)/g;
-var EMBED_URL_REGEXP = /!\[\[(.*?)\]\]/g;
+var EMBED_URL_REGEXP = /!\[\[([\s\S]*?)\]\]/g;
+var EMBED_METADATA_REGEXP = /^---(?:\n|\r\n)[\s\S]*?(?:\n|\r\n)---(?:\n|\r\n)?/;
 var GFM_IMAGE_FORMAT = "![]({0})";
 var OUTGOING_LINK_REGEXP = /(?<!!)\[\[(.*?)\]\]/g;
 var DEFAULT_SETTINGS = {
@@ -290,7 +291,18 @@ var DEFAULT_SETTINGS = {
   includeFileName: false,
   customFileName: "",
   customAttachPath: "",
-  relAttachPath: true
+  relAttachPath: true,
+  convertWikiLinksToMarkdown: false,
+  removeYamlHeader: false,
+  textExportBulletPointMap: {
+    0: "\u25CF",
+    4: "\uFFEE",
+    8: "\uFFED",
+    12: "\u25BA",
+    16: "\u2022"
+  },
+  textExportCheckboxUnchecked: "\u2610",
+  textExportCheckboxChecked: "\u2611"
 };
 
 // src/utils.ts
@@ -472,12 +484,62 @@ async function getEmbedMap(plugin, content, path4) {
     const embedContentHtml = el.getElementsByClassName("markdown-embed-content")[0];
     if (embedContentHtml) {
       let embedValue = (0, import_obsidian2.htmlToMarkdown)(embedContentHtml.innerHTML);
+      if (plugin.settings.removeYamlHeader) {
+        embedValue = embedValue.replace(EMBED_METADATA_REGEXP, "");
+      }
       embedValue = "> " + embedValue.replaceAll("# \n\n", "# ").replaceAll("\n", "\n> ");
       const embedKey = el.getAttribute("src");
       embedMap.set(embedKey, embedValue);
     }
   });
   return embedMap;
+}
+function convertMarkdownToText(plugin, markdown) {
+  let text = markdown;
+  text = text.replace(/- \[ \]/g, plugin.settings.textExportCheckboxUnchecked);
+  text = text.replace(/- \[x\]/g, plugin.settings.textExportCheckboxChecked);
+  const lines = text.split("\n");
+  const processedLines = lines.map((line) => {
+    var _a;
+    const leadingWhitespace = ((_a = line.match(/^(\s*)/)) == null ? void 0 : _a[0]) || "";
+    if (line.trim().startsWith("- ")) {
+      const trimmedLine = line.trim();
+      const normalizedIndent = leadingWhitespace.replace(/\t/g, "    ");
+      const indentationLevel = Math.floor(normalizedIndent.length / 4);
+      let bulletPointSymbol = plugin.settings.textExportBulletPointMap[indentationLevel * 4];
+      if (!bulletPointSymbol) {
+        switch (indentationLevel) {
+          case 0:
+            bulletPointSymbol = plugin.settings.textExportBulletPointMap[0] || "\u25CF";
+            break;
+          case 1:
+            bulletPointSymbol = plugin.settings.textExportBulletPointMap[4] || "\uFFEE";
+            break;
+          case 2:
+            bulletPointSymbol = plugin.settings.textExportBulletPointMap[8] || "\uFFED";
+            break;
+          case 3:
+            bulletPointSymbol = plugin.settings.textExportBulletPointMap[12] || "\u25BA";
+            break;
+          case 4:
+            bulletPointSymbol = plugin.settings.textExportBulletPointMap[16] || "\u2022";
+            break;
+          default: {
+            const levels = Object.keys(plugin.settings.textExportBulletPointMap).map(Number).sort((a, b) => a - b);
+            if (levels.length > 0) {
+              const deepestLevel = levels[levels.length - 1];
+              bulletPointSymbol = plugin.settings.textExportBulletPointMap[deepestLevel] || "\u2022";
+            } else {
+              bulletPointSymbol = "\u2022";
+            }
+          }
+        }
+      }
+      return leadingWhitespace + bulletPointSymbol + " " + trimmedLine.slice(2);
+    }
+    return line;
+  });
+  return processedLines.join("\n");
 }
 async function tryCopyMarkdownByRead(plugin, { file, outputFormat, outputSubPath = "." }) {
   try {
@@ -515,6 +577,12 @@ async function tryCopyMarkdownByRead(plugin, { file, outputFormat, outputSubPath
       if (plugin.settings.removeOutgoingLinkBrackets) {
         content = content.replaceAll(OUTGOING_LINK_REGEXP, "$1");
       }
+      if (plugin.settings.convertWikiLinksToMarkdown) {
+        content = content.replace(/\[\[(.*?)\]\]/g, (match, linkText) => {
+          const encodedLink = encodeURIComponent(linkText);
+          return `[${linkText}](${encodedLink})`;
+        });
+      }
       const cfile = plugin.app.workspace.getActiveFile();
       if (cfile != void 0) {
         const embedMap = await getEmbedMap(plugin, content, cfile.path);
@@ -551,6 +619,18 @@ async function tryCopyMarkdownByRead(plugin, { file, outputFormat, outputSubPath
           await tryCreate(plugin, targetFile, content);
           break;
         }
+        case "Text" /* TEXT */: {
+          let filename;
+          if (plugin.settings.customFileName) {
+            filename = plugin.settings.customFileName + ".md";
+          } else {
+            filename = file.name;
+          }
+          const targetFile = path2.join(outDir, filename.replace(".md", ".txt"));
+          const textContent = convertMarkdownToText(plugin, content);
+          await tryCreate(plugin, targetFile, textContent);
+          break;
+        }
       }
     });
   } catch (error) {
@@ -568,7 +648,11 @@ var MarkdownExportPlugin = class extends import_obsidian3.Plugin {
     this.registerEvent(this.app.workspace.on("file-menu", (menu, file) => {
       this.registerDirMenu(menu, file);
     }));
-    for (const outputFormat of ["Markdown" /* MD */, "HTML" /* HTML */]) {
+    for (const outputFormat of [
+      "Markdown" /* MD */,
+      "HTML" /* HTML */,
+      "Text" /* TEXT */
+    ]) {
       this.addCommand({
         id: "export-to-" + outputFormat,
         name: `Export to ${outputFormat}`,
@@ -584,7 +668,11 @@ var MarkdownExportPlugin = class extends import_obsidian3.Plugin {
     }
   }
   registerDirMenu(menu, file) {
-    for (const outputFormat of ["Markdown" /* MD */, "HTML" /* HTML */]) {
+    for (const outputFormat of [
+      "Markdown" /* MD */,
+      "HTML" /* HTML */,
+      "Text" /* TEXT */
+    ]) {
       const addMenuItem = (item) => {
         item.setTitle(`Export to ${outputFormat}`);
         item.onClick(async () => {
@@ -619,7 +707,12 @@ var MarkdownExportSettingTab = class extends import_obsidian3.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "Markdown Export" });
+    containerEl.createEl("h1", { text: "Obsidian Markdown Export" });
+    containerEl.createEl("p", { text: "Created by " }).createEl("a", {
+      text: "bingryan \u{1F913}",
+      href: "https://github.com/bingryan"
+    });
+    containerEl.createEl("h3", { text: "Baisc Setting" });
     new import_obsidian3.Setting(containerEl).setName("Output Path").setDesc("default directory for one-click export").addText((text) => text.setPlaceholder("Enter default output path").setValue(this.plugin.settings.output).onChange(async (value) => {
       this.plugin.settings.output = value;
       await this.plugin.saveSettings();
@@ -658,6 +751,51 @@ var MarkdownExportSettingTab = class extends import_obsidian3.PluginSettingTab {
     }));
     new import_obsidian3.Setting(containerEl).setName("Set Attachment Path as Relative").setDesc("If enabled, the attachment path will be relative to the output.").addToggle((toggle) => toggle.setValue(this.plugin.settings.relAttachPath).onChange(async (value) => {
       this.plugin.settings.relAttachPath = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Convert WikiLinks to Markdown").setDesc("Automatically convert WikiLink style links to Markdown links").addToggle((toggle) => toggle.setValue(this.plugin.settings.convertWikiLinksToMarkdown).onChange(async (value) => {
+      this.plugin.settings.convertWikiLinksToMarkdown = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Remove YAML Metadata Header").setDesc("If enabled, the YAML metadata header will be removed from embedded files when exporting.").addToggle((toggle) => toggle.setValue(this.plugin.settings.removeYamlHeader).onChange(async (value) => {
+      this.plugin.settings.removeYamlHeader = value;
+      await this.plugin.saveSettings();
+    }));
+    containerEl.createEl("h3", { text: "Export Text Setting" });
+    containerEl.createEl("h6", { text: "Bullet Point Symbols" });
+    containerEl.createEl("p", {
+      text: "Configure symbols for different indentation levels of bullet points."
+    });
+    new import_obsidian3.Setting(containerEl).setName("Level 0 Bullet Point").setDesc("Symbol for top-level bullet points").addText((text) => text.setPlaceholder("\u25CF").setValue(this.plugin.settings.textExportBulletPointMap[0] || "\u25CF").onChange(async (value) => {
+      this.plugin.settings.textExportBulletPointMap[0] = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Level 1 Bullet Point").setDesc("Symbol for first-level indented bullet points (4 spaces)").addText((text) => text.setPlaceholder("\uFFEE").setValue(this.plugin.settings.textExportBulletPointMap[4] || "\uFFEE").onChange(async (value) => {
+      this.plugin.settings.textExportBulletPointMap[4] = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Level 2 Bullet Point").setDesc("Symbol for second-level indented bullet points (8 spaces)").addText((text) => text.setPlaceholder("\uFFED").setValue(this.plugin.settings.textExportBulletPointMap[8] || "\uFFED").onChange(async (value) => {
+      this.plugin.settings.textExportBulletPointMap[8] = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Level 3 Bullet Point").setDesc("Symbol for third-level indented bullet points (12 spaces)").addText((text) => text.setPlaceholder("\u25BA").setValue(this.plugin.settings.textExportBulletPointMap[12] || "\u25BA").onChange(async (value) => {
+      this.plugin.settings.textExportBulletPointMap[12] = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Level 4 Bullet Point").setDesc("Symbol for fourth-level indented bullet points (16 spaces)").addText((text) => text.setPlaceholder("\u2022").setValue(this.plugin.settings.textExportBulletPointMap[16] || "\u2022").onChange(async (value) => {
+      this.plugin.settings.textExportBulletPointMap[16] = value;
+      await this.plugin.saveSettings();
+    }));
+    containerEl.createEl("h6", { text: "Checkbox Symbols" });
+    containerEl.createEl("p", {
+      text: "Configure symbols for checkboxes."
+    });
+    new import_obsidian3.Setting(containerEl).setName("Unchecked Checkbox").setDesc("Symbol for unchecked checkboxes").addText((text) => text.setPlaceholder("\u2610").setValue(this.plugin.settings.textExportCheckboxUnchecked || "\u2610").onChange(async (value) => {
+      this.plugin.settings.textExportCheckboxUnchecked = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian3.Setting(containerEl).setName("Checked Checkbox").setDesc("Symbol for checked checkboxes").addText((text) => text.setPlaceholder("\u2611").setValue(this.plugin.settings.textExportCheckboxChecked || "\u2611").onChange(async (value) => {
+      this.plugin.settings.textExportCheckboxChecked = value;
       await this.plugin.saveSettings();
     }));
   }

@@ -1,5 +1,5 @@
 {
-  "strategy": "chinese",
+  "strategy": "english-only",
   "cedictPath": ".\\.obsidian\\plugins\\various-complements\\cedict_ts.u8",
   "matchStrategy": "prefix",
   "fuzzyMatch": true,
