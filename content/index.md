@@ -91,7 +91,7 @@ tags:
 
 5. 计算机组成原理
 	- CSAPP
-	- RISC-V： [[RISC-V-Briefing-Manual|RISC-V简明手册]] ；
+	- RISC-V： [[RISC-V-Briefing-Manual|RISC-V简明手册]]
 	- THU 刘卫东老师的PPT ： [[THU-Computer-Organization]]
 
 6. 计算机网络

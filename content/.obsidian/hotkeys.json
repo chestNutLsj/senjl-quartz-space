@@ -93,5 +93,15 @@
       "key": "R"
     }
   ],
-  "easy-typing-obsidian:easy-typing-format-switch": []
+  "easy-typing-obsidian:easy-typing-format-switch": [],
+  "editor:toggle-comments": [],
+  "easy-typing-obsidian:easy-typing-toggle-comment": [],
+  "editor:insert-callout": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "/"
+    }
+  ]
 }
