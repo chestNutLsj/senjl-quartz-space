@@ -61,7 +61,6 @@ tags:
 	- [x] 寻找数据中心内路由系统和容错系统的 idea
 - [ ] 6 月 ~ 9 月：
 	- [ ] 每周了解一个 LLM/LLM Infra 相关的新知识： [[LLM-Weekly]]
-	- [ ] 开发 HCCLang： [[xCCL Learning Roadmap]]
 	- [ ] 搭建路由系统
 
 ## My CS Career
@@ -117,6 +116,9 @@ tags:
 3. System for AI
 
 4. LLM
+
+5. 强化学习
+	- 
 
 ### 学术生涯
 

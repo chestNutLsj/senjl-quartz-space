@@ -95,7 +95,7 @@ publish: "true"
 
 ![DeepSeek_v3_report-MLA](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/Scholar/DeepSeek_v3_report-MLA.png)
 
-关于 MLA 的数学公式解析及部分问题探讨请看这篇： [[Understand MLA]] 。
+关于 MLA 的数学公式解析及部分问题探讨请看这篇： [[DeepSeek-MLA-Principle]] 。
 
 #### DeepSeekMoE with Auxiliary-Loss-Free Load Balancing
 
@@ -715,17 +715,17 @@ FP8 精度的运算（例如通用矩阵乘法 GEneral Matrix Multiplication）�
 
 预填充阶段的最小部署单元由 4 个节点（32 个 GPU）组成。
 -  `attention` 部分采用 4-way TP 和序列并行（Sequence Parallelism），并结合 8-way DP 。其 4-way TP 的小尺寸限制了 TP 通信的开销。
-- 对于 `MoE` 部分，使用 32-way EP ，这确保了**每个专家处理足够大的批处理量**，从而提高了计算效率。
-- 对于 `MoE` 的全对全通信，使用与训练中相同的方法：首先通过 IB 在节点之间传输 token ，然后通过 NVLink 在节点内 GPU 之间转发。特别是，对浅层中的密集 MLP 使用 1-way TP 来节省 TP 通信。
+- 对于 `MoE` 部分，使用 32-way EP ，这确保了**每个专家处理足够大的 batch_size** ，从而提高计算效率。
+- 对于 `MoE` 的 alltoall 通信，使用与训练中相同的方法：首先通过 IB 在节点之间传输 token ，然后通过 NVLink 在节点内 GPU 之间转发。特别是，对浅层中的密集 MLP 使用 1-way TP 来节省 TP 通信。
 
 为了在 `MoE` 部分的不同专家之间实现负载平衡，需要确保每个 GPU 处理的 token 数量大致相同。为此，引入了一种**冗余专家**（redundant experts）的部署策略，该策略复制高负载专家并冗余部署：
 - 高负载专家根据在线部署期间收集的统计数据进行检测，并定期进行调整。
-- 在确定冗余专家集后，根据观察到的负载情况在节点内的 GPU 之间仔细重新排列专家，努力在不增加跨节点全对全通信开销的情况下尽可能地平衡 GPU 之间的负载。
+- 在确定冗余专家集后，根据观察到的负载情况在节点内的 GPU 之间仔细重新排列专家，努力在不增加跨节点 alltoall 通信开销的情况下尽可能地平衡 GPU 之间的负载。
 - 为了部署 DeepSeek-V3，预填充阶段设置了 32 名冗余专家。对于每个 GPU，除了它托管的原始 8 名专家外，它还将托管 1 名冗余的专家。
 
 此外，在预填充阶段，为了**提高吞吐量、隐藏全对全以及 TP 通信的开销**，需要同时处理具有相似计算工作负载的两个 micro-batch ，将一个 micro-batch 的 `attention` 和 `MoE` 与另一个的 `dispatch` 和 `combine` 重叠。
 
-最后，deepseek 团队正在探索一种**针对专家的动态冗余策略**，其中每个 GPU 容纳更多的专家（例如，16 名专家），但在每个推理步骤中只有 9 名专家会被激活。在每一层的全对全操作之前，实时计算全局最优路由方案。考虑到预填充阶段涉及大量计算，计算此路由方案的开销几乎可以忽略不计。
+最后，deepseek 团队正在探索一种**针对专家的动态冗余策略**，其中每个 GPU 容纳更多的专家（例如，16 名专家），但在每个推理步骤中只有 9 名专家会被激活。在每一层的 alltoall 操作之前，实时计算全局最优路由方案。考虑到预填充阶段涉及大量计算，计算此路由方案的开销几乎可以忽略不计。
 
 #### Decoding
 

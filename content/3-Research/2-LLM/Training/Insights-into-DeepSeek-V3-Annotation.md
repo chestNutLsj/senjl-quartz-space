@@ -355,6 +355,6 @@ EP包含两个关键的全员通信阶段——分发（dispatch）与聚合（c
 - 晶圆级系统（SoW）：通过晶圆级集成技术，可最大化计算密度与内存带宽，满足超大规模模型的需求。
 
 [^1]: 向量存储技术请看论文：SPFresh: Incremental In-Place Update for Billion-Scale Vector Search [SOSP'23]
-[^2]:  MLA 的数学细节请看：[[Understand MLA]]
+[^2]:  MLA 的数学细节请看：[[DeepSeek-MLA-Principle]]
 [^3]: DeepSeek 的 DeepEP 和 DualPipe
 [^4]: Alibaba HPN 架构的数据中心。

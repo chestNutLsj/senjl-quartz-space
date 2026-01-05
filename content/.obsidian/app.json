@@ -6,7 +6,7 @@
   "promptDelete": false,
   "trashOption": "local",
   "showFrontmatter": true,
-  "showLineNumber": false,
+  "showLineNumber": true,
   "autoConvertHtml": true,
   "autoPairBrackets": true,
   "autoPairMarkdown": true,

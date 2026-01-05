@@ -1,4 +1,6 @@
 {
+  "copyLinkToElemenetAnchorTo100": false,
+  "copyFrameLinkByName": false,
   "disableDoubleClickTextEditing": false,
   "folder": "00-Assets/Excalidraw",
   "cropFolder": "",
@@ -87043,7 +87045,7 @@
       "Remember last opacity?": false
     }
   },
-  "previousRelease": "2.17.2",
+  "previousRelease": "2.18.3",
   "showReleaseNotes": true,
   "compareManifestToPluginVersion": true,
   "showNewVersionNotification": true,

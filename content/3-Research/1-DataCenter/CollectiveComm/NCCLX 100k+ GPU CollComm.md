@@ -438,7 +438,7 @@ PP 通信特征：
 **TP的挑战** ：
 
 - **数据量大** ：在TP中，并行化的最内层维度跨设备划分输入和模型参数，在运行时交换大量数据（每步数十 GB）。
-- **Overlap困难性** ：为了实现高计算效率，需要利用TP重叠来有效重叠计算和通信，并利用无SM数据传输来避免资源争用。
+- **Overlap困难性** ：为了实现高计算效率，需要利用TP重叠来有效重叠计算和通信，并利用SM-free 的数据传输来避免资源争用。
 	- 传统方案：例如NVIDIA的Transformer Engine（Nvidia, 2025b）、Pytorch Async TP（Wang等人，2024）和Bytedance的Flux（Chang等人，2024）。然而，这些实现仅限于单机环境（张量并行度TP ≤8在H100或更老平台上），因为它们 **依赖于CUDA进程间通信** （IPC）。此外，xFormers（Lefaudeux等人，2022）和Flux等解决方案通过利用设备发起的通信实现重叠，这种方法 **需要修改GEMM内核** ，可能会降低计算效率，因为自定义内核通常与高度优化的NVIDIA cuBLAS库相比表现不佳。
 
 > [! NOTE] CUDA IPC
