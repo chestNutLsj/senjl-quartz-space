@@ -25,5 +25,7 @@
   "newLinkFormat": "shortest",
   "propertiesInDocument": "visible",
   "readableLineLength": true,
-  "foldHeading": true
+  "foldHeading": true,
+  "showUnsupportedFiles": true,
+  "useTab": false
 }

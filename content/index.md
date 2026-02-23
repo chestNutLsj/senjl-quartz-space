@@ -4,6 +4,7 @@ publish: "true"
 tags:
   - quartz
   - Blog
+date: 2026-02-23
 ---
 欢迎来到我[^1] 的数字花园，这里是我在学习、生活中的经历、思考、学习的记录，欢迎阅读、斧正，如果有问题交流，欢迎来邮：`lisj24 at mails.tsinghua.edu.cn`，或者在本博客页底的评论区[^2] 中发起讨论。
 
@@ -11,20 +12,37 @@ tags:
 > ![未闻花名1](https://raw.githubusercontent.com/chestNutLsj/image-cloud/master/blog-vault/%E6%9C%AA%E9%97%BB%E8%8A%B1%E5%90%8D1.png)
 > ![[V.A. - 未闻花名 (口琴版).mp3]]
 
-> [!example] 帖子精选
-> - **论文注解**：
-> 	- Data Center Network：
-> 		- [[Jupiter_Rising：Annotation]]
-> 	 	- [[Primus-a_centralized_routing：Annotation]]
-> 	 	- [[Jupiter_Evolving：Conclusion]]
-> 	 	- [[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion]]
-> 	 	- [[UB-Mesh-Annotation]]
-> 	- LLM-related：
-> 		- [[DeepSeek_V3_Report：Annotation]]
-> 		- [[Insights-into-DeepSeek-V3-Annotation]]
-> 		- [[Characterization of LLM Development in the Datacenter：Annotation]]
-> - **论文阅读的方法论**：
-> 	- [[Paper-Reading-Methods]]
+## 最近更新
+
+> [!note] 最近更新
+> - **推理引擎 / Inference**
+> 	- 2026-02：[[nano-vLLM-1|从 nano-vLLM 入门推理引擎（一）：引擎核心架构与调度设计]]
+> 	- 2026-01：[[All About LLM Inference|关于 LLM 推理的一切（The Scaling Book Section 7）]]
+> - **LLM Infra / The Scaling Book**
+> 	- 2026-01：[[How to Parallelize a Transformer for Training|How to Parallelize a Transformer for Training（训练并行策略）]]
+> 	- 2026-01-25：[[The Scaling Book|The Scaling Book：LLM Infra 系统化阅读笔记（持续更新）]]
+> - **DeepSeek / MoE**
+> 	- 2025-12-23：[[Dive-into-EPLB|从 EPLB 算法到 DeepSeek V3 推理实践的分析]]
+> 	- 2025-05-15：[[Insights-into-DeepSeek-V3-Annotation|Insights into DeepSeek-V3：软硬协同与 Infra 视角解读]]
+> 	- 2025-02-25：[[DeepEP|DeepEP：MoE/EP 通信库笔记]]
+> 	- 2025-02-18：[[DeepSeek_V3_Report：Annotation|DeepSeek V3 Technical Report：Annotation]]
+> - **数据中心网络 / 架构与路由**
+> 	- 2025-06-24：[[CloudMatrix384-Serving-for-LLM-Annotation|CloudMatrix384：面向 MoE 的 LLM Serving 架构笔记]]
+> 	- 2025-04-17：[[UB-Mesh-Annotation|UB-Mesh：华为面向 AI 的数据中心网络架构笔记]]
+> 	- 2025-03-15：[[RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion|RDMA over Ethernet for Distributed AI Training：Conclusion]]
+> 	- 2025-03-08：[[Primus-a_centralized_routing：Annotation|Primus：centralized routing：Annotation]]
+> 	- 2025-03-04：[[Jupiter_Rising：Annotation|Jupiter Rising：Annotation]]
+> 	- 2025-03-04：[[Jupiter_Evolving：Conclusion|Jupiter Evolving：Conclusion]]
+> 	- 2024-09-21：[[Characterization of LLM Development in the Datacenter：Annotation|Characterization of LLM Development in the Datacenter：Annotation]]
+> - **集合通信 / Collective Communication**
+> 	- 2025-12-03：[[NCCLX 100k+ GPU CollComm|NCCLX：100k+ GPU 如何集合通信？]]
+> - **方法论 / Methodology**
+> 	- 2025-03-11：[[Paper-Reading-Methods|Paper Reading：Methods]]
+> - **近期研究进展（System for AI / LLM Inference）**
+> 	- **推理引擎与调度**：以 `step()` 为切口（[[nano-vLLM-1]]），对齐 Scheduler/Runner/KV cache 的职责边界，把 TTFT/TPOT、token budget、并发序列数统一到“约束下的 batch 组合”问题里。
+> 	- **从 Roofline 到并行策略**：沿着 [[All About Rooflines]] → 硬件（GPU/TPU）→ 分片矩阵乘法 → 训练并行，把“算力/带宽/显存/通信”如何塑造瓶颈的逻辑串成一条主线（[[The Scaling Book]]）。
+> 	- **DeepSeek / MoE Infra 追踪**：聚焦 MoE 负载均衡与通信/算子优化的工程路径（[[Dive-into-EPLB]] / [[DeepEP]]），并与更宏观的数据中心系统设计做对照（[[CloudMatrix384-Serving-for-LLM-Annotation]]）。
+> 	- **下一步**：继续推进 nano-vLLM 系列后续章节（Scheduler / KV cache / 多进程协同），并沉淀“推理引擎最小可用实现清单”。
 
 ## Learn in 2024
 
@@ -99,7 +117,7 @@ tags:
 7. 软件工程
 	- 清华大学软件学院刘强老师： [[Software-Construction-notes|软件工程]]
 
-8. 异构/GPU 编程
+8. GPU 编程
 	- [[OpenCL-Learning|OpenCL 编程]]
 	- HIP 编程
 	- Triton 编程

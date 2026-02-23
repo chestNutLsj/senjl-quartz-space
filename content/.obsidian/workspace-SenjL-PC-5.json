@@ -1,0 +1,258 @@
+{
+  "main": {
+    "id": "39fa8c9602f2ecd2",
+    "type": "split",
+    "children": [
+      {
+        "id": "22b680321131ab3c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b9806990613e0399",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Sharded Matrices and How to Multiply Them.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Sharded Matrices and How to Multiply Them"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "13990ef7f5c4dc71",
+    "type": "split",
+    "children": [
+      {
+        "id": "b59937020c8d4ec4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d3d978ac964e0aa",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "dc96c4984a9ef34e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "算术强度",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "byModifiedTimeReverse"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "de0f37b73b7ef6dc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          },
+          {
+            "id": "5019e4a770c657c5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "alphabetical",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 265.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "1516a4ce828ea6b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5810eded0ce3a81",
+        "type": "tabs",
+        "dimension": 34.06214039125432,
+        "children": [
+          {
+            "id": "866a4e016d81b567",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Sharded Matrices and How to Multiply Them.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Sharded Matrices and How to Multiply Them 的反向链接列表"
+            }
+          },
+          {
+            "id": "d09bc9f761ff2d4d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "index 的出链列表"
+            }
+          },
+          {
+            "id": "c0995ac0f8458ff0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2aabb86f31957f99",
+        "type": "tabs",
+        "dimension": 65.93785960874568,
+        "children": [
+          {
+            "id": "5402e2346c010391",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Sharded Matrices and How to Multiply Them.md",
+                "followCursor": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sharded Matrices and How to Multiply Them 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "workspaces:管理工作区布局": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian42-brat:BRAT": false,
+      "homepage:Open homepage": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-read-it-later:ReadItLater: Create from clipboard": false,
+      "zhihu:Open Zhihu side view": false
+    }
+  },
+  "active": "b9806990613e0399",
+  "lastOpenFiles": [
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/All About Rooflines.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Sharded Matrices and How to Multiply Them.md",
+    "index.md",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/assets/All About Rooflines-tiled-gemm.png",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/assets",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/How to Think About TPUs.md",
+    "0-Assets/Clippings/All About Rooflines  How To Scale Your Model.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Full-stack Analysis of LLM Inference.md",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/Computing-FLOPs-and-GPU-Memory-Requirements-for-LLMs.md",
+    "0-Assets/Clippings/How to write a fast Softmax CUDA kernel?.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Dive-into-EPLB.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-spec-sampling-3.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-spec-sampling-2.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-fig-spec-sampling.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/all-gather.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/all-gather.gif.crdownload",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-fig-2d-weight-stationary.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-fig-batch-scaling-throughput.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-fig-batch-scaling-latency.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Full-stack Analysis of LLM Inference-fig-prefix-caching.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/continuous-batching.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/continuous-batching.gif.crdownload",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets",
+    "0-Assets/Clippings/All About Transformer Inference  How To Scale Your Model.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/FP8-Mixed-Precision-Training-Framework.md",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/DeepSeek-V3-Parallel-Strategy-Analysis.md",
+    "CLAUDE.md",
+    "3-Research/2-LLM/Training/DeepSeek_V3_Report：Annotation.md",
+    "1-Theory/4-AI-Stack/05-System4AI/GPU-Programming/_Wiki/OpenCL-Learning.md",
+    "3-Research/1-DataCenter/Architecture/Alibaba HPN：notes.md",
+    "3-Research/1-DataCenter/Architecture/Architecture of DCN.md",
+    "3-Research/1-DataCenter/Architecture/CloudMatrix384-Serving-for-LLM-Annotation.md",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki",
+    "3-Research/1-DataCenter/CollectiveComm/NCCLX 100k+ GPU CollComm.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/cursor_eplb_gemini.md",
+    "0-Assets/Clippings/Throughput is Not All You Need Maximizing Goodput in LLM Serving using Prefill-Decode Disaggregation.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/flowchart.html",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/flowchart.xml",
+    "0-Assets/Clippings/Mixture of Experts Explained.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/eplb.py",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/cursor_eplb_claude.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/DeepSeek-MLA-Principle.md",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/Understand RoPE.md",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/Speculative-Decoding-vs-MTP.md",
+    "1-Theory/2-DataStruct/dsa-cpp-deng/G-Exam/未命名.canvas",
+    "未命名.canvas",
+    "MyHome.canvas",
+    "1-Theory/5-OS-principle-design/408&&912/中断处理流程.canvas",
+    "0-Assets/Diary/未命名.canvas",
+    "1-Theory/1-ProgramLanguage/Haskell/未命名.canvas",
+    "2-Develop/3-BackEnd/未命名.canvas",
+    "FrontEnd/未命名.canvas"
+  ]
+}

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a549e6de8878307d",
+        "id": "fb674675e171ac89",
         "type": "tabs",
         "children": [
           {
-            "id": "93fc42132e6c9241",
+            "id": "a4234fcac85c2098",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "clos",
+                "query": "head-of-line",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 251.5
+    "width": 219.49999618530273,
+    "collapsed": true
   },
   "right": {
     "id": "1516a4ce828ea6b6",
@@ -110,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "1-Theory/4-AI-Stack/05-System4AI/Serving/Serving LLaMA 3-70B on TPUs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "index 的反向链接列表"
+              "title": "Serving LLaMA 3-70B on TPUs 的反向链接列表"
             }
           },
           {
@@ -129,12 +130,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4-Scholar/1-Data-Center/Routing Algorithm/LIA-Latency-Improved-Adaptive-Routing-Comprehension.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "LIA-Latency-Improved-Adaptive-Routing-Comprehension 的出链列表"
+              "title": "index 的出链列表"
             }
           },
           {
@@ -150,8 +151,21 @@
               "icon": "lucide-archive",
               "title": "添加笔记属性"
             }
+          },
+          {
+            "id": "b1a9358b33d45930",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/How-to-implement-an-inference-framework.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "脚注"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "2aabb86f31957f99",
@@ -177,11 +191,12 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:创建新数据库": false,
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -197,53 +212,54 @@
       "zhihu:Open Zhihu side view": false
     }
   },
-  "active": "93fc42132e6c9241",
+  "active": "a4234fcac85c2098",
   "lastOpenFiles": [
-    "3-Research/1-DataCenter/CollectiveComm/NCCLX 100k+ GPU CollComm.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Dive-into-EPLB.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/nano-vLLM-1.md",
     "index.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/nano-vLLM-1 1.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/How-to-build-a-inference-framework.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/All About LLM Inference.md",
+    "AGENTS.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM",
+    "1-Theory/1-Algorithm/01-Math/Mathematical-Analysis/Lipschitz continuity.md",
+    "1-Theory/1-Algorithm/01-Math/Linear-Algebra",
+    "1-Theory/1-Algorithm/01-Math/未命名.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/How to Think About GPUs.md",
+    "1-Theory/4-AI-Stack/05-System4AI/The Scaling Book.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Serving LLaMA 3-70B on TPUs.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/latency_breakdown_log.html",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Serving LLaMA 3-70B on TPUs-latency-breakdown-2.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Serving LLaMA 3-70B on TPUs-latency-breakdown.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/pareto.html",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/How to Parallelize a Transformer for Training.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/How to Think About TPUs.md",
+    "1-Theory/4-AI-Stack/03-LLM/Pre-Training/Training LLaMA 3 on TPUs.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Sharded Matrices and How to Multiply Them.md",
+    "未命名.base",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/All the Transformer Math You Need to Know.md",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/assets/All the Transformer Math You Need to Know-transformer-diagram.png",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/assets",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture",
+    "1-Theory/4-AI-Stack/05-System4AI/Serving",
+    "1-Theory/4-AI-Stack/03-LLM/Pre-Training",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/Computing-FLOPs-and-GPU-Memory-Requirements-for-LLMs.md",
     "3-Research/2-LLM/Training/DeepSeek_V3_Report：Annotation.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/cursor_eplb_gemini.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-elephant-flows.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-FFN.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-transformer.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-GPipe.png",
-    "0-Assets/Clippings/Throughput is Not All You Need Maximizing Goodput in LLM Serving using Prefill-Decode Disaggregation.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/pd-disagg-LLM-serving.gif",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/pd-agg-LLM-serving.gif",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-expert-load-imbalance.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-prefill-decoding.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-vllm-fused-moe.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/Dive-into-EPLB-dsv3-arch.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/flowchart.html",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/flowchart.xml",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/training-roofline.html",
     "0-Assets/Clippings/Mixture of Experts Explained.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/eplb.py",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/cursor_eplb_claude.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism",
-    "1-Theory/4-AI-Stack/03-LLM/_Wiki/DeepSeek-MLA-Principle.md",
-    "1-Theory/4-AI-Stack/03-LLM/_Wiki/Understand RoPE.md",
-    "1-Theory/4-AI-Stack/03-LLM/_Wiki/Speculative-Decoding-vs-MTP.md",
-    "3-Research/1-DataCenter/LLMTraining/DeepEP.md",
-    "3-Research/1-DataCenter/LLMTraining/DualPipe.md",
-    "3-Research/3-GPU/Megakernel设计优势与不足.md",
-    "3-Research/3-GPU/DeepGEMM.md",
-    "1-Theory/4-AI-Stack/05-System4AI/CollectiveComm/MPI-Learning.md",
-    "1-Theory/4-AI-Stack/05-System4AI/GPU-Programming/_Wiki/Different languages to implement GEMM kernel.md",
-    "3-Research/1-DataCenter/Routing Algorithm/LIA-Latency-Improved-Adaptive-Routing-Comprehension.md",
     "0-Assets/Clippings/NVIDIA Tensor Core Evolution From Volta To Blackwell.md",
-    "3-Research/2-LLM/Training/Insights-into-DeepSeek-V3-Annotation.md",
-    "3-Research/2-LLM/BaseModel/DeepSeekMoE_notes.md",
-    "1-Theory/4-AI-Stack/05-System4AI/GPU-Programming/_Wiki/assets",
-    "1-Theory/4-AI-Stack/05-System4AI/GPU-Programming/_Wiki",
-    "3-Research/1-DataCenter/CollectiveComm/assets",
-    "3-Research/1-DataCenter/Overview.md",
-    "3-Research/1-DataCenter/Routing Algorithm/TPUv4-Google-3Gen-ML-Accelerator：Conclusion.md",
-    "3-Research/1-DataCenter/Routing Algorithm/RDMA-over-Ethernet-for-Distributed-AI-Training：Conclusion.md",
-    "3-Research/1-DataCenter/Routing Algorithm/Jupiter_Evolving：Conclusion.md",
-    "3-Research/2-LLM/BaseModel",
-    "3-Research/1-DataCenter/LLMTraining",
+    "3-Research/1-DataCenter/Federated Learning/Esync：Annotation.md",
+    "0-Assets/Clippings/The Illustrated Transformer.md",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Dive-into-DL-pytorch/90-Attention-Mechanisms/70-transformer.md",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Dive-into-DL-pytorch/90-Attention-Mechanisms/71-transformer-lhyee.md",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/All About Rooflines.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array2.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-pcie.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array-bad.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/pointwise-product.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-tpu-rack.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-tpu-chip.png",
+    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/How to Think About TPUs.md",
     "1-Theory/2-DataStruct/dsa-cpp-deng/G-Exam/未命名.canvas",
     "未命名.canvas",
     "MyHome.canvas",
