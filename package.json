@@ -2,7 +2,7 @@
   "name": "@jackyzha0/quartz",
   "description": "🌱 publish your digital garden and notes as a website",
   "private": true,
-  "version": "4.4.0",
+  "version": "4.5.2",
   "type": "module",
   "author": "jackyzha0 <j.zhao2k19@gmail.com>",
   "license": "MIT",
@@ -16,12 +16,12 @@
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
-    "test": "tsx ./quartz/util/path.test.ts && tsx ./quartz/depgraph.test.ts",
+    "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
-    "npm": ">=9.3.1",
-    "node": "20 || >=22"
+    "npm": ">=10.9.2",
+    "node": ">=22"
   },
   "keywords": [
     "site generator",
@@ -40,6 +40,7 @@
     "@myriaddreamin/rehype-typst": "^0.6.0",
     "@napi-rs/simple-git": "0.1.22",
     "@tweenjs/tween.js": "^25.0.0",
+    "ansi-truncate": "^1.4.0",
     "async-mutex": "^0.5.0",
     "chalk": "^5.6.2",
     "chokidar": "^5.0.0",
@@ -91,14 +92,13 @@
     "to-vfile": "^8.0.0",
     "toml": "^3.0.0",
     "unified": "^11.0.5",
-    "unist-util-visit": "^5.0.0",
+    "unist-util-visit": "^5.1.0",
     "vfile": "^6.0.3",
     "workerpool": "^10.0.1",
     "ws": "^8.19.0",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@types/cli-spinner": "^0.2.3",
     "@types/d3": "^7.4.3",
     "@types/hast": "^3.0.4",
     "@types/js-yaml": "^4.0.9",

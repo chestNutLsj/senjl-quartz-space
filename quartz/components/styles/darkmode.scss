@@ -5,9 +5,10 @@
   background: none;
   border: none;
   width: 20px;
-  height: 20px;
-  margin: 0 10px;
+  height: 32px;
+  margin: 0;
   text-align: inherit;
+  flex-shrink: 0;
 
   & svg {
     position: absolute;
@@ -28,19 +29,19 @@
 }
 
 :root[saved-theme="dark"] .darkmode {
-  & > #dayIcon {
+  & > .dayIcon {
     display: none;
   }
-  & > #nightIcon {
+  & > .nightIcon {
     display: inline;
   }
 }
 
 :root .darkmode {
-  & > #dayIcon {
+  & > .dayIcon {
     display: inline;
   }
-  & > #nightIcon {
+  & > .nightIcon {
     display: none;
   }
 }
