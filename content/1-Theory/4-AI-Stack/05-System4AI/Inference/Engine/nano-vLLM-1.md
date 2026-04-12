@@ -4,13 +4,15 @@ tags:
   - nano-vLLM
 date: 2026-02-13
 publish: "true"
-zhihu-title: 【项目分析】从nano-vLLM入门推理引擎（一）：引擎核心架构与调度设计
+zhihu-title: 【项目分析】从nano-vLLM入门推理引擎：引擎核心架构与调度设计
 zhihu-topics: 如何构建推理引擎？
 zhihu-link: https://zhuanlan.zhihu.com/p/2009454341728269560
 zhihu-created-at: 2026-02-24 02:27
-zhihu-updated-at: 2026-02-24 02:30
+zhihu-updated-at: 2026-02-26 15:37
+title: 从 nano vLLM 学习构建推理引擎
 ---
-> 本文从构建推理引擎的需求出发，深入分析了 nano vLLM 的设计与代码实现，适合入门推理引擎的新手阅读。如果你对 LLM Inference 还不熟悉，欢迎阅读这篇文章： [【博客阅读】The Scaling Book: 7. 关于 LLM 推理的一切（2025）](https://zhuanlan.zhihu.com/p/1996648232781104495)
+> 本文从构建推理引擎的需求出发，深入分析了 nano vLLM 的设计与代码实现，适合入门推理引擎的新手阅读。如果你对 LLM Inference 还不熟悉，欢迎阅读这篇文章： [【博客阅读】The Scaling Book: 7. 关于 LLM 推理的一切（2025）](https://zhuanlan.zhihu.com/p/1996648232781104495)。
+> 更佳的渲染请移步博客： [从 nano vLLM 学习构建推理引擎](https://senjlearning.space/1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/nano-vLLM-1)。
 
 ## 从需求出发：一个推理引擎必须解决什么问题？ 
 
@@ -43,6 +45,9 @@ zhihu-updated-at: 2026-02-24 02:30
     - `max_num_batched_tokens`：每步最多处理的 token 总数（控制显存峰值和计算量）。
     - `kv_cache_capacity`：KV cache 的物理块数量，决定能否为新的请求分配块，或为已有请求追加块。
     在这些约束下，调度策略可以有多种选择：先 prefill 再 decode（简单但 decode 延迟可能因 prefill 而抖动）、prefill/decode 混排（continuous batching，vLLM 的核心创新）、chunked prefill（把长 prompt 切块插入 decode batch 中）等。nano vLLM 的实现是最简方案：prefill 阶段尽量塞满 token budget，decode 阶段每序列每步只生成 1 个 token。
+
+> [!TIP] 延伸阅读
+> - [[Continuous Batching in vLLM]]：从 static batching 的缺陷出发，推导为什么 vLLM 必须走 continuous batching（迭代级调度）这条路。
 
 4. **执行器的两种形态**
     - 执行器可以设计为**单进程单设备**（最简单），

@@ -10,11 +10,13 @@ zhihu-title: "【博客阅读】The Scaling Book: 7. 关于 LLM 推理的一切�
 zhihu-topics: LLM 推理
 zhihu-link: https://zhuanlan.zhihu.com/p/1996648232781104495
 zhihu-created-at: 2026-01-19 18:20
-zhihu-updated-at: 2026-01-22 18:57
+zhihu-updated-at: 2026-02-26 15:37
 ---
 > 本文截取自 [互联网博客：The Scaling Book](https://jax-ml.github.io/scaling-book/inference/#the-basics-of-transformer-inference) 并加入自己的翻译和理解。需要注意，目前翻译版本是适合我本人的阅读习惯和知识基础，如果读者有困惑，可以回到原文查看。
 > 
 > 另外需要注意的是，原文章所讨论的主要基于 dense 模型，MoE 模型仅在课后习题 5、6 中有所涉及，作为翻译笔记，我并不会大量补充 MoE 模型在推理时的特征。另外我还补充了原博客 4、6 两个问题的答案，这是我基于对全文内容的理解做出的解答，仅供读者参考。
+> 
+> 更佳的渲染请移步博客： [All About LLM Inference](https://senjlearning.space/1-Theory/4-AI-Stack/05-System4AI/Inference/All-About-LLM-Inference)。
 
 在Transformer上进行推理与训练非常不同。部分原因在于推理增加了一个新的需要考虑的因素：**延迟**。在本节中，我们将从模型中采样单个新token开始，一直推导到高效地在多个 GPU/TPU 等 accelerator 切片上扩展大型Transformer的全部过程（这将作为推理引擎的一部分）。
 
@@ -397,6 +399,9 @@ $$8,192 (T) \times 40 (K) \times 128 (H) \times 40 (L) \times 2 (\text{Bytes}) \
 > 2. **显存按需加载:** 图注提到的“avoid loading or storing more memory than we need to”，本质上是**减少了 HBM 访存压力**。在执行 Attention 算子时，CUDA Kernel 会根据索引只加载实际存在的块，而不需要读取大段的 Padding（填充）数据。
 > 
 > PagedAttention 不仅仅是一个内存管理技巧，它实际上重新定义了 LLM 推理系统的**调度逻辑**。它使得“连续批处理（Continuous Batching）”成为可能，因为不同长度的请求现在可以像操作系统中的进程一样，动态地共享和回收物理显存页。
+
+> [!TIP] 延伸阅读
+> - [[Continuous Batching in vLLM]]：从 static batching 的缺陷推导迭代级调度（continuous batching），并解释它与 PagedAttention 的“强绑定”关系。
 
 **宏观视角：** 综上所述，通过组合使用这些 KV Cache 优化手段，相较于传统的 MHA Transformer，我们可以将 KV Cache 的体积缩减一个数量级以上。这直接推动了 Transformer 模型整体推理成本（Cost-per-token）实现数量级的优化。
 

@@ -1,0 +1,22 @@
+views:
+  - type: table
+    name: 表格
+    rowHeight: medium
+  - type: cards
+    name: 卡片
+    groupBy:
+      property: date
+      direction: DESC
+    order:
+      - file.name
+      - tag
+    sort:
+      - property: file.name
+        direction: ASC
+    cardSize: 370
+    image: note.tags
+    imageAspectRatio: 0.5
+  - type: list
+    name: 列表
+    markers: number
+    indentProperties: true

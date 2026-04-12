@@ -576,21 +576,95 @@ async function tryCopyImage(plugin, filename, contentPath) {
     }
   }
 }
+async function getHeadingContent(plugin, filePath, heading) {
+  try {
+    const file = plugin.app.vault.getAbstractFileByPath(filePath);
+    if (!(file instanceof import_obsidian2.TFile)) {
+      return null;
+    }
+    const content = await plugin.app.vault.cachedRead(file);
+    const lines = content.split("\n");
+    const normalizedTarget = heading.toLowerCase().trim();
+    let startIndex = -1;
+    let headingLevel = 0;
+    for (let i = 0; i < lines.length; i++) {
+      const headingMatch = lines[i].match(/^(#{1,6})\s+(.+)$/);
+      if (headingMatch) {
+        const level = headingMatch[1].length;
+        const text = headingMatch[2].toLowerCase().trim();
+        if (text === normalizedTarget) {
+          startIndex = i;
+          headingLevel = level;
+          break;
+        }
+      }
+    }
+    if (startIndex === -1) {
+      return null;
+    }
+    let endIndex = lines.length;
+    for (let i = startIndex + 1; i < lines.length; i++) {
+      const nextHeadingMatch = lines[i].match(/^(#{1,6})\s/);
+      if (nextHeadingMatch) {
+        const nextLevel = nextHeadingMatch[1].length;
+        if (nextLevel <= headingLevel) {
+          endIndex = i;
+          break;
+        }
+      }
+    }
+    const headingLines = lines.slice(startIndex, endIndex);
+    return headingLines.join("\n");
+  } catch (error) {
+    console.error("Error getting heading content:", error);
+    return null;
+  }
+}
+async function getEmbedContentFromSource(plugin, embedLink, currentPath) {
+  const parsed = parseEmbedLink(embedLink, currentPath);
+  if (!parsed.filePath) {
+    return null;
+  }
+  try {
+    const file = plugin.app.vault.getAbstractFileByPath(parsed.filePath);
+    if (!(file instanceof import_obsidian2.TFile)) {
+      return null;
+    }
+    let content = await plugin.app.vault.cachedRead(file);
+    if (parsed.blockId) {
+      const blockContent = await getBlockContent(plugin, parsed.filePath, parsed.blockId);
+      if (plugin.settings.removeYamlHeader && blockContent) {
+        return blockContent.replace(EMBED_METADATA_REGEXP, "");
+      }
+      return blockContent;
+    }
+    if (parsed.heading) {
+      const headingContent = await getHeadingContent(plugin, parsed.filePath, parsed.heading);
+      if (plugin.settings.removeYamlHeader && headingContent) {
+        return headingContent.replace(EMBED_METADATA_REGEXP, "");
+      }
+      return headingContent;
+    }
+    if (plugin.settings.removeYamlHeader) {
+      content = content.replace(EMBED_METADATA_REGEXP, "");
+    }
+    return content;
+  } catch (error) {
+    console.error("Error getting embed content from source:", error);
+    return null;
+  }
+}
 async function getEmbedMap(plugin, content, path4) {
   const embedMap = /* @__PURE__ */ new Map();
-  const embedList = Array.from(document.documentElement.getElementsByClassName("internal-embed"));
-  Array.from(embedList).forEach((el) => {
-    const embedContentHtml = el.getElementsByClassName("markdown-embed-content")[0];
-    if (embedContentHtml) {
-      let embedValue = (0, import_obsidian2.htmlToMarkdown)(embedContentHtml.innerHTML);
-      if (plugin.settings.removeYamlHeader) {
-        embedValue = embedValue.replace(EMBED_METADATA_REGEXP, "");
-      }
-      embedValue = "> " + embedValue.replaceAll("# \n\n", "# ").replaceAll("\n", "\n> ");
-      const embedKey = el.getAttribute("src");
-      embedMap.set(embedKey, embedValue);
+  const embeds = await getEmbeds(content);
+  for (const embedMatch of embeds) {
+    const embedLink = embedMatch[1];
+    const rawContent = await getEmbedContentFromSource(plugin, embedLink, path4);
+    if (rawContent !== null) {
+      const embedValue = "> " + rawContent.replaceAll("# \n\n", "# ").replaceAll("\n", "\n> ");
+      embedMap.set(embedLink, embedValue);
     }
-  });
+  }
   return embedMap;
 }
 async function getBlockContent(plugin, filePath, blockId) {
@@ -755,27 +829,24 @@ async function tryCopyMarkdownByRead(plugin, { file, outputFormat, outputSubPath
       if (plugin.settings.removeOutgoingLinkBrackets) {
         content = content.replaceAll(OUTGOING_LINK_REGEXP, "$1");
       }
-      const cfile = plugin.app.workspace.getActiveFile();
-      if (cfile != void 0) {
-        const embedMap = await getEmbedMap(plugin, content, cfile.path);
-        const embeds = await getEmbeds(content);
-        for (const index in embeds) {
-          const embedMatch = embeds[index];
-          const fullMatch = embedMatch[0];
-          const embedLink = embedMatch[1];
-          let replacement = embedMap.get(embedLink);
-          if (replacement === void 0 && plugin.settings.inlineBlockEmbeds) {
-            const parsed = parseEmbedLink(embedLink, cfile.path);
-            if (parsed.blockId && parsed.filePath) {
-              const blockContent = await getBlockContent(plugin, parsed.filePath, parsed.blockId);
-              if (blockContent !== null) {
-                replacement = "> " + blockContent.replace(/\n/g, "\n> ");
-              }
+      const embedMap = await getEmbedMap(plugin, content, file.path);
+      const embeds = await getEmbeds(content);
+      for (const index in embeds) {
+        const embedMatch = embeds[index];
+        const fullMatch = embedMatch[0];
+        const embedLink = embedMatch[1];
+        let replacement = embedMap.get(embedLink);
+        if (replacement === void 0 && plugin.settings.inlineBlockEmbeds) {
+          const parsed = parseEmbedLink(embedLink, file.path);
+          if (parsed.blockId && parsed.filePath) {
+            const blockContent = await getBlockContent(plugin, parsed.filePath, parsed.blockId);
+            if (blockContent !== null) {
+              replacement = "> " + blockContent.replace(/\n/g, "\n> ");
             }
           }
-          if (replacement !== void 0) {
-            content = content.replace(fullMatch, replacement);
-          }
+        }
+        if (replacement !== void 0) {
+          content = content.replace(fullMatch, replacement);
         }
       }
       if (plugin.settings.convertWikiLinksToMarkdown) {

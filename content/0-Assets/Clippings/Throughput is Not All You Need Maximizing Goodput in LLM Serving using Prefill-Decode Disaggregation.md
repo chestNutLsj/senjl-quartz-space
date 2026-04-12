@@ -183,3 +183,7 @@ We would like to thank Vikranth Srivatsa, Lanxiang Hu, Will Lin for providing in
  year={2024}
 }
 ```
+
+## Related Reading
+- [[Continuous Batching in LLM Inference：Annotation]]
+- [[Achieve 23x LLM Inference Throughput & Reduce p50 Latency]]

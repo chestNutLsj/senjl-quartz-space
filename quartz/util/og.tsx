@@ -11,17 +11,15 @@ import readingTime from "reading-time"
 import { i18n } from "../i18n"
 import { styleText } from "util"
 
+const defaultHeaderWeight: FontWeight[] = [400, 700]
+const defaultBodyWeight: FontWeight[] = [400, 600]
+
 /**
- * Get an array of `FontOptions` (for satori) given google font names
- * @param headerFontName name of google font used for header
- * @param bodyFontName name of google font used for body
+ * Get an array of `FontOptions` (for satori) given font specifications
+ * @param headerFont font used for header
+ * @param bodyFont font used for body
  * @returns FontOptions for header and body
  */
-export async function getSatoriFont(headerFontName: string, bodyFontName: string) {
-  // const headerWeight = 700 as FontWeight
-  const headerWeight = 400 as FontWeight
-  const bodyWeight = 400 as FontWeight
-
 export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
   // Get all weights for header and body fonts
   const headerWeights: FontWeight[] = (

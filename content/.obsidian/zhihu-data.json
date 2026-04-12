@@ -77,14 +77,26 @@
     ],
     "ai_assistant_info": null
   },
-  "cache": [
-    "cfa432b892d5c8da852bbc33f158ce82",
-    "b649464a9493a8ea537de51b1d0c9793",
-    "9e8b4e78ed7da748c23827055dd2bb56",
-    "e557c36829a42e6a1062382978360767",
-    "a4cac8e621a985ec5e2c97039a33e81b",
-    "2f2587f14ddbfbdfbba1f0a8983733dc",
-    "60506e3f48e9a184537a876b2e929856",
-    "8664a84434d8ad8d8d7de7a47f640432"
-  ]
+  "cache": {
+    "0": "cfa432b892d5c8da852bbc33f158ce82",
+    "1": "b649464a9493a8ea537de51b1d0c9793",
+    "2": "9e8b4e78ed7da748c23827055dd2bb56",
+    "3": "e557c36829a42e6a1062382978360767",
+    "4": "a4cac8e621a985ec5e2c97039a33e81b",
+    "5": "2f2587f14ddbfbdfbba1f0a8983733dc",
+    "6": "60506e3f48e9a184537a876b2e929856",
+    "7": "8664a84434d8ad8d8d7de7a47f640432",
+    "8": "bcc69f1e22610f1517b2ca6aefb3fcee",
+    "9": "229592ffcfdb759979b2d21a6f787c7b",
+    "229592ffcfdb759979b2d21a6f787c7b": {
+      "status": "success",
+      "src": "https://picx.zhimg.com/v2-229592ffcfdb759979b2d21a6f787c7b",
+      "animation_cover_src": "https://picx.zhimg.com/v2-229592ffcfdb759979b2d21a6f787c7b",
+      "watermark": "original",
+      "watermark_hash": "v2-69d87f8c3b0f849df9117e833f9f1c3b",
+      "watermark_src": "https://picx.zhimg.com/v2-69d87f8c3b0f849df9117e833f9f1c3b",
+      "original_hash": "v2-229592ffcfdb759979b2d21a6f787c7b",
+      "original_src": "https://picx.zhimg.com/v2-229592ffcfdb759979b2d21a6f787c7b"
+    }
+  }
 }

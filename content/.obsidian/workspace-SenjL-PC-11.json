@@ -1,0 +1,269 @@
+{
+  "main": {
+    "id": "39fa8c9602f2ecd2",
+    "type": "split",
+    "children": [
+      {
+        "id": "d0eac43de25babfa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "20c65ba626fd3788",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "13990ef7f5c4dc71",
+    "type": "split",
+    "children": [
+      {
+        "id": "b59937020c8d4ec4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d3d978ac964e0aa",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "dc96c4984a9ef34e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "head-of-line",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "byModifiedTimeReverse"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "de0f37b73b7ef6dc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          },
+          {
+            "id": "5019e4a770c657c5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "alphabetical",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 286.5
+  },
+  "right": {
+    "id": "1516a4ce828ea6b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5810eded0ce3a81",
+        "type": "tabs",
+        "dimension": 34.06214039125432,
+        "children": [
+          {
+            "id": "866a4e016d81b567",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "index 的反向链接列表"
+            }
+          },
+          {
+            "id": "d09bc9f761ff2d4d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "1-Theory/4-AI-Stack/03-LLM/_Wiki/DeepSeek-MLA-Principle.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "DeepSeek-MLA-Principle 的出链列表"
+            }
+          },
+          {
+            "id": "c0995ac0f8458ff0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "b1a9358b33d45930",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/How-to-implement-an-inference-framework.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "脚注"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2aabb86f31957f99",
+        "type": "tabs",
+        "dimension": 65.93785960874568,
+        "children": [
+          {
+            "id": "5402e2346c010391",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "index.md",
+                "followCursor": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "index 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 226.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "workspaces:管理工作区布局": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian42-brat:BRAT": false,
+      "homepage:Open homepage": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-read-it-later:ReadItLater: Create from clipboard": false,
+      "zhihu:Open Zhihu side view": false
+    }
+  },
+  "active": "20c65ba626fd3788",
+  "lastOpenFiles": [
+    "index.md",
+    "3-Research/2-LLM/Inference/真实集群上调优SGLang过程记录.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Continuous Batching in vLLM.md",
+    "3-Research/2-LLM/Inference/Agent时代推理集群负载稳态化观点.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/DeepSeek-MLA-Principle.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Dive-into-EPLB.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/All About LLM Inference.md",
+    "0-Assets/Clippings/详解深度学习中的注意力机制（Attention）.md",
+    "0-Assets/Clippings/详解梯度下降法.md",
+    "0-Assets/Clippings/AllBooks.md",
+    "0-Assets/Clippings/Understanding Regularization in Logistic Regression _ by Jun M. _ Towards Data Science.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Interview-questions.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Serving LLaMA 3-70B on TPUs.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Engine/nano-vLLM-1.md",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/assets/DeepSeek-MLA-Principle-MHA-MQA-mode.png",
+    "0-Assets/Clippings/Transformer 作者团队开源 DroPE，将如何影响大模型长上下文能力？ - 4567 的回答.md",
+    "1-Theory/4-AI-Stack/03-LLM/ModelArch/DeepSeek Sparse Attention.md",
+    "1-Theory/4-AI-Stack/03-LLM/ModelArch",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/assets/DeepSeek-MLA-Principle-linformer.png",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/assets",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/Understand RoPE.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Interview",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/1-container/3-unordered_associative/1-unordered_map.md",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/0-assets/stl-headers.png",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/1-container/2-associative/1-map.md",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/1-container/2-associative/2-multimap.md",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/1-container/2-associative/4-multiset.md",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/1-container/2-associative/3-set.md",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/1-container/2-associative/如何修改关联式容器中键值对的键？.md",
+    "1-Theory/2-Software/01-ProgramLanguage/Cpp/2-STL/5-adapter/1-container-adapter/2-queue.md",
+    "TheDataBase.base",
+    "1-Theory/3-System/03-Operating-System/Internal&design-principle/assets/00-计算机系统概述-DMA.png",
+    "Untitled.base",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Engine",
+    "1-Theory/1-Algorithm/01-Math/Linear-Algebra",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/latency_breakdown_log.html",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Serving LLaMA 3-70B on TPUs-latency-breakdown-2.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Serving LLaMA 3-70B on TPUs-latency-breakdown.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/pareto.html",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/assets/All the Transformer Math You Need to Know-transformer-diagram.png",
+    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/assets",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array2.gif",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-pcie.png",
+    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array.gif",
+    "1-Theory/2-DataStruct/dsa-cpp-deng/G-Exam/未命名.canvas",
+    "未命名.canvas",
+    "MyHome.canvas",
+    "1-Theory/5-OS-principle-design/408&&912/中断处理流程.canvas",
+    "0-Assets/Diary/未命名.canvas",
+    "1-Theory/1-ProgramLanguage/Haskell/未命名.canvas",
+    "2-Develop/3-BackEnd/未命名.canvas",
+    "FrontEnd/未命名.canvas"
+  ]
+}

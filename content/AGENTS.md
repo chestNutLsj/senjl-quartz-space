@@ -13,21 +13,21 @@ This file provides guidance to Codex/Opencode when working with code in this rep
   - `Templates/`: 笔记模板（包括 Zotero 引用模板）
   - `Excalidraw/`: 手绘图表
   - `Diary/`: 日记
-  - `Inbox/`: 临时收件箱
-  - `assets/`: 附件默认存储位置（配置在 `.obsidian/app.json`）
+  - `Clippings/`:  从网页等信息源抓取的待阅读、处理文件的临时收件箱
+  - `assets/`: 附件默认存储位置，在当前文件所在文件夹下的 assets 子文件夹中（配置在 `.obsidian/app.json`）
 
 - **1-Theory/**: 计算机科学理论基础
-  - `1-Algorithm/`: 数据结构与算法
-  - `2-Software/`: 软件工程
-  - `3-System/`: 操作系统、计算机组成、网络
-  - `4-AI-Stack/`: 机器学习、深度学习、强化学习、System for AI
+  - `1-Algorithm/`: 数学理论、数据结构与算法
+  - `2-Software/`: 编程语言、软件工程
+  - `3-System/`: 操作系统、计算机组成原理、计算机体系结构、网络系统
+  - `4-AI-Stack/`: 机器学习、深度学习、强化学习、System for AI、LLM 原理
 
 - **2-Engineering/**: 工程实践
   - `1-FrontEnd/`: 前端开发
   - `2-MobileEnd/`: 移动端开发
   - `3-BackEnd/`: 后端开发
-  - `4-VibeCoding/`: 随意编程实践
-  - `5-Tools/`: 工具学习（LaTeX, Mermaid 等）
+  - `4-VibeCoding/`: AI 辅助编程实践
+  - `5-Tools/`: 工具学习（编译套件、GDB、LaTeX、Mermaid、Linux 使用经验 等）
 
 - **3-Research/**: 学术研究
   - `0-Report Slides/`: 组会汇报记录
@@ -179,3 +179,20 @@ This file provides guidance to Codex/Opencode when working with code in this rep
 - 创建新笔记时，参考同类笔记的格式
 - 图片和附件应存储在笔记同目录的 `assets/` 文件夹
 - 避免在笔记库根目录创建临时文件
+- 约束：本项目内所有“文件级操作”（创建/移动/重命名/删除等）统一通过 `obsidian-skills` 的 `obsidian-cli` 执行，避免直接用 shell 操作导致 Obsidian 链接/元数据不同步
+- 运行规则：在 Codex 环境里调用 `obsidian` CLI 时必须使用非沙盒执行（需要批准；必要时开启 TTY），否则在沙盒内会出现 `exit=134`/无输出
+
+## Web Clipping Workflow Memory
+
+当从网页抓取技术文章到 Obsidian（尤其包含数学公式）时，按如下流程执行，避免公式渲染错误：
+
+1. 使用 `defuddle parse <url> --md` 抓取 Markdown 正文（可先输出到 `/tmp/*.md` 再落库）。
+2. 目标位置优先放在 `0-Assets/Clippings/`，并补齐 frontmatter（`title/author/published/date/tags`）与来源说明。
+3. 对公式做 Obsidian 兼容清洗：
+   - 将 `\\(...\\)` 改为 `$...$`
+   - 将 `\\[...\\]` 改为块级 `$$...$$`
+   - 将重复转义（如 `\\mathbf`）还原为单反斜杠（`\mathbf`）
+   - 将 `\_` 还原为 `_`（用于下标）
+   - 块级公式必须满足 `$$` 分隔符单独成行（Quartz 解析要求）
+4. 清洗后做检索验收，确保不残留 `\\(`、`\\)`、`\\[`、`\\]` 这类转义包裹符。
+5. 若存在 `align*`/`equation` 等环境，建议整体包裹在 `$$ ... $$` 中以提高兼容性。

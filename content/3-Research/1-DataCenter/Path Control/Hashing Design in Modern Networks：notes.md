@@ -215,3 +215,8 @@ WCMP 组中有两个端口，它们的权重分别为 3 和 1，即 $w_1 = 3$ �
 ## Related Work
 
 [^1]: MingyangZhang, et al. Gemini: Practical Reconfigurable Datacenter Networks with Topology and Traffic Engineering.
+
+
+## Related
+
+- [[3-Research/1-DataCenter/Path Control/To Spray or Not to Spray]]：从 AI 训练低熵流量的角度补充了 ECMP 碰撞与 packet spraying 的工程含义。

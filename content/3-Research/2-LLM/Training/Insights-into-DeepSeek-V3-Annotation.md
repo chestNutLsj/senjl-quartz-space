@@ -358,3 +358,8 @@ EP包含两个关键的全员通信阶段——分发（dispatch）与聚合（c
 [^2]:  MLA 的数学细节请看：[[DeepSeek-MLA-Principle]]
 [^3]: DeepSeek 的 DeepEP 和 DualPipe
 [^4]: Alibaba HPN 架构的数据中心。
+
+
+## Related
+
+- [[3-Research/1-DataCenter/Path Control/To Spray or Not to Spray]]：补充了 packet spraying 在 RoCE / AI Fabric 中成立的 endpoint 前提，与本文对 multi-plane / spraying 的讨论互相印证。

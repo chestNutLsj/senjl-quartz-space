@@ -203,3 +203,8 @@ image-auto-upload: false
 10. **跨层协同设计**：将网络拓扑信息集成至作业调度器（如 Chakra），避免热点链路分配，减少哈希碰撞。
 
 11. **硬件标准化**：推动交换机厂商支持 Flowlet、UDF 哈希等特性，降低定制化依赖。
+
+
+## Related
+
+- [[3-Research/1-DataCenter/Path Control/To Spray or Not to Spray]]：从 endpoint 乱序容忍的角度解释了另一条缓解 RoCE 低熵碰撞的路线，可与 E-ECMP / flowlet 做对照。

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "fb674675e171ac89",
+        "id": "ab3a99c4f44f3939",
         "type": "tabs",
         "children": [
           {
-            "id": "a4234fcac85c2098",
+            "id": "a2b7c8de2fb11985",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "head-of-line",
+                "query": "中位数",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 219.49999618530273,
-    "collapsed": true
+    "width": 286.5
   },
   "right": {
     "id": "1516a4ce828ea6b6",
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-Theory/4-AI-Stack/05-System4AI/Serving/Serving LLaMA 3-70B on TPUs.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Serving LLaMA 3-70B on TPUs 的反向链接列表"
+              "title": "index 的反向链接列表"
             }
           },
           {
@@ -130,12 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "1-Theory/4-AI-Stack/03-LLM/_Wiki/DeepSeek-MLA-Principle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "index 的出链列表"
+              "title": "DeepSeek-MLA-Principle 的出链列表"
             }
           },
           {
@@ -164,8 +163,7 @@
               "title": "脚注"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "2aabb86f31957f99",
@@ -191,8 +189,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 226.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -212,54 +209,54 @@
       "zhihu:Open Zhihu side view": false
     }
   },
-  "active": "a4234fcac85c2098",
+  "active": "a2b7c8de2fb11985",
   "lastOpenFiles": [
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/nano-vLLM-1.md",
+    "3-Research/2-LLM/Inference/Continuous Batching in LLM Inference：Annotation.md",
+    "0-Assets/Clippings/Reviewed/LLM/Achieve 23x LLM Inference Throughput & Reduce p50 Latency.md",
     "index.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM/nano-vLLM-1 1.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/How-to-build-a-inference-framework.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/All About LLM Inference.md",
-    "AGENTS.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/vLLM",
-    "1-Theory/1-Algorithm/01-Math/Mathematical-Analysis/Lipschitz continuity.md",
-    "1-Theory/1-Algorithm/01-Math/Linear-Algebra",
-    "1-Theory/1-Algorithm/01-Math/未命名.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/How to Think About GPUs.md",
-    "1-Theory/4-AI-Stack/05-System4AI/The Scaling Book.md",
+    "0-Assets/Clippings/Reviewed/LLM/assets",
+    "0-Assets/Clippings/Reviewed/LLM",
+    "0-Assets/Clippings/Reviewed",
+    "7-Life/Scheme/2024/Interview/0-个人自述.md",
+    "3-Research/1-DataCenter/Path Control/To Spray or Not to Spray.md",
+    "3-Research/2-LLM/Training/Insights-into-DeepSeek-V3-Annotation.md",
+    "0-Assets/Clippings/To Spray or Not to Spray.md",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig09-ack-packet.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig08-distance-distribution-400plus.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig07-distance-distribution-200plus.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig06-distance-distribution-1.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig05-mx-testbed.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig04-reorder-example.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig03-spraying-concept.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig02-operation-steps.png",
+    "3-Research/1-DataCenter/Path Control/assets/To-Spray-or-Not-to-Spray-Annotation-fig01-congestion-points.png",
+    "0-Assets/Clippings/assets/To-Spray-or-Not-to-Spray-clip-fig12-conclusion.png",
+    "0-Assets/Clippings/assets",
+    "3-Research/2-LLM/Survey/RL-for-LLM：Survey.md",
+    "3-Research/2-LLM/Survey/LLM-Survey.md",
+    "3-Research/2-LLM/Survey/LLM-Architecture-Gallery：Conclusion.md",
+    "3-Research/2-LLM/BaseModel/DeepSeekMoE_notes.md",
+    "1-Theory/1-Algorithm/02-DataStruct/dsa-cpp-deng/A-Introduction/10-Introduction.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Dive-into-EPLB.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Engine/How-to-build-a-inference-engine.md",
     "1-Theory/4-AI-Stack/05-System4AI/Inference/Serving LLaMA 3-70B on TPUs.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/latency_breakdown_log.html",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Serving LLaMA 3-70B on TPUs-latency-breakdown-2.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/Serving LLaMA 3-70B on TPUs-latency-breakdown.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Inference/assets/pareto.html",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/How to Parallelize a Transformer for Training.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/How to Think About TPUs.md",
-    "1-Theory/4-AI-Stack/03-LLM/Pre-Training/Training LLaMA 3 on TPUs.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/Sharded Matrices and How to Multiply Them.md",
-    "未命名.base",
-    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/All the Transformer Math You Need to Know.md",
-    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/assets/All the Transformer Math You Need to Know-transformer-diagram.png",
-    "1-Theory/4-AI-Stack/02-Deep-Learning/Attention/Transformer/assets",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture",
-    "1-Theory/4-AI-Stack/05-System4AI/Serving",
-    "1-Theory/4-AI-Stack/03-LLM/Pre-Training",
-    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/Computing-FLOPs-and-GPU-Memory-Requirements-for-LLMs.md",
-    "3-Research/2-LLM/Training/DeepSeek_V3_Report：Annotation.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Parallelism/assets/training-roofline.html",
-    "0-Assets/Clippings/Mixture of Experts Explained.md",
-    "0-Assets/Clippings/NVIDIA Tensor Core Evolution From Volta To Blackwell.md",
-    "3-Research/1-DataCenter/Federated Learning/Esync：Annotation.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/Continuous Batching in vLLM.md",
+    "1-Theory/4-AI-Stack/05-System4AI/Inference/All About LLM Inference.md",
+    "0-Assets/Clippings/LLM Architecture Gallery 1.md",
+    "0-Assets/Clippings/LLM Architecture Gallery.md",
+    "0-Assets/Clippings/Can LLMs Be Computers?.md",
     "0-Assets/Clippings/The Illustrated Transformer.md",
-    "1-Theory/4-AI-Stack/02-Deep-Learning/Dive-into-DL-pytorch/90-Attention-Mechanisms/70-transformer.md",
-    "1-Theory/4-AI-Stack/02-Deep-Learning/Dive-into-DL-pytorch/90-Attention-Mechanisms/71-transformer-lhyee.md",
-    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/All About Rooflines.md",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array2.gif",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-pcie.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array.gif",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/systolic-array-bad.gif",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/pointwise-product.gif",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-tpu-rack.png",
-    "1-Theory/4-AI-Stack/05-System4AI/Architecture/assets/How to Think About TPUs-tpu-chip.png",
-    "1-Theory/4-AI-Stack/05-System4AI/_Wiki/How to Think About TPUs.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "2-Engineering/4-VibeCoding/如何编写一份优秀的 CLAUDE.md",
+    "2-Engineering/3-BackEnd/Flask/hy-tutorial/05-数据库.md",
+    "1-Theory/3-System/05-Security/malware-detection/基于机器学习的检测方法.md",
+    "1-Theory/4-AI-Stack/_Wiki",
+    "1-Theory/4-AI-Stack/_Wiki/InterviewCode",
+    "1-Theory/4-AI-Stack/03-LLM/ModelArch",
+    "1-Theory/4-AI-Stack/03-LLM/_Wiki/assets",
+    "1-Theory/4-AI-Stack/05-System4AI/Interview",
+    "TheDataBase.base",
     "1-Theory/2-DataStruct/dsa-cpp-deng/G-Exam/未命名.canvas",
     "未命名.canvas",
     "MyHome.canvas",

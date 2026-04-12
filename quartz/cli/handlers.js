@@ -318,7 +318,8 @@ export async function handleBuild(argv) {
 
     const result = await ctx.rebuild().catch((err) => {
       console.error(`${styleText("red", "Couldn't parse Quartz configuration:")} ${fp}`)
-      console.log(`Reason: ${styleText("grey", err)}`)
+      const reason = err instanceof Error ? (err.stack ?? err.message) : String(err)
+      console.log(`Reason: ${styleText("grey", reason)}`)
       process.exit(1)
     })
     release()
@@ -343,7 +344,7 @@ export async function handleBuild(argv) {
     clientRefresh()
   }
 
-  let clientRefresh = () => {}
+  let clientRefresh = () => { }
   if (argv.serve) {
     const connections = []
     clientRefresh = () => connections.forEach((conn) => conn.send("rebuild"))
@@ -406,7 +407,7 @@ export async function handleBuild(argv) {
         })
         console.log(
           styleText("yellow", "[302]") +
-            styleText("grey", ` ${argv.baseDir}${req.url} -> ${newFp}`),
+          styleText("grey", ` ${argv.baseDir}${req.url} -> ${newFp}`),
         )
         res.end()
       }
@@ -497,7 +498,32 @@ export async function handleUpdate(argv) {
   execSync(
     `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
   )
-  await stashContentFolder(contentFolder)
+
+  const tryRestore = async (reason) => {
+    try {
+      await popContentFolder(contentFolder)
+      return true
+    } catch (err) {
+      console.log(styleText("red", `Failed to restore your content (${reason}).`))
+      if (err?.message) console.log(styleText("red", err.message))
+      console.log(
+        styleText(
+          "yellow",
+          `Your content backup should still be in '.quartz-cache/content-cache'. Try running 'npx quartz restore' from the repository root.`,
+        ),
+      )
+      return false
+    }
+  }
+
+  try {
+    await stashContentFolder(contentFolder)
+  } catch (err) {
+    console.log(styleText("red", "Failed to back up your content."))
+    if (err?.message) console.log(styleText("red", err.message))
+    return
+  }
+
   console.log(
     "Pulling updates... you may need to resolve some `git` conflicts if you've made changes to components or plugins.",
   )
@@ -506,11 +532,12 @@ export async function handleUpdate(argv) {
     gitPull(UPSTREAM_NAME, QUARTZ_SOURCE_BRANCH)
   } catch {
     console.log(styleText("red", "An error occurred above while pulling updates."))
-    await popContentFolder(contentFolder)
+    await tryRestore("after git pull failure")
     return
   }
 
-  await popContentFolder(contentFolder)
+  const restored = await tryRestore("after pulling updates")
+  if (!restored) return
   console.log("Ensuring dependencies are up to date")
 
   /*
@@ -544,7 +571,14 @@ export async function handleUpdate(argv) {
  */
 export async function handleRestore(argv) {
   const contentFolder = resolveContentPath(argv.directory)
-  await popContentFolder(contentFolder)
+  try {
+    await popContentFolder(contentFolder)
+    console.log(styleText("green", "Content restored."))
+  } catch (err) {
+    console.log(styleText("red", "Failed to restore content from cache."))
+    if (err?.message) console.log(styleText("red", err.message))
+    return
+  }
 }
 
 /**
