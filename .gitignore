@@ -19,3 +19,7 @@ replit.nix
 
 # Obsidian vault state lives in OneDrive, not Git
 content/.obsidian/
+
+# Local machine-only helpers and note trash
+content/.claude/
+content/.trash/
