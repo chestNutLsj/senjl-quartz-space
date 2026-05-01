@@ -8,3 +8,11 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+
+# Machine-local Obsidian state under the synced note vault
+content/.obsidian/workspace*.json
+content/.obsidian/workspaces.json
+content/.obsidian/app.json
+content/.obsidian/app-*.json
+content/.obsidian/file-recovery.json
+content/.obsidian/plugins/*/data.sync-conflict-*.json
