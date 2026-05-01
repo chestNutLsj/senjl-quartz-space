@@ -1,4 +1,12 @@
 .DS_Store
+.DS_Store?
+**/.DS_Store
+.AppleDouble
+.LSOverride
+**/__MACOSX/
+**/._*
+**/Thumbs.db
+**/desktop.ini
 .gitignore
 node_modules
 public
@@ -9,10 +17,5 @@ private/
 .replit
 replit.nix
 
-# Machine-local Obsidian state under the synced note vault
-content/.obsidian/workspace*.json
-content/.obsidian/workspaces.json
-content/.obsidian/app.json
-content/.obsidian/app-*.json
-content/.obsidian/file-recovery.json
-content/.obsidian/plugins/*/data.sync-conflict-*.json
+# Obsidian vault state lives in OneDrive, not Git
+content/.obsidian/

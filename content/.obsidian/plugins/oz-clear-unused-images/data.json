@@ -1,7 +1,0 @@
-{
-  "deleteOption": ".trash",
-  "logsModal": true,
-  "excludedFolders": "0-Assets/Excalidraw/Scripts,\n1-Theory/5-OS-principle/internal&principle/mindmap",
-  "ribbonIcon": true,
-  "excludeSubfolders": true
-}
