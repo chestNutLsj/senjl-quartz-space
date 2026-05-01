@@ -13,7 +13,7 @@ date: 2026-02-23
 > [!tip]+ A Small Corner Before You Start
 > ![[未闻花名.png|560]]
 > ![[V.A. - 未闻花名 (口琴版).mp3]]
-> 
+>
 >> [!tldr] Quick Jump
 >>  [[#Gates to My Garden|入园之门]] · [[#Seasonal Blooms|今春所念]] · [[#Annual Rings|莳花年谱]] · [[#My CS Career Roots & Branches|知识土脉]] · [[#The Bulletin Board|本园小记]]
 
@@ -37,7 +37,7 @@ date: 2026-02-23
 
 > [!note] If you are new here
 > 
-> - 想先看**“现在的我”最投入的方向**，可以从 [[nano-vLLM-1|推理引擎]]、[[CloudMatrix384-Serving-for-LLM-Annotation|AI 数据中心网络]] 和 [[NCCLX 100k+ GPU CollComm|集合通信]] 开始。
+> - 想先看**现在我最投入的方向**，可以从 [[nano-vLLM-1|推理引擎]]、[[CloudMatrix384-Serving-for-LLM-Annotation|AI 数据中心网络]] 和 [[NCCLX 100k+ GPU CollComm|集合通信]] 开始。
 > - 想沿着 LLM Infra / System for AI 这条线系统地读下去，建议先看 [[The Scaling Book|The Scaling Book]]，再读 [[All About LLM Inference|LLM 推理综述]] 和 [[How to Parallelize a Transformer for Training|训练并行策略]]，脉络会更顺。
 > - 如果更关心论文阅读与研究积累，可以先去 [[Paper Reading Records|论文阅读记录]] 和 [[Paper-Reading-Methods|论文阅读方法]]，再翻 [[Archive of Report Slides|组会汇报记录]]。
 > - 如果对工程工具、写作和知识管理更感兴趣，不妨从 [[My-ENotes-System|Obsidian + Quartz 知识管理系统]]、[[Obsidian高阶技巧总结|Obsidian 高阶技巧]] 和 [[Git小结|Git 小结]] 开始。
